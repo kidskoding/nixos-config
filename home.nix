@@ -3,6 +3,7 @@
 {
   imports = [
      ./modules/python.nix
+     ./modules/alacritty.nix
   ];
 
   home.username = "anirudh";
@@ -11,9 +12,6 @@
 
   home.packages = with pkgs; [
       htop
-      fastfetch
-      firefox
-      fuzzel
       fastfetch
       alacritty
       fuzzel
@@ -27,9 +25,11 @@
       cmake
       xmake
       nodejs
+      uv
       go
       rustup
-      claude-code
+      starship
+      nerd-fonts.jetbrains-mono
   ];
   
   home.sessionPath = [
@@ -51,6 +51,13 @@
   programs.gh = {
     enable = true;
     settings.git_protocol = "ssh";
+  };
+
+  programs.fish = {
+    enable = true;
+    shellInit = ''
+       fish_add_path $HOME/.local/bin
+    '';
   };
 
   programs.home-manager.enable = true;

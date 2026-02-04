@@ -117,6 +117,7 @@
     description = "anirudh";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
+    shell = pkgs.fish;
   };
 
   # Allow unfree packages
@@ -145,7 +146,8 @@
   programs.niri.enable = true;
   programs.xwayland.enable = true;
   hardware.opengl.enable = true;
-
+  programs.fish.enable = true;
+  
   services.tlp.enable = true;
   powerManagement.enable = true;
 
@@ -156,6 +158,8 @@
      enable = true;
      user = "anirudh";
   };
+
+  programs.nix-ld.enable = true;
 
   services.displayManager.defaultSession = "niri";
 
