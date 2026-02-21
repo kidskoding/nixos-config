@@ -178,10 +178,17 @@
   system.stateVersion = "25.11"; # Did you read the comment?
 
   zramSwap = {
-     enable = true;
-     memoryPercent = 50;
+      enable = true;
+      memoryPercent = 50;
   };
 
   powerManagement.cpuFreqGovernor = "performance";
+  
+  boot.kernel.sysctl = {
+     "vm.swappiness" = 10;
+     "vm.vfs_cache_pressure" = 50;
+  };
+
+  services.earlyoom.enable = true;
 }
 
