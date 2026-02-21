@@ -176,5 +176,12 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.11"; # Did you read the comment?
+
+  zramSwap = {
+     enable = true;
+     memoryPercent = 50;
+  };
+
+  powerManagement.cpuFreqGovernor = "performance";
 }
 

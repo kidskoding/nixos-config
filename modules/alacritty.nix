@@ -3,7 +3,8 @@
     enable = true;
     settings = {
       general = {
-        live_config_reload = true;
+        import = [ "~/.config/alacritty/themes/Gruvbox-Dark.toml" ];
+	live_config_reload = true;
       };
       env = {
         TERM = "xterm-256color";
@@ -64,4 +65,6 @@
       ];
     };
   };
+  
+  xdg.configFile."alacritty/themes/Gruvbox-Dark.toml".source = ./themes/Gruvbox-Dark.toml;
 }
