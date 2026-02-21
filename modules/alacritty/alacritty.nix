@@ -66,5 +66,5 @@
     };
   };
   
-  xdg.configFile."alacritty/themes/Gruvbox-Dark.toml".source = ./themes/Gruvbox-Dark.toml;
+  xdg.configFile."alacritty/themes/Gruvbox-Dark.toml".text = builtins.readFile ./themes/Gruvbox-Dark.toml;
 }

@@ -3,7 +3,7 @@
 {
   imports = [
      ./modules/python.nix
-     ./modules/alacritty.nix
+     ./modules/alacritty/alacritty.nix
   ];
 
   home.username = "anirudh";
