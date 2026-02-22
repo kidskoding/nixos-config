@@ -27,16 +27,16 @@
 
         focus-ring = {
           width = 4;
-          active-color = "#ffc87f";
-          inactive-color = "#00000000";
+          active.color = "#ffc87f";
+          inactive.color = "#00000000";
         };
 
         border = {
           enable = false;
           width = 4;
-          active-color = "#ffc87f";
-          inactive-color = "#505050";
-          urgent-color = "#9b0000";
+          active.color = "#ffc87f";
+          inactive.color = "#505050";
+          urgent.color = "#9b0000";
         };
 
         shadow = {
@@ -84,20 +84,20 @@
 
         "Mod+Return" = {
           action = spawn "alacritty";
-          hotkey-overlay-title = "Open a Terminal: alacritty";
+          hotkey-overlay.title = "Open a Terminal: alacritty";
         };
         "Mod+D" = {
           action = spawn "fuzzel";
-          hotkey-overlay-title = "Run an Application: fuzzel";
+          hotkey-overlay.title = "Run an Application: fuzzel";
         };
         "Super+Alt+L" = {
           action = spawn "swaylock";
-          hotkey-overlay-title = "Lock the Screen: swaylock";
+          hotkey-overlay.title = "Lock the Screen: swaylock";
         };
         "Super+Alt+S" = {
           action = sh "pkill orca || exec orca";
           allow-when-locked = true;
-          hotkey-overlay-title = null;
+          hotkey-overlay.hidden = true;
         };
 
         "XF86AudioRaiseVolume" = {
@@ -244,15 +244,15 @@
         "Mod+8".action = focus-workspace 8;
         "Mod+9".action = focus-workspace 9;
 
-        "Mod+Ctrl+1".action = move-column-to-workspace 1;
-        "Mod+Ctrl+2".action = move-column-to-workspace 2;
-        "Mod+Ctrl+3".action = move-column-to-workspace 3;
-        "Mod+Ctrl+4".action = move-column-to-workspace 4;
-        "Mod+Ctrl+5".action = move-column-to-workspace 5;
-        "Mod+Ctrl+6".action = move-column-to-workspace 6;
-        "Mod+Ctrl+7".action = move-column-to-workspace 7;
-        "Mod+Ctrl+8".action = move-column-to-workspace 8;
-        "Mod+Ctrl+9".action = move-column-to-workspace 9;
+        "Mod+Ctrl+1".action.move-column-to-workspace = 1;
+        "Mod+Ctrl+2".action.move-column-to-workspace = 2;
+        "Mod+Ctrl+3".action.move-column-to-workspace = 3;
+        "Mod+Ctrl+4".action.move-column-to-workspace = 4;
+        "Mod+Ctrl+5".action.move-column-to-workspace = 5;
+        "Mod+Ctrl+6".action.move-column-to-workspace = 6;
+        "Mod+Ctrl+7".action.move-column-to-workspace = 7;
+        "Mod+Ctrl+8".action.move-column-to-workspace = 8;
+        "Mod+Ctrl+9".action.move-column-to-workspace = 9;
 
         "Mod+BracketLeft".action  = consume-or-expel-window-left;
         "Mod+BracketRight".action = consume-or-expel-window-right;
@@ -279,9 +279,9 @@
 
         "Mod+W".action = toggle-column-tabbed-display;
 
-        "Print".action     = screenshot;
-        "Ctrl+Print".action = screenshot-screen;
-        "Alt+Print".action  = screenshot-window;
+        "Print".action.screenshot = {};
+        "Ctrl+Print".action.screenshot-screen = {};
+        "Alt+Print".action.screenshot-window = {};
 
         "Mod+Escape" = {
           action = toggle-keyboard-shortcuts-inhibit;
