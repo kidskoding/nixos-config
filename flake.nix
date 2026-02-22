@@ -26,12 +26,20 @@
 		./configuration.nix
 		
 		sops-nix.nixosModules.sops
-		
+	
+	        inputs.niri.nixosModules.default
+
 		home-manager.nixosModules.home-manager {
 		  home-manager.useGlobalPkgs = true;
 		  home-manager.useUserPackages = true;
-		  home-manager.users.anirudh = import ./home.nix;
-		}
+
+		  home-manager.users.anirudh = {
+		     imports = [
+		        inputs.niri.homeManagerModules.default
+		        ./home.nix
+		     ];
+		  };
+	        }
 	    ];
 	};
     };
