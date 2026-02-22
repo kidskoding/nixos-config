@@ -18,7 +18,7 @@
 	};
     };
 
-    outputs = inputs@{ self, nixpkgs, home-manager, sops-nix, ... }: {
+    outputs = inputs@{ self, nixpkgs, home-manager, sops-nix, niri, ... }: {
 	nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
 	    system = "x86_64-linux";
 	    specialArgs = { inherit inputs; };
@@ -33,6 +33,7 @@
 
 		  home-manager.users.anirudh = {
 		     imports = [
+		         niri.homeModules.niri
 		        ./home.nix
 		     ];
 		  };
