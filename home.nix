@@ -4,6 +4,7 @@
   imports = [
      ./modules/python.nix
      ./modules/alacritty/alacritty.nix
+     ./modules/niri.nix
   ];
 
   home.username = "anirudh";

@@ -143,7 +143,6 @@
   # };
 
   # List services to enable!
-  programs.niri.enable = true;
   programs.xwayland.enable = true;
   hardware.opengl.enable = true;
   programs.fish.enable = true;
