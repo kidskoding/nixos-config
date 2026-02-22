@@ -20,6 +20,8 @@
       wl-clipboard
       cliphist
 
+      niri
+
       # Developer Tools
       github-cli
       neovim
@@ -60,6 +62,4 @@
        fish_add_path $HOME/.local/bin
     '';
   };
-
-  programs.home-manager.enable = true;
 }

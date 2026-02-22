@@ -13,7 +13,7 @@
         sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     
         niri = {
-            url = "github:sodiboo/niri";
+            url = "github:sodiboo/niri-flake";
 	    inputs.nixpkgs.follows = "nixpkgs";
 	};
     };
@@ -27,15 +27,12 @@
 		
 		sops-nix.nixosModules.sops
 	
-	        inputs.niri.nixosModules.default
-
 		home-manager.nixosModules.home-manager {
 		  home-manager.useGlobalPkgs = true;
 		  home-manager.useUserPackages = true;
 
 		  home-manager.users.anirudh = {
 		     imports = [
-		        inputs.niri.homeManagerModules.default
 		        ./home.nix
 		     ];
 		  };
@@ -43,4 +40,4 @@
 	    ];
 	};
     };
-}
+} 
