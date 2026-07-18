@@ -96,10 +96,10 @@
         format = "{icon}";
         "return-type" = "json";
         "format-icons" = {
-          Playing = " ";
-          Paused = " ";
+          Playing = " ";
+          Paused = " ";
         };
-        "exec-if" = "pgrep -f spotify";
+        "exec-if" = "pgrep -f spotify-wrapped";
         exec = "playerctl -p spotify metadata --format '{\"alt\": \"{{status}}\"}' -F";
         "on-click" = "playerctl -p spotify play-pause";
         tooltip = false;
@@ -108,7 +108,7 @@
       "custom/spotify-text" = {
         format = "{}";
         exec = "${config.home.homeDirectory}/.config/waybar/scripts/scroll.sh";
-        "exec-if" = "pgrep -f spotify";
+        "exec-if" = "pgrep -f spotify-wrapped";
         "on-click" = "playerctl -p spotify play-pause";
         escape = true;
       };
@@ -119,11 +119,6 @@
 
   home.file.".config/waybar/scripts/scroll.sh" = {
     source = ./scripts/scroll.sh;
-    executable = true;
-  };
-
-  home.file.".config/waybar/scripts/get-album-cover.sh" = {
-    source = ./scripts/get-album-cover.sh;
     executable = true;
   };
 

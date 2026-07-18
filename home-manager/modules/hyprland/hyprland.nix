@@ -8,7 +8,7 @@ let
 in
 {
   home.packages = with pkgs; [
-    mako
+    libnotify
     hypridle
     hyprlock
     hyprpicker
@@ -48,7 +48,7 @@ in
         "sleep 2 && awww img --transition-type none ~/.config/hypr/starfire-bg.jpg"
       ];
 
-      "exec-once" = [
+      exec-once = [
         "waybar"
         "blueman-applet"
         "lxqt-policykit-agent"
@@ -61,7 +61,7 @@ in
         "wl-paste --watch cliphist store"
         "sleep 3 && ~/.config/waybar/scripts/spotify_launcher.sh"
         "[workspace 1 silent] ${terminal}"
-     ];
+      ];
 
       env = [
         "XCURSOR_SIZE,32"
@@ -244,7 +244,7 @@ in
         "${mainMod} CTRL, 9, movetoworkspacesilent, 9"
         "${mainMod} CTRL, 0, movetoworkspacesilent, 10"
 
-        "${mainMod} SHIFT, R, exec, killall waybar && waybar"
+        "${mainMod} SHIFT, R, exec, pkill waybar; waybar"
 
         "${mainMod}, R, submap, resize"
 

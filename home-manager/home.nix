@@ -19,9 +19,10 @@
  
       wl-clipboard
       cliphist
-
       tree
       ripgrep
+
+      github-cli
   ];
 
   programs.home-manager.enable = true;

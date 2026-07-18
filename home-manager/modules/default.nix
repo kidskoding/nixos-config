@@ -8,5 +8,6 @@
     ./waybar/waybar.nix
     ./starship.nix
     ./wofi/wofi.nix
+    ./mako/mako.nix
   ];
 }

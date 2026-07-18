@@ -7,9 +7,9 @@
     settings = {
       logo = {
         type = "small";
-        color."1" = "38;2;0;204;255";
+        color."1" = "38;2;137;180;250";
         padding = {
-          top = 4;
+          top = 5;
           left = 4;
         };
       };
@@ -30,53 +30,60 @@
         {
           type = "os";
           key = "   󰻀";
-          keyColor = "red";
+          keyColor = "38;2;243;139;168";
         }
         {
           type = "kernel";
           key = "   ";
-          keyColor = "yellow";
+          keyColor = "38;2;250;179;135";
         }
         {
           type = "packages";
           key = "   󰏗";
-          keyColor = "green";
+          keyColor = "38;2;249;226;175";
         }
         {
           type = "host";
           key = "   ";
-          keyColor = "cyan";
+          keyColor = "38;2;166;227;161";
         }
         {
           type = "display";
           key = "   󰍹";
-          keyColor = "blue";
+          keyColor = "38;2;148;226;213";
         }
         {
           type = "wm";
           key = "   ";
-          keyColor = "blue";
+          keyColor = "38;2;137;220;235";
         }
         {
           type = "terminal";
           key = "   ";
-          keyColor = "magenta";
+          keyColor = "38;2;116;199;236";
         }
         {
           type = "cpu";
           format = "{1}";
           key = "   ";
-          keyColor = "blue";
+          keyColor = "38;2;137;180;250";
+        }
+        {
+          type = "gpu";
+          format = "{1} {2}";
+          hideType = "integrated";
+          key = "   ";
+          keyColor = "38;2;180;190;254";
         }
         {
           type = "memory";
           key = "   󰍛";
-          keyColor = "cyan";
+          keyColor = "38;2;203;166;247";
         }
         {
           type = "disk";
           key = "   󰋊";
-          keyColor = "green";
+          keyColor = "38;2;245;194;231";
         }
         /* {
           type = "localip";
