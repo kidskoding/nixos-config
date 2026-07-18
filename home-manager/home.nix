@@ -23,6 +23,7 @@
       ripgrep
 
       uv
+      bun
       github-cli
   ];
 

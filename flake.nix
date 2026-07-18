@@ -11,7 +11,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, claude-code, ... }: {
+  outputs = { self, nixpkgs, home-manager, claude-code, fenix, ... }: {
     templates.python = {
       path = ./templates/python;
       description = "python dev shell with direnv";
@@ -22,7 +22,9 @@
       modules = [
 	 ./configuration.nix
 	 home-manager.nixosModules.home-manager {
-	     environment.systemPackages = [ claude-code.packages.x86_64-linux.default ];
+	     environment.systemPackages = [
+	       claude-code.packages.x86_64-linux.default
+	     ];
 	
 	     home-manager.useGlobalPkgs = true;
 	     home-manager.useUserPackages = true;
