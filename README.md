@@ -1,3 +1,3 @@
 # nixos-config
 
-my attempt at a nixos config
+my nixos config
