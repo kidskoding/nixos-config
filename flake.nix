@@ -12,6 +12,11 @@
   };
 
   outputs = { self, nixpkgs, home-manager, claude-code, ... }: {
+    templates.python = {
+      path = ./templates/python;
+      description = "python + uv dev shell with direnv";
+    };
+
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [

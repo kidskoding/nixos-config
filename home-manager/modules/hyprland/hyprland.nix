@@ -9,6 +9,7 @@ in
 {
   home.packages = with pkgs; [
     libnotify
+    adwaita-icon-theme
     hypridle
     hyprlock
     hyprpicker

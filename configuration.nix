@@ -85,6 +85,7 @@
      git
      firefox
      psmisc
+     python311
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -95,6 +96,8 @@
   #   enableSSHSupport = true;
   # };
   programs.fish.enable = true;
+  # run prebuilt binaries (uv-managed pythons, pip wheels, etc.)
+  programs.nix-ld.enable = true;
   programs.hyprland = {
     enable = true;
     withUWSM = true;

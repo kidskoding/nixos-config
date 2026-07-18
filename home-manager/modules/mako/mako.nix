@@ -5,7 +5,7 @@
     enable = true;
 
     settings = {
-      font = "JetBrainsMono Nerd Font 14";
+      font = "JetBrainsMono Nerd Font 11";
 
       sort = "-priority";
       layer = "overlay";
