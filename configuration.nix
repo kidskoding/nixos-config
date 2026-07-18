@@ -83,6 +83,7 @@
      vim
      wget
      git
+     python313
      firefox
      psmisc
   ];
