@@ -3,7 +3,7 @@
 let
   terminal = "alacritty";
   fileManager = "dolphin";
-  menu = "wofi --show drun";
+  menu = "pgrep wofi && pkill wofi || wofi --show drun";
   mainMod = "SUPER";
 in
 {
@@ -19,7 +19,6 @@ in
     brightnessctl
     blueman
     networkmanagerapplet
-    gammastep
     
     # kde packages
     kdePackages.dolphin
@@ -56,7 +55,6 @@ in
         "nm-applet --indicator"
         "mako"
         "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-        "gammastep-indicator"
         "hypridle"
         "dex -a -s /etc/xdg/autostart/:~/.config/autostart/"
         "wl-paste --watch cliphist store"
@@ -183,7 +181,7 @@ in
         "${mainMod}, E, exec, ${fileManager}"
         "${mainMod} SHIFT, Space, togglefloating,"
         "${mainMod} SHIFT, Space, centerwindow,"
-        "${mainMod}, D, exec, ${menu}"
+        "${mainMod}, D, exec, killall wofi && ${menu}"
         "${mainMod}, P, pseudo,"
         "${mainMod}, F, fullscreen, 0"
         "${mainMod} SHIFT, F, fullscreen, 1"

@@ -82,10 +82,13 @@
   environment.systemPackages = with pkgs; [
      vim
      wget
+     gcc
+     gdb
      git
      python313
      firefox
      psmisc
+     pkg-config
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -104,14 +107,6 @@
     withUWSM = true;
   };
 
-  services.displayManager = {
-    sddm = {
-    	enable = true;
-   	wayland.enable = true;
-    };
-
-    defaultSession = "hyprland";
-  };
 
   # List services that you want to enable:
 

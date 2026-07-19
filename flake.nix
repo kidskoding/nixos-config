@@ -3,7 +3,16 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    claude-code.url = "github:sadjow/claude-code-nix";
+    
+    # coding agents
+    claude-code-cli.url = "github:sadjow/claude-code-nix";
+    codex-cli.url = "github:sadjow/codex-cli-nix";
+
+    # rust tooling
+    fenix = {
+	url = "github:nix-community/fenix";
+	inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       	url = "github:nix-community/home-manager";
@@ -11,9 +20,9 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, claude-code, fenix, ... }: {
+  outputs = { self, nixpkgs, home-manager, claude-code-cli, codex-cli, fenix, ... }: {
     templates.python = {
-      path = ./templates/python;
+      path = ./templates/python3.13;
       description = "python dev shell with direnv";
     };
 
@@ -23,7 +32,17 @@
 	 ./configuration.nix
 	 home-manager.nixosModules.home-manager {
 	     environment.systemPackages = [
-	       claude-code.packages.x86_64-linux.default
+	       claude-code-cli.packages.x86_64-linux.default
+	       codex-cli.packages.x86_64-linux.default
+
+	       # rust stable toolchain
+	       (fenix.packages.x86_64-linux.stable.withComponents [
+	         "cargo"
+	         "clippy"
+	         "rustc"
+	         "rustfmt"
+	         "rust-src"
+	       ])
 	     ];
 	
 	     home-manager.useGlobalPkgs = true;

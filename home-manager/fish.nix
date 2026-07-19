@@ -8,6 +8,13 @@
   programs.fish = {
     enable = true;
 
+    loginShellInit = ''
+      # auto-start hyprland when logging in on tty1
+      if uwsm check may-start
+        exec uwsm start hyprland-uwsm.desktop
+      end
+    '';
+
     plugins = [
       {
         name = "done";
@@ -16,6 +23,9 @@
     ];
 
     shellAliases = {
+      # rebuild system
+      rebuild = "sudo nixos-rebuild switch --flake /home/anirudh/nixos#nixos";
+
       # eza listings
       ls = "eza --icons --color=always --group-directories-first";
       lsa = "eza -al --icons --color=always --group-directories-first";
@@ -40,12 +50,10 @@
       psmem10 = "ps auxf | sort -nr -k 4 | head -10";
       jctl = "journalctl -p 3 -xb";
       tb = "nc termbin.com 9999";
-
-      rebuild = "sudo nixos-rebuild switch --flake /home/anirudh/nixos#nixos";
     };
 
     functions = {
-      fish_greeting = "fastfetch";
+      fish_greeting = "";
 
       history = ''
         builtin history --show-time='%F %T ' $argv
