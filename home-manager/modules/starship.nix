@@ -5,6 +5,14 @@
     enable = true;
 
     settings = {
+      format = "$os$all";  
+    
+      os = {
+  	disabled = false;
+  	format = "[$symbol]($style)";
+  	style = "bold blue";
+      };
+      
       username = {
         show_always = true;
         format = "[$user]($style)";
@@ -12,7 +20,7 @@
       };
 
       hostname = {
-        ssh_only = false;
+        ssh_only = true;
         format = "[@$hostname]($style)";
         style = "bold green";
         ssh_symbol = " ";
@@ -137,8 +145,6 @@
       swift.symbol = " ";
       zig.symbol = " ";
       gradle.symbol = " ";
-
-      # format = "$username$hostname$directory";
     };
   };
 }

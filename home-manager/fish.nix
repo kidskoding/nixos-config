@@ -23,8 +23,9 @@
     ];
 
     shellAliases = {
-      # rebuild system
+      # nixos aliases
       rebuild = "sudo nixos-rebuild switch --flake /home/anirudh/nixos#nixos";
+      collect-garbage = "sudo nix-collect-garbage --delete-older-than 7d";
 
       # eza listings
       ls = "eza --icons --color=always --group-directories-first";

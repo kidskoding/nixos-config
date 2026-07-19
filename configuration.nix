@@ -101,7 +101,7 @@
     enable = true;
     withUWSM = true;
   };
-
+ 
   networking.firewall = {
      enable = true;
      allowedTCPPorts = [ ];

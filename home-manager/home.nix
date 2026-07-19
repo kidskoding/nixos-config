@@ -17,12 +17,13 @@
       spotify
       discord
 
-      # additional system tools
+      # additional user system tools
       wl-clipboard
       cliphist
       tree
       ripgrep
-      
+      cava     
+ 
       # languages
       go
       jdk21
