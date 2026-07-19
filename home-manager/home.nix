@@ -50,7 +50,6 @@
 
       # games
       lunar-client
-      steam
       heroic
   ];
 
@@ -58,8 +57,9 @@
     enable = true;
     nix-direnv.enable = true;
   };
+  
   programs.opencode.enable = true;
-
+  
   programs.obs-studio = {
      enable = true;
      
