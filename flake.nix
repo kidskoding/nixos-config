@@ -8,6 +8,9 @@
     claude-code-cli.url = "github:sadjow/claude-code-nix";
     codex-cli.url = "github:sadjow/codex-cli-nix";
 
+    # matrix tui client
+    matui.url = "github:pkulak/matui";
+
     # rust tooling
     fenix = {
 	url = "github:nix-community/fenix";
@@ -20,7 +23,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, claude-code-cli, codex-cli, fenix, ... }: {
+  outputs = { self, nixpkgs, home-manager, claude-code-cli, codex-cli, matui, fenix, ... }: {
     templates.python = {
       path = ./templates/python3.13;
       description = "python dev shell with direnv";
@@ -39,6 +42,7 @@
 	     environment.systemPackages = [
 	       claude-code-cli.packages.x86_64-linux.default
 	       codex-cli.packages.x86_64-linux.default
+	       matui.packages.x86_64-linux.matui
 
 	       # rust stable toolchain
 	       (fenix.packages.x86_64-linux.stable.withComponents [
