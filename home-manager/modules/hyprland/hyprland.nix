@@ -8,24 +8,24 @@ let
 in
 {
   home.packages = with pkgs; [
-    libnotify
     adwaita-icon-theme
+    awww
+    blueman
+    brightnessctl
+    grimblast
     hypridle
     hyprlock
     hyprpicker
-    grimblast
-    wlogout
-    playerctl
-    brightnessctl
-    blueman
+    libnotify
+    lxqt.lxqt-policykit
     networkmanagerapplet
-    
+    playerctl
+    qimgv
+    wlogout
+
     # kde packages
     kdePackages.dolphin
     kdePackages.qtsvg
- 
-    lxqt.lxqt-policykit
-    awww
   ];
  
   wayland.windowManager.hyprland = {
