@@ -243,6 +243,17 @@ in
         "${mainMod} CTRL, 9, movetoworkspacesilent, 9"
         "${mainMod} CTRL, 0, movetoworkspacesilent, 10"
 
+        "${mainMod} CTRL SHIFT, 1, exec, ~/.config/hypr/swap-workspaces.sh $(hyprctl activeworkspace -j | jq '.id') 1"
+        "${mainMod} CTRL SHIFT, 2, exec, ~/.config/hypr/swap-workspaces.sh $(hyprctl activeworkspace -j | jq '.id') 2"
+        "${mainMod} CTRL SHIFT, 3, exec, ~/.config/hypr/swap-workspaces.sh $(hyprctl activeworkspace -j | jq '.id') 3"
+        "${mainMod} CTRL SHIFT, 4, exec, ~/.config/hypr/swap-workspaces.sh $(hyprctl activeworkspace -j | jq '.id') 4"
+        "${mainMod} CTRL SHIFT, 5, exec, ~/.config/hypr/swap-workspaces.sh $(hyprctl activeworkspace -j | jq '.id') 5"
+        "${mainMod} CTRL SHIFT, 6, exec, ~/.config/hypr/swap-workspaces.sh $(hyprctl activeworkspace -j | jq '.id') 6"
+        "${mainMod} CTRL SHIFT, 7, exec, ~/.config/hypr/swap-workspaces.sh $(hyprctl activeworkspace -j | jq '.id') 7"
+        "${mainMod} CTRL SHIFT, 8, exec, ~/.config/hypr/swap-workspaces.sh $(hyprctl activeworkspace -j | jq '.id') 8"
+        "${mainMod} CTRL SHIFT, 9, exec, ~/.config/hypr/swap-workspaces.sh $(hyprctl activeworkspace -j | jq '.id') 9"
+        "${mainMod} CTRL SHIFT, 0, exec, ~/.config/hypr/swap-workspaces.sh $(hyprctl activeworkspace -j | jq '.id') 10"
+
         "${mainMod} SHIFT, R, exec, pkill waybar; waybar"
 
         "${mainMod}, R, submap, resize"
@@ -296,5 +307,9 @@ in
     };
   };
 
-  home.file.".config/hypr/starfire-bg.jpg".source = ./starfire-bg.jpg;
+  home.file.".config/hypr/charizard-wallpaper-3.png".source = ./wallpapers/charizard-wallpaper-3.png;
+  home.file.".config/hypr/swap-workspaces.sh" = {
+    source = ./scripts/swap-workspaces.sh;
+    executable = true;
+  };
 }
