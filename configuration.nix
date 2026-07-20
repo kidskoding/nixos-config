@@ -72,16 +72,16 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-     vim
-     wget
+     firefox
      gcc
      gdb
      git
      gnumake
-     python313
-     firefox
-     psmisc
      pkg-config
+     psmisc
+     python313
+     vim
+     wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
