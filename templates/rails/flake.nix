@@ -19,8 +19,8 @@
           zlib
 
           # rails
-          sqlite            # sqlite3 gem (the default rails dev db)
           libxml2 libxslt   # nokogiri
+          sqlite            # sqlite3 gem (the default rails dev db)
 
           # swap in sqlite for postgres if using postgres instead:
           # postgresql      # pg gem
