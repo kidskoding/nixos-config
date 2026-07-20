@@ -18,6 +18,7 @@
       # additional user system tools
       cava
       cliphist
+      jq
       ripgrep
       tree
       wl-clipboard
