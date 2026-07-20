@@ -47,16 +47,17 @@
 	     environment.systemPackages = [
 	       claude-code-cli.packages.x86_64-linux.default
 	       codex-cli.packages.x86_64-linux.default
-	       matui.packages.x86_64-linux.matui
 
 	       # rust stable toolchain
 	       (fenix.packages.x86_64-linux.stable.withComponents [
 	         "cargo"
 	         "clippy"
+	         "rust-src"
 	         "rustc"
 	         "rustfmt"
-	         "rust-src"
 	       ])
+
+	       matui.packages.x86_64-linux.matui
 	     ];
 	
 	     home-manager.useGlobalPkgs = true;
