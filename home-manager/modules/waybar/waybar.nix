@@ -36,22 +36,22 @@
       };
 
       pulseaudio = {
-        format = "<span color='${config.theme.colors.greenBright}'>{icon}</span> {volume}%";
-        "format-muted" = "<span color='${config.theme.colors.redBright}'>󰝟</span> muted";
+        format = "<span color='${config.theme.colors.greenBright}' font_size='larger'>{icon}</span> {volume}%";
+        "format-muted" = "<span color='${config.theme.colors.redBright}' font_size='larger'>󰝟</span> muted";
         "format-icons"."default" = [ "󰕿" "󰖀" "󰕾" ];
         "on-click" = "pavucontrol";
       };
 
       network = {
-        "format-wifi" = "<span color='${config.theme.colors.blueBright}'>󰖩 </span> {essid}";
-        "format-ethernet" = "<span color='${config.theme.colors.blueBright}'>󰈀 </span> {ifname}";
-        "format-disconnected" = "<span color='${config.theme.colors.redBright}'>󰤮 </span> disconnected";
+        "format-wifi" = "<span color='${config.theme.colors.blueBright}' font_size='larger'>󰖩</span> {essid}";
+        "format-ethernet" = "<span color='${config.theme.colors.blueBright}' font_size='larger'>󰈀 </span> {ifname}";
+        "format-disconnected" = "<span color='${config.theme.colors.redBright}' font_size='larger'>󰤮 </span> disconnected";
         interval = 5;
       };
 
       backlight = {
         device = "intel_backlight";
-        format = "<span color='${config.theme.colors.yellowBright}'>{icon} </span> {percent}%";
+        format = "<span color='${config.theme.colors.yellowBright}' font_size='larger'>{icon}</span> {percent}%";
         "format-icons" = [ "󰃞" "󰃟" "󰃠" ];
       };
 
@@ -65,35 +65,35 @@
           warning = 30;
           critical = 15;
         };
-        format = "<span color='${config.theme.colors.greenBright}'>{icon}</span> {capacity}%";
-        "format-charging" = "<span color='${config.theme.colors.greenBright}'>󰂄</span> {capacity}%";
-        "format-plugged" = "<span color='${config.theme.colors.greenBright}'>󰚥</span> {capacity}%";
-        "format-full" = "<span color='${config.theme.colors.greenBright}'>󰁹</span> {capacity}%";
-        "format-good" = "<span color='${config.theme.colors.greenBright}'>{icon}</span> {capacity}%";
-        "format-warning" = "<span color='${config.theme.colors.yellowBright}'>{icon}</span> {capacity}%";
-        "format-critical" = "<span color='${config.theme.colors.redBright}'>{icon}</span> {capacity}%";
+        format = "<span color='${config.theme.colors.greenBright}' font_size='larger'>{icon}</span> {capacity}%";
+        "format-charging" = "<span color='${config.theme.colors.greenBright}' font_size='larger'>󰂄</span> {capacity}%";
+        "format-plugged" = "<span color='${config.theme.colors.greenBright}' font_size='larger'>󰚥</span> {capacity}%";
+        "format-full" = "<span color='${config.theme.colors.greenBright}' font_size='larger'>󰁹</span> {capacity}%";
+        "format-good" = "<span color='${config.theme.colors.greenBright}' font_size='larger'>{icon}</span> {capacity}%";
+        "format-warning" = "<span color='${config.theme.colors.yellowBright}' font_size='larger'>{icon}</span> {capacity}%";
+        "format-critical" = "<span color='${config.theme.colors.redBright}' font_size='larger'>{icon}</span> {capacity}%";
         "format-icons" = [ "󰁺" "󰁼" "󰁾" "󰂀" "󰁹" ];
       };
 
       "clock#date" = {
         interval = 60;
-        format = "<span color='${config.theme.colors.yellowBright}'>󰃭 </span> {:%a %b %d}";
+        format = "<span color='${config.theme.colors.yellowBright}' font_size='larger'>󰃭</span> {:%a %b %d}";
         "tooltip-format" = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
       };
 
       "clock#time" = {
         interval = 1;
-        format = "<span color='${config.theme.colors.yellowBright}'>󰥔 </span> {:%I:%M %p}";
+        format = "<span color='${config.theme.colors.yellowBright}' font_size='larger'>󰥔</span> {:%I:%M %p}";
         "tooltip-format" = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
       };
 
       "custom/spotify-icon" = {
-        format = "<span color='${config.theme.colors.greenBright}'> </span>";
+        format = "<span color='${config.theme.colors.greenBright}' font_size='larger'> </span>";
         tooltip = false;
       };
 
       "custom/spotify-playstate" = {
-        format = "{icon}";
+        format = "<span font_size='larger'>{icon}</span>";
         "return-type" = "json";
         "format-icons" = {
           Playing = " ";
