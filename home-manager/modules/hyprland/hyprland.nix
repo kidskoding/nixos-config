@@ -45,7 +45,7 @@ in
 
       exec = [
         "awww-daemon"
-        "sleep 2 && awww img --transition-type none ~/.config/hypr/starfire-bg.jpg"
+        "sleep 2 && awww img --transition-type none ~/.config/hypr/charizard-wallpaper-3.png"
       ];
 
       exec-once = [
