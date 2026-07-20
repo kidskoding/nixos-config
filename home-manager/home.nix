@@ -12,46 +12,46 @@
   home.stateVersion = "26.05";
 
   home.packages = with pkgs; [
-      # applications
-      firefox
-      spotify
-      discord
-
       # additional user system tools
-      wl-clipboard
+      cava
       cliphist
-      tree
       ripgrep
-      cava     
- 
+      tree
+      wl-clipboard
+
       # languages
+      dotnet-sdk_10
       go
       jdk21
-      ruby
-      dotnet-sdk_10
       lua
+      ruby
       zig
 
       # core developer tools
-      uv
-      nodejs
+      bear
       bun
       cmake
+      nodejs
+      uv
       xmake
-      bear  
 
-      # niche c / c++ tooling 
-      ninja
-      valgrind
+      # niche c / c++ tooling
       clang-tools
+      ninja
       pkg-config
+      valgrind
 
       # additional developer tooling
       github-cli
 
+      # applications
+      discord
+      firefox
+      spotify
+
       # games
-      lunar-client
       heroic
+      lunar-client
   ];
 
   programs.direnv = {
