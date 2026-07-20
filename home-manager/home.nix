@@ -6,6 +6,7 @@
     ./git.nix
     ./fish.nix
     ./fonts.nix
+    ./themes
   ];
 
   home.username = "anirudh";

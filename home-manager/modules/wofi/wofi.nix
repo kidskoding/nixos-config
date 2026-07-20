@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   programs.wofi = {
@@ -14,6 +14,9 @@
       gtk_dark = true;
     };
 
-    style = builtins.readFile ./style.css;
+    style = builtins.replaceStrings
+      [ "@font-family@" "@color-bg@" "@color-bg-alt@" "@color-fg@" "@color-blue@" "@color-yellow@" ]
+      [ config.theme.fontFamily config.theme.colors.bg config.theme.colors.bgAlt config.theme.colors.fg config.theme.colors.blueBright config.theme.colors.yellowBright ]
+      (builtins.readFile ./style.css);
   };
 }

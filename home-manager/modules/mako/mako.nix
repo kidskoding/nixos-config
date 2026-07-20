@@ -1,11 +1,11 @@
-{ ... }:
+{ config, ... }:
 
 {
   services.mako = {
     enable = true;
 
     settings = {
-      font = "JetBrainsMono Nerd Font 11";
+      font = "${config.theme.fontFamily} 16";
 
       sort = "-priority";
       layer = "overlay";
@@ -17,12 +17,12 @@
       max-visible = 5;
 
       border-size = 2;
-      border-color = "#89b4fa";
+      border-color = config.theme.colors.blueBright;
       border-radius = 10;
 
-      background-color = "#1e1e2e";
-      text-color = "#cdd6f4";
-      progress-color = "over #313244";
+      background-color = config.theme.colors.bg;
+      text-color = config.theme.colors.fg;
+      progress-color = "over ${config.theme.colors.bgAlt}";
 
       padding = 8;
 
@@ -31,30 +31,30 @@
       default-timeout = 10000;
 
       "urgency=low" = {
-        background-color = "#1e1e2e";
-        text-color = "#6c7086";
-        border-color = "#313244";
+        background-color = config.theme.colors.bg;
+        text-color = config.theme.colors.gray;
+        border-color = config.theme.colors.bgAlt;
         default-timeout = 10000;
       };
 
       "urgency=normal" = {
-        background-color = "#1e1e2e";
-        text-color = "#cdd6f4";
-        border-color = "#89b4fa";
+        background-color = config.theme.colors.bg;
+        text-color = config.theme.colors.fg;
+        border-color = config.theme.colors.blueBright;
         default-timeout = 10000;
       };
 
       "urgency=high" = {
-        background-color = "#1e1e2e";
-        text-color = "#f38ba8";
-        border-color = "#f38ba8";
+        background-color = config.theme.colors.bg;
+        text-color = config.theme.colors.redBright;
+        border-color = config.theme.colors.redBright;
         default-timeout = 0;
       };
 
       "app-name=Spotify summary=\"Now playing\"" = {
-        background-color = "#1e1e2e";
-        text-color = "#6c7086";
-        border-color = "#313244";
+        background-color = config.theme.colors.bg;
+        text-color = config.theme.colors.gray;
+        border-color = config.theme.colors.bgAlt;
         default-timeout = 10000;
       };
     };

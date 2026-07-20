@@ -1,43 +1,43 @@
 window {
     margin: 0px;
-    border: 2px solid #89b4fa;
-    background-color: #1e1e2e;
+    border: 2px solid @color-blue@;
+    background-color: @color-bg@;
     border-radius: 10px;
-    font-family: "JetBrainsMono Nerd Font", "monospace";
-    font-size: 16px;
+    font-family: "@font-family@", "monospace";
+    font-size: 18px;
 }
 
 #input {
     margin: 5px;
     border: none;
     border-radius: 6px;
-    color: #cdd6f4;
-    background-color: #313244;
+    color: @color-fg@;
+    background-color: @color-bg-alt@;
 }
 
 #inner-box {
     margin: 5px;
     border: none;
-    background-color: #1e1e2e;
+    background-color: @color-bg@;
 }
 
 #outer-box {
     margin: 5px;
     border: none;
-    background-color: #1e1e2e;
+    background-color: @color-bg@;
 }
 
 #text {
     margin: 5px;
     border: none;
-    color: #cdd6f4;
+    color: @color-fg@;
 }
 
 #entry:selected {
-    background-color: #f9e2af;
+    background-color: @color-yellow@;
     border-radius: 6px;
 }
 
 #text:selected {
-    color: #1e1e2e;
+    color: @color-bg@;
 }

@@ -99,8 +99,8 @@ in
         gaps_out = 10;
         border_size = 2;
         
-	"col.active_border" = "rgba(89b4faff)";
-        "col.inactive_border" = "rgba(45475aff)";
+	"col.active_border" = "rgba(${builtins.substring 1 6 config.theme.colors.blueBright}ff)";
+        "col.inactive_border" = "rgba(${builtins.substring 1 6 config.theme.colors.bgAlt}ff)";
         
 	layout = "dwindle";
         resize_on_border = true;

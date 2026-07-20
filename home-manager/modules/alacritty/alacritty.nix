@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  theme = builtins.fromTOML (builtins.readFile ./themes/catppuccin-mocha.toml);
+  theme = builtins.fromTOML (builtins.readFile (../../themes + "/${config.theme.name}.toml"));
 in
 {
   programs.alacritty = {
@@ -32,22 +32,24 @@ in
       };
 
       font = {
-        size = 12;
+        size = 14;
 
         normal = {
-          family = "JetBrainsMono Nerd Font";
+          family = config.theme.fontFamily;
           style = "Regular";
         };
 
-        bold = {
-          family = "JetBrainsMono Nerd Font";
-          style = "Bold";
-        };
+        # GohuFont has no real bold/italic faces, so bold/italic just fall
+        # back to normal anyway. Left here commented in case the font changes.
+        # bold = {
+        #   family = config.theme.fontFamily;
+        #   style = "Regular";
+        # };
 
-        italic = {
-          family = "JetBrainsMono Nerd Font";
-          style = "Italic";
-        };
+        # italic = {
+        #   family = config.theme.fontFamily;
+        #   style = "Regular";
+        # };
       };
 
       scrolling = {
@@ -87,8 +89,4 @@ in
       colors = theme.colors;
     };
   };
-
-  home.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-  ];
 }

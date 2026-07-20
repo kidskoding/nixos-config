@@ -111,8 +111,8 @@
         bind '$' __history_previous_command_arguments
       end
 
-      # Catppuccin Mocha eza colors
-      set -gx EZA_COLORS "ur=0:uw=0:ux=0:gr=0:gw=0:gx=0:tr=0:tw=0:tx=0:no=38;2;205;214;244:fi=38;2;205;214;244:di=1;38;2;137;180;250:ln=38;2;137;220;235:lp=38;2;137;220;235:or=38;2;243;139;168:mi=38;2;243;139;168:ex=38;2;166;227;161:pi=38;2;250;179;135:so=38;2;245;194;231:bd=38;2;249;226;175:cd=38;2;148;226;213:su=1;38;2;235;160;172:sg=38;2;235;160;172:st=38;2;116;199;236:ow=38;2;180;190;254:tw=1;38;2;180;190;254:sn=38;2;250;179;135:sb=38;2;127;132;156:da=38;2;116;199;236:hd=1;38;2;203;166;247:im=38;2;166;227;161:vi=38;2;203;166;247:mu=38;2;148;226;213:lo=38;2;148;226;213:cr=38;2;243;139;168:do=38;2;137;180;250:co=38;2;250;179;135:tm=38;2;108;112;134"
+      # catppuccin mocha eza colors
+      set -gx EZA_COLORS "ur=0:uw=0:ux=0:gr=0:gw=0:gx=0:tr=0:tw=0:tx=0:no=38;2;${config.theme.ansi.fg}:fi=38;2;${config.theme.ansi.fg}:di=1;38;2;${config.theme.ansi.blueBright}:ln=38;2;${config.theme.ansi.aquaBright}:lp=38;2;${config.theme.ansi.aquaBright}:or=38;2;${config.theme.ansi.redBright}:mi=38;2;${config.theme.ansi.redBright}:ex=38;2;${config.theme.ansi.greenBright}:pi=38;2;${config.theme.ansi.yellowBright}:so=38;2;${config.theme.ansi.purpleBright}:bd=38;2;${config.theme.ansi.yellow}:cd=38;2;${config.theme.ansi.aquaBright}:su=1;38;2;${config.theme.ansi.redBright}:sg=38;2;${config.theme.ansi.redBright}:st=38;2;${config.theme.ansi.blue}:ow=38;2;${config.theme.ansi.purpleBright}:tw=1;38;2;${config.theme.ansi.purpleBright}:sn=38;2;${config.theme.ansi.yellowBright}:sb=38;2;${config.theme.ansi.gray}:da=38;2;${config.theme.ansi.blue}:hd=1;38;2;${config.theme.ansi.purple}:im=38;2;${config.theme.ansi.greenBright}:vi=38;2;${config.theme.ansi.purple}:mu=38;2;${config.theme.ansi.aquaBright}:lo=38;2;${config.theme.ansi.aquaBright}:cr=38;2;${config.theme.ansi.redBright}:do=38;2;${config.theme.ansi.blueBright}:co=38;2;${config.theme.ansi.yellowBright}:tm=38;2;${config.theme.ansi.gray}"
     '';
   };
 }
