@@ -36,22 +36,22 @@
       };
 
       pulseaudio = {
-        format = "<span color='#a6e3a1'>{icon}</span> {volume}%";
-        "format-muted" = "<span color='#f38ba8'>󰝟</span> muted";
+        format = "<span color='${config.theme.colors.greenBright}'>{icon}</span> {volume}%";
+        "format-muted" = "<span color='${config.theme.colors.redBright}'>󰝟</span> muted";
         "format-icons"."default" = [ "󰕿" "󰖀" "󰕾" ];
         "on-click" = "pavucontrol";
       };
 
       network = {
-        "format-wifi" = "<span color='#89b4fa'>󰖩 </span> {essid}";
-        "format-ethernet" = "<span color='#89b4fa'>󰈀 </span> {ifname}";
-        "format-disconnected" = "<span color='#f38ba8'>󰤮 </span> disconnected";
+        "format-wifi" = "<span color='${config.theme.colors.blueBright}'>󰖩 </span> {essid}";
+        "format-ethernet" = "<span color='${config.theme.colors.blueBright}'>󰈀 </span> {ifname}";
+        "format-disconnected" = "<span color='${config.theme.colors.redBright}'>󰤮 </span> disconnected";
         interval = 5;
       };
 
       backlight = {
         device = "intel_backlight";
-        format = "<span color='#f9e2af'>{icon} </span> {percent}%";
+        format = "<span color='${config.theme.colors.yellowBright}'>{icon} </span> {percent}%";
         "format-icons" = [ "󰃞" "󰃟" "󰃠" ];
       };
 
@@ -65,30 +65,30 @@
           warning = 30;
           critical = 15;
         };
-        format = "<span color='#a6e3a1'>{icon}</span> {capacity}%";
-        "format-charging" = "<span color='#a6e3a1'>󰂄</span> {capacity}%";
-        "format-plugged" = "<span color='#a6e3a1'>󰚥</span> {capacity}%";
-        "format-full" = "<span color='#a6e3a1'>󰁹</span> {capacity}%";
-        "format-good" = "<span color='#a6e3a1'>{icon}</span> {capacity}%";
-        "format-warning" = "<span color='#f9e2af'>{icon}</span> {capacity}%";
-        "format-critical" = "<span color='#f38ba8'>{icon}</span> {capacity}%";
+        format = "<span color='${config.theme.colors.greenBright}'>{icon}</span> {capacity}%";
+        "format-charging" = "<span color='${config.theme.colors.greenBright}'>󰂄</span> {capacity}%";
+        "format-plugged" = "<span color='${config.theme.colors.greenBright}'>󰚥</span> {capacity}%";
+        "format-full" = "<span color='${config.theme.colors.greenBright}'>󰁹</span> {capacity}%";
+        "format-good" = "<span color='${config.theme.colors.greenBright}'>{icon}</span> {capacity}%";
+        "format-warning" = "<span color='${config.theme.colors.yellowBright}'>{icon}</span> {capacity}%";
+        "format-critical" = "<span color='${config.theme.colors.redBright}'>{icon}</span> {capacity}%";
         "format-icons" = [ "󰁺" "󰁼" "󰁾" "󰂀" "󰁹" ];
       };
 
       "clock#date" = {
         interval = 60;
-        format = "<span color='#f9e2af'>󰃭 </span> {:%a %b %d}";
+        format = "<span color='${config.theme.colors.yellowBright}'>󰃭 </span> {:%a %b %d}";
         "tooltip-format" = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
       };
 
       "clock#time" = {
         interval = 1;
-        format = "<span color='#f9e2af'>󰥔 </span> {:%I:%M %p}";
+        format = "<span color='${config.theme.colors.yellowBright}'>󰥔 </span> {:%I:%M %p}";
         "tooltip-format" = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
       };
 
       "custom/spotify-icon" = {
-        format = "<span color='#a6e3a1'> </span>";
+        format = "<span color='${config.theme.colors.greenBright}'> </span>";
         tooltip = false;
       };
 
@@ -114,7 +114,10 @@
       };
     }];
 
-    style = builtins.readFile ./style.css;
+    style = builtins.replaceStrings
+      [ "@font-family@" "@color-bg@" "@color-bg-alt@" "@color-fg@" "@color-yellow@" "@color-red@" "@color-aqua@" "@color-green@" "@color-gray@" "@color-gray-rgb@" ]
+      [ config.theme.fontFamily config.theme.colors.bg config.theme.colors.bgAlt config.theme.colors.fg config.theme.colors.yellowBright config.theme.colors.redBright config.theme.colors.aquaBright config.theme.colors.greenBright config.theme.colors.gray config.theme.rgb.gray ]
+      (builtins.readFile ./style.css);
   };
 
   home.file.".config/waybar/scripts/scroll.sh" = {
