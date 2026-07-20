@@ -34,6 +34,11 @@
       description = "ruby on rails dev shell with direnv";
     };
 
+    templates.rust = {
+      path = ./templates/rust;
+      description = "rust dev shell with direnv";
+    };
+
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
