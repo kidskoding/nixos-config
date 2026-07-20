@@ -21,7 +21,7 @@
         {
           type = "title";
           keyWidth = 10;
-          format = "               {6}{7}{8}";
+          format = "               {6}{#38;2;137;180;250}@{#}{8}";
         }
         {
           type = "custom";
@@ -30,60 +30,60 @@
         {
           type = "os";
           key = "   󰻀";
-          keyColor = "38;2;243;139;168";
+          keyColor = "38;2;${config.theme.ansi.redBright}";
         }
         {
           type = "kernel";
           key = "   ";
-          keyColor = "38;2;250;179;135";
+          keyColor = "38;2;${config.theme.ansi.yellowBright}";
         }
         {
           type = "packages";
           key = "   󰏗";
-          keyColor = "38;2;249;226;175";
+          keyColor = "38;2;${config.theme.ansi.yellow}";
         }
         {
           type = "host";
           key = "   ";
-          keyColor = "38;2;166;227;161";
+          keyColor = "38;2;${config.theme.ansi.greenBright}";
         }
         {
           type = "display";
           key = "   󰍹";
-          keyColor = "38;2;148;226;213";
+          keyColor = "38;2;${config.theme.ansi.aquaBright}";
         }
         {
           type = "wm";
           key = "   ";
-          keyColor = "38;2;137;220;235";
+          keyColor = "38;2;${config.theme.ansi.aqua}";
         }
         {
           type = "terminal";
           key = "   ";
-          keyColor = "38;2;116;199;236";
+          keyColor = "38;2;${config.theme.ansi.blue}";
         }
         {
           type = "cpu";
           format = "{1}";
           key = "   ";
-          keyColor = "38;2;137;180;250";
+          keyColor = "38;2;${config.theme.ansi.blueBright}";
         }
         {
           type = "gpu";
           format = "{1} {2}";
           hideType = "integrated";
           key = "   ";
-          keyColor = "38;2;180;190;254";
+          keyColor = "38;2;${config.theme.ansi.purpleBright}";
         }
         {
           type = "memory";
           key = "   󰍛";
-          keyColor = "38;2;203;166;247";
+          keyColor = "38;2;${config.theme.ansi.purple}";
         }
         {
           type = "disk";
           key = "   󰋊";
-          keyColor = "38;2;245;194;231";
+          keyColor = "38;2;${config.theme.ansi.fgBright}";
         }
         /* {
           type = "localip";
