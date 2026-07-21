@@ -6,7 +6,6 @@
     ./git.nix
     ./fish.nix
     ./fonts.nix
-    ./rust
     ./themes
   ];
 
@@ -46,7 +45,11 @@
       valgrind
 
       # additional developer tooling
+      aoc-cli
+      bacon
       github-cli
+      mdbook
+      mdbook-mermaid
 
       # applications
       discord

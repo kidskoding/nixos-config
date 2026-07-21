@@ -18,7 +18,15 @@
 
           # "accessories" for rust
           bacon
+          cargo-chef
+          # cargo-lambda
+          evcxr
+          rustlings
+          trunk
+          wasm-pack
         ];
+
+        RUST_BACKTRACE = "1";
       };
     };
 }
