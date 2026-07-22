@@ -17,7 +17,6 @@
       # additional user system tools
       cava
       cliphist
-      emacs
       fd
       jq
       ripgrep
@@ -48,9 +47,11 @@
 
       # additional developer tooling
       bacon
+      emacs
       github-cli
       mdbook
       mdbook-mermaid
+      tmux
 
       # applications
       discord
