@@ -10,6 +10,9 @@
     "nix-command"
     "flakes"
   ];
+  
+  # do not warn if git tree is dirty when rebuilding system
+  nix.settings.warn-dirty = false;
 
   # bootloader
   boot = {
@@ -25,11 +28,16 @@
     plymouth = {
 	enable = true;
 	theme = "bgrt";
+	themePackages = with pkgs; [ 
+            nixos-bgrt-plymouth 
+        ];
     };
 
     consoleLogLevel = 0;
     initrd.verbose = false;
     initrd.systemd.enable = true;
+    # early KMS so the panel (Intel iGPU) has a framebuffer before plymouth starts
+    initrd.kernelModules = [ "i915" ];
 
     kernelParams = [
 	"quiet"

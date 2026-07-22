@@ -8,6 +8,9 @@
     claude-code-cli.url = "github:sadjow/claude-code-nix";
     codex-cli.url = "github:sadjow/codex-cli-nix";
 
+    # advent of code cli (my fork)
+    aoc-cli.url = "github:kidskoding/aoc-cli";
+
     # matrix tui client
     matui.url = "github:pkulak/matui";
 
@@ -23,7 +26,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, claude-code-cli, codex-cli, matui, fenix, ... }: {
+  outputs = { self, nixpkgs, home-manager, claude-code-cli, codex-cli, aoc-cli, matui, fenix, ... }: {
     templates.python = {
       path = ./templates/python3.13;
       description = "python dev shell with direnv";
@@ -45,6 +48,7 @@
 	 ./configuration.nix
 	 home-manager.nixosModules.home-manager {
 	     environment.systemPackages = [
+	       aoc-cli.packages.x86_64-linux.default
 	       claude-code-cli.packages.x86_64-linux.default
 	       codex-cli.packages.x86_64-linux.default
 

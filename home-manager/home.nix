@@ -17,6 +17,8 @@
       # additional user system tools
       cava
       cliphist
+      emacs
+      fd
       jq
       ripgrep
       tree
@@ -45,7 +47,6 @@
       valgrind
 
       # additional developer tooling
-      aoc-cli
       bacon
       github-cli
       mdbook
