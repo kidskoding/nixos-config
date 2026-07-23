@@ -3,6 +3,7 @@
 {
   imports = [
     ./alacritty
+    ./emacs
     ./fastfetch
     ./hyprland
     ./mako

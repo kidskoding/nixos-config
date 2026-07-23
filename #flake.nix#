@@ -70,7 +70,6 @@
 	       (fenix.packages.x86_64-linux.stable.withComponents [
 	         "cargo"
 	         "clippy"
-                 "rust-analyzer"
 	         "rust-src"
 	         "rustc"
 	         "rustfmt"

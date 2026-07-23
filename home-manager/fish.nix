@@ -51,6 +51,9 @@
       psmem10 = "ps auxf | sort -nr -k 4 | head -10";
       jctl = "journalctl -p 3 -xb";
       tb = "nc termbin.com 9999";
+
+      # other
+      timer = "timr-tui";
     };
 
     functions = {

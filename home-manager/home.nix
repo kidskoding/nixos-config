@@ -13,6 +13,10 @@
   home.homeDirectory = "/home/anirudh";
   home.stateVersion = "26.05";
 
+  home.sessionPath = [
+    "${config.home.homeDirectory}/.config/emacs/bin"
+  ];
+
   home.packages = with pkgs; [
       # additional user system tools
       cava
@@ -31,10 +35,22 @@
       ruby
       zig
 
+      # lsps
+      gopls
+      jdt-language-server
+      lua-language-server
+      nixd
+      omnisharp-roslyn
+      pyright
+      ruby-lsp
+      typescript-language-server
+      zls
+
       # core developer tools
       bear
       bun
       cmake
+      libtool
       nodejs
       uv
       xmake
@@ -47,7 +63,7 @@
 
       # additional developer tooling
       bacon
-      emacs
+      emacs-nox
       github-cli
       mdbook
       mdbook-mermaid
