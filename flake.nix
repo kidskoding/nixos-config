@@ -67,33 +67,34 @@
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-	 ./configuration.nix
-	 home-manager.nixosModules.home-manager {
-	     environment.systemPackages = [
-	       aoc-cli.packages.x86_64-linux.default
-	       claude-code-cli.packages.x86_64-linux.default
-	       codex-cli.packages.x86_64-linux.default
+        ./configuration.nix
+        home-manager.nixosModules.home-manager {
+          environment.systemPackages = [
+            aoc-cli.packages.x86_64-linux.default
 
-	       toofan.packages.x86_64-linux.default
-               timer.packages.x86_64-linux.default
+            claude-code-cli.packages.x86_64-linux.default
+            codex-cli.packages.x86_64-linux.default
 
-	       # rust stable toolchain
-	       (fenix.packages.x86_64-linux.stable.withComponents [
-	         "cargo"
-	         "clippy"
-                 "rust-analyzer"
-	         "rust-src"
-	         "rustc"
-	         "rustfmt"
-	       ])
+            # rust stable toolchain
+            (fenix.packages.x86_64-linux.stable.withComponents [
+              "cargo"
+              "clippy"
+              "rust-analyzer"
+              "rust-src"
+              "rustc"
+              "rustfmt"
+            ])
 
-	       matui.packages.x86_64-linux.matui
-	     ];
-	
-	     home-manager.useGlobalPkgs = true;
-	     home-manager.useUserPackages = true;
-	     home-manager.users.anirudh = import ./home-manager/home.nix;
-         }
+            matui.packages.x86_64-linux.matui
+
+            toofan.packages.x86_64-linux.default
+            timer.packages.x86_64-linux.default
+          ];
+
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.anirudh = import ./home-manager/home.nix;
+        }
       ];
     };
   };
