@@ -8,6 +8,7 @@
     ./hyprland
     ./mako
     ./starship
+    ./tickrs
     ./waybar
     ./wofi
   ];

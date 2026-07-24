@@ -24,6 +24,7 @@
     fd
     jq
     ripgrep
+    tickrs
     tree
     wl-clipboard
 
