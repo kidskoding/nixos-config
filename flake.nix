@@ -3,41 +3,52 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    
-    # coding agents
-    claude-code-cli.url = "github:sadjow/claude-code-nix";
-    codex-cli.url = "github:sadjow/codex-cli-nix";
 
     # advent of code cli (my fork)
-    aoc-cli.url = "github:kidskoding/aoc-cli";
+    aoc-cli = {
+      url = "github:kidskoding/aoc-cli";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    # matrix tui client
-    matui.url = "github:pkulak/matui";
+    # coding agents
+    claude-code-cli = {
+      url = "github:sadjow/claude-code-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    codex-cli = {
+      url = "github:sadjow/codex-cli-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # rust tooling
     fenix = {
-	url = "github:nix-community/fenix";
-	inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # matrix tui client
+    matui = {
+      url = "github:pkulak/matui";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # productivity
     timer = {
-	url = "github:sectore/timr-tui";
-        inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:sectore/timr-tui";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     toofan = {
-        url = "github:vyrx-dev/toofan";
-        inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:vyrx-dev/toofan";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
-
     home-manager = {
-      	url = "github:nix-community/home-manager";
-      	inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, claude-code-cli, codex-cli, aoc-cli, matui, fenix, timer, toofan, ... }: {
+  outputs = { self, nixpkgs, home-manager, aoc-cli, claude-code-cli, codex-cli, fenix, matui, toofan, timer, ... }: {
     templates.python = {
       path = ./templates/python3.13;
       description = "python dev shell with direnv";
