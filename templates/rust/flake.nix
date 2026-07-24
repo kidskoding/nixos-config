@@ -21,7 +21,6 @@
           cargo-chef
           # cargo-lambda
           evcxr
-          rustlings
           trunk
           wasm-pack
         ];

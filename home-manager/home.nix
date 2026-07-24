@@ -68,6 +68,7 @@
     github-cli
     mdbook
     mdbook-mermaid
+    rustlings
     tmux
 
     # applications
