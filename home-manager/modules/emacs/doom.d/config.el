@@ -98,3 +98,9 @@
   (setq lsp-idle-delay 0.1))
 (after! flycheck
   (setq flycheck-idle-change-delay 0.1))
+
+;; corfu's popup needs child frames, which don't exist in terminal Emacs;
+;; corfu-terminal renders it with overlays instead so completion shows up in -nw
+(unless (display-graphic-p)
+  (after! corfu
+    (corfu-terminal-mode +1)))

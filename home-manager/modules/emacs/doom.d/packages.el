@@ -53,3 +53,4 @@
 ;; (unpin! t)
 
 (package! catppuccin-theme)
+(package! corfu-terminal)
