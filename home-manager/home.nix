@@ -18,65 +18,65 @@
   ];
 
   home.packages = with pkgs; [
-      # additional user system tools
-      cava
-      cliphist
-      fd
-      jq
-      ripgrep
-      tree
-      wl-clipboard
+    # additional user system tools
+    cava
+    cliphist
+    fd
+    jq
+    ripgrep
+    tree
+    wl-clipboard
 
-      # languages
-      dotnet-sdk_10
-      go
-      jdk21
-      lua
-      ruby
-      zig
+    # languages
+    dotnet-sdk_10
+    go
+    jdk21
+    lua
+    ruby
+    zig
 
-      # lsps
-      gopls
-      jdt-language-server
-      lua-language-server
-      nixd
-      omnisharp-roslyn
-      pyright
-      ruby-lsp
-      typescript-language-server
-      zls
+    # lsps
+    gopls
+    jdt-language-server
+    lua-language-server
+    nixd
+    omnisharp-roslyn
+    pyright
+    ruby-lsp
+    typescript-language-server
+    zls
 
-      # core developer tools
-      bear
-      bun
-      cmake
-      libtool
-      nodejs
-      uv
-      xmake
+    # core developer tools
+    bear
+    bun
+    cmake
+    libtool
+    nodejs
+    uv
+    xmake
 
-      # niche c / c++ tooling
-      clang-tools
-      ninja
-      pkg-config
-      valgrind
+    # niche c / c++ tooling
+    clang-tools
+    ninja
+    pkg-config
+    valgrind
 
-      # additional developer tooling
-      bacon
-      emacs-nox
-      github-cli
-      mdbook
-      mdbook-mermaid
-      tmux
+    # additional developer tooling
+    bacon
+    emacs-nox
+    github-cli
+    mdbook
+    mdbook-mermaid
+    tmux
 
-      # applications
-      discord
-      firefox
-      spotify
+    # applications
+    discord
+    firefox
+    spotify
 
-      # games
-      heroic
-      lunar-client
+    # games
+    heroic
+    lunar-client
   ];
 
   programs.direnv = {
@@ -87,18 +87,18 @@
   programs.opencode.enable = true;
   
   programs.obs-studio = {
-     enable = true;
+    enable = true;
      
-     package = (
-        pkgs.obs-studio.override {
-           cudaSupport = true;
-        }
-     );
+    package = (
+      pkgs.obs-studio.override {
+        cudaSupport = true;
+      }
+    );
 
-     plugins = with pkgs.obs-studio-plugins; [
-        obs-pipewire-audio-capture
-        obs-vkcapture
-     ];
+    plugins = with pkgs.obs-studio-plugins; [
+      obs-pipewire-audio-capture
+      obs-vkcapture
+    ];
   };
 
   programs.home-manager.enable = true;
