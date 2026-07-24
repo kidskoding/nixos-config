@@ -85,7 +85,7 @@
               "rustfmt"
             ])
 
-            matui.packages.x86_64-linux.matui
+            matui.packages.x86_64-linux.default
 
             toofan.packages.x86_64-linux.default
             timer.packages.x86_64-linux.default
