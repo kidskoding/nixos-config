@@ -2,4 +2,4 @@
 
 my nixos config
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d90ea023-1784-4e4c-aeba-2dc52fc674e6" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4aa29616-177b-456e-8234-dbdb486614db" />
