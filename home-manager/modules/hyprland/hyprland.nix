@@ -35,6 +35,21 @@ in
 
     configType = "hyprlang";
 
+    extraConfig = ''
+      submap = resize
+      binde = , l, resizeactive, 10 0
+      binde = , h, resizeactive, -10 0
+      binde = , k, resizeactive, 0 -10
+      binde = , j, resizeactive, 0 10
+      binde = , right, resizeactive, 10 0
+      binde = , left, resizeactive, -10 0
+      binde = , up, resizeactive, 0 -10
+      binde = , down, resizeactive, 0 10
+      bind = , escape, submap, reset
+      bind = , Return, submap, reset
+      submap = reset
+    '';
+
     settings = {
       monitor = "eDP-1, 1920x1080@144, 0x0, 1";
 
