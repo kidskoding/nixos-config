@@ -11,9 +11,12 @@
         packages = with pkgs; [
           # go
           go
+          golangci-lint
           gopls
+          gotools
 
           # "accessories" for go
+          delve
           gomodifytags
           gore
           gotests
