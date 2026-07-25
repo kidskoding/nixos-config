@@ -7,20 +7,24 @@ let
     a = 10; b = 11; c = 12; d = 13; e = 14; f = 15;
     A = 10; B = 11; C = 12; D = 13; E = 14; F = 15;
   };
+
   hexByteToInt = s: (hexDigit.${builtins.substring 0 1 s}) * 16 + hexDigit.${builtins.substring 1 1 s};
   hexDigitChars = "0123456789abcdef";
   intToHexByte = n:
     "${builtins.substring (n / 16) 1 hexDigitChars}${builtins.substring (builtins.bitAnd n 15) 1 hexDigitChars}";
+
   hexToRgbInts = hex:
     let h = builtins.substring 1 6 hex; in {
       r = hexByteToInt (builtins.substring 0 2 h);
       g = hexByteToInt (builtins.substring 2 2 h);
       b = hexByteToInt (builtins.substring 4 2 h);
     };
+
   hexToRgb = sep: hex:
     let c = hexToRgbInts hex; in
     "${toString c.r}${sep}${toString c.g}${sep}${toString c.b}";
-  # bump every channel of a hex color by `amount` (clamped to 255) - used to derive an
+
+  # bump every channel of a hex color by `amount` (clamped to 255). this is used to derive an
   # elevated "surface" shade from the base background, since terminal palettes don't have one
   lighten = hex: amount:
     let

@@ -9,6 +9,8 @@
     ./themes
   ];
 
+  theme.name = "kanagawa";
+
   home.username = "anirudh";
   home.homeDirectory = "/home/anirudh";
   home.stateVersion = "26.05";

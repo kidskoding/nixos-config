@@ -32,8 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq catppuccin-flavor 'mocha)
-(setq doom-theme 'catppuccin)
+(setq doom-theme 'kanagawa-wave)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -98,6 +97,11 @@
   (setq lsp-idle-delay 0.1))
 (after! flycheck
   (setq flycheck-idle-change-delay 0.1))
+
+;; write the real file after 2s idle, so checkers that read from disk
+;; (LSP servers, external linters) report errors without an explicit C-x C-s
+(setq auto-save-visited-interval 2)
+(auto-save-visited-mode +1)
 
 ;; corfu's popup needs child frames, which don't exist in terminal Emacs;
 ;; corfu-terminal renders it with overlays instead so completion shows up in -nw
