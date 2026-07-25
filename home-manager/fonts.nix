@@ -9,5 +9,6 @@
 
   config.home.packages = with pkgs; [
     nerd-fonts.gohufont
+    nerd-fonts.symbols-only
   ];
 }

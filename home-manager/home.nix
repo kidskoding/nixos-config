@@ -38,14 +38,15 @@
     ruby
     zig
 
-    # lsps
-    gopls
+    # lsps / formatters / linters
     jdt-language-server
     lua-language-server
     nixd
+    nixfmt
     omnisharp-roslyn
     pyright
     ruby-lsp
+    shellcheck
     typescript-language-server
     zls
 

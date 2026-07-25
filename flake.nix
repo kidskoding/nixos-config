@@ -49,6 +49,11 @@
   };
 
   outputs = { self, nixpkgs, home-manager, aoc-cli, claude-code-cli, codex-cli, fenix, matui, toofan, timer, ... }: {
+    templates.go = {
+      path = ./templates/go;
+      description = "go dev shell with direnv";
+    };
+
     templates.python = {
       path = ./templates/python3.13;
       description = "python dev shell with direnv";
