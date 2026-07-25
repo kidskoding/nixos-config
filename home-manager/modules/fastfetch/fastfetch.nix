@@ -35,11 +35,16 @@
         {
           type = "kernel";
           key = "   ";
-          keyColor = "38;2;${config.theme.ansi.yellowBright}";
+          keyColor = "38;2;${config.theme.ansi.red}";
         }
         {
           type = "packages";
           key = "   󰏗";
+          keyColor = "38;2;${config.theme.ansi.yellowBright}";
+        }
+        {
+          type = "shell";
+          key = "   ";
           keyColor = "38;2;${config.theme.ansi.yellow}";
         }
         {
@@ -50,17 +55,17 @@
         {
           type = "display";
           key = "   󰍹";
-          keyColor = "38;2;${config.theme.ansi.aquaBright}";
+          keyColor = "38;2;${config.theme.ansi.green}";
         }
         {
           type = "wm";
           key = "   ";
-          keyColor = "38;2;${config.theme.ansi.aqua}";
+          keyColor = "38;2;${config.theme.ansi.aquaBright}";
         }
         {
           type = "terminal";
           key = "   ";
-          keyColor = "38;2;${config.theme.ansi.blue}";
+          keyColor = "38;2;${config.theme.ansi.aqua}";
         }
         {
           type = "cpu";
@@ -73,17 +78,17 @@
           format = "{1} {2}";
           hideType = "integrated";
           key = "   ";
-          keyColor = "38;2;${config.theme.ansi.purpleBright}";
+          keyColor = "38;2;${config.theme.ansi.blue}";
         }
         {
           type = "memory";
           key = "   󰍛";
-          keyColor = "38;2;${config.theme.ansi.purple}";
+          keyColor = "38;2;${config.theme.ansi.purpleBright}";
         }
         {
           type = "disk";
           key = "   󰋊";
-          keyColor = "38;2;${config.theme.ansi.fgBright}";
+          keyColor = "38;2;${config.theme.ansi.purple}";
         }
         /* {
           type = "localip";

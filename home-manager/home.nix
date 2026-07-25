@@ -67,6 +67,7 @@
 
     # additional developer tooling
     bacon
+    air
     emacs-nox
     github-cli
     mdbook
