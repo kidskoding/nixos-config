@@ -194,6 +194,7 @@ in
       bind = [
         "${mainMod}, RETURN, exec, ${terminal}"
         "${mainMod}, Q, killactive,"
+        "${mainMod} SHIFT, Q, forcekillactive,"
         "${mainMod}, M, exit,"
         "${mainMod}, E, exec, ${fileManager}"
         "${mainMod} SHIFT, Space, togglefloating,"
