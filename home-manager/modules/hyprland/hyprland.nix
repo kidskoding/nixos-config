@@ -186,8 +186,6 @@ in
         disable_splash_rendering = true;
         mouse_move_enables_dpms = true;
         key_press_enables_dpms = true;
-        # adaptive sync for fullscreen apps only (games); set back to 0 if the
-        # panel flickers on the desktop
         vrr = 2;
       };
 

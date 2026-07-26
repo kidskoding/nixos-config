@@ -66,8 +66,8 @@
     valgrind
 
     # additional developer tooling
-    bacon
     air
+    bacon
     claude-agent-acp
     codex-acp
     emacs-nox

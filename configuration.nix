@@ -70,6 +70,7 @@
       finegrained = true;
     };
 
+
     prime = {
       offload = {
         enable = true;
@@ -81,8 +82,6 @@
     };
   };
 
-  # 15G RAM, no disk swap. compressed RAM swap so a shader-compile spike
-  # degrades instead of getting OOM-killed
   zramSwap.enable = true;
 
   programs.steam.enable = true;
