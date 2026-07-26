@@ -99,7 +99,10 @@
 
 ;; snappier LSP diagnostics/completion, at the cost of more CPU while typing
 (after! lsp-mode
-  (setq lsp-idle-delay 0.1))
+  (setq lsp-idle-delay 0.1)
+  ;; skip the "Select action:" root prompt and take the guessed project root,
+  ;; i.e. what pressing 'i' would have picked
+  (setq lsp-auto-guess-root t))
 (after! flycheck
   (setq flycheck-idle-change-delay 0.1))
 
