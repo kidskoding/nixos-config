@@ -312,9 +312,7 @@ in
       };
 
       windowrule = [
-        "match:class ^(steam)$, match:title ^(Steam)$, float on"
-        "match:class ^(steam)$, match:title ^(Friends List.*)$, float on"
-        "match:class ^(steam)$, match:title ^(.*Chat.*)$, float on"
+        "match:class ^(steam)$, float on, center on"
 
         "match:class ^(heroic)$, float on, center on"
         "match:class ^(net.lutris.Lutris)$, float on, center on"
