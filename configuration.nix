@@ -127,6 +127,7 @@
     pkg-config
     psmisc
     python313
+    unzip
     vim
     wget
   ];
