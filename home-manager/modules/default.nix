@@ -7,6 +7,7 @@
     ./fastfetch
     ./hyprland
     ./mako
+    ./mangohud
     ./starship
     ./tickrs
     ./waybar

@@ -87,7 +87,6 @@
     heroic
     lunar-client
     lutris
-    mangohud
   ];
 
   programs.direnv = {
