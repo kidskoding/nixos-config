@@ -148,6 +148,12 @@
     enable = true;
     withUWSM = true;
   };
+
+  # run electron/chromium apps (discord, spotify) natively on wayland
+  # instead of xwayland
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+  };
   
   networking.firewall = {
     enable = true;
