@@ -48,7 +48,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, aoc-cli, claude-code-cli, codex-cli, fenix, matui, toofan, timer, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, aoc-cli, claude-code-cli, codex-cli, fenix, matui, toofan, timer, ... }: {
     templates.go = {
       path = ./templates/go;
       description = "go dev shell with direnv";
@@ -71,6 +71,7 @@
 
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
         home-manager.nixosModules.home-manager {

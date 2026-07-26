@@ -1,5 +1,55 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
+let
+  fg = c: "38;2;${c}";
+  a = config.theme.ansi;
+
+  render = attrs: lib.concatStringsSep ":" (lib.mapAttrsToList (k: v: "${k}=${v}") attrs);
+
+  # file-type colors in dircolors format. eza reads LS_COLORS too, so this one
+  # attrset drives ls, grep, fd and eza's shared keys.
+  fileTypes = {
+    no = fg a.fg;
+    fi = fg a.fg;
+    di = "1;${fg a.blueBright}";
+    ln = fg a.aquaBright;
+    or = fg a.redBright;
+    mi = fg a.redBright;
+    ex = fg a.greenBright;
+    pi = fg a.yellowBright;
+    so = fg a.purpleBright;
+    bd = fg a.yellow;
+    cd = fg a.aquaBright;
+    su = "1;${fg a.redBright}";
+    sg = fg a.redBright;
+    st = fg a.blue;
+    ow = fg a.purpleBright;
+    tw = "1;${fg a.purpleBright}";
+  };
+
+  # eza-only keys, layered on top of LS_COLORS by eza itself
+  ezaExtra = {
+    # mute the permission-bit chars (tw is owned by fileTypes above)
+    ur = "0"; uw = "0"; ux = "0";
+    gr = "0"; gw = "0"; gx = "0";
+    tr = "0"; tx = "0";
+
+    lp = fg a.aquaBright;   # symlink target path
+    sn = fg a.yellowBright; # file size number
+    sb = fg a.gray;         # file size unit
+    da = fg a.blue;         # timestamp
+    hd = "1;${fg a.purple}"; # table header
+
+    im = fg a.greenBright;  # image
+    vi = fg a.purple;       # video
+    mu = fg a.aquaBright;   # music
+    lo = fg a.aquaBright;   # lossless audio
+    cr = fg a.redBright;    # crypto
+    do = fg a.blueBright;   # document
+    co = fg a.yellowBright; # compressed
+    tm = fg a.gray;         # temp file
+  };
+in
 {
   home.packages = with pkgs; [
     eza
@@ -114,8 +164,9 @@
         bind '$' __history_previous_command_arguments
       end
 
-      # catppuccin mocha eza colors
-      set -gx EZA_COLORS "ur=0:uw=0:ux=0:gr=0:gw=0:gx=0:tr=0:tw=0:tx=0:no=38;2;${config.theme.ansi.fg}:fi=38;2;${config.theme.ansi.fg}:di=1;38;2;${config.theme.ansi.blueBright}:ln=38;2;${config.theme.ansi.aquaBright}:lp=38;2;${config.theme.ansi.aquaBright}:or=38;2;${config.theme.ansi.redBright}:mi=38;2;${config.theme.ansi.redBright}:ex=38;2;${config.theme.ansi.greenBright}:pi=38;2;${config.theme.ansi.yellowBright}:so=38;2;${config.theme.ansi.purpleBright}:bd=38;2;${config.theme.ansi.yellow}:cd=38;2;${config.theme.ansi.aquaBright}:su=1;38;2;${config.theme.ansi.redBright}:sg=38;2;${config.theme.ansi.redBright}:st=38;2;${config.theme.ansi.blue}:ow=38;2;${config.theme.ansi.purpleBright}:tw=1;38;2;${config.theme.ansi.purpleBright}:sn=38;2;${config.theme.ansi.yellowBright}:sb=38;2;${config.theme.ansi.gray}:da=38;2;${config.theme.ansi.blue}:hd=1;38;2;${config.theme.ansi.purple}:im=38;2;${config.theme.ansi.greenBright}:vi=38;2;${config.theme.ansi.purple}:mu=38;2;${config.theme.ansi.aquaBright}:lo=38;2;${config.theme.ansi.aquaBright}:cr=38;2;${config.theme.ansi.redBright}:do=38;2;${config.theme.ansi.blueBright}:co=38;2;${config.theme.ansi.yellowBright}:tm=38;2;${config.theme.ansi.gray}"
+      # ${config.theme.name} file colors, shared by ls/grep/fd and eza
+      set -gx LS_COLORS "${render fileTypes}"
+      set -gx EZA_COLORS "${render ezaExtra}"
     '';
   };
 }

@@ -68,6 +68,8 @@
     # additional developer tooling
     bacon
     air
+    claude-agent-acp
+    codex-acp
     emacs-nox
     github-cli
     mdbook

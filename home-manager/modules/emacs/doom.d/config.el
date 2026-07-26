@@ -74,8 +74,13 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-;; use fish as Emacs' internal shell (vterm, shell-command, etc.)
+;; use fish as Emacs' internal shell (ghostel, shell-command, etc.)
 (setq explicit-shell-file-name "/run/current-system/sw/bin/fish")
+
+;; ghostel's VT engine is a Zig dynamic module; fetch the prebuilt x86_64-linux
+;; binary on first run instead of prompting
+(after! ghostel
+  (setq ghostel-module-auto-install 'download))
 
 ;; quit without a confirmation prompt
 (setq confirm-kill-emacs nil)
@@ -102,6 +107,22 @@
 ;; (LSP servers, external linters) report errors without an explicit C-x C-s
 (setq auto-save-visited-interval 2)
 (auto-save-visited-mode +1)
+
+;; ACP coding agents in a comint buffer: M-x agent-shell
+(use-package! agent-shell
+  :commands (agent-shell
+             agent-shell-anthropic-start-claude-code
+             agent-shell-openai-start-codex)
+  :config
+  ;; reuse the claude CLI's subscription login instead of an API key
+  ;; (codex already defaults to :login)
+  (setq agent-shell-anthropic-authentication
+        (agent-shell-anthropic-make-authentication :login t))
+  ;; the agent process otherwise spawns with a bare environment and loses PATH
+  (setq agent-shell-anthropic-claude-environment
+        (agent-shell-make-environment-variables :inherit-env t))
+  (setq agent-shell-openai-codex-environment
+        (agent-shell-make-environment-variables :inherit-env t)))
 
 ;; corfu's popup needs child frames, which don't exist in terminal Emacs;
 ;; corfu-terminal renders it with overlays instead so completion shows up in -nw

@@ -54,3 +54,8 @@
 
 (package! kanagawa-themes)
 (package! corfu-terminal)
+
+;; agent-shell + its two MELPA deps
+(package! shell-maker)
+(package! acp)
+(package! agent-shell)

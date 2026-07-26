@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
@@ -17,36 +17,37 @@
   # bootloader
   boot = {
     loader = {
-        grub.enable = true;
-   	grub.device = "nodev";
-	grub.efiSupport = true;
-	grub.gfxmodeEfi = "1920x1080";	
+      grub.enable = true;
+      grub.device = "nodev";
+      grub.efiSupport = true;
+      grub.gfxmodeEfi = "1920x1080";
  
-        efi.canTouchEfiVariables = true;		
+      efi.canTouchEfiVariables = true;
     };
 
     plymouth = {
-	enable = true;
-	theme = "bgrt";
-	themePackages = with pkgs; [ 
-            nixos-bgrt-plymouth 
-        ];
+      enable = true;
+      theme = "bgrt";
+      themePackages = with pkgs; [
+        nixos-bgrt-plymouth
+      ];
     };
 
     consoleLogLevel = 0;
     initrd.verbose = false;
     initrd.systemd.enable = true;
+
     # early KMS so the panel (Intel iGPU) has a framebuffer before plymouth starts
     initrd.kernelModules = [ "i915" ];
 
     kernelParams = [
-	"quiet"
-	"splash"
-	"boot.shell_on_fail"
-	"loglevel=3"
-	"rd.systemd.show_status=false"
-	"rd.udev.log_level=3"
-	"udev.log_priority=3"
+      "quiet"
+      "splash"
+      "boot.shell_on_fail"
+      "loglevel=3"
+      "rd.systemd.show_status=false"
+      "rd.udev.log_level=3"
+      "udev.log_priority=3"
     ];
   };
 
@@ -69,28 +70,27 @@
 
   users.users = {
     "anirudh" = {
-    	isNormalUser = true;
-    	description = "Anirudh Konidala";
-    	extraGroups = [ "networkmanager" "wheel" ];
-
-	shell = pkgs.fish;
-     }; 
+      isNormalUser = true;
+      description = "Anirudh Konidala";
+      extraGroups = [ "networkmanager" "wheel" ];
+      shell = pkgs.fish;
+    };
   };
 
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-     efibootmgr
-     firefox
-     gcc
-     gdb
-     git
-     gnumake
-     pkg-config
-     psmisc
-     python313
-     vim
-     wget
+    efibootmgr
+    firefox
+    gcc
+    gdb
+    git
+    gnumake
+    pkg-config
+    psmisc
+    python313
+    vim
+    wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -112,9 +112,21 @@
   };
   
   networking.firewall = {
-     enable = true;
-     allowedTCPPorts = [ ];
-     allowedUDPPorts = [ ];
+    enable = true;
+    allowedTCPPorts = [ ];
+    allowedUDPPorts = [ ];
+  };
+
+  system.autoUpgrade = {
+    enable = true;
+    flake = inputs.self.outPath;
+    flags = [
+      "--update-input"
+      "nixpkgs"
+      "-L"
+    ];
+    dates = "09:00";
+    randomizedDelaySec = "45min";
   };
 
   # This value determines the NixOS release from which the default
