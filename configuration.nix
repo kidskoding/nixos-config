@@ -51,9 +51,47 @@
     ];
   };
 
-  networking.hostName = "nixos";
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
 
+  services.xserver.videoDrivers = [ "nvidia" ];
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+    open = true;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    powerManagement = {
+      enable = true;
+
+      # power off the dGPU when no offloaded app is running
+      finegrained = true;
+    };
+
+    prime = {
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
+
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
+  };
+
+  # 15G RAM, no disk swap. compressed RAM swap so a shader-compile spike
+  # degrades instead of getting OOM-killed
+  zramSwap.enable = true;
+
+  programs.steam.enable = true;
+  programs.gamescope.enable = true;
+  programs.gamemode.enable = true;
+
+  networking.hostName = "nixos";
   networking.networkmanager.enable = true;
+
   time.timeZone = "America/Chicago";
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {

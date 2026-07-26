@@ -82,9 +82,12 @@
     firefox
     spotify
 
-    # games
+    # gaming
+    bottles
     heroic
     lunar-client
+    lutris
+    mangohud
   ];
 
   programs.direnv = {
