@@ -77,8 +77,6 @@
 ;; use fish as Emacs' internal shell (ghostel, shell-command, etc.)
 (setq explicit-shell-file-name "/run/current-system/sw/bin/fish")
 
-;; ghostel's VT engine is a Zig dynamic module; fetch the prebuilt x86_64-linux
-;; binary on first run instead of prompting
 (after! ghostel
   (setq ghostel-module-auto-install 'download))
 
@@ -100,8 +98,6 @@
 ;; snappier LSP diagnostics/completion, at the cost of more CPU while typing
 (after! lsp-mode
   (setq lsp-idle-delay 0.1)
-  ;; skip the "Select action:" root prompt and take the guessed project root,
-  ;; i.e. what pressing 'i' would have picked
   (setq lsp-auto-guess-root t))
 (after! flycheck
   (setq flycheck-idle-change-delay 0.1))
@@ -111,14 +107,11 @@
 (setq auto-save-visited-interval 2)
 (auto-save-visited-mode +1)
 
-;; ACP coding agents in a comint buffer: M-x agent-shell
 (use-package! agent-shell
   :commands (agent-shell
              agent-shell-anthropic-start-claude-code
              agent-shell-openai-start-codex)
   :config
-  ;; reuse the claude CLI's subscription login instead of an API key
-  ;; (codex already defaults to :login)
   (setq agent-shell-anthropic-authentication
         (agent-shell-anthropic-make-authentication :login t))
   ;; the agent process otherwise spawns with a bare environment and loses PATH
