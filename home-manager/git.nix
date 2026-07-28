@@ -7,7 +7,7 @@
     settings = {
       user.name = "Anirudh Konidala";
       user.email = "anirudhkonidala@gmail.com";
-      core.editor = "emacs";
+      core.editor = ''emacsclient -nw -a ""'';
       init.defaultBranch = "master";
       advice.defaultBranchName = false;
     };
