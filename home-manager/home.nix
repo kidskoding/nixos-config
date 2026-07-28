@@ -9,7 +9,8 @@
     ./themes
   ];
 
-  theme.name = "kanagawa";
+  # theme.name = "kanagawa";
+  theme.name = "gruvbox-dark";
 
   home.username = "anirudh";
   home.homeDirectory = "/home/anirudh";
