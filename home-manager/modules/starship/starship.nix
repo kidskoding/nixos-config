@@ -10,7 +10,8 @@
       os = {
   	disabled = false;
   	format = "[$symbol]($style)";
-  	style = "bold blue";
+  	# NixOS brand blue (light), not the theme's ANSI blue
+  	style = "bold #7ebae4";
       };
       
       username = {
