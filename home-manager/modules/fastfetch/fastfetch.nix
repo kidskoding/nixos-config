@@ -1,5 +1,9 @@
 { config, pkgs, ... }:
 
+let
+  nixosBlue = "38;2;82;119;195";
+  nixosBlueLight = "38;2;126;186;228";
+in
 {
   programs.fastfetch = {
     enable = true;
@@ -7,7 +11,14 @@
     settings = {
       logo = {
         type = "small";
-        color."1" = "38;2;137;180;250";
+        color = {
+          "1" = nixosBlue;
+          "2" = nixosBlueLight;
+          "3" = nixosBlue;
+          "4" = nixosBlueLight;
+          "5" = nixosBlue;
+          "6" = nixosBlueLight;
+        };
         padding = {
           top = 5;
           left = 4;
@@ -21,7 +32,12 @@
         {
           type = "title";
           keyWidth = 10;
-          format = "               {6}{#38;2;137;180;250}@{#}{8}";
+          format = "               {6}{7}{8}";
+          color = {
+            user = nixosBlueLight;
+            at = nixosBlueLight;
+            host = nixosBlueLight;
+          };
         }
         {
           type = "custom";
@@ -40,12 +56,12 @@
         {
           type = "packages";
           key = "   󰏗";
-          keyColor = "38;2;${config.theme.ansi.yellowBright}";
+          keyColor = "38;2;${config.theme.ansi.yellow}";
         }
         {
           type = "shell";
           key = "   ";
-          keyColor = "38;2;${config.theme.ansi.yellow}";
+          keyColor = "38;2;${config.theme.ansi.yellowBright}";
         }
         {
           type = "host";
