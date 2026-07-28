@@ -54,6 +54,11 @@
       description = "go dev shell with direnv";
     };
 
+    templates.gradle = {
+      path = ./templates/gradle;
+      description = "gradle dev shell with direnv";
+    };
+
     templates.python = {
       path = ./templates/python3.13;
       description = "python dev shell with direnv";
