@@ -71,7 +71,7 @@
     bacon
     claude-agent-acp
     codex-acp
-    emacs-nox
+    emacs-unstable-nox
     github-cli
     mdbook
     mdbook-mermaid

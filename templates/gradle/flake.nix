@@ -16,9 +16,6 @@
 
         env = {
           JAVA_HOME = jdk;
-
-          # keep the gradle daemon's caches inside the project instead of
-          # ~/.gradle, so state is scoped per-project
           GRADLE_USER_HOME = ".gradle";
         };
       };

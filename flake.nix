@@ -20,6 +20,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # emacs (bleeding-edge builds, e.g. emacs-unstable)
+    emacs-overlay = {
+      url = "github:nix-community/emacs-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # rust tooling
     fenix = {
       url = "github:nix-community/fenix";

@@ -315,7 +315,7 @@ in
         "match:class ^(heroic)$, float on, center on"
         "match:class ^(net.lutris.Lutris)$, float on, center on"
 
-        "match:class ^(steam_app_.*)$, immediate on, no_anim on, no_blur on, no_shadow on"
+        "match:class ^(steam_app_.*)$, immediate on, no_anim on, no_blur on, no_shadow on, fullscreen on"
         "match:class ^(gamescope)$, immediate on, no_anim on, no_blur on"
       ];
     };
