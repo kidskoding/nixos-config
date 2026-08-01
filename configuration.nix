@@ -109,7 +109,7 @@
     "anirudh" = {
       isNormalUser = true;
       description = "Anirudh Konidala";
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [ "networkmanager" "wheel" "docker" ];
       shell = pkgs.fish;
     };
   };
@@ -138,16 +138,19 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-  
+
   programs.fish.enable = true;
-  
+
   # run prebuilt binaries (uv-managed pythons, pip wheels, etc.)
   programs.nix-ld.enable = true;
-  
+
   programs.hyprland = {
     enable = true;
     withUWSM = true;
   };
+
+  virtualisation.docker.enable = true;
+  virtualisation.docker.storageDriver = "btrfs";
 
   # run electron/chromium apps (discord, spotify) natively on wayland
   # instead of xwayland

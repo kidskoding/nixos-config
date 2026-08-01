@@ -46,12 +46,12 @@ in
         {
           type = "os";
           key = "   󰻀";
-          keyColor = "38;2;${config.theme.ansi.redBright}";
+          keyColor = "38;2;${config.theme.ansi.red}";
         }
         {
           type = "kernel";
           key = "   ";
-          keyColor = "38;2;${config.theme.ansi.red}";
+          keyColor = "38;2;${config.theme.ansi.redBright}";
         }
         {
           type = "packages";

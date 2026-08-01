@@ -12,8 +12,8 @@
   # theme.name = "kanagawa";
   theme.name = "gruvbox-dark";
 
-  home.username = "anirudh";
-  home.homeDirectory = "/home/anirudh";
+  # home.username and home.homeDirectory come from the NixOS module
+  # (users.users.anirudh), which sets them unconditionally.
   home.stateVersion = "26.05";
 
   home.sessionPath = [

@@ -121,8 +121,6 @@
   (setq agent-shell-openai-codex-environment
         (agent-shell-make-environment-variables :inherit-env t)))
 
-;; corfu's popup needs child frames, which don't exist in terminal Emacs;
-;; corfu-terminal renders it with overlays instead so completion shows up in -nw
-(unless (display-graphic-p)
-  (after! corfu
-    (corfu-terminal-mode +1)))
+;; corfu's popup used to need corfu-terminal in -nw, since child frames didn't
+;; exist in terminal Emacs. Emacs 31 has native tty child frames, so corfu
+;; renders on its own.

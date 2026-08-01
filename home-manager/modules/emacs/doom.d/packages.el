@@ -53,7 +53,6 @@
 ;; (unpin! t)
 
 (package! kanagawa-themes)
-(package! corfu-terminal)
 
 (package! shell-maker)
 (package! acp)
