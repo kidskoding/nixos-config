@@ -87,6 +87,8 @@
     };
   };
 
+  services.upower.enable = true;
+
   zramSwap.enable = true;
 
   programs.steam.enable = true;
