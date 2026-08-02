@@ -21,6 +21,7 @@
           cargo-chef
           # cargo-lambda
           evcxr
+          loco
           trunk
           wasm-pack
         ];
