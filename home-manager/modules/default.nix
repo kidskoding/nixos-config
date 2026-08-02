@@ -4,13 +4,14 @@
   imports = [
     ./alacritty
     ./emacs
-    ./fastfetch
     ./hyprland
-    ./mako
-    ./mangohud
-    ./starship
-    ./tickrs
     ./waybar
     ./wofi
+
+    ./fastfetch.nix
+    ./mako.nix
+    ./mangohud.nix
+    ./starship.nix
+    ./tickrs.nix
   ];
 }

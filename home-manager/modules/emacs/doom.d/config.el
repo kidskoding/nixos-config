@@ -124,3 +124,17 @@
 ;; corfu's popup used to need corfu-terminal in -nw, since child frames didn't
 ;; exist in terminal Emacs. Emacs 31 has native tty child frames, so corfu
 ;; renders on its own.
+
+(use-package! affe
+  :config
+  (consult-customize affe-grep :preview-key "M-."))
+
+(use-package! elcord
+  :config
+  (elcord-mode))
+
+(after! markdown-mode
+  (map! :localleader
+        :map markdown-mode-map
+        "p" #'markdown-live-preview-mode
+        "h" #'markdown-toggle-markup-hiding))

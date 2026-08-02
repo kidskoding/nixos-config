@@ -21,10 +21,7 @@
     };
 
     # emacs (bleeding-edge builds, e.g. emacs-unstable)
-    emacs-overlay = {
-      url = "github:nix-community/emacs-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
 
     # rust tooling
     fenix = {
@@ -35,6 +32,12 @@
     # matrix tui client
     matui = {
       url = "github:pkulak/matui";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # noctalia
+    noctalia = {
+      url = "github:noctalia-dev/noctalia/legacy-v4";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -54,7 +57,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, aoc-cli, claude-code-cli, codex-cli, fenix, matui, toofan, timer, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, aoc-cli, claude-code-cli, codex-cli, fenix, matui, noctalia, toofan, timer, ... }: {
     templates.go = {
       path = ./templates/go;
       description = "go dev shell with direnv";
@@ -88,7 +91,6 @@
         home-manager.nixosModules.home-manager {
           environment.systemPackages = [
             aoc-cli.packages.x86_64-linux.default
-
             claude-code-cli.packages.x86_64-linux.default
             codex-cli.packages.x86_64-linux.default
 
@@ -103,9 +105,8 @@
             ])
 
             matui.packages.x86_64-linux.default
-
-            toofan.packages.x86_64-linux.default
             timer.packages.x86_64-linux.default
+            toofan.packages.x86_64-linux.default
           ];
 
           home-manager.useGlobalPkgs = true;

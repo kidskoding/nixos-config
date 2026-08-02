@@ -75,6 +75,7 @@
     github-cli
     mdbook
     mdbook-mermaid
+    pandoc
     rustlings
     tmux
 

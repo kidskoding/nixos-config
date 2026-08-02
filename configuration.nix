@@ -14,6 +14,12 @@
   # do not warn if git tree is dirty when rebuilding system
   nix.settings.warn-dirty = false;
 
+  # prebuilt emacs-overlay/nix-community builds instead of compiling from source
+  nix.settings.substituters = [ "https://nix-community.cachix.org" ];
+  nix.settings.trusted-public-keys = [
+    "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+  ];
+
   # bootloader
   boot = {
     loader = {
@@ -67,7 +73,8 @@
       enable = true;
 
       # power off the dGPU when no offloaded app is running
-      finegrained = true;
+      # disabled: dGPU runtime-resume racing with dpms off hard-hangs the machine
+      finegrained = false;
     };
 
 
@@ -148,6 +155,8 @@
     enable = true;
     withUWSM = true;
   };
+
+  programs.hyprlock.enable = true;
 
   virtualisation.docker.enable = true;
   virtualisation.docker.storageDriver = "btrfs";

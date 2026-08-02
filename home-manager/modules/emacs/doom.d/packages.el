@@ -53,6 +53,8 @@
 ;; (unpin! t)
 
 (package! kanagawa-themes)
+(package! affe)
+(package! elcord)
 
 (package! shell-maker)
 (package! acp)
