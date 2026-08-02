@@ -24,6 +24,7 @@
     # additional user system tools
     cava
     cliphist
+    cowsay
     fd
     jq
     ripgrep
