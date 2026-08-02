@@ -60,7 +60,7 @@ in
 
       exec = [
         "awww-daemon"
-        "sleep 2 && awww img --transition-type none ~/.config/hypr/charizard-wallpaper-3.png"
+        "sleep 2 && awww img --transition-type none ~/.config/hypr/starfire-bg.jpg"
       ];
 
       exec-once = [
@@ -319,7 +319,7 @@ in
     };
   };
 
-  home.file.".config/hypr/charizard-wallpaper-3.png".source = ./wallpapers/charizard-wallpaper-3.png;
+  home.file.".config/hypr/starfire-bg.jpg".source = ./wallpapers/starfire-bg.jpg;
   home.file.".config/hypr/swap-workspaces.sh" = {
     source = ./scripts/swap-workspaces.sh;
     executable = true;
