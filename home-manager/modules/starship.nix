@@ -8,10 +8,9 @@
       format = "$os$all";  
     
       os = {
-  	disabled = false;
-  	format = "[$symbol]($style)";
-  	# NixOS brand blue (light), not the theme's ANSI blue
-  	style = "bold #7ebae4";
+        disabled = false;
+        format = "[$symbol]($style)";
+        style = "bold #7ebae4";
       };
       
       username = {
@@ -33,13 +32,6 @@
         style = "bold cyan";
         read_only = "󰌾";
       };
-
-      # time = {
-      #   disabled = false;
-      #   time_format = "%R";
-      #   style = "purple";
-      #   format = "[ $time]($style) ";
-      # };
 
       character = {
         success_symbol = "[➜](bold green)";

@@ -114,13 +114,13 @@ in
         gaps_out = 10;
         border_size = 2;
         
-	"col.active_border" = "rgba(${builtins.substring 1 6 config.theme.colors.blueBright}ff)";
+        "col.active_border" = "rgba(${builtins.substring 1 6 config.theme.colors.blueBright}ff)";
         "col.inactive_border" = "rgba(${builtins.substring 1 6 config.theme.colors.bgAlt}ff)";
         
-	layout = "dwindle";
+        layout = "dwindle";
         resize_on_border = true;
 
-	allow_tearing = true;
+        allow_tearing = true;
       };
 
       decoration = {

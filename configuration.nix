@@ -42,8 +42,6 @@
     consoleLogLevel = 0;
     initrd.verbose = false;
     initrd.systemd.enable = true;
-
-    # early KMS so the panel (Intel iGPU) has a framebuffer before plymouth starts
     initrd.kernelModules = [ "i915" ];
 
     kernelParams = [
