@@ -57,7 +57,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, aoc-cli, claude-code-cli, codex-cli, fenix, matui, noctalia, toofan, timer, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, aoc-cli, claude-code-cli, codex-cli, fenix, matui, toofan, timer, ... }: {
     templates.go = {
       path = ./templates/go;
       description = "go dev shell with direnv";
@@ -111,6 +111,7 @@
 
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = { inherit inputs; };
           home-manager.users.anirudh = import ./home-manager/home.nix;
         }
       ];

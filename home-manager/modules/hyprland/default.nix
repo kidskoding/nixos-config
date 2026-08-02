@@ -3,7 +3,8 @@
 let
   terminal = "alacritty";
   fileManager = "dolphin";
-  menu = "pgrep wofi && pkill wofi || wofi --show drun";
+  noctalia = "noctalia-shell ipc call";
+  menu = "${noctalia} launcher toggle";
   mainMod = "SUPER";
 in
 {
@@ -21,7 +22,6 @@ in
     networkmanagerapplet
     playerctl
     qimgv
-    wlogout
 
     # kde packages
     kdePackages.dolphin
@@ -64,16 +64,14 @@ in
       ];
 
       exec-once = [
-        "waybar"
+        "noctalia-shell"
         "blueman-applet"
         "lxqt-policykit-agent"
         "nm-applet --indicator"
-        "mako"
         "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
         "hypridle"
         "dex -a -s /etc/xdg/autostart/:~/.config/autostart/"
         "wl-paste --watch cliphist store"
-        "sleep 3 && ~/.config/waybar/scripts/spotify_launcher.sh"
         "[workspace 1 silent] ${terminal}"
       ];
 
@@ -197,7 +195,7 @@ in
         "${mainMod}, E, exec, ${fileManager}"
         "${mainMod} SHIFT, Space, togglefloating,"
         "${mainMod} SHIFT, Space, centerwindow,"
-        "${mainMod}, D, exec, killall wofi && ${menu}"
+        "${mainMod}, D, exec, ${menu}"
         "${mainMod}, P, pseudo,"
         "${mainMod}, F, fullscreen, 0"
         "${mainMod} SHIFT, F, fullscreen, 1"
@@ -270,19 +268,19 @@ in
         "${mainMod} CTRL SHIFT, 9, exec, ~/.config/hypr/swap-workspaces.sh $(hyprctl activeworkspace -j | jq '.id') 9"
         "${mainMod} CTRL SHIFT, 0, exec, ~/.config/hypr/swap-workspaces.sh $(hyprctl activeworkspace -j | jq '.id') 10"
 
-        "${mainMod} SHIFT, R, exec, pkill waybar; waybar"
+        "${mainMod} SHIFT, R, exec, pkill -f 'bin/quickshel[l]'; sleep 0.3; noctalia-shell"
 
         "${mainMod}, R, submap, resize"
 
         ", Print, exec, grimblast copy output"
         "${mainMod} SHIFT, S, exec, grimblast copy area"
 
-        "${mainMod}, C, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
+        "${mainMod}, C, exec, ${noctalia} launcher clipboard"
         "${mainMod}, L, exec, hyprlock"
         "${mainMod} SHIFT, C, exec, hyprpicker -a"
 
         "${mainMod} SHIFT, D, exec, hyprctl reload"
-        "${mainMod} SHIFT, E, exec, wlogout"
+        "${mainMod} SHIFT, E, exec, ${noctalia} sessionMenu toggle"
       ];
 
       bindm = [

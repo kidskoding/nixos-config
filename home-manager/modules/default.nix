@@ -5,12 +5,10 @@
     ./alacritty
     ./emacs
     ./hyprland
-    ./waybar
-    ./wofi
 
     ./fastfetch.nix
-    ./mako.nix
     ./mangohud.nix
+    ./noctalia
     ./starship.nix
     ./tickrs.nix
   ];
