@@ -49,7 +49,13 @@ in
 
       bar = {
         position = "top";
-        frameThickness = 0;
+        barType = "floating";
+        marginVertical = 6;
+        marginHorizontal = 8;
+        contentPadding = 8;
+        widgetSpacing = 8;
+        useSeparateOpacity = true;
+        backgroundOpacity = 0.85;
         rightClickAction = "none";
 
         widgets = {
