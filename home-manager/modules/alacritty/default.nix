@@ -23,7 +23,7 @@ in
         opacity = 0.8;
         blur = true;
 
-        padding.x = 10;
+        padding.x = 5;
 
         dimensions = {
           columns = 100;
@@ -39,8 +39,6 @@ in
           style = "Regular";
         };
 
-        # GohuFont has no real bold/italic faces, so bold/italic just fall
-        # back to normal anyway. Left here commented in case the font changes.
         # bold = {
         #   family = config.theme.fontFamily;
         #   style = "Regular";

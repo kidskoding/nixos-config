@@ -133,6 +133,8 @@
   :config
   (elcord-mode))
 
+(windmove-default-keybindings)
+
 (after! markdown-mode
   (map! :localleader
         :map markdown-mode-map

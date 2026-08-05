@@ -31,7 +31,7 @@ in
       mOutline = c.bgAlt;
       mShadow = c.black;
 
-      mHover = c.purpleBright;
+      mHover = c.fg;
       mOnHover = c.bg;
     };
 

@@ -6,10 +6,10 @@
     ./emacs
     ./hyprland
 
-    ./fastfetch.nix
-    ./mangohud.nix
+    ./fastfetch
+    ./mangohud
     ./noctalia
-    ./starship.nix
-    ./tickrs.nix
+    ./starship
+    ./tickrs
   ];
 }
