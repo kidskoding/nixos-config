@@ -13,6 +13,13 @@ in
       theme = "custom";
       pane_frames = false;
       copy_command = "wl-copy";
+      show_startup_tips = false;
+
+      keybinds.normal = {
+        "bind \"Alt d\"" = { CloseFocus = [ ]; };
+        "bind \"Alt s\"" = { NewPane = "stacked"; };
+        "bind \"Alt t\"" = { NewTab = [ ]; };
+      };
 
       themes.custom = {
         fg = c.fg;
