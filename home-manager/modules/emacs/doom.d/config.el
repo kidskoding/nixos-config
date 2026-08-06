@@ -135,6 +135,11 @@
 
 (windmove-default-keybindings)
 
+;; pdf-tools builds epdfinfo from source on first use, which needs poppler
+;; headers that aren't on PATH under nix; use the prebuilt binary instead
+(after! pdf-tools
+  (setq pdf-info-epdfinfo-program (executable-find "epdfinfo")))
+
 (after! markdown-mode
   (map! :localleader
         :map markdown-mode-map

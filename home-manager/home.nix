@@ -72,13 +72,18 @@
     bacon
     claude-agent-acp
     codex-acp
-    emacs-unstable-nox
+    emacs-unstable
     github-cli
     mdbook
     mdbook-mermaid
     pandoc
     rustlings
     tmux
+
+    (runCommand "epdfinfo" { } ''
+      mkdir -p $out/bin
+      ln -s ${emacsPackages.pdf-tools}/share/emacs/site-lisp/elpa/pdf-tools-*/epdfinfo $out/bin/epdfinfo
+    '')
 
     # applications
     discord
