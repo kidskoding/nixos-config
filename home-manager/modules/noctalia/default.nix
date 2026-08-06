@@ -36,6 +36,8 @@ in
     };
 
     settings = {
+      settingsVersion = 59;
+
       colorSchemes = {
         useWallpaperColors = false;
         predefinedScheme = "";
