@@ -78,7 +78,6 @@
     mdbook-mermaid
     pandoc
     rustlings
-    tmux
     texliveMedium
 
     (runCommand "epdfinfo" { } ''
