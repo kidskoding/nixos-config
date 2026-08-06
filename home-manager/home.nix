@@ -95,6 +95,9 @@
     heroic
     lunar-client
     lutris
+
+    # other cool stuff!
+    gum
   ];
 
   programs.direnv = {
