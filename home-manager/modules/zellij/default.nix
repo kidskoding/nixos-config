@@ -1,38 +1,46 @@
 { config, ... }:
 
-let
-  c = config.theme.colors;
-in
 {
   programs.zellij = {
     enable = true;
-    enableFishIntegration = true;
+    enableFishIntegration = false;
     attachExistingSession = true;
 
+    layouts.default = ''
+      layout {
+          default_tab_template {
+              pane size=1 borderless=true {
+                  plugin location="zellij:compact-bar"
+              }
+              children
+          }
+      }
+    '';
+
     settings = {
-      theme = "custom";
-      pane_frames = false;
       copy_command = "wl-copy";
       show_startup_tips = false;
+      theme = config.theme.name;
 
-      keybinds.normal = {
-        "bind \"Alt d\"" = { CloseFocus = [ ]; };
-        "bind \"Alt s\"" = { NewPane = "stacked"; };
-        "bind \"Alt t\"" = { NewTab = [ ]; };
-      };
+      keybinds = {
+        unbind = [
+          "Ctrl g"
+          "Ctrl p"
+          "Ctrl n"
+          "Ctrl t"
+          "Ctrl s"
+          "Ctrl o"
+          "Ctrl h"
+          "Ctrl b"
+          "Ctrl q"
+        ];
 
-      themes.custom = {
-        fg = c.fg;
-        bg = c.bg;
-        black = c.black;
-        red = c.red;
-        green = c.green;
-        yellow = c.yellow;
-        blue = c.blue;
-        magenta = c.purple;
-        cyan = c.aqua;
-        white = c.gray;
-        orange = c.yellowBright;
+        normal = {
+          "bind \"Alt x\"" = { CloseFocus = [ ]; };
+          "bind \"Alt s\"" = { NewPane = "stacked"; };
+          "bind \"Alt n\"" = { NewPane = "right"; };
+          "bind \"Alt t\"" = { NewTab = [ ]; };
+        };
       };
     };
   };
