@@ -79,6 +79,7 @@
     pandoc
     rustlings
     tmux
+    texliveMedium
 
     (runCommand "epdfinfo" { } ''
       mkdir -p $out/bin
