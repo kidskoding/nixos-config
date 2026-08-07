@@ -126,8 +126,32 @@
 ;; renders on its own.
 
 (use-package! affe
+  :commands (affe-find affe-grep)
   :config
-  (consult-customize affe-grep :preview-key "M-."))
+  (consult-customize affe-find affe-grep :preview-key "M-.")
+  (setq affe-find-command "fd --hidden --type f --exclude .git")
+
+  (defun +affe-orderless-regexp-compiler (input _type _ignorecase)
+    (setq input (cdr (orderless-compile input)))
+    (cons input (apply-partially #'orderless--highlight input t)))
+  (setq affe-regexp-compiler #'+affe-orderless-regexp-compiler))
+
+(defun +affe-find-project ()
+  "Fuzzy-find a file in the current project."
+  (interactive)
+  (affe-find (or (doom-project-root) default-directory)))
+
+(defun +affe-grep-project ()
+  "Fuzzy-grep the contents of the current project."
+  (interactive)
+  (affe-grep (or (doom-project-root) default-directory)))
+
+(map! "M-d" #'+affe-find-project)
+
+(map! :leader
+      :desc "Find file in project" "SPC" #'+affe-find-project
+      :desc "Search project"       "/"   #'+affe-grep-project)
+
 
 (use-package! elcord
   :config
