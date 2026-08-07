@@ -170,6 +170,18 @@
   (nerd-icons-completion-mode)
   (add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup))
 
+(after! marginalia
+  (custom-set-faces!
+    `(marginalia-size :foreground ,(doom-color 'yellow))
+    `(marginalia-number :foreground ,(doom-color 'yellow))
+    `(marginalia-date :foreground ,(doom-color 'blue))
+    `(marginalia-file-priv-dir :foreground ,(doom-color 'blue))
+    `(marginalia-file-priv-link :foreground ,(doom-color 'cyan))
+    `(marginalia-file-priv-exec :foreground ,(doom-color 'grey))
+    `(marginalia-file-priv-read :foreground ,(doom-color 'grey))
+    `(marginalia-file-priv-write :foreground ,(doom-color 'grey))
+    `(marginalia-file-priv-other :foreground ,(doom-color 'grey))
+    `(marginalia-file-priv-no :foreground ,(doom-color 'grey))))
 
 (use-package! elcord
   :config
