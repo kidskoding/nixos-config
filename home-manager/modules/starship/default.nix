@@ -133,7 +133,7 @@
       python.symbol = " ";
       rlang.symbol = "󰟔 ";
       ruby.symbol = " ";
-      rust.symbol = "󱘗 ";
+      rust.symbol = " ";
       scala.symbol = " ";
       swift.symbol = " ";
       zig.symbol = " ";
