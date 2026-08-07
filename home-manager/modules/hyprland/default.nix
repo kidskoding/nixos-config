@@ -112,7 +112,7 @@ in
         gaps_out = 10;
         border_size = 2;
         
-        "col.active_border" = "rgba(${builtins.substring 1 6 config.theme.colors.blue}ff)";
+        "col.active_border" = "rgba(${builtins.substring 1 6 config.theme.colors.purple}ff)";
         "col.inactive_border" = "rgba(${builtins.substring 1 6 config.theme.colors.bgAlt}ff)";
         
         layout = "dwindle";
