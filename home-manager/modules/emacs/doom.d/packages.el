@@ -54,6 +54,7 @@
 
 (package! kanagawa-themes)
 (package! affe)
+(package! nerd-icons-completion)
 (package! elcord)
 
 (package! shell-maker)

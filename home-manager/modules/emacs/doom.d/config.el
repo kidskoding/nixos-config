@@ -152,6 +152,24 @@
       :desc "Find file in project" "SPC" #'+affe-find-project
       :desc "Search project"       "/"   #'+affe-grep-project)
 
+(after! vertico
+  (vertico-multiform-mode +1)
+  (setq vertico-multiform-commands
+        '((consult-buffer buffer)
+          (consult-line buffer)
+          (+affe-find-project buffer)
+          (+affe-grep-project buffer)))
+  (setq vertico-buffer-display-action
+        '(display-buffer-in-side-window
+          (side . bottom)
+          (window-height . 0.4))))
+
+(use-package! nerd-icons-completion
+  :after marginalia
+  :config
+  (nerd-icons-completion-mode)
+  (add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup))
+
 
 (use-package! elcord
   :config
