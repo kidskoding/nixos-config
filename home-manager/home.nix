@@ -77,7 +77,6 @@
     mdbook
     mdbook-mermaid
     pandoc
-    rustlings
     texliveMedium
 
     (runCommand "epdfinfo" { } ''
