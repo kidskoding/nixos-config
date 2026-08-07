@@ -4,7 +4,6 @@
   programs.zellij = {
     enable = true;
     enableFishIntegration = false;
-    attachExistingSession = true;
 
     layouts.default = ''
       layout {
