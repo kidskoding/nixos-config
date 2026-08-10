@@ -108,8 +108,8 @@ in
       };
 
       general = {
-        gaps_in = 5;
-        gaps_out = 5;
+        gaps_in = 3;
+        gaps_out = 10;
         border_size = 2;
         
         "col.active_border" = "rgba(${builtins.substring 1 6 config.theme.colors.purple}ff)";
