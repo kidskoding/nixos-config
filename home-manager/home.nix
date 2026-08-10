@@ -9,7 +9,6 @@
     ./themes
   ];
 
-  # theme.name = "kanagawa";
   theme.name = "gruvbox-dark";
 
   # home.username and home.homeDirectory come from the NixOS module
@@ -96,6 +95,7 @@
 
     # gaming
     bottles
+    dolphin-emu
     heroic
     lunar-client
     lutris

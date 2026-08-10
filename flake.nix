@@ -11,6 +11,10 @@
     };
 
     # coding agents
+    antigravity-cli = {
+      url = "github:Hy4ri/antigravity-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     claude-code-cli = {
       url = "github:sadjow/claude-code-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -102,6 +106,8 @@
         inputs.home-manager.nixosModules.home-manager {
           environment.systemPackages = [
             inputs.aoc-cli.packages.${system}.default
+
+            inputs.antigravity-cli.packages.${system}.default
             inputs.claude-code-cli.packages.${system}.default
             inputs.codex-cli.packages.${system}.default
 
