@@ -63,45 +63,50 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, aoc-cli, claude-code-cli, codex-cli, fenix, matui, toofan, timer, ... }: {
-    templates.go = {
-      path = ./templates/go;
-      description = "go dev shell with direnv";
-    };
+  outputs = inputs@{ nixpkgs, ... }:
+  let
+    system = "x86_64-linux";
+  in {
+    templates = {
+      go = {
+        path = ./templates/go;
+        description = "go dev shell with direnv";
+      };
 
-    templates.gradle = {
-      path = ./templates/gradle;
-      description = "gradle dev shell with direnv";
-    };
+      gradle = {
+        path = ./templates/gradle;
+        description = "gradle dev shell with direnv";
+      };
 
-    templates.python = {
-      path = ./templates/python3.13;
-      description = "python dev shell with direnv";
-    };
+      python = {
+        path = ./templates/python3.13;
+        description = "python dev shell with direnv";
+      };
 
-    templates.rails = {
-      path = ./templates/rails;
-      description = "ruby on rails dev shell with direnv";
-    };
+      rails = {
+        path = ./templates/rails;
+        description = "ruby on rails dev shell with direnv";
+      };
 
-    templates.rust = {
-      path = ./templates/rust;
-      description = "rust dev shell with direnv";
+      rust = {
+        path = ./templates/rust;
+        description = "rust dev shell with direnv";
+      };
     };
 
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+      inherit system;
       specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
-        home-manager.nixosModules.home-manager {
+        inputs.home-manager.nixosModules.home-manager {
           environment.systemPackages = [
-            aoc-cli.packages.x86_64-linux.default
-            claude-code-cli.packages.x86_64-linux.default
-            codex-cli.packages.x86_64-linux.default
+            inputs.aoc-cli.packages.${system}.default
+            inputs.claude-code-cli.packages.${system}.default
+            inputs.codex-cli.packages.${system}.default
 
             # rust stable toolchain
-            (fenix.packages.x86_64-linux.stable.withComponents [
+            (inputs.fenix.packages.${system}.stable.withComponents [
               "cargo"
               "clippy"
               "rust-analyzer"
@@ -110,15 +115,17 @@
               "rustfmt"
             ])
 
-            matui.packages.x86_64-linux.default
-            timer.packages.x86_64-linux.default
-            toofan.packages.x86_64-linux.default
+            inputs.matui.packages.${system}.default
+            inputs.timer.packages.${system}.default
+            inputs.toofan.packages.${system}.default
           ];
 
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = { inherit inputs; };
-          home-manager.users.anirudh = import ./home-manager/home.nix;
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            extraSpecialArgs = { inherit inputs; };
+            users.anirudh = import ./home-manager/home.nix;
+          };
         }
       ];
     };
