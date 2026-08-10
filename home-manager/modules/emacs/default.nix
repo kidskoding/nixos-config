@@ -2,8 +2,8 @@
 
 {
   home.sessionVariables = {
-    EDITOR = ''emacsclient -nw -a ""'';
-    VISUAL = ''emacsclient -nw -a ""'';
+    EDITOR = "emacsclient -nw";
+    VISUAL = "emacsclient -nw";
   };
 
   xdg.configFile."doom" = {
