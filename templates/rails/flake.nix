@@ -9,7 +9,7 @@
     in {
       devShells.x86_64-linux.default = pkgs.mkShell {
         packages = with pkgs; [
-          ruby
+          ruby_3_4
 
           # native-gem build deps
           libyaml
