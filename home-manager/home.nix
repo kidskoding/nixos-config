@@ -33,6 +33,7 @@
 
     # languages
     dotnet-sdk_10
+    elmPackages.elm
     go
     jdk21
     lua
@@ -40,6 +41,7 @@
     zig
 
     # lsps / formatters / linters
+    elmPackages.elm-language-server
     gopls
     jdt-language-server
     lua-language-server
