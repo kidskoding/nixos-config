@@ -95,6 +95,7 @@
     secrets = {
       "wifi/home" = {};
       "wifi/home2" = {};
+      "wifi/uiuc" = {};
     };
 
     templates = {
@@ -102,6 +103,7 @@
         content = ''
           RUDY2015_PSK="${config.sops.placeholder."wifi/home"}"
           BECKYBEND_PSK="${config.sops.placeholder."wifi/home2"}"
+          ILLINOISNET_PSK="${config.sops.placeholder."wifi/uiuc"}"
         '';
       };
     };
@@ -129,9 +131,7 @@
             type = "wifi";
           };
 
-          wifi = {
-            ssid = "Rudy2015";
-          };
+          wifi.ssid = "Rudy2015";
 
           wifi-security = {
             key-mgmt = "wpa-psk";
@@ -145,13 +145,28 @@
             type = "wifi";
           };
 
-          wifi = {
-            ssid = "BeckyBend";
-          };
+          wifi.ssid = "BeckyBend";
 
           wifi-security = {
             key-mgmt = "wpa-psk";
             psk = "$BECKYBEND_PSK";
+          };
+        };
+
+        uiuc = {
+          connection = {
+            id = "IllinoisNet";
+            type = "wifi";
+          };
+
+          wifi.ssid = "IllinoisNet";
+          wifi-security.key-mgmt = "wpa-eap";
+
+          "802-1x" = {
+            eap = "peap;";
+            identity = "ak123";
+            phase2-auth = "mschapv2";
+            password = "$ILLINOISNET_PSK";
           };
         };
       };

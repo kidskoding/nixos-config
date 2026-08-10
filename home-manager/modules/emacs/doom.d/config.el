@@ -195,6 +195,11 @@
 (after! pdf-tools
   (setq pdf-info-epdfinfo-program (executable-find "epdfinfo")))
 
+(setq-hook! '(nix-mode-hook nix-ts-mode-hook yaml-mode-hook yaml-ts-mode-hook)
+  tab-width 2
+  nix-ts-mode-indent-offset 2
+  yaml-indent-offset 2)
+
 (after! markdown-mode
   (map! :localleader
         :map markdown-mode-map
