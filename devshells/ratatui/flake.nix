@@ -38,7 +38,7 @@
             grep -qxF '.envrc' .git/info/exclude 2>/dev/null \
               || printf '.envrc\n.direnv/\n' >> .git/info/exclude
             [ -f .envrc ] \
-              || printf 'use flake ~/nixos?dir=devshells/ratatui\n' > .envrc
+              || printf 'use flake "$HOME/nixos?dir=devshells/ratatui"\n' > .envrc
           fi
         '';
       };
