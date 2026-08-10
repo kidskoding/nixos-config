@@ -1,5 +1,5 @@
 {
-  description = "ruby on rails dev environment";
+  description = "anirudh's ruby on rails dev environment";
 
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -9,9 +9,7 @@
     in {
       devShells.x86_64-linux.default = pkgs.mkShell {
         packages = with pkgs; [
-          # ruby + rails + bundler + sqlite3 gem, all from nixpkgs
-          # (no `gem install` needed to bootstrap `rails new`)
-          (ruby.withPackages (ps: [ ps.rails ps.sqlite3 ]))
+          ruby
 
           # native-gem build deps
           libyaml
@@ -34,10 +32,22 @@
         };
 
         shellHook = ''
+          # the nix store is read-only, so `gem install` needs a writable home.
+          # per-project rather than shared: two projects pinned to different
+          # rails versions should not fight over one gem home.
+          export GEM_HOME="$PWD/.nix-gems"
+          export PATH="$GEM_HOME/bin:$PATH"
+
           if [ ! -f Gemfile ]; then
-            echo "no Gemfile found, scaffolding a new rails app..."
+            # pin with RAILS_VERSION=8.1.3.1 nix develop, else take the latest.
+            echo "no Gemfile found, installing rails ''${RAILS_VERSION:-(latest)}..."
+            gem install --no-document rails ''${RAILS_VERSION:+-v "$RAILS_VERSION"}
+
             rails new . --skip-bundle --database=sqlite3
             bundle install
+
+            grep -qxF '/.nix-gems' .gitignore 2>/dev/null \
+              || echo '/.nix-gems' >> .gitignore
           fi
         '';
       };
