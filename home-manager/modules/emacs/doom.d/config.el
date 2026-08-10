@@ -99,7 +99,8 @@
 ;; snappier LSP diagnostics/completion, at the cost of more CPU while typing
 (after! lsp-mode
   (setq lsp-idle-delay 0.1)
-  (setq lsp-auto-guess-root t))
+  (setq lsp-auto-guess-root t)
+  (setq lsp-enable-suggest-server-download nil))
 (after! flycheck
   (setq flycheck-idle-change-delay 0.1))
 
