@@ -1,5 +1,5 @@
 {
-  description = "anirudh's rust dev environment";
+  description = "ratatui dev shell (stable toolchain, nightly rustfmt for cargo xtask format)";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -27,16 +27,20 @@
     in {
       devShells.${system}.default = pkgs.mkShell {
         packages = [ toolchain ] ++ (with pkgs; [
-          # "accessories" for rust
           bacon
-          cargo-chef
           evcxr
-          loco
-          trunk
-          wasm-pack
         ]);
 
         RUST_BACKTRACE = "1";
+
+        shellHook = ''
+          if [ -d .git ]; then
+            grep -qxF '.envrc' .git/info/exclude 2>/dev/null \
+              || printf '.envrc\n.direnv/\n' >> .git/info/exclude
+            [ -f .envrc ] \
+              || printf 'use flake ~/nixos?dir=devshells/ratatui\n' > .envrc
+          fi
+        '';
       };
     };
 }
