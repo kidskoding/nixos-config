@@ -41,6 +41,7 @@
     zig
 
     # lsps / formatters / linters
+    gopls
     jdt-language-server
     lua-language-server
     nixd
@@ -48,8 +49,10 @@
     omnisharp-roslyn
     pyright
     ruby-lsp
+    rust-analyzer
     shellcheck
     typescript-language-server
+    yaml-language-server
     zls
 
     # core developer tools
