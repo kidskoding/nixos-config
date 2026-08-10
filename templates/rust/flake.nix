@@ -13,16 +13,13 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-      fx = fenix.packages.${system};
-      toolchain = fx.combine [
-        (fx.stable.withComponents [
-          "cargo"
-          "clippy"
-          "rust-analyzer"
-          "rust-src"
-          "rustc"
-        ])
-        fx.complete.rustfmt
+      toolchain = fenix.packages.${system}.stable.withComponents [
+        "cargo"
+        "clippy"
+        "rust-analyzer"
+        "rust-src"
+        "rustc"
+        "rustfmt"
       ];
     in {
       devShells.${system}.default = pkgs.mkShell {
