@@ -72,6 +72,11 @@
     system = "x86_64-linux";
   in {
     templates = {
+      elm = {
+        path = ./templates/elm;
+        description = "elm dev shell with direnv";
+      };
+
       go = {
         path = ./templates/go;
         description = "go dev shell with direnv";
