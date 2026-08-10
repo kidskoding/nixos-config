@@ -4,6 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
+      inputs.sops-nix.nixosModules.sops
     ];
 
   nix.settings.experimental-features = [
@@ -75,7 +76,6 @@
       finegrained = false;
     };
 
-
     prime = {
       offload = {
         enable = true;
@@ -84,6 +84,26 @@
 
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
+    };
+  };
+
+  sops = {
+    defaultSopsFile = ./secrets/secrets.yaml;
+    defaultSopsFormat = "yaml";
+    age.keyFile = "/home/anirudh/.config/sops/age/keys.txt";
+
+    secrets = {
+      "wifi/home" = {};
+      "wifi/home2" = {};
+    };
+
+    templates = {
+      "wifi.env" = {
+        content = ''
+          RUDY2015_PSK="${config.sops.placeholder."wifi/home"}"
+          BECKYBEND_PSK="${config.sops.placeholder."wifi/home2"}"
+        '';
+      };
     };
   };
 
@@ -96,7 +116,47 @@
   programs.gamemode.enable = true;
 
   networking.hostName = "nixos";
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+
+    ensureProfiles = {
+      environmentFiles = [ config.sops.templates."wifi.env".path ];
+
+      profiles = {
+        home = {
+          connection = {
+            id = "Rudy2015";
+            type = "wifi";
+          };
+
+          wifi = {
+            ssid = "Rudy2015";
+          };
+
+          wifi-security = {
+            key-mgmt = "wpa-psk";
+            psk = "$RUDY2015_PSK";
+          };
+        };
+
+        home2 = {
+          connection = {
+            id = "BeckyBend";
+            type = "wifi";
+          };
+
+          wifi = {
+            ssid = "BeckyBend";
+          };
+
+          wifi-security = {
+            key-mgmt = "wpa-psk";
+            psk = "$BECKYBEND_PSK";
+          };
+        };
+      };
+    };
+  };
 
   time.timeZone = "America/Chicago";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -133,6 +193,7 @@
     pkg-config
     psmisc
     python313
+    sops
     unzip
     vim
     wget
