@@ -41,6 +41,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # secrets (sops)
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # productivity
     timer = {
       url = "github:sectore/timr-tui";
