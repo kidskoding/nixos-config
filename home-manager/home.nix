@@ -75,7 +75,9 @@
     bacon
     claude-agent-acp
     codex-acp
-    emacs-unstable
+    (emacs-unstable.pkgs.withPackages (
+      epkgs: with epkgs; [ treesit-grammars.with-all-grammars ]
+    ))
     github-cli
     mdbook
     mdbook-mermaid
