@@ -53,7 +53,7 @@
        word-wrap
 
        :emacs
-       dired
+       (dired +dirvish)
        electric
        ;;eww
        ;;ibuffer
@@ -93,7 +93,7 @@
 
        :os
        (:if (featurep :system 'macos) macos)
-       ;;tty
+       tty
 
        :lang
        ;;ada
@@ -143,7 +143,7 @@
        (nix +lsp +tree-sitter)
        ;;ocaml
        ;;odin
-       org
+       (org +pretty)
        (php +lsp +tree-sitter)
        ;;plantuml
        ;;graphviz

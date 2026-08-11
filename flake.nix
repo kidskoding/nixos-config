@@ -88,7 +88,7 @@
       };
 
       python = {
-        path = ./templates/python3.13;
+        path = ./templates/python;
         description = "python dev shell with direnv";
       };
 

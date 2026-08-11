@@ -113,7 +113,8 @@
   (setq vertico-buffer-display-action
         '(display-buffer-in-side-window
           (side . bottom)
-          (window-height . 0.4))))
+          (window-height . 0.4)
+          (window-parameters . ((mode-line-format . none))))))
 
 (use-package! nerd-icons-completion
   :after marginalia
