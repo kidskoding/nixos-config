@@ -106,11 +106,15 @@
 (after! vertico
   (map! :map vertico-map "M-d" #'abort-minibuffers)
   (vertico-multiform-mode +1)
+  (defun +vertico-buffer-graphic (arg)
+    (if (> arg 0)
+        (when (display-graphic-p) (vertico-buffer-mode 1))
+      (vertico-buffer-mode -1)))
   (setq vertico-multiform-commands
-        '((consult-buffer buffer)
-          (consult-line buffer)
-          (+affe-find-project buffer)
-          (+affe-grep-project buffer)))
+        '((consult-buffer +vertico-buffer-graphic)
+          (consult-line +vertico-buffer-graphic)
+          (+affe-find-project +vertico-buffer-graphic)
+          (+affe-grep-project +vertico-buffer-graphic)))
   (setq vertico-buffer-display-action
         '(display-buffer-in-side-window
           (side . bottom)
