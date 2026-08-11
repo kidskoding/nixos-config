@@ -45,7 +45,7 @@ in
       };
 
       general.dimmerOpacity = 0.0;
-      general.avatarImage = "${./avatar.png}";
+      general.avatarImage = "${./avatar.jpg}";
       ui.fontDefault = config.theme.fontFamily;
       ui.fontFixed = config.theme.fontFamily;
 
