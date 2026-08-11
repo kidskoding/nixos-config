@@ -66,7 +66,7 @@
 
        :checkers
        syntax
-       (spell +flyspell)
+       ;;(spell +flyspell)
        ;;grammar
 
        :tools

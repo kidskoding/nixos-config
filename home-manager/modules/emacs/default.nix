@@ -15,6 +15,8 @@ in
     socketActivation.enable = true;
   };
 
+  systemd.user.services.emacs.Service.Environment = [ "COLORTERM=truecolor" ];
+
   home.sessionVariables = {
     EDITOR = "emacsclient -nw";
     VISUAL = "emacsclient -nw";
