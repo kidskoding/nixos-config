@@ -34,23 +34,30 @@
     elmPackages.elm
     go
     jdk21
+    julia
     lua
+    php
+    phpPackages.composer
     ruby
     zig
 
     # lsps / formatters / linters
     elmPackages.elm-language-server
     gopls
+    graphql-language-service-cli
+    intelephense
     jdt-language-server
+    kotlin-language-server
     lua-language-server
     nixd
     nixfmt
     omnisharp-roslyn
     pyright
     ruby-lsp
-    rust-analyzer
     shellcheck
+    terraform-ls
     typescript-language-server
+    vscode-langservers-extracted
     yaml-language-server
     zls
 
@@ -74,9 +81,6 @@
     bacon
     claude-agent-acp
     codex-acp
-    (emacs-unstable.pkgs.withPackages (
-      epkgs: with epkgs; [ treesit-grammars.with-all-grammars ]
-    ))
     github-cli
     mdbook
     mdbook-mermaid
@@ -90,7 +94,7 @@
 
     # applications
     discord
-    firefox
+    ruffle
     spotify
 
     # gaming
