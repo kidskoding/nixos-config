@@ -18,7 +18,6 @@
         env = {
           UV_PYTHON_DOWNLOADS = "never";
           UV_PYTHON_PREFERENCE = "only-system";
-          UV_SYSTEM_PYTHON = 1;
         };
 
         shellHook = ''

@@ -93,7 +93,7 @@
 
        :os
        (:if (featurep :system 'macos) macos)
-       tty
+       ;;tty
 
        :lang
        ;;ada

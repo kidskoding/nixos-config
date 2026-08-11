@@ -104,6 +104,7 @@
       :desc "Search project"       "/"   #'+affe-grep-project)
 
 (after! vertico
+  (map! :map vertico-map "M-d" #'abort-minibuffers)
   (vertico-multiform-mode +1)
   (setq vertico-multiform-commands
         '((consult-buffer buffer)
@@ -115,6 +116,10 @@
           (side . bottom)
           (window-height . 0.4)
           (window-parameters . ((mode-line-format . none))))))
+
+(after! dirvish
+  (custom-set-faces!
+    '(dirvish-hl-line :inherit region :extend t)))
 
 (use-package! nerd-icons-completion
   :after marginalia
