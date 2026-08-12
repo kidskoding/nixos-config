@@ -1,5 +1,5 @@
 {
-  description = "rust dev shell with direnv";
+  description = "rust dev shell";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -34,15 +34,6 @@
         ]);
 
         RUST_BACKTRACE = "1";
-
-        shellHook = ''
-          if [ -d .git ]; then
-            grep -qxF '.envrc' .git/info/exclude 2>/dev/null \
-              || printf '.envrc\n.direnv/\n' >> .git/info/exclude
-            [ -f .envrc ] \
-              || printf 'use flake "$HOME/nixos?dir=devshells/rust"\n' > .envrc
-          fi
-        '';
       };
     };
 }

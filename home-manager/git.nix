@@ -10,5 +10,10 @@
       init.defaultBranch = "master";
       advice.defaultBranchName = false;
     };
+
+    ignores = [
+      ".envrc"
+      ".direnv/"
+    ];
   };
 }

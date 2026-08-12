@@ -71,6 +71,17 @@
   let
     system = "x86_64-linux";
   in {
+    templates = {
+      python = {
+        path = ./templates/python;
+        description = "python template (the nix way without uv)";
+      };
+
+      rust = {
+        path = ./templates/rust;
+        description = "rust dev shell with direnv";
+      };
+    };
 
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       inherit system;
