@@ -1,13 +1,14 @@
 {
-  description = "anirudh's ruby on rails dev environment";
+  description = "ruby on rails dev shell with direnv";
 
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
   outputs = { nixpkgs, ... }:
     let
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
     in {
-      devShells.x86_64-linux.default = pkgs.mkShell {
+      devShells.${system}.default = pkgs.mkShell {
         packages = with pkgs; [
           ruby_3_4
 
@@ -19,9 +20,6 @@
           # rails
           libxml2 libxslt   # nokogiri
           sqlite            # sqlite3 gem (the default rails dev db)
-
-          # swap in sqlite for postgres if using postgres instead:
-          # postgresql      # pg gem
         ];
 
         env = {
@@ -48,6 +46,13 @@
 
             grep -qxF '/.nix-gems' .gitignore 2>/dev/null \
               || echo '/.nix-gems' >> .gitignore
+          fi
+
+          if [ -d .git ]; then
+            grep -qxF '.envrc' .git/info/exclude 2>/dev/null \
+              || printf '.envrc\n.direnv/\n' >> .git/info/exclude
+            [ -f .envrc ] \
+              || printf 'use flake "$HOME/nixos?dir=devshells/rails"\n' > .envrc
           fi
         '';
       };

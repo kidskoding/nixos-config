@@ -71,37 +71,6 @@
   let
     system = "x86_64-linux";
   in {
-    templates = {
-      elm = {
-        path = ./templates/elm;
-        description = "elm dev shell with direnv";
-      };
-
-      go = {
-        path = ./templates/go;
-        description = "go dev shell with direnv";
-      };
-
-      gradle = {
-        path = ./templates/gradle;
-        description = "gradle dev shell with direnv";
-      };
-
-      python = {
-        path = ./templates/python;
-        description = "python dev shell with direnv";
-      };
-
-      rails = {
-        path = ./templates/rails;
-        description = "ruby on rails dev shell with direnv";
-      };
-
-      rust = {
-        path = ./templates/rust;
-        description = "rust dev shell with direnv";
-      };
-    };
 
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       inherit system;
