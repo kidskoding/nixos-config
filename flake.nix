@@ -92,6 +92,7 @@
       modules = [
         ./configuration.nix
         inputs.niri.nixosModules.niri
+
         inputs.home-manager.nixosModules.home-manager {
           environment.systemPackages = [
             inputs.aoc-cli.packages.${system}.default
