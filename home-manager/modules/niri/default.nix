@@ -207,6 +207,13 @@ in
       }
       {
         matches = [
+          { app-id = "^discord$"; }
+          { app-id = "^firefox$"; }
+        ];
+        default-column-width.proportion = 1.0;
+      }
+      {
+        matches = [
           { app-id = "^steam$"; }
           { app-id = "^heroic$"; }
           { app-id = "^net\\.lutris\\.Lutris$"; }
