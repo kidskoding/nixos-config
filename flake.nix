@@ -39,6 +39,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # niri
+    niri.url = "github:sodiboo/niri-flake";
+
     # noctalia
     noctalia = {
       url = "github:noctalia-dev/noctalia/legacy-v4";
@@ -88,6 +91,7 @@
       specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
+        inputs.niri.nixosModules.niri
         inputs.home-manager.nixosModules.home-manager {
           environment.systemPackages = [
             inputs.aoc-cli.packages.${system}.default
