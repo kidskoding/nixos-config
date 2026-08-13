@@ -59,10 +59,7 @@ in
     enable = true;
 
     loginShellInit = ''
-      # auto-start hyprland when logging in on tty1
-      if uwsm check may-start
-        exec uwsm start hyprland-uwsm.desktop
-      end
+      exec niri-session
     '';
 
     plugins = [

@@ -4,7 +4,7 @@
   imports = [
     ./alacritty
     ./emacs
-    ./hyprland
+    ./niri
 
     ./fastfetch
     ./mangohud

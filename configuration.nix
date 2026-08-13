@@ -227,9 +227,9 @@
   # run prebuilt binaries (uv-managed pythons, pip wheels, etc.)
   programs.nix-ld.enable = true;
 
-  programs.hyprland = {
+  programs.niri = {
     enable = true;
-    withUWSM = true;
+    package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
   };
 
   programs.hyprlock.enable = true;
