@@ -218,7 +218,6 @@ in
           { app-id = "^heroic$"; }
           { app-id = "^net\\.lutris\\.Lutris$"; }
         ];
-        open-floating = true;
       }
       {
         matches = [
