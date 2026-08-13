@@ -66,6 +66,7 @@ in
               id = "Workspace";
               labelMode = "index";
               emptyColor = "none";
+              hideUnoccupied = true;
             }
           ];
           center = [
