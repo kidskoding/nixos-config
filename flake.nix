@@ -64,6 +64,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # zen (browser)
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -114,6 +121,7 @@
             inputs.matui.packages.${system}.default
             inputs.timer.packages.${system}.default
             inputs.toofan.packages.${system}.default
+            inputs.zen-browser.packages.${system}.default
           ];
 
           home-manager = {

@@ -488,7 +488,8 @@
         "noctalia": "noctalia",
         "sops-nix": "sops-nix",
         "timer": "timer",
-        "toofan": "toofan"
+        "toofan": "toofan",
+        "zen-browser": "zen-browser"
       }
     },
     "rust-analyzer-src": {
@@ -738,6 +739,29 @@
       "original": {
         "owner": "Supreeeme",
         "repo": "xwayland-satellite",
+        "type": "github"
+      }
+    },
+    "zen-browser": {
+      "inputs": {
+        "home-manager": [
+          "home-manager"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1786643794,
+        "narHash": "sha256-/E1S2qKsFJwpE+R9UsuRMa+BDTqkBeMe1P1/IHv6CrE=",
+        "owner": "0xc000022070",
+        "repo": "zen-browser-flake",
+        "rev": "048f33b82e77dd1fb058b1e4354a989c6c8f4caa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "0xc000022070",
+        "repo": "zen-browser-flake",
         "type": "github"
       }
     }

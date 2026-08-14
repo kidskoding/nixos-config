@@ -52,6 +52,7 @@
 (package! affe)
 (package! nerd-icons-completion)
 (package! elcord)
+(package! org-modern)
 
 (package! shell-maker)
 (package! acp)

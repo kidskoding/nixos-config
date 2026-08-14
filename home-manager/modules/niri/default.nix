@@ -208,10 +208,23 @@ in
       {
         matches = [
           { app-id = "^discord$"; }
-          { app-id = "^firefox$"; }
+          { app-id = "^zen-beta$"; }
           { app-id = "^spotify$"; }
         ];
         default-column-width.proportion = 1.0;
+      }
+      {
+        matches = [
+          {
+            app-id = "^steam$";
+            title = "^notificationtoasts_[0-9]+_desktop$";
+          }
+        ];
+        default-floating-position = {
+          x = 10;
+          y = 10;
+          relative-to = "bottom-right";
+        };
       }
       {
         matches = [

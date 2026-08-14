@@ -35,7 +35,7 @@
        vi-tilde-fringe
        ;;window-select
        workspaces
-       ;;zen
+       zen
 
        :editor
        ;;(evil +everywhere)

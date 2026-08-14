@@ -5,6 +5,39 @@
 (setq display-line-numbers-type t)
 (setq org-directory "~/org/")
 
+(after! org
+  (setq org-startup-indented t
+        org-startup-folded 'content
+        org-hide-emphasis-markers t
+        org-pretty-entities t
+        org-ellipsis " ▾"
+        org-cycle-separator-lines 2
+        org-image-actual-width '(700))
+
+  (add-hook 'org-mode-hook #'visual-line-mode)
+
+  (custom-set-faces!
+    '(org-document-title :height 1.5 :weight bold)
+    '(org-level-1 :height 1.30 :weight bold)
+    '(org-level-2 :height 1.20 :weight bold)
+    '(org-level-3 :height 1.10 :weight semi-bold)
+    '(org-level-4 :height 1.05 :weight semi-bold)
+    '(org-block :extend t)
+    '(org-code :inherit fixed-pitch)
+    '(org-table :inherit fixed-pitch)
+    '(org-verbatim :inherit fixed-pitch)
+    '(org-checkbox :inherit fixed-pitch)))
+
+(use-package! org-modern
+  :hook (org-mode . org-modern-mode)
+  :config
+  (setq org-modern-star 'replace
+        org-modern-hide-stars nil
+        org-modern-table t
+        org-modern-list '((43 . "•")
+                          (45 . "–")
+                          (42 . "◦"))))
+
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `with-eval-after-load' block, otherwise Doom's defaults may override your
 ;; settings. E.g.
@@ -57,7 +90,8 @@
 (after! lsp-mode
   (setq lsp-idle-delay 0.1)
   (setq lsp-auto-guess-root t)
-  (setq lsp-enable-suggest-server-download nil))
+  (setq lsp-enable-suggest-server-download nil)
+  (setq lsp-lens-enable nil))
 (after! flycheck
   (setq flycheck-idle-change-delay 0.1))
 

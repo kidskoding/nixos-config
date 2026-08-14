@@ -209,7 +209,6 @@
 
   environment.systemPackages = with pkgs; [
     efibootmgr
-    firefox
     gcc
     gdb
     git
