@@ -193,6 +193,7 @@ in
       {
         draw-border-with-background = false;
         clip-to-geometry = true;
+        open-fullscreen = false;
         geometry-corner-radius = {
           top-left = 8.0;
           top-right = 8.0;
@@ -211,14 +212,6 @@ in
           { app-id = "^spotify$"; }
         ];
         default-column-width.proportion = 1.0;
-        open-fullscreen = false;
-      }
-      {
-        matches = [
-          { app-id = "^steam$"; }
-          { app-id = "^heroic$"; }
-          { app-id = "^net\\.lutris\\.Lutris$"; }
-        ];
       }
       {
         matches = [
