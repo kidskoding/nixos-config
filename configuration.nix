@@ -241,6 +241,8 @@
     package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
   };
 
+  systemd.packages = [ config.programs.niri.package ];
+
   programs.hyprlock.enable = true;
 
   virtualisation.docker.enable = true;

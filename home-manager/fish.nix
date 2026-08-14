@@ -59,7 +59,10 @@ in
     enable = true;
 
     loginShellInit = ''
-      exec niri-session
+      if test (tty) = /dev/tty1; and not set -q NIRI_SESSION_STARTED
+        set -gx NIRI_SESSION_STARTED 1
+        exec niri-session
+      end
     '';
 
     plugins = [
