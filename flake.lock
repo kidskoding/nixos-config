@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1786557307,
-        "narHash": "sha256-5Wob1Y4I/K7uWdTAI8SkCT8Rm8e6XxoBVdilmaP8vqQ=",
+        "lastModified": 1786829626,
+        "narHash": "sha256-Yg4SMZkoln6bEwAUPDhqCU7XWC1REPtHaerrhKf9eew=",
         "owner": "Hy4ri",
         "repo": "antigravity-flake",
-        "rev": "40c8fe3fdb8c4b839a282b453eb90590951a772d",
+        "rev": "bf9c75d727c829794599434cbb29db774dd9ce77",
         "type": "github"
       },
       "original": {
