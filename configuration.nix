@@ -162,6 +162,15 @@
           };
         };
 
+        octave = {
+          connection = {
+            id = "Octave 5G";
+            type = "wifi";
+          };
+
+          wifi.ssid = "Octave 5G";
+        };
+
         uiuc = {
           connection = {
             id = "IllinoisNet";
