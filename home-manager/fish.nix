@@ -104,6 +104,7 @@ in
 
       # other
       emacs = ''emacsclient -nw -a ""'';
+      emacsg = ''emacsclient -c -n -a ""'';
       timer = "timr-tui";
     };
 

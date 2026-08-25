@@ -32,7 +32,7 @@
   :hook (org-mode . org-modern-mode)
   :config
   (setq org-modern-star 'replace
-        org-modern-hide-stars nil
+        org-modern-hide-stars 'leading
         org-modern-table t
         org-modern-list '((43 . "•")
                           (45 . "–")
@@ -197,3 +197,159 @@
         :map markdown-mode-map
         "p" #'markdown-live-preview-mode
         "h" #'markdown-toggle-markup-hiding))
+
+;; --- LaTeX math in org notes ---
+(after! org
+  (setq org-preview-latex-default-process 'dvisvgm
+        org-highlight-latex-and-related '(native script entities)
+        ;; render fragments on file open. A no-op in tty frames, which cannot
+        ;; display images at all -- see the frame note below.
+        org-startup-with-latex-preview t)
+  (plist-put org-format-latex-options :scale 1.5)
+  ;; 'auto takes the colour of the face at point, so a fragment inside a
+  ;; heading or a bold run renders a different colour than one in body text.
+  ;; 'default pins every fragment to the default face.
+  (plist-put org-format-latex-options :foreground 'default)
+  (dolist (pkg '("amsmath" "amssymb" "mathtools"))
+    (add-to-list 'org-latex-packages-alist (list "" pkg t)))
+  (add-hook 'org-mode-hook #'turn-on-org-cdlatex))
+
+;; render fragment when cursor leaves it, show source when inside.
+;; Deliberately NOT gated on display-graphic-p: with a daemon serving both tty
+;; and GUI frames, the hook runs once at file-open time, so gating leaves any
+;; buffer first opened in a terminal permanently without previews even after you
+;; view it in a graphical frame. In a tty the mode just calls a function that
+;; returns nil immediately, which is cheaper than that surprise.
+(use-package! org-fragtog
+  :hook (org-mode . org-fragtog-mode))
+
+;; --- PDF via zathura ---
+(after! org
+  (setq org-file-apps
+        (append '(("\\.pdf\\'" . "zathura %s")) org-file-apps)))
+
+(after! tex
+  (setq TeX-view-program-selection '((output-pdf "Zathura"))))
+
+;; --- live PDF preview from a terminal frame ---
+;; Enable `+org-live-pdf-mode' from the master org file (e.g. cs374.org).
+;;   master.org  -> master.pdf   (root, live in zathura via latexmk -pvc)
+;;   lecNN.org   -> lectures/lecNN.pdf  (rebuilt on save)
+;;   everything else (generated .tex, .aux, .log) -> out/
+;; Export is pure elisp and fast; latexmk does the slow part out of process, so
+;; this works in `emacsclient -nw' where org-latex-preview cannot render at all.
+;; ponytail: one master at a time (global singleton). Make the state buffer-local
+;; if you ever want two courses live at once.
+(defvar +org-live-pdf-out-dir "out"
+  "Directory, relative to the org file, for generated .tex and aux files.")
+
+(defvar +org-live-pdf-lectures-dir "lectures"
+  "Directory, relative to the org file, for per-lecture PDFs.")
+
+(defvar +org-live-pdf-ignore '("setup.org")
+  "Org files in the master's directory that are includes, not lectures.")
+
+(defvar +org-live-pdf--master nil "Absolute path of the master file, while on.")
+(defvar +org-live-pdf--proc nil "The `latexmk -pvc' process watching the master.")
+
+(defun +org-live-pdf--export (org)
+  "Export ORG to `+org-live-pdf-out-dir'/NAME.tex and return that path."
+  (with-current-buffer (find-file-noselect org)
+    (let ((tex (org-latex-export-to-latex))
+          (out (expand-file-name +org-live-pdf-out-dir (file-name-directory org))))
+      (make-directory out t)
+      (let ((dest (expand-file-name (file-name-nondirectory tex) out)))
+        (rename-file tex dest t)
+        dest))))
+
+(defun +org-live-pdf--build-lecture (org)
+  "Compile ORG to `+org-live-pdf-lectures-dir'/NAME.pdf, aux in the out dir."
+  (let* ((tex (+org-live-pdf--export org))
+         (default-directory (file-name-directory org)))
+    (make-directory +org-live-pdf-lectures-dir t)
+    (start-process
+     "org-lecture-pdf" "*org-live-pdf*" "latexmk"
+     "-pdf" "-interaction=nonstopmode"
+     (format "-auxdir=%s" +org-live-pdf-out-dir)
+     (format "-outdir=%s" +org-live-pdf-lectures-dir)
+     "-e" "$failure_cmd=q(notify-send -u normal -h string:x-canonical-private-synchronous:latexmk 'LaTeX build failed' 'see *org-live-pdf*')"
+     tex)))
+
+(defun +org-live-pdf--lecture-p (file)
+  "Non-nil if FILE is a lecture source rather than the master or an include."
+  (let ((file (expand-file-name file)))
+    (and (equal (file-name-extension file) "org")
+         (not (equal file +org-live-pdf--master))
+         (not (member (file-name-nondirectory file) +org-live-pdf-ignore))
+         (equal (file-name-directory file)
+                (file-name-directory +org-live-pdf--master)))))
+
+(defun +org-live-pdf--on-save ()
+  "Refresh the master .tex, and this file's own PDF if it is a lecture."
+  (when (and +org-live-pdf--master buffer-file-name
+             (equal (file-name-extension buffer-file-name) "org")
+             (equal (file-name-directory (expand-file-name buffer-file-name))
+                    (file-name-directory +org-live-pdf--master)))
+    ;; latexmk -pvc notices the rewritten .tex and zathura reloads the PDF
+    (+org-live-pdf--export +org-live-pdf--master)
+    (when (+org-live-pdf--lecture-p buffer-file-name)
+      (+org-live-pdf--build-lecture (expand-file-name buffer-file-name)))))
+
+(defun +org-live-pdf-build-all ()
+  "Rebuild every lecture PDF in the master's directory."
+  (interactive)
+  (unless +org-live-pdf--master
+    (user-error "Enable `+org-live-pdf-mode' from the master file first"))
+  (dolist (f (directory-files (file-name-directory +org-live-pdf--master) t "\\.org\\'"))
+    (when (+org-live-pdf--lecture-p f)
+      (+org-live-pdf--build-lecture f))))
+
+(define-minor-mode +org-live-pdf-mode
+  "Keep the master PDF live in zathura and rebuild lecture PDFs on save.
+Enable this from the master org file."
+  :lighter " LivePDF"
+  :global t
+  (if +org-live-pdf-mode
+      (progn
+        (unless (and buffer-file-name (derived-mode-p 'org-mode))
+          (setq +org-live-pdf-mode nil)
+          (user-error "Enable this from the master org file"))
+        ;; the master is the file with the #+INCLUDE: lines. Enabling from a
+        ;; lecture instead silently makes *it* the master, which puts the
+        ;; per-lecture PDF in the root and the combined one in lectures/.
+        (unless (save-excursion
+                  (goto-char (point-min))
+                  (re-search-forward "^#\\+INCLUDE:" nil t))
+          (setq +org-live-pdf-mode nil)
+          (user-error "No #+INCLUDE: lines here -- enable this from the master file"))
+        (require 'ox-latex nil t)
+        (setq +org-live-pdf--master (expand-file-name buffer-file-name))
+        (add-hook 'after-save-hook #'+org-live-pdf--on-save)
+        (let ((tex (+org-live-pdf--export +org-live-pdf--master))
+              (default-directory (file-name-directory +org-live-pdf--master)))
+          (setq +org-live-pdf--proc
+                (start-process
+                 "org-live-pdf" "*org-live-pdf*" "latexmk"
+                 "-pdf" "-pvc" "-interaction=nonstopmode"
+                 (format "-auxdir=%s" +org-live-pdf-out-dir)
+                 "-outdir=."
+                 "-e" "$pdf_previewer=q(zathura)"
+                 ;; poll 4x faster than the default 2s; auto-save-visited-mode
+                 ;; already writes the file every 2s, so this is the other half
+                 ;; of the type -> PDF latency
+                 "-e" "$sleep_time=0.5"
+                 "-e" "$failure_cmd=q(notify-send -u normal -h string:x-canonical-private-synchronous:latexmk 'LaTeX build failed' 'see *org-live-pdf*')"
+                 tex)))
+        (+org-live-pdf-build-all))
+    (remove-hook 'after-save-hook #'+org-live-pdf--on-save)
+    (when (process-live-p +org-live-pdf--proc)
+      (kill-process +org-live-pdf--proc))
+    (setq +org-live-pdf--proc nil
+          +org-live-pdf--master nil)))
+
+;; Doom disables flycheck's org-lint checker by default (it is slow on very
+;; large org files). Lecture notes are small, and a broken #+INCLUDE: is much
+;; cheaper to catch here than in a latexmk log.
+(after! flycheck
+  (setq-default flycheck-disabled-checkers
+                (delq 'org-lint (default-value 'flycheck-disabled-checkers))))

@@ -7,7 +7,7 @@ let
 in
 
 {
-  home.packages = [ emacs ];
+  home.packages = [ emacs pkgs.zathura ];
 
   services.emacs = {
     enable = true;

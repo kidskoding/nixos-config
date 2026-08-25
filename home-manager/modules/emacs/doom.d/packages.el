@@ -57,3 +57,5 @@
 (package! shell-maker)
 (package! acp)
 (package! agent-shell)
+
+(package! org-fragtog)

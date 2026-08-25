@@ -4,7 +4,10 @@
   imports =
     [
       ./hardware-configuration.nix
-      inputs.sops-nix.nixosModules.sops
+
+      ./system/boot.nix
+      ./system/networking.nix
+      ./system/nvidia.nix
     ];
 
   nix.settings.experimental-features = [
@@ -21,46 +24,6 @@
     "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
   ];
 
-  # bootloader
-  boot = {
-    loader = {
-      grub.enable = true;
-      grub.device = "nodev";
-      grub.efiSupport = true;
-      grub.gfxmodeEfi = "1920x1080";
- 
-      efi.canTouchEfiVariables = true;
-    };
-
-    plymouth = {
-      enable = true;
-      theme = "bgrt";
-      themePackages = with pkgs; [
-        nixos-bgrt-plymouth
-      ];
-    };
-
-    consoleLogLevel = 0;
-    initrd.verbose = false;
-    initrd.systemd.enable = true;
-    initrd.kernelModules = [ "i915" ];
-
-    kernelParams = [
-      "quiet"
-      "splash"
-      "boot.shell_on_fail"
-      "loglevel=3"
-      "rd.systemd.show_status=false"
-      "rd.udev.log_level=3"
-      "udev.log_priority=3"
-    ];
-  };
-
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
-
   security.rtkit.enable = true;
 
   services.pipewire = {
@@ -70,54 +33,6 @@
     pulse.enable = true;
   };
 
-  services.xserver.videoDrivers = [ "nvidia" ];
-
-  hardware.nvidia = {
-    modesetting.enable = true;
-    open = true;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-    powerManagement = {
-      enable = true;
-
-      # power off the dGPU when no offloaded app is running
-      # disabled: dGPU runtime-resume racing with dpms off hard-hangs the machine
-      finegrained = false;
-    };
-
-    prime = {
-      offload = {
-        enable = true;
-        enableOffloadCmd = true;
-      };
-
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:1:0:0";
-    };
-  };
-
-  sops = {
-    defaultSopsFile = ./secrets/secrets.yaml;
-    defaultSopsFormat = "yaml";
-    age.keyFile = "/home/anirudh/.config/sops/age/keys.txt";
-
-    secrets = {
-      "wifi/home" = {};
-      "wifi/home2" = {};
-      "wifi/uiuc" = {};
-    };
-
-    templates = {
-      "wifi.env" = {
-        content = ''
-          RUDY2015_PSK="${config.sops.placeholder."wifi/home"}"
-          BECKYBEND_PSK="${config.sops.placeholder."wifi/home2"}"
-          ILLINOISNET_PSK="${config.sops.placeholder."wifi/uiuc"}"
-        '';
-      };
-    };
-  };
-
   services.upower.enable = true;
 
   zramSwap.enable = true;
@@ -125,71 +40,6 @@
   programs.steam.enable = true;
   programs.gamescope.enable = true;
   programs.gamemode.enable = true;
-
-  networking.hostName = "nixos";
-  networking.networkmanager = {
-    enable = true;
-
-    ensureProfiles = {
-      environmentFiles = [ config.sops.templates."wifi.env".path ];
-
-      profiles = {
-        home = {
-          connection = {
-            id = "Rudy2015";
-            type = "wifi";
-          };
-
-          wifi.ssid = "Rudy2015";
-
-          wifi-security = {
-            key-mgmt = "wpa-psk";
-            psk = "$RUDY2015_PSK";
-          };
-        };
-
-        home2 = {
-          connection = {
-            id = "BeckyBend";
-            type = "wifi";
-          };
-
-          wifi.ssid = "BeckyBend";
-
-          wifi-security = {
-            key-mgmt = "wpa-psk";
-            psk = "$BECKYBEND_PSK";
-          };
-        };
-
-        octave = {
-          connection = {
-            id = "Octave 5G";
-            type = "wifi";
-          };
-
-          wifi.ssid = "Octave 5G";
-        };
-
-        uiuc = {
-          connection = {
-            id = "IllinoisNet";
-            type = "wifi";
-          };
-
-          wifi.ssid = "IllinoisNet";
-          wifi-security.key-mgmt = "wpa-eap";
-
-          "802-1x" = {
-            eap = "peap;";
-            identity = "ak123";
-            phase2-auth = "mschapv2";
-            password = "$ILLINOISNET_PSK";
-          };
-        };
-      };
-    };
-  };
 
   time.timeZone = "America/Chicago";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -260,12 +110,6 @@
   # instead of xwayland
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
-  };
-  
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [ ];
-    allowedUDPPorts = [ ];
   };
 
   system.autoUpgrade = {

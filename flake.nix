@@ -47,6 +47,10 @@
       url = "github:noctalia-dev/noctalia/legacy-v4";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    noctalia-greeter = {
+      url = "github:noctalia-dev/noctalia-greeter";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # secrets (sops)
     sops-nix = {
@@ -98,7 +102,9 @@
       specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
+        ./home-manager/modules/noctalia/greeter.nix
         inputs.niri.nixosModules.niri
+        inputs.noctalia-greeter.nixosModules.default
 
         inputs.home-manager.nixosModules.home-manager {
           environment.systemPackages = [

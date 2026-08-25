@@ -134,7 +134,7 @@
        (julia +lsp)
 
        kotlin
-       (latex +latexmk)
+       (latex +latexmk +cdlatex +fold)
        ;;lean
        ;;ledger
        (lua +lsp +tree-sitter)

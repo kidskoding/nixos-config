@@ -85,7 +85,7 @@
     mdbook
     mdbook-mermaid
     pandoc
-    texliveMedium
+    (texliveMedium.withPackages (ps: with ps; [ wrapfig capt-of ]))
 
     (runCommand "epdfinfo" { } ''
       mkdir -p $out/bin
