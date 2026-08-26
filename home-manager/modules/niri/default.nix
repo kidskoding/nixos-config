@@ -87,6 +87,7 @@ in
       { argv = [ "nm-applet" "--indicator" ]; }
       { sh = "wl-paste --watch cliphist store"; }
       { argv = [ terminal ]; }
+      { argv = [ "emacsclient" "-c" "-a" "" ]; }
     ];
   };
 }
