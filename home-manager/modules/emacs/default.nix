@@ -13,6 +13,7 @@ in
     enable = true;
     package = emacs;
     socketActivation.enable = true;
+    startWithUserSession = true;
   };
 
   systemd.user.services.emacs.Service.Environment = [ "COLORTERM=truecolor" ];
