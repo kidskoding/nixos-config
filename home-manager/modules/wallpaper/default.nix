@@ -11,4 +11,10 @@ in
     { argv = [ "awww-daemon" ]; }
     { sh = "sleep 2 && awww img --transition-type none ${current}"; }
   ];
+
+  programs.noctalia-shell.settings.wallpaper = {
+    enabled = true;
+    directory = "${images}";
+    fillMode = "crop";
+  };
 }

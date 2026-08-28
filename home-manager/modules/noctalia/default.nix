@@ -38,8 +38,6 @@
         batteryCriticalThreshold = 15;
       };
 
-      wallpaper.enabled = false;
-
       dock.enabled = false;
     };
   };
