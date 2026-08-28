@@ -30,7 +30,7 @@ in
       "Mod+C".action.spawn = noctalia [ "launcher" "clipboard" ];
       "Mod+Shift+E".action.spawn = noctalia [ "sessionMenu" "toggle" ];
       "Mod+Shift+R".action.spawn-sh = "pkill -f 'bin/quickshel[l]'; sleep 0.3; noctalia-shell";
-      "Mod+Ctrl+L".action.spawn = "hyprlock";
+      "Mod+Ctrl+L".action.spawn = noctalia [ "sessionMenu" "lock" ];
       "Mod+Shift+C".action.spawn = [ "hyprpicker" "-a" ];
 
       "Mod+Q".action.close-window = [ ];

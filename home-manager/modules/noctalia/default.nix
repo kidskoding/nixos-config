@@ -43,6 +43,13 @@
         fillMode = "crop";
       };
 
+      idle = {
+        enabled = true;
+        lockTimeout = 300;
+        screenOffTimeout = 330;
+        suspendTimeout = 900;
+      };
+
       dock.enabled = false;
     };
   };

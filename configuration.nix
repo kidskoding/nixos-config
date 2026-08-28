@@ -101,8 +101,6 @@
 
   systemd.packages = [ config.programs.niri.package ];
 
-  programs.hyprlock.enable = true;
-
   virtualisation.docker.enable = true;
   virtualisation.docker.storageDriver = "btrfs";
 

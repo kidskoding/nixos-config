@@ -6,7 +6,6 @@ in
 {
   imports = [
     ./binds.nix
-    ./hypridle.nix
     ./layout.nix
     ./rules.nix
   ];
