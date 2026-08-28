@@ -11,6 +11,7 @@
     ./noctalia
     ./starship
     ./tickrs
+    ./wallpaper
     ./zellij
   ];
 }
