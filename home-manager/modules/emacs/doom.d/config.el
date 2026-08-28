@@ -210,8 +210,10 @@
   ;; heading or a bold run renders a different colour than one in body text.
   ;; 'default pins every fragment to the default face.
   (plist-put org-format-latex-options :foreground 'default)
-  (dolist (pkg '("amsmath" "amssymb" "mathtools"))
-    (add-to-list 'org-latex-packages-alist (list "" pkg t)))
+  ;; No packages added to `org-latex-packages-alist' here. Both export and
+  ;; preview build their preamble from the buffer's own #+LATEX_HEADER and
+  ;; #+SETUPFILE (see `org-export-get-environment' in `org-create-formula-image'),
+  ;; so amsmath and friends belong in the project's setup file, not machine-wide.
   (add-hook 'org-mode-hook #'turn-on-org-cdlatex))
 
 ;; render fragment when cursor leaves it, show source when inside.
