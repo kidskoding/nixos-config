@@ -369,13 +369,18 @@ Enable this from the master org file."
                  "-pdf" "-pvc" "-interaction=nonstopmode"
                  (format "-auxdir=%s" +org-live-pdf-out-dir)
                  "-outdir=."
-                 "-e" "$pdf_previewer=q(zathura)"
+                 ;; Emacs opens the viewer (see `+org-live-pdf--open-viewer'),
+                 ;; not latexmk. latexmk only spawns it after its first
+                 ;; successful build, which races with `+org-live-pdf-show'
+                 ;; and leaves two zathuras on the same PDF.
+                 "-view=none"
                  ;; poll 4x faster than the default 2s; auto-save-visited-mode
                  ;; already writes the file every 2s, so this is the other half
                  ;; of the type -> PDF latency
                  "-e" "$sleep_time=0.5"
                  "-e" "$failure_cmd=q(notify-send -u normal -h string:x-canonical-private-synchronous:latexmk 'LaTeX build failed' 'see *org-live-pdf*')"
                  tex)))
+        (+org-live-pdf--open-viewer)
         (+org-live-pdf-build-all))
     (remove-hook 'after-save-hook #'+org-live-pdf--on-save)
     (when (process-live-p +org-live-pdf--proc)
@@ -383,6 +388,64 @@ Enable this from the master org file."
     (setq +org-live-pdf--proc nil
           +org-live-pdf--master nil
           +org-live-pdf--children nil)))
+
+(defun +org-live-pdf--pdf ()
+  "Path of the master PDF."
+  (concat (file-name-sans-extension +org-live-pdf--master) ".pdf"))
+
+(defun +org-live-pdf--viewer-live-p (pdf)
+  "Non-nil if zathura is already showing PDF.
+Matched on the file name alone: latexmk hands the previewer whatever path it
+used for the build, which may be relative to the master's directory."
+  (let ((name (file-name-nondirectory pdf)))
+    (seq-some (lambda (p)
+                (let ((a (process-attributes p)))
+                  ;; comm is ".zathura-wrappe" under Nix's wrapper script, and
+                  ;; comm is truncated to 15 chars besides, so match loosely
+                  (and (string-match-p "zathura" (or (alist-get 'comm a) ""))
+                       (string-search name (or (alist-get 'args a) "")))))
+              (list-system-processes))))
+
+(defun +org-live-pdf--open-viewer ()
+  "Open the master PDF in zathura unless it is already open.
+On a first-ever build the PDF does not exist yet, so retry until latexmk has
+written it.
+ponytail: polls every 2s for as long as the watcher lives. A build that never
+succeeds polls forever, which is cheap and stops the moment you turn the mode
+off."
+  (let ((pdf (+org-live-pdf--pdf)))
+    (cond ((+org-live-pdf--viewer-live-p pdf) nil)
+          ((file-exists-p pdf) (start-process "zathura" nil "zathura" pdf))
+          ((and +org-live-pdf-mode (process-live-p +org-live-pdf--proc))
+           (run-with-timer 2 nil #'+org-live-pdf--open-viewer)))))
+
+(defun +org-live-pdf-show ()
+  "Show the master PDF and keep it live. Safe to run as often as you like.
+Unlike toggling `+org-live-pdf-mode', a second call never tears the watcher
+down.  It reopens the viewer if you closed it and otherwise does nothing, so
+this is the one to bind to a key.  Stop everything with `+org-live-pdf-mode'."
+  (interactive)
+  (cond
+   ;; nothing running yet; the mode's own guards decide if this buffer is a master
+   ((not +org-live-pdf-mode)
+    (+org-live-pdf-mode 1))
+   ;; latexmk itself died, so restart it against the same master
+   ((not (process-live-p +org-live-pdf--proc))
+    (let ((master +org-live-pdf--master))
+      (+org-live-pdf-mode -1)
+      (with-current-buffer (find-file-noselect master)
+        (+org-live-pdf-mode 1))))
+   ;; watcher is healthy. latexmk -pvc spawns the previewer once and never
+   ;; again, so a zathura you closed stays closed until we reopen it here
+   ((+org-live-pdf--viewer-live-p (+org-live-pdf--pdf))
+    (message "Live PDF already running: %s"
+             (abbreviate-file-name (+org-live-pdf--pdf))))
+   ;; watcher healthy, viewer closed: just put it back
+   (t (+org-live-pdf--open-viewer))))
+
+;; <f5> is the only unbound candidate in org-mode-map; C-c v, C-c p and the
+;; C-c C-x prefixes are all taken by magit, projectile and org itself.
+(map! :after org :map org-mode-map "<f5>" #'+org-live-pdf-show)
 
 ;; Doom disables flycheck's org-lint checker by default (it is slow on very
 ;; large org files). Lecture notes are small, and a broken #+INCLUDE: is much
