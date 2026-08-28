@@ -7,6 +7,7 @@
     ./bar.nix
     ./colors.nix
     ./launcher.nix
+    ./lock.nix
     ./notifications.nix
   ];
 
@@ -38,13 +39,6 @@
       };
 
       wallpaper.enabled = false;
-
-      idle = {
-        enabled = true;
-        lockTimeout = 300;
-        screenOffTimeout = 330;
-        suspendTimeout = 900;
-      };
 
       dock.enabled = false;
     };
