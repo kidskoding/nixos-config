@@ -2,6 +2,7 @@
 
 let
   terminal = "alacritty";
+  wallpaper = ./wallpapers/starfire-bg.jpg;
 in
 {
   imports = [
@@ -12,6 +13,7 @@ in
 
   home.packages = with pkgs; [
     adwaita-icon-theme
+    awww
     blueman
     brightnessctl
     hyprpicker
@@ -77,6 +79,8 @@ in
     };
 
     spawn-at-startup = [
+      { argv = [ "awww-daemon" ]; }
+      { sh = "sleep 2 && awww img --transition-type none ${wallpaper}"; }
       { argv = [ "noctalia-shell" ]; }
       { argv = [ "blueman-applet" ]; }
       { argv = [ "nm-applet" "--indicator" ]; }

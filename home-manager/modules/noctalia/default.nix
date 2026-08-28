@@ -37,11 +37,7 @@
         batteryCriticalThreshold = 15;
       };
 
-      wallpaper = {
-        enabled = true;
-        directory = "${../niri/wallpapers}";
-        fillMode = "crop";
-      };
+      wallpaper.enabled = false;
 
       idle = {
         enabled = true;
