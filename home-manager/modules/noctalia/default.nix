@@ -37,7 +37,12 @@
         batteryCriticalThreshold = 15;
       };
 
-      wallpaper.enabled = false;
+      wallpaper = {
+        enabled = true;
+        directory = "${../niri/wallpapers}";
+        fillMode = "crop";
+      };
+
       dock.enabled = false;
     };
   };
