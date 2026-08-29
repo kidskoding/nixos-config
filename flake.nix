@@ -19,6 +19,7 @@
       url = "github:sadjow/claude-code-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    claude-desktop.url = "github:k3d3/claude-desktop-linux-flake";
     codex-cli = {
       url = "github:sadjow/codex-cli-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -112,6 +113,7 @@
 
             inputs.antigravity-cli.packages.${system}.default
             inputs.claude-code-cli.packages.${system}.default
+            inputs.claude-desktop.packages.${system}.claude-desktop-with-fhs
             inputs.codex-cli.packages.${system}.default
 
             # rust stable toolchain
