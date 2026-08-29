@@ -22,6 +22,7 @@
       ui.fontDefault = config.theme.fontFamily;
       ui.fontFixed = config.theme.fontFamily;
 
+      location.weatherEnabled = false;
       location.useFahrenheit = true;
       location.autoLocate = true;
       location.use12hourFormat = true;
