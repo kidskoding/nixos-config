@@ -40,9 +40,11 @@
         pyproject-build-systems.overlays.wheel
         overlay
       ]);
+
+      pyproject = lib.importTOML ./pyproject.toml;
     in {
       packages.${system}.default =
-        pythonSet.mkVirtualEnv "app-env" workspace.deps.default;
+        pythonSet.mkVirtualEnv pyproject.project.name workspace.deps.default;
 
       devShells.${system}.default =
         let
