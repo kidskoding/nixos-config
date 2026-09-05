@@ -137,6 +137,4 @@
   home.file.".config/zen/xez3wz0f.Default Profile/user.js".text = ''
     user_pref("widget.use-xdg-desktop-portal.file-picker", 1);
   '';
-
-  programs.home-manager.enable = true;
 }
