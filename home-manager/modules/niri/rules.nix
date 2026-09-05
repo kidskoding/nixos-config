@@ -18,12 +18,8 @@
       opacity = 0.95;
     }
     {
-      matches = [
-        { app-id = "^discord$"; }
-        { app-id = "^zen-beta$"; }
-        { app-id = "^spotify$"; }
-      ];
-      default-column-width.proportion = 1.0;
+      matches = [ { app-id = "^discord$"; } ];
+      open-maximized = true;
     }
     {
       matches = [
