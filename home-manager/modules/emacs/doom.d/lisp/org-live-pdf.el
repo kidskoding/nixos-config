@@ -5,6 +5,9 @@
 ;; #+INCLUDE: lines.
 ;;   master.org             -> master.pdf  (root, live in zathura via latexmk -pvc)
 ;;   any sibling .org       -> lectures/NAME.pdf, and in the book
+;; <f5> shows the PDF of whichever org file you are in and keeps that one live
+;; too, so a homework or a lecture hot-reloads in zathura as you type. The file
+;; you are editing gets the -pvc watcher; the rest are built on demand.
 ;;   generated .tex and aux -> out/
 ;; That default suits one flat directory of notes. A project with more structure
 ;; sets `+org-live-pdf-children' in its own .dir-locals.el; nothing about any
@@ -194,9 +197,41 @@ Enable this from the master org file."
           +org-live-pdf--master nil
           +org-live-pdf--children nil)))
 
-(defun +org-live-pdf--pdf ()
-  "Path of the master PDF."
-  (concat (file-name-sans-extension +org-live-pdf--master) ".pdf"))
+(defun +org-live-pdf--pdf (&optional org)
+  "Path of the PDF built from ORG, defaulting to the master.
+For a tracked child that is its standalone PDF under the entry's PDF-DIR.
+Returns nil for a file with no PDF of its own, which is the caller's cue to
+fall back to the master."
+  (let ((org (and (or org +org-live-pdf--master)
+                  (expand-file-name (or org +org-live-pdf--master)))))
+    (cond
+     ((null org) nil)
+     ((equal org +org-live-pdf--master)
+      (concat (file-name-sans-extension +org-live-pdf--master) ".pdf"))
+     (t (let ((pdf-dir (nth 1 (+org-live-pdf--entry org))))
+          (when pdf-dir
+            (expand-file-name (concat (file-name-base org) ".pdf")
+                              (expand-file-name pdf-dir (+org-live-pdf--root)))))))))
+
+(defun +org-live-pdf--find-master ()
+  "Nearest .org file at or above the current buffer that has #+INCLUDE: lines.
+Lets `+org-live-pdf-show' start the watcher from a homework or lecture buffer
+without making *that* file the master, which is the trap the mode's own guard
+warns about.
+ponytail: reads every .org in each ancestor directory until one matches. Fine
+for a notes tree a few levels deep; bound the walk if it ever gets slow."
+  (let (found)
+    (locate-dominating-file
+     (or buffer-file-name default-directory)
+     (lambda (dir)
+       (setq found
+             (seq-find (lambda (f)
+                         (with-temp-buffer
+                           (insert-file-contents f)
+                           (goto-char (point-min))
+                           (re-search-forward "^#\\+INCLUDE:" nil t)))
+                       (directory-files dir t "\\.org\\'")))))
+    found))
 
 (defun +org-live-pdf--viewer-live-p (pdf)
   "Non-nil if zathura is already showing PDF.
@@ -211,42 +246,52 @@ used for the build, which may be relative to the master's directory."
                        (string-search name (or (alist-get 'args a) "")))))
               (list-system-processes))))
 
-(defun +org-live-pdf--open-viewer ()
-  "Open the master PDF in zathura unless it is already open.
+(defun +org-live-pdf--open-viewer (&optional pdf)
+  "Open PDF, defaulting to the master's, in zathura unless it is already open.
 On a first-ever build the PDF does not exist yet, so retry until latexmk has
 written it.
 ponytail: polls every 2s for as long as the watcher lives. A build that never
 succeeds polls forever, which is cheap and stops the moment you turn the mode
 off."
-  (let ((pdf (+org-live-pdf--pdf)))
+  (let ((pdf (or pdf (+org-live-pdf--pdf))))
     (cond ((+org-live-pdf--viewer-live-p pdf) nil)
           ((file-exists-p pdf) (start-process "zathura" nil "zathura" pdf))
           ((and +org-live-pdf-mode (process-live-p +org-live-pdf--proc))
-           (run-with-timer 2 nil #'+org-live-pdf--open-viewer)))))
+           (run-with-timer 2 nil #'+org-live-pdf--open-viewer pdf)))))
 
 (defun +org-live-pdf-show ()
-  "Show the master PDF and keep it live. Safe to run as often as you like.
-Unlike toggling `+org-live-pdf-mode', a second call never tears the watcher
-down.  It reopens the viewer if you closed it and otherwise does nothing, so
-this is the one to bind to a key.  Stop everything with `+org-live-pdf-mode'."
+  "Show the PDF for the current org file and keep the build live.
+In the master that is the book; in a child with a PDF-DIR it is that file's own
+standalone PDF; anywhere else it falls back to the book.  Safe to run as often
+as you like: a second call never tears the watcher down, it reopens a viewer you
+closed and otherwise does nothing.  Stop everything with `+org-live-pdf-mode'."
   (interactive)
+  ;; 1. make sure a watcher is up, against the real master, whatever file we are in
   (cond
-   ;; nothing running yet; the mode's own guards decide if this buffer is a master
    ((not +org-live-pdf-mode)
-    (+org-live-pdf-mode 1))
+    (let ((master (or (+org-live-pdf--find-master)
+                      (user-error "No master org file (one with #+INCLUDE:) at or above %s"
+                                  (abbreviate-file-name
+                                   (or buffer-file-name default-directory))))))
+      (with-current-buffer (find-file-noselect master) (+org-live-pdf-mode 1))))
    ;; latexmk itself died, so restart it against the same master
    ((not (process-live-p +org-live-pdf--proc))
     (let ((master +org-live-pdf--master))
       (+org-live-pdf-mode -1)
-      (with-current-buffer (find-file-noselect master)
-        (+org-live-pdf-mode 1))))
-   ;; watcher is healthy. latexmk -pvc spawns the previewer once and never
-   ;; again, so a zathura you closed stays closed until we reopen it here
-   ((+org-live-pdf--viewer-live-p (+org-live-pdf--pdf))
-    (message "Live PDF already running: %s"
-             (abbreviate-file-name (+org-live-pdf--pdf))))
-   ;; watcher healthy, viewer closed: just put it back
-   (t (+org-live-pdf--open-viewer))))
+      (with-current-buffer (find-file-noselect master) (+org-live-pdf-mode 1)))))
+  ;; 2. open whichever PDF belongs to this buffer
+  (let* ((org (and buffer-file-name (expand-file-name buffer-file-name)))
+         (pdf (+org-live-pdf--pdf org)))
+    (unless pdf
+      (message "%s has no standalone PDF; showing the master"
+               (if org (file-name-nondirectory org) "This buffer"))
+      (setq pdf (+org-live-pdf--pdf)))
+    ;; put this file under a live watcher, which also builds it if it is new
+    (when-let* ((pdf-dir (nth 1 (+org-live-pdf--entry org))))
+      (+org-live-pdf--watch-child org pdf-dir))
+    (if (+org-live-pdf--viewer-live-p pdf)
+        (message "Live PDF already running: %s" (abbreviate-file-name pdf))
+      (+org-live-pdf--open-viewer pdf))))
 
 ;; <f5> is the only unbound candidate in org-mode-map; C-c v, C-c p and the
 ;; C-c C-x prefixes are all taken by magit, projectile and org itself.
