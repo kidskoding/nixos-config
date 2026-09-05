@@ -24,6 +24,17 @@ in
     kdePackages.qtsvg
   ];
 
+  # niri's own portals.conf sends FileChooser to gnome (gtk dialog).
+  # user config wins over the system file, so re-point just FileChooser at kde.
+  xdg.configFile."xdg-desktop-portal/niri-portals.conf".text = ''
+    [preferred]
+    default=gnome;gtk;
+    org.freedesktop.impl.portal.Access=gtk;
+    org.freedesktop.impl.portal.FileChooser=kde;
+    org.freedesktop.impl.portal.Notification=gtk;
+    org.freedesktop.impl.portal.Secret=gnome-keyring;
+  '';
+
   programs.niri.settings = {
     prefer-no-csd = true;
     screenshot-path = "~/Pictures/Screenshots/%Y-%m-%dT%H:%M:%S.png";

@@ -101,6 +101,9 @@
 
   systemd.packages = [ config.programs.niri.package ];
 
+  # plasma (dolphin-style) file dialog for portal-using apps
+  xdg.portal.extraPortals = [ pkgs.kdePackages.xdg-desktop-portal-kde ];
+
   virtualisation.docker.enable = true;
   virtualisation.docker.storageDriver = "btrfs";
 
