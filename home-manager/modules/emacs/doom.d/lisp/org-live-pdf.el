@@ -41,6 +41,12 @@ is read once, from the master buffer, when `+org-live-pdf-mode' is enabled.")
 Snapshotted there so .dir-locals.el wins, and so the layout stays consistent
 for files that no buffer is visiting.")
 (defvar +org-live-pdf--proc nil "The `latexmk -pvc' process watching the master.")
+(defvar +org-live-pdf--child nil
+  "Absolute path of the org file `+org-live-pdf--child-proc' is watching.")
+(defvar +org-live-pdf--child-proc nil
+  "The `latexmk -pvc' process watching the child you are editing.
+ponytail: one child at a time, like the master. Editing a second child retires
+this watcher; make it an alist if you ever want several live at once.")
 
 (defun +org-live-pdf--root ()
   "Directory of the master file. All other paths here are relative to it."
@@ -70,6 +76,36 @@ PDF-DIR is relative to the master, not to ORG, so latexmk runs from the root."
      "-e" "$failure_cmd=q(notify-send -u normal -h string:x-canonical-private-synchronous:latexmk 'LaTeX build failed' 'see *org-live-pdf*')"
      tex)))
 
+(defun +org-live-pdf--watch-child (org pdf-dir)
+  "Keep ORG's standalone PDF in PDF-DIR live, the way the master's already is.
+Re-exports ORG; if a watcher for it is already running that is all this does,
+and `latexmk -pvc' picks the rewritten .tex up itself. Otherwise it retires the
+previous child's watcher and starts one here.
+
+This is what stops `auto-save-visited-mode' from spawning a latexmk every two
+seconds, all racing on the same .aux in the out dir."
+  (let ((org (expand-file-name org)))
+    (if (and (equal org +org-live-pdf--child)
+             (process-live-p +org-live-pdf--child-proc))
+        (+org-live-pdf--export org)
+      (when (process-live-p +org-live-pdf--child-proc)
+        (kill-process +org-live-pdf--child-proc))
+      (let* ((tex (+org-live-pdf--export org))
+             (default-directory (+org-live-pdf--root)))
+        (make-directory pdf-dir t)
+        (setq +org-live-pdf--child org
+              +org-live-pdf--child-proc
+              (start-process
+               "org-child-pdf" "*org-live-pdf*" "latexmk"
+               "-pdf" "-pvc" "-interaction=nonstopmode"
+               (format "-auxdir=%s" +org-live-pdf-out-dir)
+               (format "-outdir=%s" pdf-dir)
+               ;; Emacs opens zathura, not latexmk -- same reason as the master
+               "-view=none"
+               "-e" "$sleep_time=0.5"
+               "-e" "$failure_cmd=q(notify-send -u normal -h string:x-canonical-private-synchronous:latexmk 'LaTeX build failed' 'see *org-live-pdf*')"
+               tex))))))
+
 (defun +org-live-pdf--entry (file)
   "The `+org-live-pdf-children' entry governing FILE, or nil if untracked."
   (let ((file (expand-file-name file)))
@@ -91,7 +127,7 @@ PDF-DIR is relative to the master, not to ORG, so latexmk runs from the root."
       (when (or master-p (nth 2 entry))
         (+org-live-pdf--export +org-live-pdf--master))
       (when (nth 1 entry)
-        (+org-live-pdf--build-child (expand-file-name buffer-file-name) (nth 1 entry))))))
+        (+org-live-pdf--watch-child (expand-file-name buffer-file-name) (nth 1 entry))))))
 
 (defun +org-live-pdf-build-all ()
   "Rebuild every standalone child PDF under the master's directory."
@@ -150,9 +186,11 @@ Enable this from the master org file."
         (+org-live-pdf--open-viewer)
         (+org-live-pdf-build-all))
     (remove-hook 'after-save-hook #'+org-live-pdf--on-save)
-    (when (process-live-p +org-live-pdf--proc)
-      (kill-process +org-live-pdf--proc))
+    (dolist (p (list +org-live-pdf--proc +org-live-pdf--child-proc))
+      (when (process-live-p p) (kill-process p)))
     (setq +org-live-pdf--proc nil
+          +org-live-pdf--child nil
+          +org-live-pdf--child-proc nil
           +org-live-pdf--master nil
           +org-live-pdf--children nil)))
 
