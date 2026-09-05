@@ -87,14 +87,19 @@
     system = "x86_64-linux";
   in {
     templates = {
-      python = {
-        path = ./templates/python;
-        description = "python template (the nix way without uv)";
+      uv2nix = {
+        path = ./templates/uv2nix;
+        description = "python project built from uv.lock";
       };
 
-      rust = {
-        path = ./templates/rust;
-        description = "rust dev shell with direnv";
+      bun2nix = {
+        path = ./templates/bun2nix;
+        description = "bun project built from bun.lock";
+      };
+
+      crane = {
+        path = ./templates/crane;
+        description = "rust project built from Cargo.lock";
       };
     };
 
