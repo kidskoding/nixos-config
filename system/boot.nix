@@ -32,6 +32,9 @@
       "rd.systemd.show_status=false"
       "rd.udev.log_level=3"
       "udev.log_priority=3"
+      # eDP link training fails on every resume from s2idle (PSR aux error);
+      # screen stays black 15-50s. Disable panel self refresh. Fallback: i915.enable_dc=0
+      "i915.enable_psr=0"
     ];
   };
 }
