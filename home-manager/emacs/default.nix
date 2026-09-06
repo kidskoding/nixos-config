@@ -16,7 +16,11 @@ in
     startWithUserSession = true;
   };
 
-  systemd.user.services.emacs.Service.Environment = [ "COLORTERM=truecolor" ];
+  systemd.user.services.emacs.Service = {
+    Environment = [ "COLORTERM=truecolor" ];
+    KillMode = "mixed";
+    TimeoutStopSec = 10;
+  };
 
   home.sessionVariables = {
     EDITOR = "emacsclient -nw";
