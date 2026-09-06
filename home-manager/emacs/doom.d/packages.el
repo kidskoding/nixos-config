@@ -49,6 +49,7 @@
 ;; (unpin! t)
 
 (package! gruvbox-theme)
+(package! solaire-mode :disable t)
 (package! affe)
 (package! nerd-icons-completion)
 (package! elcord)
