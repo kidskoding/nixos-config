@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  theme = builtins.fromTOML (builtins.readFile (../../themes + "/${config.theme.name}.toml"));
+  theme = builtins.fromTOML (builtins.readFile (../themes + "/${config.theme.name}.toml"));
 in
 {
   programs.alacritty = {
