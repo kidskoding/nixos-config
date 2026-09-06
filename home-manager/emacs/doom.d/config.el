@@ -1,7 +1,7 @@
 (setq user-full-name "Anirudh Konidala"
       user-mail-address "anirudhkonidala@gmail.com")
 
-(setq doom-theme 'doom-gruvbox)
+(setq doom-theme 'gruvbox-dark-hard)
 (setq display-line-numbers-type t)
 (setq org-directory "~/org/")
 
@@ -10,3 +10,4 @@
 (load! "lisp/editor")
 (load! "lisp/org")
 (load! "lisp/org-live-pdf")
+(load! "lisp/org-obsidian")

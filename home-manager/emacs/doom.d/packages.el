@@ -48,7 +48,7 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;; (unpin! t)
 
-(package! kanagawa-themes)
+(package! gruvbox-theme)
 (package! affe)
 (package! nerd-icons-completion)
 (package! elcord)
