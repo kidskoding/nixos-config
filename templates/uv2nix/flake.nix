@@ -52,7 +52,12 @@
             (pythonSet.overrideScope editableOverlay).mkVirtualEnv
               "app-dev-env" workspace.deps.all;
         in pkgs.mkShell {
-          packages = [ virtualenv pkgs.uv pkgs.ruff ];
+          packages = [
+            virtualenv
+            pkgs.ruff
+            pkgs.uv
+            pkgs.ty
+          ];
 
           env = {
             UV_NO_SYNC = "1";
