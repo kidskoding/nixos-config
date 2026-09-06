@@ -21,11 +21,10 @@
   (interactive)
   (affe-grep (or (doom-project-root) default-directory)))
 
-(map! "M-d" #'+affe-find-project)
-
-(map! :leader
-      :desc "Find file in project" "SPC" #'+affe-find-project
-      :desc "Search project"       "/"   #'+affe-grep-project)
+(map! "M-d" #'+affe-find-project
+      :leader
+      "/" #'+affe-grep-project
+      "j" #'dired-jump)
 
 (after! vertico
   (map! :map vertico-map "M-d" #'abort-minibuffers)
@@ -50,16 +49,3 @@
   :config
   (nerd-icons-completion-mode)
   (add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup))
-
-(after! marginalia
-  (custom-set-faces!
-    `(marginalia-size :foreground ,(doom-color 'yellow))
-    `(marginalia-number :foreground ,(doom-color 'yellow))
-    `(marginalia-date :foreground ,(doom-color 'blue))
-    `(marginalia-file-priv-dir :foreground ,(doom-color 'blue))
-    `(marginalia-file-priv-link :foreground ,(doom-color 'cyan))
-    `(marginalia-file-priv-exec :foreground ,(doom-color 'grey))
-    `(marginalia-file-priv-read :foreground ,(doom-color 'grey))
-    `(marginalia-file-priv-write :foreground ,(doom-color 'grey))
-    `(marginalia-file-priv-other :foreground ,(doom-color 'grey))
-    `(marginalia-file-priv-no :foreground ,(doom-color 'grey))))
