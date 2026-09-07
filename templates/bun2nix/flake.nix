@@ -10,12 +10,12 @@
     };
   };
 
-  outputs = { nixpkgs, bun2nix, ... }:
+  outputs = inputs@{ nixpkgs, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
-        overlays = [ bun2nix.overlays.default ];
+        overlays = [ inputs.bun2nix.overlays.default ];
       };
     in {
       packages.${system}.default = pkgs.callPackage ./default.nix { };
