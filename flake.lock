@@ -271,6 +271,26 @@
         "type": "github"
       }
     },
+    "gruvbox": {
+      "inputs": {
+        "home-manager": [
+          "home-manager"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1788800968,
+        "narHash": "sha256-qawKBdJ9S6lxXXvGI82skheEUjUIVeTRNhmKvbAS8sA=",
+        "path": "/home/anirudh/personal-projects/gruvbox.nix",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/anirudh/personal-projects/gruvbox.nix",
+        "type": "path"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -555,6 +575,7 @@
         "codex-cli": "codex-cli",
         "emacs-overlay": "emacs-overlay",
         "fenix": "fenix",
+        "gruvbox": "gruvbox",
         "home-manager": "home-manager",
         "matui": "matui",
         "niri": "niri",

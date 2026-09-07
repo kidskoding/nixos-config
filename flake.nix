@@ -80,6 +80,13 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # theming
+    gruvbox = {
+      url = "path:/home/anirudh/personal-projects/gruvbox.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
   outputs = inputs@{ nixpkgs, ... }:
@@ -111,6 +118,7 @@
         ./home-manager/noctalia/greeter.nix
         inputs.niri.nixosModules.niri
         inputs.noctalia-greeter.nixosModules.default
+        inputs.gruvbox.nixosModules.default
 
         inputs.home-manager.nixosModules.home-manager {
           environment.systemPackages = [

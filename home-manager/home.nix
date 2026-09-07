@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -9,7 +9,7 @@
     ./ssh.nix
     ./thunderbird.nix
     ./zen.nix
-    ./themes
+    inputs.gruvbox.homeModules.default
 
     ./alacritty
     ./emacs
@@ -24,7 +24,10 @@
     ./zellij.nix
   ];
 
-  theme.name = "gruvbox-dark";
+  gruvbox = {
+    enable = true;
+    accent = "yellow";
+  };
 
   home.stateVersion = "26.05";
   home.sessionPath = [
