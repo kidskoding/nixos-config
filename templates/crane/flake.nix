@@ -22,6 +22,10 @@
           rust-analyzer
           cargo-watch
         ];
+
+        shellHook = ''
+          [ -f Cargo.lock ] || cargo generate-lockfile
+        '';
       };
     };
 }
