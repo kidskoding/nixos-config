@@ -27,7 +27,6 @@
   theme.name = "gruvbox-dark";
 
   home.stateVersion = "26.05";
-
   home.sessionPath = [
     "${config.home.homeDirectory}/.config/emacs/bin"
   ];
@@ -110,6 +109,7 @@
     # applications
     basalt
     discord
+    gum
     obsidian
     ruffle
     spotify
@@ -120,9 +120,6 @@
     heroic
     lunar-client
     lutris
-
-    # other cool stuff!
-    gum
   ];
 
   programs.direnv = {
