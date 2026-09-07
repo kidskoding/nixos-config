@@ -5,6 +5,7 @@
     ./fish.nix
     ./fonts.nix
     ./git.nix
+    ./obs.nix
     ./ssh.nix
     ./themes
 
@@ -126,21 +127,6 @@
   };
   
   programs.opencode.enable = true;
-  
-  programs.obs-studio = {
-    enable = true;
-     
-    package = (
-      pkgs.obs-studio.override {
-        cudaSupport = true;
-      }
-    );
-
-    plugins = with pkgs.obs-studio-plugins; [
-      obs-pipewire-audio-capture
-      obs-vkcapture
-    ];
-  };
 
   # zen draws its own gtk file dialog unless the portal picker is forced on
   # (default 2 = "auto" only fires under flatpak/snap or GTK_USE_PORTAL=1).
