@@ -60,3 +60,5 @@
 (package! agent-shell)
 
 (package! org-fragtog)
+
+(package! obsidian)

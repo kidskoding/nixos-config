@@ -1,4 +1,4 @@
-;;; org-obsidian.el -- keep a notes tree's Obsidian markdown in step with org
+;;; org-obsidian.el -- org notes in an Obsidian vault: markdown mirrors, and a client
 
 ;; Obsidian only indexes .md, so a notes tree that wants a graph keeps generated
 ;; mirrors beside its .org files. A tree opts in by putting an executable
@@ -32,3 +32,22 @@
             (run-with-idle-timer +org-obsidian-idle nil #'+org-obsidian--run dir)))))
 
 (add-hook 'after-save-hook #'+org-obsidian--on-save)
+
+;; --- Emacs client for the vault ---
+;; Navigation only, deliberately. Every .md in the vault is generated from an
+;; .org, so anything typed into one is gone at the next save; capture and link
+;; insertion are left unbound for that reason. Editing stays in org.
+;; Loads with markdown-mode, i.e. the first time a note is opened, never at
+;; startup. `obsidian-backlinks-mode' is left off: it steals a side window in
+;; every note buffer. M-x it when you want the panel.
+(use-package! obsidian
+  :after markdown-mode
+  :custom
+  (obsidian-directory "~/notes")
+  (markdown-enable-wiki-links t)
+  :config
+  (global-obsidian-mode +1)
+  :bind (:map obsidian-mode-map
+         ("C-c C-o" . obsidian-follow-link-at-point)
+         ("C-c C-p" . obsidian-jump)
+         ("C-c C-b" . obsidian-backlink-jump)))
