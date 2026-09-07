@@ -10,4 +10,4 @@
 (load! "lisp/editor")
 (load! "lisp/org")
 (load! "lisp/org-live-pdf")
-(load! "lisp/org-obsidian")
+(load! "lisp/obsidian-vault")
