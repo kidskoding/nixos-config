@@ -38,7 +38,6 @@
        zen
 
        :editor
-       ;;(evil +everywhere)
        file-templates
        fold
        ;;(format +onsave)
