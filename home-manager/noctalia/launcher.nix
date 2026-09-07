@@ -6,6 +6,7 @@
     terminalCommand = "alacritty -e";
     enableClipboardHistory = true;
     sortByMostUsed = false;
+
     pinnedApps = [
       "Alacritty"
       "Celeste"
@@ -22,6 +23,7 @@
       "steam"
       "The Binding of Isaac Rebirth"
       "thunderbird"
+      "zen-beta"
     ];
   };
 }
