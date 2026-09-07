@@ -28,6 +28,9 @@
 
         shellHook = ''
           bun install --frozen-lockfile
+          bun2nix -o bun.nix
+          git init
+          git add -A
         '';
       };
     };
