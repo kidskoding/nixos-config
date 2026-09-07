@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 let
   images = ./images;
@@ -16,5 +16,10 @@ in
     enabled = true;
     directory = "${images}";
     fillMode = "crop";
+  };
+
+  xdg.cacheFile."noctalia/wallpapers.json".text = builtins.toJSON {
+    wallpapers = builtins.mapAttrs (_: _: { dark = current; light = current; })
+      config.programs.niri.settings.outputs;
   };
 }
