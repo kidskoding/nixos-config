@@ -14,6 +14,7 @@
     ignores = [
       ".envrc"
       ".direnv/"
+      "result"
     ];
   };
 }
