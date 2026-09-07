@@ -108,6 +108,7 @@
     '')
 
     # applications
+    basalt
     discord
     obsidian
     ruffle
