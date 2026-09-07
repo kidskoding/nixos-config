@@ -1,6 +1,7 @@
 ;;; ui.el -- frame furniture: file manager, presence, window movement
 
 (after! dirvish
+  (setq dirvish-attributes nil)
   (custom-set-faces!
     '(dirvish-hl-line :inherit region :extend t)))
 
