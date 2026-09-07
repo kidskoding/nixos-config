@@ -18,11 +18,6 @@
   # do not warn if git tree is dirty when rebuilding system
   nix.settings.warn-dirty = false;
 
-  gruvbox = {
-    enable = true;
-    accent = "yellow";
-  };
-
   # prebuilt emacs-overlay/nix-community builds instead of compiling from source
   nix.settings.substituters = [ "https://nix-community.cachix.org" ];
   nix.settings.trusted-public-keys = [

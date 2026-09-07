@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   programs.zellij = {
@@ -19,6 +19,7 @@
     settings = {
       copy_command = "wl-copy";
       show_startup_tips = false;
+      theme = config.theme.name;
 
       keybinds = {
         unbind = [

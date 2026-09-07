@@ -1,5 +1,55 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
+let
+  fg = c: "38;2;${c}";
+  a = config.theme.ansi;
+
+  render = attrs: lib.concatStringsSep ":" (lib.mapAttrsToList (k: v: "${k}=${v}") attrs);
+
+  # file-type colors in dircolors format. eza reads LS_COLORS too, so this one
+  # attrset drives ls, grep, fd and eza's shared keys.
+  fileTypes = {
+    no = fg a.fg;
+    fi = fg a.fg;
+    di = "1;${fg a.blueBright}";
+    ln = fg a.aquaBright;
+    or = fg a.redBright;
+    mi = fg a.redBright;
+    ex = fg a.greenBright;
+    pi = fg a.yellowBright;
+    so = fg a.purpleBright;
+    bd = fg a.yellow;
+    cd = fg a.aquaBright;
+    su = "1;${fg a.redBright}";
+    sg = fg a.redBright;
+    st = fg a.blue;
+    ow = fg a.purpleBright;
+    tw = "1;${fg a.purpleBright}";
+  };
+
+  # eza-only keys, layered on top of LS_COLORS by eza itself
+  ezaExtra = {
+    # mute the permission-bit chars (tw is owned by fileTypes above)
+    ur = "0"; uw = "0"; ux = "0";
+    gr = "0"; gw = "0"; gx = "0";
+    tr = "0"; tx = "0";
+
+    lp = fg a.aquaBright;   # symlink target path
+    sn = fg a.yellowBright; # file size number
+    sb = fg a.gray;         # file size unit
+    da = fg a.blue;         # timestamp
+    hd = "1;${fg a.purple}"; # table header
+
+    im = fg a.greenBright;  # image
+    vi = fg a.purple;       # video
+    mu = fg a.aquaBright;   # music
+    lo = fg a.aquaBright;   # lossless audio
+    cr = fg a.redBright;    # crypto
+    do = fg a.blueBright;   # document
+    co = fg a.yellowBright; # compressed
+    tm = fg a.gray;         # temp file
+  };
+in
 {
   home.packages = with pkgs; [
     eza
@@ -117,6 +167,10 @@
         bind ! __history_previous_command
         bind '$' __history_previous_command_arguments
       end
+
+      # ${config.theme.name} file colors, shared by ls/grep/fd and eza
+      set -gx LS_COLORS "${render fileTypes}"
+      set -gx EZA_COLORS "${render ezaExtra}"
     '';
   };
 }

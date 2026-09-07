@@ -2,6 +2,7 @@
 
 let
   hm = config.home-manager.users.anirudh;
+  c = hm.theme.colors;
   niri = hm.programs.niri.settings;
   eDP-1 = niri.outputs."eDP-1";
 in
@@ -14,8 +15,36 @@ in
       user.default = "anirudh";
 
       appearance = {
+        scheme = "Synced";
+        theme_mode = "dark";
         hide_logo = false;
         font_family = hm.theme.fontFamily;
+
+        palette = {
+          primary = c.yellowBright;
+          on_primary = c.bg;
+
+          secondary = c.purple;
+          on_secondary = c.bg;
+
+          tertiary = c.greenBright;
+          on_tertiary = c.bg;
+
+          error = c.redBright;
+          on_error = c.bg;
+
+          surface = c.bg;
+          on_surface = c.fg;
+
+          surface_variant = c.bgAlt;
+          on_surface_variant = c.gray;
+
+          outline = c.bgAlt;
+          shadow = c.black;
+
+          hover = c.fg;
+          on_hover = c.bg;
+        };
 
         wallpaper = {
           path = "${../wallpaper/images/starfire-bg.jpg}";

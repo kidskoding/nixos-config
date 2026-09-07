@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  theme = builtins.fromTOML (builtins.readFile (../themes + "/${config.theme.name}.toml"));
+in
 {
   programs.alacritty = {
     enable = true;
@@ -80,6 +83,8 @@
         { key = "PageDown"; mods = "Shift"; action = "ScrollPageDown"; }
         { key = "Return"; mods = "Shift"; chars = "\r"; }
       ];
+
+      colors = theme.colors;
     };
   };
 }

@@ -1,8 +1,12 @@
 { config, ... }:
 
+let
+  c = config.theme.colors;
+in
 {
   programs.niri.settings.layout = {
     gaps = 10;
+    background-color = c.bg;
 
     center-focused-column = "on-overflow";
     default-column-width.proportion = 0.5;
@@ -18,13 +22,14 @@
     border = {
       enable = true;
       width = 2;
-      # gruvbox.nix defaults the active border to the accent; i like purple here
-      active.color = config.gruvbox.palette.purple;
+      active.color = c.purple;
+      inactive.color = c.bgAlt;
     };
 
     shadow = {
       enable = true;
       softness = 20;
+      color = "${c.black}ee";
     };
   };
 }

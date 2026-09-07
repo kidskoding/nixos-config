@@ -1,0 +1,71 @@
+# Colors section of "Alacritty - TOML configuration file format"
+# https://github.com/alacritty/alacritty/blob/master/extra/man/alacritty.5.scd#colors
+# Kanagawa Wave - https://github.com/rebelot/kanagawa.nvim
+
+[colors.primary]
+foreground = "#dcd7ba"
+background = "#1f1f28"
+dim_foreground = "#c8c093"
+bright_foreground = "#dcd7ba"
+
+[colors.cursor]
+text = "#1f1f28"
+cursor = "#c8c093"
+
+[colors.vi_mode_cursor]
+text = "#1f1f28"
+cursor = "#c8c093"
+
+[colors.search.matches]
+foreground = "#dcd7ba"
+background = "#2d4f67"
+
+[colors.search.focused_match]
+foreground = "#1f1f28"
+background = "#e6c384"
+
+[colors.footer_bar]
+foreground = "#dcd7ba"
+background = "#2a2a37"
+
+[colors.hints.start]
+foreground = "#1f1f28"
+background = "#e6c384"
+
+[colors.hints.end]
+foreground = "#1f1f28"
+background = "#c0a36e"
+
+[colors.selection]
+text = "#c8c093"
+background = "#2d4f67"
+
+[colors.normal]
+black = "#090618"
+red = "#c34043"
+green = "#76946a"
+yellow = "#c0a36e"
+blue = "#7e9cd8"
+magenta = "#957fb8"
+cyan = "#6a9589"
+white = "#c8c093"
+
+[colors.bright]
+black = "#727169"
+red = "#e82424"
+green = "#98bb6c"
+yellow = "#e6c384"
+blue = "#7fb4ca"
+magenta = "#938aa9"
+cyan = "#7aa89f"
+white = "#dcd7ba"
+
+[colors.dim]
+black = "#727169"
+red = "#c34043"
+green = "#76946a"
+yellow = "#c0a36e"
+blue = "#7e9cd8"
+magenta = "#957fb8"
+cyan = "#6a9589"
+white = "#c8c093"

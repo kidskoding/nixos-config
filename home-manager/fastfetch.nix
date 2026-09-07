@@ -46,65 +46,65 @@ in
         {
           type = "os";
           key = "   󰻀";
-          keyColor = "38;2;${config.gruvbox.ansi.neutralRed}";
+          keyColor = "38;2;${config.theme.ansi.red}";
         }
         {
           type = "kernel";
           key = "   ";
-          keyColor = "38;2;${config.gruvbox.ansi.red}";
+          keyColor = "38;2;${config.theme.ansi.redBright}";
         }
         {
           type = "packages";
           key = "   󰏗";
-          keyColor = "38;2;${config.gruvbox.ansi.neutralYellow}";
+          keyColor = "38;2;${config.theme.ansi.yellow}";
         }
         {
           type = "shell";
           key = "   ";
-          keyColor = "38;2;${config.gruvbox.ansi.yellow}";
+          keyColor = "38;2;${config.theme.ansi.yellowBright}";
         }
         {
           type = "host";
           key = "   ";
-          keyColor = "38;2;${config.gruvbox.ansi.green}";
+          keyColor = "38;2;${config.theme.ansi.greenBright}";
         }
         {
           type = "display";
           key = "   󰍹";
-          keyColor = "38;2;${config.gruvbox.ansi.neutralGreen}";
+          keyColor = "38;2;${config.theme.ansi.green}";
         }
         {
           type = "wm";
           key = "   ";
-          keyColor = "38;2;${config.gruvbox.ansi.aqua}";
+          keyColor = "38;2;${config.theme.ansi.aquaBright}";
         }
         {
           type = "terminal";
           key = "   ";
-          keyColor = "38;2;${config.gruvbox.ansi.neutralAqua}";
+          keyColor = "38;2;${config.theme.ansi.aqua}";
         }
         {
           type = "cpu";
           format = "{1}";
           key = "   ";
-          keyColor = "38;2;${config.gruvbox.ansi.blue}";
+          keyColor = "38;2;${config.theme.ansi.blueBright}";
         }
         {
           type = "gpu";
           format = "{1} {2}";
           hideType = "integrated";
           key = "   ";
-          keyColor = "38;2;${config.gruvbox.ansi.neutralBlue}";
+          keyColor = "38;2;${config.theme.ansi.blue}";
         }
         {
           type = "memory";
           key = "   󰍛";
-          keyColor = "38;2;${config.gruvbox.ansi.purple}";
+          keyColor = "38;2;${config.theme.ansi.purpleBright}";
         }
         {
           type = "disk";
           key = "   󰋊";
-          keyColor = "38;2;${config.gruvbox.ansi.neutralPurple}";
+          keyColor = "38;2;${config.theme.ansi.purple}";
         }
         /* {
           type = "localip";
