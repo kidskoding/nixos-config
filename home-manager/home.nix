@@ -2,22 +2,23 @@
 
 {
   imports = [
-    ./git.nix
-    ./ssh.nix
     ./fish.nix
     ./fonts.nix
+    ./git.nix
+    ./ssh.nix
     ./themes
 
     ./alacritty
     ./emacs
     ./niri
-    ./fastfetch
-    ./mangohud
     ./noctalia
-    ./starship
-    ./tickrs
     ./wallpaper
-    ./zellij
+
+    ./fastfetch.nix
+    ./mangohud.nix
+    ./starship.nix
+    ./tickrs.nix
+    ./zellij.nix
   ];
 
   theme.name = "gruvbox-dark";
