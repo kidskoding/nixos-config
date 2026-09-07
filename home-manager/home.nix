@@ -6,7 +6,6 @@
     ./fonts.nix
     ./git.nix
     ./obs.nix
-    ./obsidian.nix
     ./ssh.nix
     ./thunderbird.nix
     ./zen.nix
@@ -110,6 +109,7 @@
 
     # applications
     discord
+    obsidian
     ruffle
     spotify
 
