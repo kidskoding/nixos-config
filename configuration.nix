@@ -76,7 +76,6 @@
     psmisc
     python313
     sops
-    thunderbird
     unzip
     vim
     wget

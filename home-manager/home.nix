@@ -7,6 +7,7 @@
     ./git.nix
     ./obs.nix
     ./ssh.nix
+    ./thunderbird.nix
     ./zen.nix
     ./themes
 
