@@ -68,8 +68,6 @@
           shellHook = ''
             unset PYTHONPATH
             export REPO_ROOT=$(git rev-parse --show-toplevel)
-
-            [ -f uv.lock ] || uv lock
           '';
         };
     };
