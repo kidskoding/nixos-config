@@ -18,7 +18,8 @@
   # do not warn if git tree is dirty when rebuilding system
   nix.settings.warn-dirty = false;
 
-  # prebuilt emacs-overlay/nix-community builds instead of compiling from source
+  # prebuilt emacs-overlay/nix-community builds
+  # instead of compiling from source
   nix.settings.substituters = [
     "https://nix-community.cachix.org"
     "https://devenv.cachix.org"
@@ -98,9 +99,10 @@
 
   programs.fish.enable = true;
 
-  # run prebuilt binaries (uv-managed pythons, pip wheels, etc.)
+  # run prebuilt binaries (uv-managed pythons, pip wheels, etc.) when necessary
   programs.nix-ld.enable = true;
 
+  # niri!!!
   programs.niri = {
     enable = true;
     package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
