@@ -95,6 +95,7 @@
     bacon
     claude-agent-acp
     codex-acp
+    devenv
     github-cli
     mdbook
     mdbook-mermaid
@@ -106,10 +107,9 @@
       ln -s ${emacsPackages.pdf-tools}/share/emacs/site-lisp/elpa/pdf-tools-*/epdfinfo $out/bin/epdfinfo
     '')
 
-    # applications
+    # desktop applications
     basalt
     discord
-    gum
     obsidian
     ruffle
     spotify
@@ -120,6 +120,9 @@
     heroic
     lunar-client
     lutris
+
+    # other really cool stuff!!
+    gum
   ];
 
   programs.direnv = {
