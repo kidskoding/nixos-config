@@ -123,6 +123,7 @@
 
     # other really cool stuff!!
     gum
+    presenterm
   ];
 
   programs.direnv = {

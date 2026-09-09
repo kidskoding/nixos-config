@@ -109,6 +109,9 @@
   };
 
   systemd.packages = [ config.programs.niri.package ];
+  systemd.globalEnvironment = {
+    SYSTEMD_SLEEP_FREEZE_USER_SESSIONS = "false";
+  };
 
   # plasma (dolphin-style) file dialog for portal-using apps
   xdg.portal.extraPortals = [ pkgs.kdePackages.xdg-desktop-portal-kde ];
