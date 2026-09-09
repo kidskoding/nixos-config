@@ -35,6 +35,10 @@
       # eDP link training fails on every resume from s2idle (PSR aux error);
       # screen stays black 15-50s. Disable panel self refresh. Fallback: i915.enable_dc=0
       "i915.enable_psr=0"
+
+      "mem_sleep_default=deep"
+      "nvme_core.default_ps_max_latency_us=0"
+      "pci=noaer"
     ];
   };
 }
