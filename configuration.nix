@@ -44,6 +44,9 @@
   services.upower.enable = true;
 
   zramSwap.enable = true;
+  swapDevices = [ { device = "/swapfile"; size = 16 * 1024; } ];
+  systemd.sleep.settings.Sleep.HibernateDelaySec = "30min";
+  services.logind.settings.Login.HandleLidSwitch = "suspend-then-hibernate";
 
   programs.steam.enable = true;
   programs.gamescope.enable = true;

@@ -9,6 +9,8 @@
           --replace-fail $'Layout.fillWidth: batteryIndicator.isReady' $'Layout.fillWidth: true' \
           --replace-fail $'Layout.alignment: (batteryIndicator.isReady) ? (Qt.AlignRight | Qt.AlignVCenter) : Qt.AlignVCenter' $'Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter' \
           --replace-fail $'        Item {\n          Layout.preferredWidth: Style.marginM\n        }\n      }\n\n      // Password input' $'        Item {\n          Layout.fillWidth: true\n        }\n      }\n\n      // Password input'
+        substituteInPlace Services/Compositor/CompositorService.qml \
+          --replace-fail 'systemctl suspend || loginctl suspend' 'systemctl suspend-then-hibernate || loginctl suspend-then-hibernate'
       '';
     });
 
