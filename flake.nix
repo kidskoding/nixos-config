@@ -101,6 +101,11 @@
         path = ./templates/crane;
         description = "rust project built from Cargo.lock";
       };
+
+      bundix = {
+        path = ./templates/bundix;
+        description = "ruby project built from Gemfile.lock";
+      };
     };
 
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
