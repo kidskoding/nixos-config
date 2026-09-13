@@ -34,7 +34,7 @@ in
     settings.colorSchemes = {
       useWallpaperColors = false;
       predefinedScheme = "";
-      darkMode = true;
+      darkMode = config.theme.dark;
     };
   };
 }

@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  theme = builtins.fromTOML (builtins.readFile (../themes + "/${config.theme.name}.toml"));
+  c = config.theme.colors;
 in
 {
   programs.alacritty = {
@@ -84,7 +84,34 @@ in
         { key = "Return"; mods = "Shift"; chars = "\r"; }
       ];
 
-      colors = theme.colors;
+      colors = {
+        primary = {
+          background = c.bg;
+          foreground = c.fg;
+        };
+
+        normal = {
+          black = c.black;
+          red = c.red;
+          green = c.green;
+          yellow = c.yellow;
+          blue = c.blue;
+          magenta = c.purple;
+          cyan = c.aqua;
+          white = c.gray;
+        };
+
+        bright = {
+          black = c.grayBright;
+          red = c.redBright;
+          green = c.greenBright;
+          yellow = c.yellowBright;
+          blue = c.blueBright;
+          magenta = c.purpleBright;
+          cyan = c.aquaBright;
+          white = c.fgBright;
+        };
+      };
     };
   };
 }
