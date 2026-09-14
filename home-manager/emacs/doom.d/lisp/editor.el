@@ -23,6 +23,10 @@
   (setq lsp-auto-guess-root t)
   (setq lsp-enable-suggest-server-download nil)
   (setq lsp-lens-enable nil))
+
+;; python: ty reports diagnostics, ruff only formats (apheleia, not LSP)
+(after! lsp-mode (add-to-list 'lsp-disabled-clients 'ruff))
+
 (after! flycheck
   (setq flycheck-idle-change-delay 0.1))
 

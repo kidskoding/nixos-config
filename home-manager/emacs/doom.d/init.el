@@ -40,7 +40,7 @@
        :editor
        file-templates
        fold
-       ;;(format +onsave)
+       format
        ;;god
        ;;lispy
        ;;multiple-cursors
