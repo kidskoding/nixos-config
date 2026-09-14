@@ -9,5 +9,6 @@
 (load! "lisp/completion")
 (load! "lisp/editor")
 (load! "lisp/org")
+(load! "lisp/agenda")
 (load! "lisp/org-live-pdf")
 (load! "lisp/obsidian-vault")
