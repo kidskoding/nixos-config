@@ -123,7 +123,7 @@
     cava
     cowsay
     gum
-    pipes-sh
+    pipes
     presenterm
     tickrs
     wtf
