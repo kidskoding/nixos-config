@@ -12,6 +12,13 @@
       '';
     });
 
+  services.hypridle = {
+    enable = true;
+    settings.general = {
+      lock_cmd = "noctalia-shell ipc call lockScreen lock";
+      before_sleep_cmd = "noctalia-shell ipc call lockScreen lock";
+    };
+  };
 
   programs.noctalia-shell.settings.idle = {
     enabled = true;
