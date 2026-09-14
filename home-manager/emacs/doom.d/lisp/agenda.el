@@ -27,8 +27,4 @@
           ("i" "Idea" entry (file "ideas.org")
            "* %?\n%U"))))
 
-(map! :leader
-      (:prefix ("o" . "open")
-       :desc "Agenda" "a" #'org-agenda-list)
-      (:prefix ("n" . "notes")
-       :desc "Capture" "n" #'org-capture))
+(map! :leader :desc "Agenda" "o a" #'org-agenda-list)
