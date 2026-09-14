@@ -3,12 +3,12 @@
 {
   options.theme.fontFamily = lib.mkOption {
     type = lib.types.str;
-    default = "GohuFont14 Nerd Font Mono";
+    default = "Terminess Nerd Font Mono";
     description = "font family i use across my app configs!";
   };
 
   config.home.packages = with pkgs; [
-    nerd-fonts.gohufont
+    nerd-fonts.terminess-ttf
     nerd-fonts.symbols-only
   ];
 }
