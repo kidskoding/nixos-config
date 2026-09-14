@@ -85,7 +85,6 @@
     gcc
     gdb
     git
-    gnumake
     pkg-config
     psmisc
     python313
@@ -93,6 +92,10 @@
     unzip
     vim
     wget
+
+    # apt build-essential
+    stdenv.cc
+    gnumake
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
