@@ -33,13 +33,10 @@
 
   home.packages = with pkgs; [
     # additional user system tools
-    cava
     cliphist
-    cowsay
     fd
     jq
     ripgrep
-    tickrs
     tree
     wl-clipboard
 
@@ -123,8 +120,13 @@
     lutris
 
     # other really cool stuff!!
+    cava
+    cowsay
     gum
+    pipes-sh
     presenterm
+    tickrs
+    wtf
   ];
 
   programs.direnv = {
