@@ -147,7 +147,7 @@
        ;;plantuml
        ;;graphviz
        ;;purescript
-       (python +lsp +pyright +tree-sitter +uv)
+       (python +lsp +tree-sitter +uv)
        ;;qt
        ;;racket
        ;;raku

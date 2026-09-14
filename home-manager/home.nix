@@ -66,10 +66,11 @@
     nixd
     nixfmt
     omnisharp-roslyn
-    pyright
     ruby-lsp
+    ruff
     shellcheck
     terraform-ls
+    ty
     typescript-language-server
     vscode-langservers-extracted
     yaml-language-server
