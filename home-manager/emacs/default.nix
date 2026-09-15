@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  emacs = pkgs.emacs-unstable.pkgs.withPackages (
+    emacs = pkgs.emacs-unstable-pgtk.pkgs.withPackages (
     epkgs: with epkgs; [ treesit-grammars.with-all-grammars ]
   );
 in
