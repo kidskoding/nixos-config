@@ -2,6 +2,7 @@
       user-mail-address "anirudhkonidala@gmail.com")
 
 (setq doom-theme 'gruvbox-dark-medium)
+(when (daemonp) (add-hook 'after-init-hook #'doom-init-theme-h))
 (setq display-line-numbers-type t)
 (setq org-directory "~/org/")
 (setq shell-file-name (executable-find "bash"))
