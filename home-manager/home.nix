@@ -66,6 +66,7 @@
     ruby-lsp
     ruff
     shellcheck
+    stylelint
     terraform-ls
     ty
     typescript-language-server
@@ -94,6 +95,7 @@
     claude-agent-acp
     codex-acp
     devenv
+    duckdb
     github-cli
     mdbook
     mdbook-mermaid
@@ -122,6 +124,7 @@
     # other really cool stuff!!
     cava
     cowsay
+    fortune
     gum
     pipes
     presenterm
