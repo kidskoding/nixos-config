@@ -47,7 +47,7 @@ in
         };
 
         wallpaper = {
-          path = "${../wallpaper/images/starfire-bg.jpg}";
+          path = "${../../wallpaper/images/starfire-bg.jpg}";
           fill_mode = "crop";
         };
       };

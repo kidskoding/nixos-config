@@ -113,7 +113,7 @@
       specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
-        ./home-manager/noctalia/greeter.nix
+        ./home-manager/programs/noctalia/greeter.nix
         inputs.niri.nixosModules.niri
         inputs.noctalia-greeter.nixosModules.default
 
