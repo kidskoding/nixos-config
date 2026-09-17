@@ -20,6 +20,9 @@
 (use-package! elcord
   :custom
   (elcord-refresh-rate 5)
+  (elcord-editor-icon "doom_icon")
+  :init
+  (defvar doom-version (doom-version))
   :config
   (elcord-mode))
 
