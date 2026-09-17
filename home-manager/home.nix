@@ -44,12 +44,15 @@
     jdt-language-server
     kotlin-language-server
     lua-language-server
+    metals
     nixd
     nixfmt
+    ocamlPackages.ocaml-lsp
     omnisharp-roslyn
     ruby-lsp
     ruff
     shellcheck
+    sourcekit-lsp
     stylelint
     terraform-ls
     ty

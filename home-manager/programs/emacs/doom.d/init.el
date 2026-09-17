@@ -140,7 +140,7 @@
        markdown
        ;;nim
        (nix +lsp +tree-sitter)
-       ;;ocaml
+       ocaml
        ;;odin
        (org +pretty)
        (php +lsp +tree-sitter)
@@ -156,12 +156,12 @@
        (ruby +lsp +tree-sitter)
        (rust +lsp +tree-sitter)
        ;;scad
-       ;;scala
+       scala
        ;;(scheme +guile)
        sh
        ;;sml
        ;;solidity
-       ;;swift
+       swift
        ;;terra
        (web +tree-sitter)
        (yaml +lsp +tree-sitter)
