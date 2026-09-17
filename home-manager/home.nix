@@ -26,14 +26,19 @@
 
     # languages
     dotnet-sdk_10
+    dune_3
     elmPackages.elm
     go
     jdk21
     julia
     lua
+    ocaml
     php
     phpPackages.composer
     ruby
+    scala_3
+    swift
+    swiftpm
     zig
 
     # lsps / formatters / linters
@@ -47,6 +52,7 @@
     metals
     nixd
     nixfmt
+    ocamlformat
     ocamlPackages.ocaml-lsp
     omnisharp-roslyn
     ruby-lsp
