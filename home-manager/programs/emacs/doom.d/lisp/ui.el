@@ -12,6 +12,10 @@
   '(centaur-tabs-unselected :inherit (font-lock-comment-face default))
   '(centaur-tabs-selected :inherit (hl-line default)))
 
+(setq diff-hl-side 'right)
+(setq diff-hl-margin-symbols-alist
+      '((insert . "▌") (delete . "▌") (change . "▌") (unknown . "▌") (ignored . "▌") (reference . " ")))
+
 (add-hook! 'dired-mode-hook
   (defun +dired-dark-bg-h ()
     (face-remap-add-relative 'default :background "#1d2021")))
