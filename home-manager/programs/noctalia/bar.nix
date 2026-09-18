@@ -42,7 +42,7 @@
           formatHorizontal = "ddd MMM dd  hh:mm AP";
           tooltipFormat = "dddd, MMMM d yyyy";
         }
-        { id = "ControlCenter"; }
+        { id = "ControlCenter"; useDistroLogo = true; }
       ];
     };
   };
