@@ -28,7 +28,7 @@
        ophints
        (popup +defaults)
        ;;smooth-scroll
-       ;;tabs
+       tabs
        ;;treemacs
        ;;unicode
        (vc-gutter +pretty)

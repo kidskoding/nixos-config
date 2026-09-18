@@ -7,7 +7,10 @@
 
 (custom-set-faces!
   '(mode-line :background "#3c3836")
-  '(mode-line-inactive :background "#282828"))
+  '(mode-line-inactive :background "#282828")
+  '(centaur-tabs-default :inherit default)
+  '(centaur-tabs-unselected :inherit (font-lock-comment-face default))
+  '(centaur-tabs-selected :inherit (hl-line default)))
 
 (add-hook! 'dired-mode-hook
   (defun +dired-dark-bg-h ()
