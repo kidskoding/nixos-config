@@ -73,5 +73,5 @@ in
   systemd.tmpfiles.settings."10-accountsservice-avatar"."/var/lib/AccountsService/users/anirudh"."f+".argument =
     "[User]\nIcon=${./avatar.jpg}\n";
 
-  fonts.packages = [ pkgs.nerd-fonts.gohufont ];
+  fonts.packages = [ pkgs.nerd-fonts.terminess-ttf ];
 }
