@@ -58,7 +58,7 @@
 
   zramSwap.enable = true;
   swapDevices = [ { device = "/swapfile"; size = 16 * 1024; } ];
-  services.logind.settings.Login.HandleLidSwitch = "suspend";
+  services.logind.settings.Login.HandleLidSwitch = "lock";
 
   programs.steam.enable = true;
   programs.gamescope.enable = true;
