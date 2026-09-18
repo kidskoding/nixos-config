@@ -10,7 +10,9 @@
   '(mode-line-inactive :background "#282828")
   '(centaur-tabs-default :inherit default)
   '(centaur-tabs-unselected :inherit (font-lock-comment-face default))
-  '(centaur-tabs-selected :inherit (hl-line default)))
+  '(centaur-tabs-selected :inherit (hl-line default))
+  '(centaur-tabs-selected-modified :inherit centaur-tabs-selected)
+  '(centaur-tabs-unselected-modified :inherit centaur-tabs-unselected))
 
 (setq diff-hl-side 'right)
 (setq diff-hl-margin-symbols-alist
