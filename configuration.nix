@@ -4,10 +4,10 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./boot.nix
+      ./networking.nix
+      ./nvidia.nix
 
-      ./system/boot.nix
-      ./system/networking.nix
-      ./system/nvidia.nix
     ];
 
   nix.settings.experimental-features = [
