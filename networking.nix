@@ -6,6 +6,7 @@
       "wifi/home" = {};
       "wifi/home2" = {};
       "wifi/uiuc" = {};
+      "wifi/hotspot" = {};
     };
 
     templates = {
@@ -14,6 +15,7 @@
           RUDY2015_PSK="${config.sops.placeholder."wifi/home"}"
           BECKYBEND_PSK="${config.sops.placeholder."wifi/home2"}"
           ILLINOISNET_PSK="${config.sops.placeholder."wifi/uiuc"}"
+          ANIRUDHIPHONE17_PSK="${config.sops.placeholder."wifi/hotspot"}"
         '';
       };
     };
@@ -78,6 +80,20 @@
             identity = "ak123";
             phase2-auth = "mschapv2";
             password = "$ILLINOISNET_PSK";
+          };
+        };
+
+        hotspot = {
+          connection = {
+            id = "Anirudh's iPhone 17";
+            type = "wifi";
+          };
+
+          wifi.ssid = "Anirudh's iPhone 17";
+
+          wifi-security = {
+            key-mgmt = "wpa-psk";
+            psk = "$ANIRUDHIPHONE17_PSK";
           };
         };
       };
