@@ -32,7 +32,7 @@ in
       };
 
       font = {
-        size = 16;
+        size = 15;
 
         normal = {
           family = config.theme.fontFamily;
