@@ -7,6 +7,8 @@
 
 (setq confirm-kill-emacs nil)
 
+(map! "C-x k" #'kill-current-buffer)
+
 (when (string-equal (getenv "XDG_SESSION_TYPE") "wayland")
   (defun +wl-copy (text)
     (let ((proc (make-process :name "wl-copy" :buffer nil
