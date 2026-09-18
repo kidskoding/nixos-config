@@ -22,7 +22,7 @@ in
     border = {
       enable = true;
       width = 2;
-      active.color = c.purple;
+      active.color = c.blueBright;
       inactive.color = c.bgAlt;
     };
 

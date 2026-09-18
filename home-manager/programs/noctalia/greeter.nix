@@ -24,7 +24,7 @@ in
           primary = c.yellowBright;
           on_primary = c.bg;
 
-          secondary = c.purple;
+          secondary = c.blueBright;
           on_secondary = c.bg;
 
           tertiary = c.greenBright;

@@ -9,7 +9,7 @@ in
       mPrimary = c.yellowBright;
       mOnPrimary = c.bg;
 
-      mSecondary = c.purple;
+      mSecondary = c.blueBright;
       mOnSecondary = c.bg;
 
       mTertiary = c.greenBright;
