@@ -7,6 +7,12 @@
         substituteInPlace Modules/Panels/Media/MediaPlayerPanel.qml \
           --replace-fail $'        Layout.preferredHeight: headerRow.implicitHeight + Style.margin2M' $'        visible: false' \
           --replace-fail $'        Layout.preferredHeight: mediaContentGrid.implicitHeight + Style.margin2M\n' $'        Layout.preferredHeight: mediaContentGrid.implicitHeight + Style.margin2M\n\n        NIconButton {\n          anchors.top: parent.top\n          anchors.right: parent.right\n          anchors.margins: Style.marginS\n          z: 2\n          icon: "close"\n          baseSize: Style.baseWidgetSize * 0.6\n          onClicked: root.close()\n        }\n'
+        substituteInPlace Modules/Panels/Battery/BatteryPanel.qml \
+          --replace-fail $'        implicitHeight: headerRow.implicitHeight + Style.margin2M' $'        visible: false' \
+          --replace-fail $'        implicitHeight: chargeLayout.implicitHeight + Style.margin2L\n' $'        implicitHeight: chargeLayout.implicitHeight + Style.margin2L\n\n        NIconButton {\n          anchors.top: parent.top\n          anchors.right: parent.right\n          anchors.margins: Style.marginS\n          z: 2\n          icon: "close"\n          baseSize: Style.baseWidgetSize * 0.6\n          onClicked: root.close()\n        }\n'
+        substituteInPlace Modules/Panels/Brightness/BrightnessPanel.qml \
+          --replace-fail $'        implicitHeight: headerRow.implicitHeight + Style.margin2M' $'        visible: false' \
+          --replace-fail $'              Layout.preferredHeight: outputColumn.implicitHeight + Style.margin2M\n' $'              Layout.preferredHeight: outputColumn.implicitHeight + Style.margin2M\n\n              NIconButton {\n                visible: index === 0\n                anchors.top: parent.top\n                anchors.right: parent.right\n                anchors.margins: Style.marginS\n                z: 2\n                icon: "close"\n                baseSize: Style.baseWidgetSize * 0.6\n                onClicked: root.close()\n              }\n'
         substituteInPlace Modules/LockScreen/LockScreenPanel.qml \
           --replace-fail $'backgroundColor: Color.mError' $'backgroundColor: Color.mError\n            hoverColor: Color.mError\n            textHoverColor: Color.mOnError' \
           --replace-fail $'Layout.fillWidth: batteryIndicator.isReady' $'Layout.preferredWidth: Style.marginM' \
