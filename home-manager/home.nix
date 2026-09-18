@@ -5,10 +5,10 @@
     ./programs
     ./themes
     ./wallpaper
-    ./fonts.nix
   ];
 
   theme.name = "gruvbox-dark";
+  theme.fontFamily = "Terminess Nerd Font Mono";
 
   home.stateVersion = "26.05";
   home.sessionPath = [
@@ -123,6 +123,10 @@
     presenterm
     tickrs
     wtf
+
+    # fonts
+    nerd-fonts.symbols-only
+    nerd-fonts.terminess-ttf
   ];
 
   programs.direnv = {

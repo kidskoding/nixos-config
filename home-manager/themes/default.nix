@@ -28,6 +28,12 @@ in
     description = "active theme, must match a <name>.nix file in this directory.";
   };
 
+  options.theme.fontFamily = lib.mkOption {
+    type = lib.types.str;
+    default = "Terminess Nerd Font Mono";
+    description = "font family i use across my app configs!";
+  };
+
   options.theme.dark = lib.mkOption {
     type = lib.types.bool;
     default = palette.dark;
