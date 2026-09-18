@@ -25,6 +25,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # coding agent skills, plugins, settings
+    anikonistack = {
+      url = "github:kidskoding/anikonistack";
+      inputs.claude-code-nix.follows = "claude-code-cli";
+    };
+
     # emacs (bleeding-edge builds, e.g. emacs-unstable)
     emacs-overlay.url = "github:nix-community/emacs-overlay";
 

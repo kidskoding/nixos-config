@@ -133,6 +133,4 @@
     enable = true;
     nix-direnv.enable = true;
   };
-
-  programs.opencode.enable = true;
 }

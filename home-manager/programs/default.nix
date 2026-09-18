@@ -18,5 +18,7 @@
 
     ./mangohud.nix
     ./tickrs.nix
+
+    ./agents.nix
   ];
 }
