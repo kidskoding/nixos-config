@@ -30,6 +30,8 @@
 (after! flycheck
   (setq flycheck-idle-change-delay 0.1))
 
+(setq delete-trailing-lines nil)
+
 (setq auto-save-visited-interval 2)
 (auto-save-visited-mode +1)
 
