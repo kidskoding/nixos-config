@@ -24,6 +24,8 @@
       center = [
         {
           id = "MediaMini";
+          compactMode = true;
+          showArtistFirst = false;
           maxWidth = 300;
           scrollingMode = "always";
           useFixedWidth = false;
