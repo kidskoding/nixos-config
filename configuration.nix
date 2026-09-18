@@ -8,7 +8,17 @@
       ./networking.nix
       ./nvidia.nix
 
+      inputs.sops-nix.nixosModules.sops
     ];
+
+  sops = {
+    package = (pkgs.callPackage inputs.sops-nix {
+      pkgs = pkgs.extend (final: prev: { buildGo125Module = final.buildGoModule; });
+    }).sops-install-secrets;
+    defaultSopsFile = ./secrets/secrets.yaml;
+    defaultSopsFormat = "yaml";
+    age.keyFile = "/home/anirudh/.config/sops/age/keys.txt";
+  };
 
   nix.settings.experimental-features = [
     "nix-command"
