@@ -1,6 +1,6 @@
 my nixos config
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/da1b3093-7b15-4fd5-b6e3-13c15ef976b1" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/efae5e13-1ff4-40b3-9468-f69da14cc280" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/78e0653f-d8e5-44da-ab85-f40fa37e61e4" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5aa73ac0-73bd-4117-9a50-cb91f231caf5" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b93a0f90-6b18-40f3-8d2c-68452e418fb7" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/94ecd67f-2eb6-40c2-a746-1112790aebe7" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9414fa94-852b-41f0-8b84-1d0c5c28e390" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/78d31892-566c-4e64-935c-564679a35505" />
