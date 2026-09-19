@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 
 let
   nixosBlue = "38;2;82;119;195";
@@ -20,103 +20,103 @@ in
           "6" = nixosBlueLight;
         };
         padding = {
-          top = 5;
-          left = 4;
+          top = 4;
+          left = 2;
         };
       };
 
-      display.separator = "  ";
+      display = {
+        separator = " ";
+        color.keys = "38;2;255;255;255";
+      };
 
+      # Labels and color dots use the terminal palette; borders stay white.
       modules = [
-        "break"
-        {
-          type = "title";
-          keyWidth = 10;
-          format = "               {6}{7}{8}";
-          color = {
-            user = nixosBlueLight;
-            at = nixosBlueLight;
-            host = nixosBlueLight;
-          };
-        }
         {
           type = "custom";
-          format = " ────────────────────────────────────────── ";
+          key = "╭───────────╮";
+        }
+        {
+          type = "title";
+          key = "│ {#31} user    {#keys}│";
+          format = "{user-name}";
+        }
+        {
+          type = "title";
+          key = "│ {#32}󰇅 hname   {#keys}│";
+          format = "{host-name}";
         }
         {
           type = "os";
-          key = "   󰻀";
-          keyColor = "38;2;${config.theme.ansi.red}";
+          key = "│ {#33}{icon} distro  {#keys}│";
         }
         {
           type = "kernel";
-          key = "   ";
-          keyColor = "38;2;${config.theme.ansi.redBright}";
+          key = "│ {#34} kernel  {#keys}│";
         }
         {
           type = "packages";
-          key = "   󰏗";
-          keyColor = "38;2;${config.theme.ansi.yellow}";
-        }
-        {
-          type = "shell";
-          key = "   ";
-          keyColor = "38;2;${config.theme.ansi.yellowBright}";
-        }
-        {
-          type = "host";
-          key = "   ";
-          keyColor = "38;2;${config.theme.ansi.greenBright}";
-        }
-        {
-          type = "display";
-          key = "   󰍹";
-          keyColor = "38;2;${config.theme.ansi.green}";
+          key = "│ {#35}󰏗 pkgs    {#keys}│";
         }
         {
           type = "wm";
-          key = "   ";
-          keyColor = "38;2;${config.theme.ansi.aquaBright}";
+          key = "│ {#36}󰇄 desktop {#keys}│";
+        }
+        {
+          type = "custom";
+          key = "│ {#31}󰏘 theme   {#keys}│";
+          format = config.theme.name;
+        }
+        {
+          type = "custom";
+          key = "│ {#32} font    {#keys}│";
+          format = config.theme.fontFamily;
         }
         {
           type = "terminal";
-          key = "   ";
-          keyColor = "38;2;${config.theme.ansi.aqua}";
+          key = "│ {#33} term    {#keys}│";
+        }
+        {
+          type = "shell";
+          key = "│ {#34} shell   {#keys}│";
+        }
+        {
+          type = "host";
+          key = "│ {#35} machine {#keys}│";
         }
         {
           type = "cpu";
-          format = "{1}";
-          key = "   ";
-          keyColor = "38;2;${config.theme.ansi.blueBright}";
+          key = "│ {#36}󰍛 cpu     {#keys}│";
+          format = "{name}";
         }
         {
           type = "gpu";
+          key = "│ {#31}󰍛 gpu     {#keys}│";
           format = "{1} {2}";
           hideType = "integrated";
-          key = "   ";
-          keyColor = "38;2;${config.theme.ansi.blue}";
         }
         {
           type = "memory";
-          key = "   󰍛";
-          keyColor = "38;2;${config.theme.ansi.purpleBright}";
+          key = "│ {#32} memory  {#keys}│";
         }
         {
           type = "disk";
-          key = "   󰋊";
-          keyColor = "38;2;${config.theme.ansi.purple}";
+          key = "│ {#33}󰉉 disk    {#keys}│";
+          folders = "/";
         }
-        /* {
-          type = "localip";
-          key = "   󰩟";
-          format = "{1} ({4})";
-          keyColor = "magenta";
-        } */
         {
           type = "custom";
-          format = " ────────────────────────────────────────── ";
+          key = "├───────────┤";
         }
-        "break"
+        {
+          type = "custom";
+          key = "│ {#39} colors  {#keys}│";
+          format = "{#31}● {#32}● {#33}● {#34}● {#35}● {#36}● {#37}●{#}";
+        }
+        {
+          type = "custom";
+          key = "╰───────────╯";
+        }
       ];
     };
   };
