@@ -1,7 +1,9 @@
 (setq user-full-name "Anirudh Konidala"
       user-mail-address "anirudhkonidala@gmail.com")
 
-(setq doom-theme 'gruvbox-dark-medium)
+(setq doom-theme 'doom-gruvbox
+      doom-gruvbox-dark-variant "hard"
+      doom-themes-enable-italic nil)
 (when (daemonp) (add-hook 'after-init-hook #'doom-init-theme-h))
 (setq display-line-numbers-type t)
 (setq org-directory "~/org/")
