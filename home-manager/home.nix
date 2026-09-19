@@ -8,7 +8,7 @@
   ];
 
   theme.name = "gruvbox-dark";
-  theme.fontFamily = "GohuFont 14 Nerd Font Mono";
+  theme.fontFamily = "Terminess Nerd Font Mono";
 
   home.stateVersion = "26.05";
   home.sessionPath = [
@@ -126,8 +126,8 @@
     wtf
 
     # fonts
-    nerd-fonts.gohufont
     nerd-fonts.symbols-only
+    nerd-fonts.terminess-ttf
   ];
 
   programs.direnv = {
