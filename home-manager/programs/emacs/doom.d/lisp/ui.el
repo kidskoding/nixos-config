@@ -8,9 +8,10 @@
 (custom-set-faces!
   '(mode-line :background "#3c3836")
   '(mode-line-inactive :background "#282828")
-  '(centaur-tabs-default :inherit default)
-  '(centaur-tabs-unselected :inherit (font-lock-comment-face default))
-  '(centaur-tabs-selected :inherit (hl-line default))
+  '(line-number :background "#3c3836")
+  '(centaur-tabs-default :background "#1d2021")
+  '(centaur-tabs-unselected :background "#1d2021" :foreground "#928374")
+  '(centaur-tabs-selected :background "#3c3836" :foreground "#ebdbb2")
   '(centaur-tabs-selected-modified :inherit centaur-tabs-selected)
   '(centaur-tabs-unselected-modified :inherit centaur-tabs-unselected))
 
@@ -20,7 +21,7 @@
 
 (add-hook! 'dired-mode-hook
   (defun +dired-dark-bg-h ()
-    (face-remap-add-relative 'default :background "#1d2021")))
+    (face-remap-add-relative 'default :background "#0d1011")))
 
 ;; elcord polls; it installs no buffer-switch hook, so the refresh rate is how
 ;; long Discord keeps showing the file you just left. Discord rate-limits
