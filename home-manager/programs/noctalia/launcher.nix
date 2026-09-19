@@ -8,8 +8,10 @@
     sortByMostUsed = false;
 
     pinnedApps = [
+      "NixOS Manual"
       "Alacritty"
       "Celeste"
+      "Claude"
       "discord"
       "emacsclient"
       "Enter the Gungeon"
