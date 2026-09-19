@@ -20,7 +20,7 @@ in
           "6" = nixosBlueLight;
         };
         padding = {
-          top = 4;
+          top = 5;
           left = 3;
         };
       };
@@ -59,48 +59,53 @@ in
         }
         {
           type = "wm";
-          key = "│ {#36}󰇄 desktop {#keys}│";
+          key = "│ {#36}󰖲 wm      {#keys}│";
         }
         {
           type = "custom";
-          key = "│ {#31}󰏘 theme   {#keys}│";
+          key = "│ {#31}󰇄 de      {#keys}│";
+          format = "noctalia ${config.programs.noctalia-shell.package.version}";
+        }
+        {
+          type = "custom";
+          key = "│ {#32}󰏘 theme   {#keys}│";
           format = config.theme.name;
         }
         {
           type = "custom";
-          key = "│ {#32} font    {#keys}│";
+          key = "│ {#33} font    {#keys}│";
           format = config.theme.fontFamily;
         }
         {
           type = "terminal";
-          key = "│ {#33} term    {#keys}│";
+          key = "│ {#34} term    {#keys}│";
         }
         {
           type = "shell";
-          key = "│ {#34} shell   {#keys}│";
+          key = "│ {#35} shell   {#keys}│";
         }
         {
           type = "host";
-          key = "│ {#35} machine {#keys}│";
+          key = "│ {#36} machine {#keys}│";
         }
         {
           type = "cpu";
-          key = "│ {#36}󰍛 cpu     {#keys}│";
+          key = "│ {#31}󰍛 cpu     {#keys}│";
           format = "{name}";
         }
         {
           type = "gpu";
-          key = "│ {#31}󰍛 gpu     {#keys}│";
+          key = "│ {#32}󰍛 gpu     {#keys}│";
           format = "{1} {2}";
           hideType = "integrated";
         }
         {
           type = "memory";
-          key = "│ {#32} memory  {#keys}│";
+          key = "│ {#33} memory  {#keys}│";
         }
         {
           type = "disk";
-          key = "│ {#33}󰉉 disk    {#keys}│";
+          key = "│ {#34}󰉉 disk    {#keys}│";
           folders = "/";
         }
         {
@@ -110,7 +115,7 @@ in
         {
           type = "custom";
           key = "│ {#39} colors  {#keys}│";
-          format = "{#31}● {#32}● {#33}● {#34}● {#35}● {#36}● {#37}●{#}";
+          format = "{#31}██{#32}██{#33}██{#34}██{#35}██{#36}██{#37}██{#}";
         }
         {
           type = "custom";
