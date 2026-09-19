@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 let
   fg = c: "38;2;${c}";
@@ -51,12 +51,32 @@ let
   };
 in
 {
+  imports = [ inputs.sops-nix.homeManagerModules.sops ];
+
+  sops = {
+    defaultSopsFile = ../../secrets/secrets.yaml;
+    age.keyFile = "/home/anirudh/.config/sops/age/keys.txt";
+    secrets = {
+      "myx/key" = {};
+      "openrouter/key" = {};
+    };
+  };
+
   home.packages = with pkgs; [
     eza
   ];
 
   programs.fish = {
     enable = true;
+
+    shellInit = ''
+      if test -r ${config.sops.secrets."myx/key".path}
+        set -gx MYX_CLIENT_ID (cat ${config.sops.secrets."myx/key".path})
+      end
+      if test -r ${config.sops.secrets."openrouter/key".path}
+        set -gx OPENROUTER_API_KEY (cat ${config.sops.secrets."openrouter/key".path})
+      end
+    '';
 
     loginShellInit = ''
       if test (tty) = /dev/tty1; and not set -q NIRI_SESSION_STARTED

@@ -103,6 +103,7 @@
     # desktop applications
     basalt
     discord
+    myx
     obsidian
     ruffle
     spotify
