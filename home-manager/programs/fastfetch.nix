@@ -21,7 +21,7 @@ in
         };
         padding = {
           top = 4;
-          left = 2;
+          left = 3;
         };
       };
 
@@ -30,7 +30,6 @@ in
         color.keys = "38;2;255;255;255";
       };
 
-      # Labels and color dots use the terminal palette; borders stay white.
       modules = [
         {
           type = "custom";
