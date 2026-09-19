@@ -15,6 +15,7 @@
       "Enter the Gungeon"
       "Hollow Knight"
       "lunarclient"
+      "Orca"
       "org.kde.dolphin"
       "qimgv"
       "rs.ruffle.Ruffle"

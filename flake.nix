@@ -24,6 +24,7 @@
       url = "github:sadjow/codex-cli-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    llm-agents.url = "github:numtide/llm-agents.nix";
 
     # coding agent skills, plugins, settings
     anikonistack = {
@@ -131,6 +132,9 @@
             inputs.claude-code-cli.packages.${system}.default
             inputs.claude-desktop.packages.${system}.claude-desktop-with-fhs
             inputs.codex-cli.packages.${system}.default
+            inputs.llm-agents.packages.${system}.jules
+            inputs.llm-agents.packages.${system}.junie
+            inputs.llm-agents.packages.${system}.orca
 
             # rust stable toolchain
             (inputs.fenix.packages.${system}.stable.withComponents [
