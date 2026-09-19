@@ -41,12 +41,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # matrix tui client
-    matui = {
-      url = "github:pkulak/matui";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # niri
     niri.url = "github:sodiboo/niri-flake";
 
@@ -67,6 +61,10 @@
     };
 
     # productivity
+    matui = { # matrix tui client
+      url = "github:pkulak/matui";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     toofan = {
       url = "github:vyrx-dev/toofan";
       inputs.nixpkgs.follows = "nixpkgs";
