@@ -13,7 +13,8 @@
   '(centaur-tabs-unselected :background "#1d2021" :foreground "#928374")
   '(centaur-tabs-selected :background "#3c3836" :foreground "#ebdbb2")
   '(centaur-tabs-selected-modified :inherit centaur-tabs-selected)
-  '(centaur-tabs-unselected-modified :inherit centaur-tabs-unselected))
+  '(centaur-tabs-unselected-modified :inherit centaur-tabs-unselected)
+  '(font-lock-builtin-face :foreground "#8ec07c"))
 
 (setq diff-hl-side 'right)
 (setq diff-hl-margin-symbols-alist
