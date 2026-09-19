@@ -67,10 +67,6 @@
     };
 
     # productivity
-    timer = {
-      url = "github:sectore/timr-tui";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     toofan = {
       url = "github:vyrx-dev/toofan";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -147,7 +143,6 @@
             ])
 
             inputs.matui.packages.${system}.default
-            inputs.timer.packages.${system}.default
             inputs.toofan.packages.${system}.default
             inputs.zen-browser.packages.${system}.default
           ];

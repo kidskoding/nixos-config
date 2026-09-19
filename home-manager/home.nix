@@ -123,6 +123,7 @@
     pipes
     presenterm
     tickrs
+    timr-tui
     wtf
 
     # fonts
