@@ -18,6 +18,10 @@
   '(centaur-tabs-unselected-modified :inherit centaur-tabs-unselected)
   '(font-lock-builtin-face :foreground "#8ec07c"))
 
+(after! centaur-tabs
+  (setq centaur-tabs-hide-predicate
+        (lambda () (derived-mode-p '+dashboard-mode))))
+
 (setq global-hl-line-modes '(prog-mode conf-mode special-mode org-agenda-mode dired-mode))
 
 (setq diff-hl-side 'right)
