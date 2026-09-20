@@ -52,12 +52,16 @@
 (package! affe)
 (package! nerd-icons-completion)
 (package! elcord)
-(package! org-modern)
 
 (package! shell-maker)
 (package! acp)
 (package! agent-shell)
 
-(package! org-fragtog)
+;; org plugins!
+(package! org-alert) ;; desktop notifications for reminders/deadlines!
+(package! org-fragtog) ;; auto renders LATEX fragments inline as you type!
+(package! org-gcal) ;; gcal sync for org mode!
+(package! org-modern)
+(package! org-super-agenda) ;; better agenda super-views
 
 (package! obsidian)
