@@ -8,7 +8,6 @@
 
     ./niri
     ./noctalia
-    ./zen.nix
     ./thunderbird.nix
     ./obs.nix
 
