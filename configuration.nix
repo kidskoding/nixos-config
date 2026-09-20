@@ -52,6 +52,7 @@
   };
 
   services.upower.enable = true;
+  services.upower.criticalPowerAction = "Hibernate";
 
   zramSwap.enable = true;
   swapDevices = [ { device = "/swapfile"; size = 16 * 1024; } ];
