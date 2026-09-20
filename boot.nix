@@ -33,10 +33,6 @@
       "rd.udev.log_level=3"
       "udev.log_priority=3"
       "i915.enable_psr=0"
-      "i915.enable_dc=0"
-
-      "mem_sleep_default=deep"
-      "nvme_core.default_ps_max_latency_us=0"
       "pci=noaer"
     ];
   };
