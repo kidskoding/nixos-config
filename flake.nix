@@ -70,7 +70,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # zen (browser)
+    # browsers
+    cromite = {
+      url = "github:Impqxr/cromite-nix-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -156,6 +160,8 @@
 
             inputs.matui.packages.${system}.default
             inputs.toofan.packages.${system}.default
+
+            inputs.cromite.packages.${system}.default
             inputs.zen-browser.packages.${system}.default
           ];
 
