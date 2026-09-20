@@ -1,5 +1,7 @@
 ;;; ui.el -- frame furniture: file manager, presence, window movement
 
+(load! "git-colors" doom-user-dir)
+
 (after! dirvish
   (setq dirvish-attributes nil)
   (custom-set-faces!
