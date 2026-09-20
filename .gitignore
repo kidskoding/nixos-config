@@ -6,3 +6,6 @@
 # nix
 result
 result-*
+
+# agent shell - emacs
+.agent-shell
