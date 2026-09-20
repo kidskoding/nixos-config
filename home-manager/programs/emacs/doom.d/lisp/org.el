@@ -2,7 +2,7 @@
 
 (after! org
   (setq org-startup-indented t
-        org-startup-folded 'content
+        org-startup-folded nil
         org-hide-emphasis-markers t
         org-pretty-entities t
         org-ellipsis " ▾"
