@@ -142,7 +142,7 @@
        (nix +lsp +tree-sitter)
        ocaml
        ;;odin
-       (org +pretty +roam)
+       (org +pretty +roam2)
        (php +lsp +tree-sitter)
        ;;plantuml
        ;;graphviz
