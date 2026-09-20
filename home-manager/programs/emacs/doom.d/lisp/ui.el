@@ -18,6 +18,8 @@
   '(centaur-tabs-unselected-modified :inherit centaur-tabs-unselected)
   '(font-lock-builtin-face :foreground "#8ec07c"))
 
+(setq global-hl-line-modes '(prog-mode conf-mode special-mode org-agenda-mode dired-mode))
+
 (setq diff-hl-side 'right)
 (setq diff-hl-margin-symbols-alist
       '((insert . "▌") (delete . "▌") (change . "▌") (unknown . "▌") (ignored . "▌") (reference . " ")))
