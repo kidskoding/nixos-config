@@ -27,10 +27,11 @@
   :hook (org-mode . org-modern-mode)
   :config
   (setq org-modern-star 'replace
+        org-modern-replace-stars "◉◎◈◇✳"
         org-modern-hide-stars 'leading
         org-modern-table t
-        org-modern-list '((43 . "•")
-                          (45 . "–")
+        org-modern-list '((43 . "▪")
+                          (45 . "⁃")
                           (42 . "◦"))))
 
 ;; --- LaTeX math in org notes ---
