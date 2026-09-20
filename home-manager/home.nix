@@ -129,6 +129,7 @@
     # fonts
     nerd-fonts.symbols-only
     nerd-fonts.terminess-ttf
+    symbola # fallback for doom emacs
   ];
 
   programs.direnv = {
