@@ -32,7 +32,22 @@
         org-modern-table t
         org-modern-list '((43 . "▪")
                           (45 . "⁃")
-                          (42 . "◦"))))
+                          (42 . "◦")))
+
+  ;; org-modern refuses to collapse leading stars while org-indent-mode is on
+  ;; (see the org-indent guard in `org-modern--star'), so org-indent hides them
+  ;; instead with the `org-hide' face -- foreground painted to match the
+  ;; background. The characters are still there, so the cursor inverts the cell
+  ;; and the star flashes back. An `invisible' property is not paintable, so the
+  ;; cursor cannot expose it. `org-modern' is already in the invisibility spec.
+  (add-hook 'org-modern-mode-hook
+            (defun +org-hide-leading-stars-h ()
+              (funcall (if org-modern-mode
+                           #'font-lock-add-keywords
+                         #'font-lock-remove-keywords)
+                       nil
+                       '(("^\\(\\*+\\)\\* " 1 '(face nil invisible org-modern))))
+              (font-lock-flush))))
 
 ;; --- LaTeX math in org notes ---
 (after! org
