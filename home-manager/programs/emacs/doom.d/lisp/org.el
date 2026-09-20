@@ -11,6 +11,16 @@
 
   (add-hook 'org-mode-hook #'visual-line-mode)
 
+  (defun +org/open-heading ()
+    (interactive)
+    (org-fold-show-entry)
+    (org-fold-show-children))
+
+  (map! :map org-mode-map
+        "C-c f" #'org-fold-hide-subtree
+        "C-c o" #'+org/open-heading
+        "C-c O" #'org-fold-show-subtree)
+
   (custom-set-faces!
     '(org-document-title :height 1.5 :weight bold)
     '(org-level-1 :height 1.30 :weight bold)
