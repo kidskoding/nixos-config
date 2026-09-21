@@ -1,5 +1,6 @@
 {
   imports = [
+    ./completion.nix
     ./editor.nix
     ./lsp.nix
     ./plugins.nix
