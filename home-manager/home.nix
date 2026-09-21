@@ -107,6 +107,7 @@
     ruffle
     spotify
     teams-for-linux
+    zathura
 
     # gaming
     bottles
