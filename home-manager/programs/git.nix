@@ -22,10 +22,12 @@ in
         renamed = colors.purpleBright;
         ignored = colors.grayBright;
       };
+
       color.diff = {
         new = status.added;
         old = status.removed;
       };
+      
       color.status.untracked = status.untracked;
     };
 

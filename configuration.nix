@@ -1,15 +1,19 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./boot.nix
-      ./networking.nix
-      ./nvidia.nix
+  imports = [
+    ./hardware-configuration.nix
+    ./boot.nix
+    ./networking.nix
+    ./nvidia.nix
 
-      inputs.sops-nix.nixosModules.sops
-    ];
+    inputs.sops-nix.nixosModules.sops
+  ];
 
   sops = {
     defaultSopsFile = ./secrets/secrets.yaml;
@@ -21,7 +25,7 @@
     "nix-command"
     "flakes"
   ];
-  
+
   # do not warn if git tree is dirty when rebuilding system
   nix.settings.warn-dirty = false;
 
@@ -55,7 +59,12 @@
   services.upower.criticalPowerAction = "Hibernate";
 
   zramSwap.enable = true;
-  swapDevices = [ { device = "/swapfile"; size = 16 * 1024; } ];
+  swapDevices = [
+    {
+      device = "/swapfile";
+      size = 16 * 1024;
+    }
+  ];
   services.logind.settings.Login.HandleLidSwitch = "lock";
 
   programs.steam.enable = true;
@@ -80,7 +89,11 @@
     "anirudh" = {
       isNormalUser = true;
       description = "Anirudh Konidala";
-      extraGroups = [ "networkmanager" "wheel" "docker" ];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "docker"
+      ];
       shell = pkgs.fish;
     };
   };
