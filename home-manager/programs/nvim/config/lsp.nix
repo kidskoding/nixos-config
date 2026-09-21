@@ -58,7 +58,7 @@
       tinymist = {
         enable = true;
         settings = {
-          exportPdf = "onSave";
+          exportPdf = "onType";
           formatterMode = "typstyle";
           lint.enabled = true;
           lint.when = "onSave";
