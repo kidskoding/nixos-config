@@ -18,7 +18,7 @@
       settingsVersion = 59;
 
       general.dimmerOpacity = 0.0;
-      general.avatarImage = "${./avatar.jpg}";
+      general.avatarImage = "${./samus.png}";
       ui.fontDefault = config.theme.fontFamily;
       ui.fontFixed = config.theme.fontFamily;
 

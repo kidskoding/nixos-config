@@ -27,8 +27,10 @@ in
         new = status.added;
         old = status.removed;
       };
-      
+
       color.status.untracked = status.untracked;
+
+      core.editor = "nvim";
     };
 
     ignores = [
