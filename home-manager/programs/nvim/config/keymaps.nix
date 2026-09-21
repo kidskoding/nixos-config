@@ -98,6 +98,34 @@ let
   ];
 
   typst = [
+    (normal "<leader>tp" {
+      __raw = ''
+        function()
+          if vim.bo.filetype ~= "typst" then
+            return vim.notify("Open a Typst file first", vim.log.levels.WARN)
+          end
+          if vim.fn.executable("zathura") == 0 then
+            return vim.notify("Zathura is not installed", vim.log.levels.ERROR)
+          end
+          local client = vim.lsp.get_clients({ name = "tinymist", bufnr = 0 })[1]
+          if not client then
+            return vim.notify("Tinymist is still starting; try again shortly", vim.log.levels.WARN)
+          end
+          client:request("workspace/executeCommand", {
+            command = "tinymist.exportPdf",
+            arguments = { vim.api.nvim_buf_get_name(0) },
+          }, function(err, result)
+            if err or not result or type(result.path) ~= "string" then
+              return vim.notify("PDF export failed: " .. (err and err.message or "check Typst diagnostics"), vim.log.levels.ERROR)
+            end
+            if vim.g.cs374_zathura_job and vim.fn.jobwait({ vim.g.cs374_zathura_job }, 0)[1] == -1 then
+              vim.fn.jobstop(vim.g.cs374_zathura_job)
+            end
+            vim.g.cs374_zathura_job = vim.fn.jobstart({ "zathura", result.path }, { detach = true })
+          end, 0)
+        end
+      '';
+    } "Open Typst PDF in Zathura")
     (normal "<leader>tP" "<cmd>TypstPreviewToggle<CR>" "Toggle Typst browser preview")
   ];
 in
