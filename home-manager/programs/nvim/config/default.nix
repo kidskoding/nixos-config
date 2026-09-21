@@ -2,6 +2,7 @@
   imports = [
     ./editor.nix
     ./lsp.nix
+    ./plugins.nix
   ];
 
   withPython3 = false;
