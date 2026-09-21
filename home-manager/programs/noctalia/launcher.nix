@@ -16,6 +16,7 @@
       "Enter the Gungeon"
       "Hollow Knight"
       "lunarclient"
+      "Neovim wrapper"
       "Orca"
       "org.kde.dolphin"
       "qimgv"

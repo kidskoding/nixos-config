@@ -12,6 +12,11 @@
 
   home.stateVersion = "26.05";
 
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+  };
+
   home.packages = with pkgs; [
     # additional user system tools
     cliphist

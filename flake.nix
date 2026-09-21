@@ -33,6 +33,9 @@
     };
 
 
+    # nixvim (neovim, but nixified!)
+    nixvim.url = "github:nix-community/nixvim";
+
     # rust tooling
     fenix = {
       url = "github:nix-community/fenix";
