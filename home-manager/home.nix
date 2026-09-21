@@ -122,9 +122,4 @@
     nerd-fonts.terminess-ttf
     symbola
   ];
-
-  programs.direnv = {
-    enable = true;
-    nix-direnv.enable = true;
-  };
 }
