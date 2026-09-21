@@ -95,6 +95,7 @@
 
       settings = {
         bigfile.enabled = true;
+        bufdelete.enabled = true;
 
         dashboard = {
           enabled = false;

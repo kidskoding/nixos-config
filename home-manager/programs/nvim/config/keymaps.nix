@@ -5,6 +5,10 @@ let
     options.desc = desc;
   };
 
+  bufdelete = [
+    (normal "<leader>bd" "<cmd>lua Snacks.bufdelete()<CR>" "Close buffer")
+  ];
+
   claudecode = [
     (normal "<leader>aa" "<cmd>ClaudeCode<CR>" "Toggle Claude Code")
     (normal "<leader>ay" "<cmd>ClaudeCodeDiffAccept<CR>" "Accept Claude Code diff")
@@ -99,7 +103,8 @@ let
 in
 {
   keymaps =
-    claudecode
+    bufdelete
+    ++ claudecode
     ++ codecompanion
     ++ conform
     ++ gitbrowse
