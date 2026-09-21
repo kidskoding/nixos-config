@@ -13,7 +13,6 @@
       "Celeste"
       "Claude"
       "discord"
-      "emacsclient"
       "Enter the Gungeon"
       "Hollow Knight"
       "lunarclient"

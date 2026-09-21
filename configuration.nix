@@ -29,7 +29,7 @@
   # do not warn if git tree is dirty when rebuilding system
   nix.settings.warn-dirty = false;
 
-  # prebuilt emacs-overlay/nix-community builds
+  # prebuilt nix-community builds
   # instead of compiling from source
   nix.settings.substituters = [
     "https://nix-community.cachix.org"
@@ -165,8 +165,6 @@
     dates = "09:00";
     randomizedDelaySec = "45min";
   };
-
-  nixpkgs.overlays = [ inputs.emacs-overlay.overlays.default ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

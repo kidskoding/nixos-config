@@ -32,8 +32,6 @@
       inputs.claude-code-nix.follows = "claude-code-cli";
     };
 
-    # emacs (bleeding-edge builds, e.g. emacs-unstable)
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
 
     # rust tooling
     fenix = {

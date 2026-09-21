@@ -11,7 +11,6 @@
     ./thunderbird.nix
     ./obs.nix
 
-    ./emacs
     ./git.nix
     ./ssh.nix
 

@@ -11,9 +11,6 @@
   theme.fontFamily = "Terminess Nerd Font Mono";
 
   home.stateVersion = "26.05";
-  home.sessionPath = [
-    "${config.home.homeDirectory}/.config/emacs/bin"
-  ];
 
   home.packages = with pkgs; [
     # additional user system tools
@@ -93,12 +90,6 @@
     mdbook
     mdbook-mermaid
     pandoc
-    (texliveMedium.withPackages (ps: with ps; [ wrapfig capt-of ]))
-
-    (runCommand "epdfinfo" { } ''
-      mkdir -p $out/bin
-      ln -s ${emacsPackages.pdf-tools}/share/emacs/site-lisp/elpa/pdf-tools-*/epdfinfo $out/bin/epdfinfo
-    '')
 
     # desktop applications
     basalt
@@ -129,7 +120,7 @@
     # fonts
     nerd-fonts.symbols-only
     nerd-fonts.terminess-ttf
-    symbola # fallback for doom emacs
+    symbola
   ];
 
   programs.direnv = {

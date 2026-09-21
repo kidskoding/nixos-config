@@ -123,8 +123,6 @@ in
       tb = "nc termbin.com 9999";
 
       # other
-      emacs = ''emacsclient -nw -a ""'';
-      emacsg = ''emacsclient -c -n -a ""'';
       timer = "timr-tui";
     };
 
