@@ -9,4 +9,3 @@ test this neovim config with
 ```bash
 nix run .
 ```
-
