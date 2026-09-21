@@ -1,5 +1,6 @@
 {
   imports = [
+    ./ai.nix
     ./bufferline.nix
     ./completion.nix
     ./editor.nix
