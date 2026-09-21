@@ -1,5 +1,6 @@
 {
   imports = [
+    ./bufferline.nix
     ./completion.nix
     ./editor.nix
     ./lsp.nix
