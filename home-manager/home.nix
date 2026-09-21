@@ -27,7 +27,7 @@
     elmPackages.elm
     go
     jdk21
-    julia
+    (julia.withPackages [ "LanguageServer" ])
     lua
     ocaml
     php
