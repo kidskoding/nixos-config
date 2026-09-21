@@ -4,6 +4,7 @@
     ./bufferline.nix
     ./completion.nix
     ./editor.nix
+    ./keymaps.nix
     ./lsp.nix
     ./plugins.nix
   ];
