@@ -48,10 +48,7 @@ let
     (normal "<leader>bb" "<cmd>lua Snacks.picker.buffers()<CR>" "Switch buffer")
     (normal "<leader>e" "<cmd>lua Snacks.picker.explorer()<CR>" "File explorer")
     (normal "gd" "<cmd>lua Snacks.picker.lsp_definitions()<CR>" "Go to definition")
-    (normal "gD" "<cmd>lua Snacks.picker.lsp_declarations()<CR>" "Go to declaration")
-    (normal "gr" "<cmd>lua Snacks.picker.lsp_references()<CR>" "References")
-    (normal "gI" "<cmd>lua Snacks.picker.lsp_implementations()<CR>" "Go to implementation")
-    (normal "gy" "<cmd>lua Snacks.picker.lsp_type_definitions()<CR>" "Go to type definition")
+    (normal "grr" "<cmd>lua Snacks.picker.lsp_references()<CR>" "References")
   ];
 
   scratch = [
