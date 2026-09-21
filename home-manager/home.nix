@@ -101,6 +101,7 @@
     obsidian
     ruffle
     spotify
+    teams-for-linux
 
     # gaming
     bottles
