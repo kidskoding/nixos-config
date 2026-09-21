@@ -36,6 +36,7 @@
     scala_3
     swift
     swiftpm
+    typst
     zig
 
     # lsps / formatters / linters
@@ -58,8 +59,10 @@
     sourcekit-lsp
     stylelint
     terraform-ls
+    tinymist
     ty
     typescript-language-server
+    typstyle
     vscode-langservers-extracted
     yaml-language-server
     zls
