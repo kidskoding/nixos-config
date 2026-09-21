@@ -98,7 +98,7 @@ let
   ];
 
   typst = [
-    (normal "<leader>tp" "<cmd>TypstPreviewToggle<CR>" "Toggle Typst preview")
+    (normal "<leader>tP" "<cmd>TypstPreviewToggle<CR>" "Toggle Typst browser preview")
   ];
 in
 {
