@@ -187,6 +187,7 @@
         {
           __unkeyed-1 = "<leader>r";
           group = "rust";
+          icon = " ";
         }
         {
           __unkeyed-1 = "<leader>t";
@@ -195,10 +196,12 @@
         {
           __unkeyed-1 = "<leader>T";
           group = "typst";
+          icon = "󰈙 ";
         }
         {
           __unkeyed-1 = "<leader>x";
           group = "lists";
+          icon = " ";
         }
       ];
     };
