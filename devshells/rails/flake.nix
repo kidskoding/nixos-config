@@ -6,56 +6,61 @@
     devenv.url = "github:cachix/devenv";
   };
 
-  outputs = { nixpkgs, devenv, ... }@inputs:
+  outputs =
+    { nixpkgs, devenv, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-    in {
+    in
+    {
       devShells.${system}.default = devenv.lib.mkShell {
         inherit inputs pkgs;
-        modules = [{
-          packages = with pkgs; [
-            ruby_3_4
+        modules = [
+          {
+            packages = with pkgs; [
+              ruby_3_4
 
-            # native-gem build deps
-            libyaml
-            openssl
-            zlib
+              # native-gem build deps
+              libyaml
+              openssl
+              zlib
 
-            # rails
-            libxml2 libxslt   # nokogiri
-          ];
+              # rails
+              libxml2
+              libxslt # nokogiri
+            ];
 
-          services.postgres.enable = true;
+            services.postgres.enable = true;
 
-          env = {
-            # keep bundler-installed gems local to the project, not the
-            # shared user gem home, so `bundle install` stays reproducible
-            # and scoped per-project
-            BUNDLE_PATH = "vendor/bundle";
-          };
+            env = {
+              # keep bundler-installed gems local to the project, not the
+              # shared user gem home, so `bundle install` stays reproducible
+              # and scoped per-project
+              BUNDLE_PATH = "vendor/bundle";
+            };
 
-          enterShell = ''
-            # the nix store is read-only, so `gem install` needs a writable home.
-            # per-project rather than shared: two projects pinned to different
-            # rails versions should not fight over one gem home.
-            export GEM_HOME="$PWD/.nix-gems"
-            export PATH="$GEM_HOME/bin:$PATH"
+            enterShell = ''
+              # the nix store is read-only, so `gem install` needs a writable home.
+              # per-project rather than shared: two projects pinned to different
+              # rails versions should not fight over one gem home.
+              export GEM_HOME="$PWD/.nix-gems"
+              export PATH="$GEM_HOME/bin:$PATH"
 
-            if [ ! -f Gemfile ]; then
-              # pin with RAILS_VERSION=8.1.3.1 nix develop, else take the latest.
-              echo "no Gemfile found, installing rails ''${RAILS_VERSION:-(latest)}..."
-              gem install --no-document rails ''${RAILS_VERSION:+-v "$RAILS_VERSION"}
+              if [ ! -f Gemfile ]; then
+                # pin with RAILS_VERSION=8.1.3.1 nix develop, else take the latest.
+                echo "no Gemfile found, installing rails ''${RAILS_VERSION:-(latest)}..."
+                gem install --no-document rails ''${RAILS_VERSION:+-v "$RAILS_VERSION"}
 
-              rails new . --skip-bundle --database=postgresql
-              bundle install
+                rails new . --skip-bundle --database=postgresql
+                bundle install
 
-              for d in /.nix-gems /.devenv; do
-                grep -qxF "$d" .gitignore 2>/dev/null || echo "$d" >> .gitignore
-              done
-            fi
-          '';
-        }];
+                for d in /.nix-gems /.devenv; do
+                  grep -qxF "$d" .gitignore 2>/dev/null || echo "$d" >> .gitignore
+                done
+              fi
+            '';
+          }
+        ];
       };
     };
 }

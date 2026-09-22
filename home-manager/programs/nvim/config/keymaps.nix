@@ -27,6 +27,14 @@ let
     (normal "<leader>ap" "<cmd>CodeCompanionActions<CR>" "ACP action palette")
   ];
 
+  dadbod = [
+    (normal "<leader>Du" "<cmd>DBUIToggle<CR>" "Toggle database UI")
+    (normal "<leader>Df" "<cmd>DBUIFindBuffer<CR>" "Find database buffer")
+    (normal "<leader>Dr" "<cmd>DBUIRenameBuffer<CR>" "Rename database buffer")
+    (normal "<leader>Dq" "<cmd>DBUILastQueryInfo<CR>" "Last query info")
+    (normal "<leader>Da" "<cmd>DBUIAddConnection<CR>" "Add database connection")
+  ];
+
   conform = [
     (normal "<leader>cf" "<cmd>lua require('conform').format({ lsp_format = 'fallback' })<CR>"
       "Format buffer"
@@ -53,6 +61,13 @@ let
     (normal "<leader>e" "<cmd>lua Snacks.picker.explorer()<CR>" "File explorer")
     (normal "gd" "<cmd>lua Snacks.picker.lsp_definitions()<CR>" "Go to definition")
     (normal "grr" "<cmd>lua Snacks.picker.lsp_references()<CR>" "References")
+  ];
+
+  rustaceanvim = [
+    (normal "<leader>ra" "<cmd>RustLsp codeAction<CR>" "Rust code action")
+    (normal "<leader>rr" "<cmd>RustLsp runnables<CR>" "Rust runnables")
+    (normal "<leader>rt" "<cmd>RustLsp testables<CR>" "Rust testables")
+    (normal "<leader>re" "<cmd>RustLsp explainError<CR>" "Explain Rust error")
   ];
 
   scratch = [
@@ -135,10 +150,12 @@ in
     ++ claudecode
     ++ codecompanion
     ++ conform
+    ++ dadbod
     ++ gitbrowse
     ++ neogit
     ++ oil
     ++ picker
+    ++ rustaceanvim
     ++ scratch
     ++ terminal
     ++ toggle

@@ -1,4 +1,9 @@
-{ inputs, lib, pkgs, ... }:
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   terminal = "alacritty";
@@ -41,7 +46,8 @@ in
     hotkey-overlay.skip-at-startup = true;
 
     xwayland-satellite.path =
-      lib.getExe inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.xwayland-satellite-unstable;
+      lib.getExe
+        inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.xwayland-satellite-unstable;
 
     environment = {
       NIXOS_OZONE_WL = "1";
@@ -68,7 +74,10 @@ in
         height = 1080;
         refresh = 144.0;
       };
-      position = { x = 0; y = 0; };
+      position = {
+        x = 0;
+        y = 0;
+      };
       scale = 1.0;
       variable-refresh-rate = "on-demand";
     };
@@ -90,7 +99,12 @@ in
     spawn-at-startup = [
       { argv = [ "noctalia-shell" ]; }
       { argv = [ "blueman-applet" ]; }
-      { argv = [ "nm-applet" "--indicator" ]; }
+      {
+        argv = [
+          "nm-applet"
+          "--indicator"
+        ];
+      }
       { sh = "wl-paste --watch cliphist store"; }
       { argv = [ terminal ]; }
     ];

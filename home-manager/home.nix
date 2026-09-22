@@ -99,9 +99,10 @@
     mdbook-mermaid
     pandoc
 
-    # desktop applications
+    # applications
     basalt
     discord
+    harlequin
     myx
     obsidian
     ruffle

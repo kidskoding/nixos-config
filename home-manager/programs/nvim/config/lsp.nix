@@ -39,16 +39,17 @@
       omnisharp.enable = true;
       ruby_lsp.enable = true;
 
-      rust_analyzer = {
-        enable = true;
-        installCargo = false;
-        installRustc = false;
-
-        settings = {
-          cargo.allFeatures = true;
-          check.command = "clippy";
-        };
-      };
+      # included with rustaceanvim!
+      # rust_analyzer = {
+      #   enable = true;
+      #   installCargo = false;
+      #   installRustc = false;
+      #
+      #   settings = {
+      #     cargo.allFeatures = true;
+      #     check.command = "clippy";
+      #   };
+      # };
 
       sourcekit.enable = true;
       sqls.enable = true;

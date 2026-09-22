@@ -88,5 +88,6 @@ let
 in
 {
   home.file.".config/tickrs/config.yml".source =
-    (pkgs.formats.yaml { }).generate "tickrs-config.yml" settings;
+    (pkgs.formats.yaml { }).generate "tickrs-config.yml"
+      settings;
 }

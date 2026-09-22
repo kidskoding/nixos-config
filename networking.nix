@@ -3,17 +3,15 @@
 {
   sops = {
     secrets = {
-      "wifi/home" = {};
-      "wifi/home2" = {};
-      "wifi/uiuc" = {};
-      "wifi/hotspot" = {};
+      "wifi/home" = { };
+      "wifi/uiuc" = { };
+      "wifi/hotspot" = { };
     };
 
     templates = {
       "wifi.env" = {
         content = ''
           RUDY2015_PSK="${config.sops.placeholder."wifi/home"}"
-          BECKYBEND_PSK="${config.sops.placeholder."wifi/home2"}"
           ILLINOISNET_PSK="${config.sops.placeholder."wifi/uiuc"}"
           ANIRUDHIPHONE17_PSK="${config.sops.placeholder."wifi/hotspot"}"
         '';
@@ -40,20 +38,6 @@
           wifi-security = {
             key-mgmt = "wpa-psk";
             psk = "$RUDY2015_PSK";
-          };
-        };
-
-        home2 = {
-          connection = {
-            id = "BeckyBend";
-            type = "wifi";
-          };
-
-          wifi.ssid = "BeckyBend";
-
-          wifi-security = {
-            key-mgmt = "wpa-psk";
-            psk = "$BECKYBEND_PSK";
           };
         };
 

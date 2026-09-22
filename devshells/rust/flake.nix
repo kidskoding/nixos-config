@@ -9,7 +9,8 @@
     };
   };
 
-  outputs = { nixpkgs, fenix, ... }:
+  outputs =
+    { nixpkgs, fenix, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -21,9 +22,13 @@
         "rustc"
         "rustfmt"
       ];
-    in {
+    in
+    {
       devShells.${system}.default = pkgs.mkShell {
-        packages = [ toolchain ] ++ (with pkgs; [
+        packages = [
+          toolchain
+        ]
+        ++ (with pkgs; [
           # "accessories" for rust
           bacon
           cargo-chef

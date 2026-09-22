@@ -1,4 +1,10 @@
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 let
   fg = c: "38;2;${c}";
@@ -30,24 +36,29 @@ let
   # eza-only keys, layered on top of LS_COLORS by eza itself
   ezaExtra = {
     # mute the permission-bit chars (tw is owned by fileTypes above)
-    ur = "0"; uw = "0"; ux = "0";
-    gr = "0"; gw = "0"; gx = "0";
-    tr = "0"; tx = "0";
+    ur = "0";
+    uw = "0";
+    ux = "0";
+    gr = "0";
+    gw = "0";
+    gx = "0";
+    tr = "0";
+    tx = "0";
 
-    lp = fg a.aquaBright;   # symlink target path
+    lp = fg a.aquaBright; # symlink target path
     sn = fg a.yellowBright; # file size number
-    sb = fg a.gray;         # file size unit
-    da = fg a.blue;         # timestamp
+    sb = fg a.gray; # file size unit
+    da = fg a.blue; # timestamp
     hd = "1;${fg a.purple}"; # table header
 
-    im = fg a.greenBright;  # image
-    vi = fg a.purple;       # video
-    mu = fg a.aquaBright;   # music
-    lo = fg a.aquaBright;   # lossless audio
-    cr = fg a.redBright;    # crypto
-    do = fg a.blueBright;   # document
+    im = fg a.greenBright; # image
+    vi = fg a.purple; # video
+    mu = fg a.aquaBright; # music
+    lo = fg a.aquaBright; # lossless audio
+    cr = fg a.redBright; # crypto
+    do = fg a.blueBright; # document
     co = fg a.yellowBright; # compressed
-    tm = fg a.gray;         # temp file
+    tm = fg a.gray; # temp file
   };
 in
 {
@@ -56,10 +67,6 @@ in
   sops = {
     defaultSopsFile = ../../secrets/secrets.yaml;
     age.keyFile = "/home/anirudh/.config/sops/age/keys.txt";
-    secrets = {
-      "myx/key" = {};
-      "openrouter/key" = {};
-    };
   };
 
   home.packages = with pkgs; [
@@ -68,15 +75,6 @@ in
 
   programs.fish = {
     enable = true;
-
-    shellInit = ''
-      if test -r ${config.sops.secrets."myx/key".path}
-        set -gx MYX_CLIENT_ID (cat ${config.sops.secrets."myx/key".path})
-      end
-      if test -r ${config.sops.secrets."openrouter/key".path}
-        set -gx OPENROUTER_API_KEY (cat ${config.sops.secrets."openrouter/key".path})
-      end
-    '';
 
     loginShellInit = ''
       if test (tty) = /dev/tty1; and not set -q NIRI_SESSION_STARTED
@@ -94,7 +92,7 @@ in
 
     shellAliases = {
       # nixos aliases
-      rebuild = "sudo nixos-rebuild switch --flake /home/anirudh/nixos#nixos";
+      rebuild = "/home/anirudh/nixos/scripts/rebuild.sh";
       collect-garbage = "sudo nix-collect-garbage --delete-older-than 7d";
 
       # eza listings

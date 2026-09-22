@@ -9,7 +9,8 @@
     };
   };
 
-  outputs = { nixpkgs, fenix, ... }:
+  outputs =
+    { nixpkgs, fenix, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -24,9 +25,13 @@
         ])
         fx.complete.rustfmt
       ];
-    in {
+    in
+    {
       devShells.${system}.default = pkgs.mkShell {
-        packages = [ toolchain ] ++ (with pkgs; [
+        packages = [
+          toolchain
+        ]
+        ++ (with pkgs; [
           bacon
           evcxr
         ]);

@@ -35,10 +35,18 @@
         ];
 
         normal = {
-          "bind \"Alt x\"" = { CloseFocus = [ ]; };
-          "bind \"Alt s\"" = { NewPane = "stacked"; };
-          "bind \"Alt n\"" = { NewPane = "right"; };
-          "bind \"Alt t\"" = { NewTab = [ ]; };
+          "bind \"Alt x\"" = {
+            CloseFocus = [ ];
+          };
+          "bind \"Alt s\"" = {
+            NewPane = "stacked";
+          };
+          "bind \"Alt n\"" = {
+            NewPane = "right";
+          };
+          "bind \"Alt t\"" = {
+            NewTab = [ ];
+          };
         };
       };
     };

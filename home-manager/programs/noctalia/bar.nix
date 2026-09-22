@@ -33,16 +33,31 @@
       ];
       right = [
         { id = "Tray"; }
-        { id = "Volume"; displayMode = "alwaysShow"; }
-        { id = "Network"; displayMode = "alwaysShow"; }
-        { id = "Brightness"; displayMode = "alwaysShow"; }
-        { id = "Battery"; displayMode = "icon-always"; }
+        {
+          id = "Volume";
+          displayMode = "alwaysShow";
+        }
+        {
+          id = "Network";
+          displayMode = "alwaysShow";
+        }
+        {
+          id = "Brightness";
+          displayMode = "alwaysShow";
+        }
+        {
+          id = "Battery";
+          displayMode = "icon-always";
+        }
         {
           id = "Clock";
           formatHorizontal = "ddd MMM dd  hh:mm AP";
           tooltipFormat = "dddd, MMMM d yyyy";
         }
-        { id = "ControlCenter"; useDistroLogo = true; }
+        {
+          id = "ControlCenter";
+          useDistroLogo = true;
+        }
       ];
     };
   };

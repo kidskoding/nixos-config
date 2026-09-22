@@ -5,14 +5,14 @@
     enable = true;
 
     settings = {
-      format = "$os$all";  
-    
+      format = "$os$all";
+
       os = {
         disabled = false;
         format = "[$symbol]($style)";
         style = "bold #7ebae4";
       };
-      
+
       username = {
         show_always = true;
         format = "[$user]($style)";

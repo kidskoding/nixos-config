@@ -68,19 +68,54 @@ in
       mouse = {
         hide_when_typing = true;
         bindings = [
-          { mouse = "Middle"; action = "PasteSelection"; }
+          {
+            mouse = "Middle";
+            action = "PasteSelection";
+          }
         ];
       };
 
       keyboard.bindings = [
-        { key = "V"; mods = "Control|Shift"; action = "Paste"; }
-        { key = "C"; mods = "Control|Shift"; action = "Copy"; }
-        { key = "F"; mods = "Control|Shift"; action = "SearchForward"; }
-        { key = "B"; mods = "Control|Shift"; action = "SearchBackward"; }
-        { key = "Key0"; mods = "Control"; action = "ResetFontSize"; }
-        { key = "PageUp"; mods = "Shift"; action = "ScrollPageUp"; }
-        { key = "PageDown"; mods = "Shift"; action = "ScrollPageDown"; }
-        { key = "Return"; mods = "Shift"; chars = "\r"; }
+        {
+          key = "V";
+          mods = "Control|Shift";
+          action = "Paste";
+        }
+        {
+          key = "C";
+          mods = "Control|Shift";
+          action = "Copy";
+        }
+        {
+          key = "F";
+          mods = "Control|Shift";
+          action = "SearchForward";
+        }
+        {
+          key = "B";
+          mods = "Control|Shift";
+          action = "SearchBackward";
+        }
+        {
+          key = "Key0";
+          mods = "Control";
+          action = "ResetFontSize";
+        }
+        {
+          key = "PageUp";
+          mods = "Shift";
+          action = "ScrollPageUp";
+        }
+        {
+          key = "PageDown";
+          mods = "Shift";
+          action = "ScrollPageDown";
+        }
+        {
+          key = "Return";
+          mods = "Shift";
+          chars = "\r";
+        }
       ];
 
       colors = {

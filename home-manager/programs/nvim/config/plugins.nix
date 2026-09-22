@@ -1,4 +1,12 @@
 {
+  globals = {
+    db_ui_use_nerd_fonts = 1;
+    db_ui_show_database_icon = 1;
+    db_ui_win_position = "left";
+    db_ui_winwidth = 40;
+    db_ui_execute_on_save = 0;
+  };
+
   highlightOverride = {
     lualine_sep_color_b = {
       fg = "#a89984";
@@ -90,6 +98,15 @@
       settings.win_options.cursorline = true;
     };
 
+    rustaceanvim = {
+      enable = true;
+
+      settings.server.default_settings.rust-analyzer = {
+        cargo.allFeatures = true;
+        check.command = "clippy";
+      };
+    };
+
     snacks = {
       enable = true;
 
@@ -133,6 +150,11 @@
     };
 
     trouble.enable = true;
+
+    vim-dadbod.enable = true;
+    vim-dadbod-completion.enable = true;
+    vim-dadbod-ui.enable = true;
+
     which-key.enable = true;
   };
 }
