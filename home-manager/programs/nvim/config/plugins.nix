@@ -155,6 +155,52 @@
     vim-dadbod-completion.enable = true;
     vim-dadbod-ui.enable = true;
 
-    which-key.enable = true;
+    which-key = {
+      enable = true;
+
+      # one entry per leader prefix in keymaps.nix, same order
+      settings.spec = [
+        {
+          __unkeyed-1 = "<leader>a";
+          group = "ai";
+        }
+        {
+          __unkeyed-1 = "<leader>b";
+          group = "buffers";
+        }
+        {
+          __unkeyed-1 = "<leader>c";
+          group = "code";
+        }
+        {
+          __unkeyed-1 = "<leader>D";
+          group = "database";
+        }
+        {
+          __unkeyed-1 = "<leader>f";
+          group = "find";
+        }
+        {
+          __unkeyed-1 = "<leader>g";
+          group = "git";
+        }
+        {
+          __unkeyed-1 = "<leader>r";
+          group = "rust";
+        }
+        {
+          __unkeyed-1 = "<leader>t";
+          group = "toggle";
+        }
+        {
+          __unkeyed-1 = "<leader>T";
+          group = "typst";
+        }
+        {
+          __unkeyed-1 = "<leader>x";
+          group = "lists";
+        }
+      ];
+    };
   };
 }
