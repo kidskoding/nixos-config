@@ -27,6 +27,7 @@
     ripgrep
     tree
     tree-sitter
+    websocat
     wl-clipboard
 
     # languages
