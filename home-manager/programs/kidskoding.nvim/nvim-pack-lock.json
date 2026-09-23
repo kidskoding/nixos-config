@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "gruvbox.nvim": {
+      "rev": "154eb5ff5b96d0641307113fa385eaf0d36d9796",
+      "src": "https://github.com/ellisonleao/gruvbox.nvim"
+    },
     "hotpot.nvim": {
       "rev": "34cc657d43fe6dcd2197a4dcef80af071178bbef",
       "src": "https://github.com/rktjmp/hotpot.nvim",
