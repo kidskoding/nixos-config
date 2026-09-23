@@ -32,9 +32,6 @@
       inputs.claude-code-nix.follows = "claude-code-cli";
     };
 
-    # nixvim (neovim, but nixified!)
-    nixvim.url = "github:nix-community/nixvim";
-
     # rust tooling
     fenix = {
       url = "github:nix-community/fenix";
