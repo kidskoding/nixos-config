@@ -60,7 +60,7 @@ in {
         }
         {
           type = "custom";
-          key = "│ {#31}󰇄 toolkit      {#keys}│";
+          key = "│ {#31}󰇄 toolkit {#keys}│";
           format = "noctalia ${config.programs.noctalia-shell.package.version}";
         }
         {
