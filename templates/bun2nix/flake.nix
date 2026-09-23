@@ -10,30 +10,27 @@
     };
   };
 
-  outputs =
-    inputs@{ nixpkgs, ... }:
-    let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        overlays = [ inputs.bun2nix.overlays.default ];
-      };
-    in
-    {
-      packages.${system}.default = pkgs.callPackage ./default.nix { };
-
-      devShells.${system}.default = pkgs.mkShell {
-        packages = with pkgs; [
-          bun
-          bun2nix
-        ];
-
-        shellHook = ''
-          bun install --frozen-lockfile
-          bun2nix -o bun.nix
-          git init
-          git add -A
-        '';
-      };
+  outputs = inputs @ {nixpkgs, ...}: let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      overlays = [inputs.bun2nix.overlays.default];
     };
+  in {
+    packages.${system}.default = pkgs.callPackage ./default.nix {};
+
+    devShells.${system}.default = pkgs.mkShell {
+      packages = with pkgs; [
+        bun
+        bun2nix
+      ];
+
+      shellHook = ''
+        bun install --frozen-lockfile
+        bun2nix -o bun.nix
+        git init
+        git add -A
+      '';
+    };
+  };
 }

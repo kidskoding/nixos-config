@@ -1,9 +1,6 @@
-{ config, ... }:
-
-let
+{config, ...}: let
   c = config.theme.colors;
-in
-{
+in {
   programs.noctalia-shell = {
     colors = {
       mPrimary = c.yellowBright;

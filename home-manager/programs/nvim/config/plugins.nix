@@ -31,10 +31,10 @@
 
       settings = {
         formatters_by_ft = {
-          nix = [ "nixfmt" ];
-          lua = [ "stylua" ];
-          python = [ "ruff_format" ];
-          typst = [ "typstyle" ];
+          nix = ["nixfmt"];
+          lua = ["stylua"];
+          python = ["ruff_format"];
+          typst = ["typstyle"];
         };
       };
     };
@@ -120,7 +120,7 @@
           enabled = false;
 
           sections = [
-            { section = "header"; }
+            {section = "header";}
             {
               section = "keys";
               gap = 1;
@@ -143,7 +143,7 @@
       enable = true;
       highlight.enable = true;
       indent.enable = true;
-      settings.ensure_installed = [ "typst" ];
+      settings.ensure_installed = ["typst"];
     };
 
     typst-preview = {

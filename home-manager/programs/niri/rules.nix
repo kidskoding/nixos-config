@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   programs.niri.settings.window-rules = [
     {
       draw-border-with-background = false;
@@ -14,11 +12,11 @@
       };
     }
     {
-      matches = [ { is-active = false; } ];
+      matches = [{is-active = false;}];
       opacity = 0.95;
     }
     {
-      matches = [ { app-id = "^discord$"; } ];
+      matches = [{app-id = "^discord$";}];
       open-maximized = true;
     }
     {
@@ -36,8 +34,8 @@
     }
     {
       matches = [
-        { app-id = "^steam_app_.*$"; }
-        { app-id = "^gamescope$"; }
+        {app-id = "^steam_app_.*$";}
+        {app-id = "^gamescope$";}
       ];
       open-fullscreen = true;
       variable-refresh-rate = true;

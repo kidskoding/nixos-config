@@ -1,10 +1,14 @@
-{ inputs, pkgs, ... }:
-
 {
+  inputs,
+  pkgs,
+  ...
+}: {
   programs.noctalia-shell.package =
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs
-      (old: {
-        postPatch = (old.postPatch or "") + ''
+    (old: {
+      postPatch =
+        (old.postPatch or "")
+        + ''
           substituteInPlace Modules/Panels/Media/MediaPlayerPanel.qml \
             --replace-fail $'        Layout.preferredHeight: headerRow.implicitHeight + Style.margin2M' $'        visible: false' \
             --replace-fail $'        Layout.preferredHeight: mediaContentGrid.implicitHeight + Style.margin2M\n' $'        Layout.preferredHeight: mediaContentGrid.implicitHeight + Style.margin2M\n\n        NIconButton {\n          anchors.top: parent.top\n          anchors.right: parent.right\n          anchors.margins: Style.marginS\n          z: 2\n          icon: "close"\n          baseSize: Style.baseWidgetSize * 0.6\n          onClicked: root.close()\n        }\n'
@@ -34,7 +38,7 @@
             --replace-fail $'              NText {\n                text: MediaService.trackTitle || "No media"\n                pointSize: Style.fontSizeM\n                color: Color.mOnSurface\n                Layout.fillWidth: true\n                elide: Text.ElideRight\n              }' $'              NScrollText {\n                text: MediaService.trackTitle || "No media"\n                maxWidth: mediaRow.textWidth\n                alwaysMaxWidth: true\n                scrollMode: NScrollText.ScrollMode.Always\n                delegate: NText {\n                  pointSize: Style.fontSizeM\n                  color: Color.mOnSurface\n                }\n              }' \
             --replace-fail $'              NText {\n                text: MediaService.trackArtist || ""\n                pointSize: Style.fontSizeM\n                color: Color.mOnSurfaceVariant\n                Layout.fillWidth: true\n                elide: Text.ElideRight\n              }' $'              NScrollText {\n                text: MediaService.trackArtist || ""\n                maxWidth: mediaRow.textWidth\n                alwaysMaxWidth: true\n                scrollMode: NScrollText.ScrollMode.Always\n                delegate: NText {\n                  pointSize: Style.fontSizeM\n                  color: Color.mOnSurfaceVariant\n                }\n              }'
         '';
-      });
+    });
 
   services.hypridle = {
     enable = true;

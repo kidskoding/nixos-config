@@ -1,6 +1,4 @@
-{ ... }:
-
-let
+{...}: let
   bulkToOther = folderUri: [
     {
       name = "Other (bulk mail)";
@@ -10,8 +8,7 @@ let
       condition = ''OR (\"List-Unsubscribe\",contains,http) OR (\"List-Unsubscribe\",contains,mailto)'';
     }
   ];
-in
-{
+in {
   programs.thunderbird = {
     enable = true;
     profiles.default = {

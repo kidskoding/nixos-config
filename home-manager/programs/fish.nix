@@ -4,9 +4,7 @@
   pkgs,
   inputs,
   ...
-}:
-
-let
+}: let
   fg = c: "38;2;${c}";
   a = config.theme.ansi;
 
@@ -60,9 +58,8 @@ let
     co = fg a.yellowBright; # compressed
     tm = fg a.gray; # temp file
   };
-in
-{
-  imports = [ inputs.sops-nix.homeManagerModules.sops ];
+in {
+  imports = [inputs.sops-nix.homeManagerModules.sops];
 
   sops = {
     defaultSopsFile = ../../secrets/secrets.yaml;

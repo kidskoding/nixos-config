@@ -1,11 +1,9 @@
-{ config, ... }:
-
-{
+{config, ...}: {
   sops = {
     secrets = {
-      "wifi/home" = { };
-      "wifi/uiuc" = { };
-      "wifi/hotspot" = { };
+      "wifi/home" = {};
+      "wifi/uiuc" = {};
+      "wifi/hotspot" = {};
     };
 
     templates = {
@@ -24,7 +22,7 @@
     enable = true;
 
     ensureProfiles = {
-      environmentFiles = [ config.sops.templates."wifi.env".path ];
+      environmentFiles = [config.sops.templates."wifi.env".path];
 
       profiles = {
         home = {
@@ -86,7 +84,7 @@
 
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ ];
-    allowedUDPPorts = [ ];
+    allowedTCPPorts = [];
+    allowedUDPPorts = [];
   };
 }

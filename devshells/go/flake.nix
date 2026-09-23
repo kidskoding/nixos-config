@@ -3,27 +3,24 @@
 
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-  outputs =
-    { nixpkgs, ... }:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in
-    {
-      devShells.${system}.default = pkgs.mkShell {
-        packages = with pkgs; [
-          # go
-          go
-          golangci-lint
-          gopls
-          gotools
+  outputs = {nixpkgs, ...}: let
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+  in {
+    devShells.${system}.default = pkgs.mkShell {
+      packages = with pkgs; [
+        # go
+        go
+        golangci-lint
+        gopls
+        gotools
 
-          # "accessories" for go
-          delve
-          gomodifytags
-          gore
-          gotests
-        ];
-      };
+        # "accessories" for go
+        delve
+        gomodifytags
+        gore
+        gotests
+      ];
     };
+  };
 }

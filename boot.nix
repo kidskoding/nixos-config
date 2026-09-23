@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   boot = {
     loader = {
       grub.enable = true;
@@ -22,7 +20,7 @@
     consoleLogLevel = 0;
     initrd.verbose = false;
     initrd.systemd.enable = true;
-    initrd.kernelModules = [ "i915" ];
+    initrd.kernelModules = ["i915"];
 
     kernelParams = [
       "quiet"

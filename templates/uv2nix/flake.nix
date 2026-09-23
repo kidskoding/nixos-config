@@ -23,63 +23,59 @@
     };
   };
 
-  outputs =
-    {
-      nixpkgs,
-      pyproject-nix,
-      uv2nix,
-      pyproject-build-systems,
-      ...
-    }:
-    let
-      inherit (nixpkgs) lib;
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+  outputs = {
+    nixpkgs,
+    pyproject-nix,
+    uv2nix,
+    pyproject-build-systems,
+    ...
+  }: let
+    inherit (nixpkgs) lib;
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
 
-      workspace = uv2nix.lib.workspace.loadWorkspace { workspaceRoot = ./.; };
+    workspace = uv2nix.lib.workspace.loadWorkspace {workspaceRoot = ./.;};
 
-      overlay = workspace.mkPyprojectOverlay { sourcePreference = "wheel"; };
-      editableOverlay = workspace.mkEditablePyprojectOverlay { root = "$REPO_ROOT"; };
+    overlay = workspace.mkPyprojectOverlay {sourcePreference = "wheel";};
+    editableOverlay = workspace.mkEditablePyprojectOverlay {root = "$REPO_ROOT";};
 
-      pythonSet =
-        (pkgs.callPackage pyproject-nix.build.packages {
-          python = pkgs.python313;
-        }).overrideScope
-          (
-            lib.composeManyExtensions [
-              pyproject-build-systems.overlays.wheel
-              overlay
-            ]
-          );
+    pythonSet =
+      (pkgs.callPackage pyproject-nix.build.packages {
+        python = pkgs.python313;
+      }).overrideScope
+      (
+        lib.composeManyExtensions [
+          pyproject-build-systems.overlays.wheel
+          overlay
+        ]
+      );
 
-      pyproject = lib.importTOML ./pyproject.toml;
+    pyproject = lib.importTOML ./pyproject.toml;
+  in {
+    packages.${system}.default = pythonSet.mkVirtualEnv pyproject.project.name workspace.deps.default;
+
+    devShells.${system}.default = let
+      virtualenv = (pythonSet.overrideScope editableOverlay).mkVirtualEnv "app-dev-env" workspace.deps.all;
     in
-    {
-      packages.${system}.default = pythonSet.mkVirtualEnv pyproject.project.name workspace.deps.default;
+      pkgs.mkShell {
+        packages = with pkgs; [
+          virtualenv
 
-      devShells.${system}.default =
-        let
-          virtualenv = (pythonSet.overrideScope editableOverlay).mkVirtualEnv "app-dev-env" workspace.deps.all;
-        in
-        pkgs.mkShell {
-          packages = with pkgs; [
-            virtualenv
+          ruff
+          uv
+          ty
+        ];
 
-            ruff
-            uv
-            ty
-          ];
-
-          env = {
-            UV_NO_SYNC = "1";
-            UV_PYTHON = pythonSet.python.interpreter;
-            UV_PYTHON_DOWNLOADS = "never";
-          };
-
-          shellHook = ''
-            unset PYTHONPATH
-            export REPO_ROOT=$(git rev-parse --show-toplevel)
-          '';
+        env = {
+          UV_NO_SYNC = "1";
+          UV_PYTHON = pythonSet.python.interpreter;
+          UV_PYTHON_DOWNLOADS = "never";
         };
-    };
+
+        shellHook = ''
+          unset PYTHONPATH
+          export REPO_ROOT=$(git rev-parse --show-toplevel)
+        '';
+      };
+  };
 }

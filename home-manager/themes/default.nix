@@ -1,6 +1,8 @@
-{ config, lib, ... }:
-
-let
+{
+  config,
+  lib,
+  ...
+}: let
   hexDigit = {
     "0" = 0;
     "1" = 1;
@@ -26,22 +28,17 @@ let
     F = 15;
   };
 
-  hexByteToInt =
-    s: (hexDigit.${builtins.substring 0 1 s}) * 16 + hexDigit.${builtins.substring 1 1 s};
+  hexByteToInt = s: (hexDigit.${builtins.substring 0 1 s}) * 16 + hexDigit.${builtins.substring 1 1 s};
 
-  hexToRgb =
-    sep: hex:
-    let
-      h = builtins.substring 1 6 hex;
-      r = hexByteToInt (builtins.substring 0 2 h);
-      g = hexByteToInt (builtins.substring 2 2 h);
-      b = hexByteToInt (builtins.substring 4 2 h);
-    in
-    "${toString r}${sep}${toString g}${sep}${toString b}";
+  hexToRgb = sep: hex: let
+    h = builtins.substring 1 6 hex;
+    r = hexByteToInt (builtins.substring 0 2 h);
+    g = hexByteToInt (builtins.substring 2 2 h);
+    b = hexByteToInt (builtins.substring 4 2 h);
+  in "${toString r}${sep}${toString g}${sep}${toString b}";
 
   palette = import (./. + "/${config.theme.name}.nix");
-in
-{
+in {
   options.theme.name = lib.mkOption {
     type = lib.types.str;
     default = "gruvbox-dark";

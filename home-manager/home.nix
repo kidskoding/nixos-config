@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./programs
     ./themes
@@ -33,9 +35,12 @@
     elmPackages.elm
     go
     jdk21
-    (julia.withPackages [ "LanguageServer" ])
+    (julia.withPackages ["LanguageServer"])
+
     lua
+    luarocks
     luaPackages.fennel
+
     ocaml
     php
     phpPackages.composer
@@ -47,6 +52,7 @@
     zig
 
     # lsps / formatters / linters
+    alejandra
     dockerfile-language-server
     elmPackages.elm-language-server
     fennel-ls
@@ -61,7 +67,6 @@
     marksman
     metals
     nixd
-    nixfmt
     ocamlformat
     ocamlPackages.ocaml-lsp
     omnisharp-roslyn

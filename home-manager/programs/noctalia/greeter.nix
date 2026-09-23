@@ -1,12 +1,13 @@
-{ config, pkgs, ... }:
-
-let
+{
+  config,
+  pkgs,
+  ...
+}: let
   hm = config.home-manager.users.anirudh;
   c = hm.theme.colors;
   niri = hm.programs.niri.settings;
   eDP-1 = niri.outputs."eDP-1";
-in
-{
+in {
   services.displayManager.noctalia-greeter = {
     enable = true;
 
@@ -70,8 +71,7 @@ in
     };
   };
 
-  systemd.tmpfiles.settings."10-accountsservice-avatar"."/var/lib/AccountsService/users/anirudh"."f+".argument =
-    "[User]\nIcon=${./samus.png}\n";
+  systemd.tmpfiles.settings."10-accountsservice-avatar"."/var/lib/AccountsService/users/anirudh"."f+".argument = "[User]\nIcon=${./samus.png}\n";
 
-  fonts.packages = [ pkgs.nerd-fonts.terminess-ttf ];
+  fonts.packages = [pkgs.nerd-fonts.terminess-ttf];
 }

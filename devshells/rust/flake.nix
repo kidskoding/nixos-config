@@ -9,23 +9,25 @@
     };
   };
 
-  outputs =
-    { nixpkgs, fenix, ... }:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-      toolchain = fenix.packages.${system}.stable.withComponents [
-        "cargo"
-        "clippy"
-        "rust-analyzer"
-        "rust-src"
-        "rustc"
-        "rustfmt"
-      ];
-    in
-    {
-      devShells.${system}.default = pkgs.mkShell {
-        packages = [
+  outputs = {
+    nixpkgs,
+    fenix,
+    ...
+  }: let
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+    toolchain = fenix.packages.${system}.stable.withComponents [
+      "cargo"
+      "clippy"
+      "rust-analyzer"
+      "rust-src"
+      "rustc"
+      "rustfmt"
+    ];
+  in {
+    devShells.${system}.default = pkgs.mkShell {
+      packages =
+        [
           toolchain
         ]
         ++ (with pkgs; [
@@ -38,7 +40,7 @@
           wasm-pack
         ]);
 
-        RUST_BACKTRACE = "1";
-      };
+      RUST_BACKTRACE = "1";
     };
+  };
 }

@@ -1,6 +1,4 @@
-{ config, ... }:
-
-{
+{config, ...}: {
   programs.zellij = {
     enable = true;
     enableFishIntegration = false;
@@ -19,7 +17,10 @@
     settings = {
       copy_command = "wl-copy";
       show_startup_tips = false;
-      theme = if config.theme.dark then "gruvbox-dark" else "gruvbox-light";
+      theme =
+        if config.theme.dark
+        then "gruvbox-dark"
+        else "gruvbox-light";
 
       keybinds = {
         unbind = [
@@ -36,7 +37,7 @@
 
         normal = {
           "bind \"Alt x\"" = {
-            CloseFocus = [ ];
+            CloseFocus = [];
           };
           "bind \"Alt s\"" = {
             NewPane = "stacked";
@@ -45,7 +46,7 @@
             NewPane = "right";
           };
           "bind \"Alt t\"" = {
-            NewTab = [ ];
+            NewTab = [];
           };
         };
       };

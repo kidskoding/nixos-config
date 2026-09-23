@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   programs.noctalia-shell.settings.bar = {
     position = "top";
     barType = "floating";
@@ -32,7 +30,7 @@
         }
       ];
       right = [
-        { id = "Tray"; }
+        {id = "Tray";}
         {
           id = "Volume";
           displayMode = "alwaysShow";

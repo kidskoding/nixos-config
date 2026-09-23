@@ -3,9 +3,7 @@
   pkgs,
   inputs,
   ...
-}:
-
-{
+}: {
   imports = [
     ./hardware-configuration.nix
     ./boot.nix
@@ -137,13 +135,13 @@
     package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
   };
 
-  systemd.packages = [ config.programs.niri.package ];
+  systemd.packages = [config.programs.niri.package];
   systemd.globalEnvironment = {
     SYSTEMD_SLEEP_FREEZE_USER_SESSIONS = "false";
   };
 
   # plasma (dolphin-style) file dialog for portal-using apps
-  xdg.portal.extraPortals = [ pkgs.kdePackages.xdg-desktop-portal-kde ];
+  xdg.portal.extraPortals = [pkgs.kdePackages.xdg-desktop-portal-kde];
 
   virtualisation.docker.enable = true;
   virtualisation.docker.storageDriver = "btrfs";

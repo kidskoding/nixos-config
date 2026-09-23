@@ -1,9 +1,10 @@
-{ config, pkgs, ... }:
-
-let
-  c = config.theme.colors;
-in
 {
+  config,
+  pkgs,
+  ...
+}: let
+  c = config.theme.colors;
+in {
   programs.alacritty = {
     enable = true;
 

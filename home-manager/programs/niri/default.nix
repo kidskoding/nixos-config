@@ -3,12 +3,9 @@
   lib,
   pkgs,
   ...
-}:
-
-let
+}: let
   terminal = "alacritty";
-in
-{
+in {
   imports = [
     ./binds.nix
     ./layout.nix
@@ -47,7 +44,7 @@ in
 
     xwayland-satellite.path =
       lib.getExe
-        inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.xwayland-satellite-unstable;
+      inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.xwayland-satellite-unstable;
 
     environment = {
       NIXOS_OZONE_WL = "1";
@@ -97,16 +94,16 @@ in
     };
 
     spawn-at-startup = [
-      { argv = [ "noctalia-shell" ]; }
-      { argv = [ "blueman-applet" ]; }
+      {argv = ["noctalia-shell"];}
+      {argv = ["blueman-applet"];}
       {
         argv = [
           "nm-applet"
           "--indicator"
         ];
       }
-      { sh = "wl-paste --watch cliphist store"; }
-      { argv = [ terminal ]; }
+      {sh = "wl-paste --watch cliphist store";}
+      {argv = [terminal];}
     ];
   };
 }

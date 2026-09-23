@@ -29,12 +29,14 @@ let
 
   # <leader>c -- code
   code = [
-    (normal "<leader>cf" "<cmd>lua require('conform').format({ lsp_format = 'fallback' })<CR>"
+    (
+      normal "<leader>cf" "<cmd>lua require('conform').format({ lsp_format = 'fallback' })<CR>"
       "Format buffer"
     )
     (normal "<leader>cd" "<cmd>Trouble diagnostics toggle filter.buf=0<CR>" "Buffer diagnostics")
     (normal "<leader>cs" "<cmd>Trouble symbols toggle focus=false<CR>" "Symbols")
-    (normal "<leader>cl" "<cmd>Trouble lsp toggle focus=false win.position=right<CR>"
+    (
+      normal "<leader>cl" "<cmd>Trouble lsp toggle focus=false win.position=right<CR>"
       "LSP definitions / references"
     )
   ];
@@ -148,8 +150,7 @@ let
       options.desc = "which_key_ignore";
     }
   ];
-in
-{
+in {
   keymaps =
     ai
     ++ buffer

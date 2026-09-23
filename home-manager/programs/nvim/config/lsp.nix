@@ -29,7 +29,7 @@
 
       lua_ls = {
         enable = true;
-        settings.diagnostics.globals = [ "vim" ];
+        settings.diagnostics.globals = ["vim"];
       };
 
       marksman.enable = true;

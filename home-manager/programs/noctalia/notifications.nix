@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   programs.noctalia-shell.settings.notifications = {
     location = "top_right";
     density = "compact";

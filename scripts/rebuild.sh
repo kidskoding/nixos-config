@@ -23,7 +23,7 @@ fi
 echo "formatting all nix files to enforce ci"
 mapfile -t changed < <(git diff --cached --name-only --diff-filter=ACMR -- '*.nix')
 if [ ${#changed[@]} -gt 0 ]; then
-    nixfmt "${changed[@]}"
+    alejandra -q "${changed[@]}"
     git add -A
 fi
 

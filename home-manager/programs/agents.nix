@@ -3,10 +3,8 @@
   config,
   lib,
   ...
-}:
-
-{
-  imports = [ inputs.anikonistack.homeManagerModules.default ];
+}: {
+  imports = [inputs.anikonistack.homeManagerModules.default];
 
   programs.claude-code = {
     package = null;
@@ -42,7 +40,7 @@
   programs.codex.package = null;
 
   home.file.".codex/config.toml".enable = false;
-  home.activation.codexConfig = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+  home.activation.codexConfig = lib.hm.dag.entryAfter ["writeBoundary"] ''
     run install -m644 ${config.home.file.".codex/config.toml".source} "$HOME/.codex/config.toml"
   '';
 

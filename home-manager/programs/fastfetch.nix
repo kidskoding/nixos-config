@@ -1,10 +1,7 @@
-{ config, ... }:
-
-let
+{config, ...}: let
   nixosBlue = "38;2;82;119;195";
   nixosBlueLight = "38;2;126;186;228";
-in
-{
+in {
   programs.fastfetch = {
     enable = true;
 

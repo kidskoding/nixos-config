@@ -3,17 +3,15 @@
 
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-  outputs =
-    { nixpkgs, ... }:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in
-    {
-      devShells.${system}.default = pkgs.mkShell {
-        packages = with pkgs; [
-          (python314.withPackages (
-            ps: with ps; [
+  outputs = {nixpkgs, ...}: let
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+  in {
+    devShells.${system}.default = pkgs.mkShell {
+      packages = with pkgs; [
+        (python314.withPackages (
+          ps:
+            with ps; [
               httpx
               matplotlib
               numpy
@@ -30,16 +28,16 @@
               seaborn
               wheel
             ]
-          ))
+        ))
 
-          uv
-          ruff
-        ];
+        uv
+        ruff
+      ];
 
-        env = {
-          UV_PYTHON_DOWNLOADS = "never";
-          UV_PYTHON_PREFERENCE = "only-system";
-        };
+      env = {
+        UV_PYTHON_DOWNLOADS = "never";
+        UV_PYTHON_PREFERENCE = "only-system";
       };
     };
+  };
 }

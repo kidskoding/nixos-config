@@ -1,10 +1,7 @@
-{ config, ... }:
-
-let
+{config, ...}: let
   colors = config.theme.colors;
   status = config.programs.git.settings.color.fileStatus;
-in
-{
+in {
   programs.git = {
     enable = true;
 
