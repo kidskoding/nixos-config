@@ -4,3 +4,4 @@
 (require :config.lsp)
 (require :config.editor)
 (require :config.snacks)
+(require :config.treesitter)
