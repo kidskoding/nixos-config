@@ -4,7 +4,15 @@
 
 (local blink (require :blink.cmp))
 
-(blink.setup {:keymap {:preset :none
+;; sql buffers complete tables and columns from dadbod (database.fnl)
+(local sql-sources [:dadbod :snippets :buffer])
+
+(blink.setup {:sources {:per_filetype {:sql sql-sources
+                                       :mysql sql-sources
+                                       :plsql sql-sources}
+                        :providers {:dadbod {:name :Dadbod
+                                             :module :vim_dadbod_completion.blink}}}
+              :keymap {:preset :none
                        :<C-n> [:insert_next :fallback]
                        :<C-p> [:insert_prev :fallback]
                        :<Down> [:select_next :fallback]
