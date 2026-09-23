@@ -22,8 +22,6 @@
       center = [
         {
           id = "MediaMini";
-          showVisualizer = true;
-          visualizerType = "linear";
           compactMode = true;
           showArtistFirst = false;
           maxWidth = 300;
@@ -33,7 +31,7 @@
         {
           id = "AudioVisualizer";
           visualizerType = "wave";
-          width = 60;
+          width = 75;
           hideWhenIdle = true;
         }
       ];
