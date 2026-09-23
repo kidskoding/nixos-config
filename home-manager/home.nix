@@ -46,6 +46,8 @@
 
     # lsps / formatters / linters
     elmPackages.elm-language-server
+    fennel-ls
+    fnlfmt
     gopls
     graphql-language-service-cli
     intelephense
