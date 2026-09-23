@@ -75,7 +75,7 @@ in {
         }
         {
           type = "terminal";
-          key = "│ {#34} terminal    {#keys}│";
+          key = "│ {#34} term    {#keys}│";
         }
         {
           type = "shell";
@@ -83,7 +83,7 @@ in {
         }
         {
           type = "host";
-          key = "│ {#36} host {#keys}│";
+          key = "│ {#36} host    {#keys}│";
         }
         {
           type = "cpu";
