@@ -5,3 +5,4 @@
 (require :config.editor)
 (require :config.snacks)
 (require :config.treesitter)
+(require :config.completion)
