@@ -8,6 +8,8 @@
   };
 
   highlightOverride = {
+    WhichKeyIcon.link = "GruvboxBlue";
+
     lualine_sep_color_b = {
       fg = "#a89984";
       bg = "#504945";

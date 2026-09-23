@@ -81,7 +81,7 @@ let
     (normal "<leader>ti" "<cmd>lua Snacks.toggle.inlay_hints()<CR>" "Toggle inlay hints")
   ];
 
-  # <leader>T -- typst, moved off <leader>t so toggles own that prefix alone
+  # <leader>T -- typst
   typst = [
     (normal "<leader>Tp" {
       __raw = ''
