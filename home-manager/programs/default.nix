@@ -33,5 +33,5 @@
   # linked live so edits do not need any rebuild
   xdg.configFile."nvim".source =
     config.lib.file.mkOutOfStoreSymlink
-    "${config.home.homeDirectory}/nixos/home-manager/programs/kidskoding.nvim";
+    "${config.home.homeDirectory}/nixos/home-manager/programs/nvim";
 }
