@@ -24,6 +24,7 @@
     jq
     ripgrep
     tree
+    tree-sitter
     wl-clipboard
 
     # languages
