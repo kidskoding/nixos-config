@@ -8,6 +8,7 @@
                          {1 :<leader>c :group :code}
                          {1 :<leader>D :group :database}
                          {1 :<leader>g :group :git}
+                         {1 :<leader>m :group :markdown :icon " "}
                          {1 :<leader>r :group :rust :icon " "}
                          {1 :<leader>T :group :typst :icon "󰈙 "}
                          {1 :<leader>x :group :lists :icon " "}]})

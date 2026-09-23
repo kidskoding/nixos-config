@@ -12,9 +12,11 @@
 (map :<leader><space> #(snacks.picker.files) "Find files")
 (map :<leader>/ #(snacks.picker.grep) "Search project")
 (map :<leader>e #(snacks.picker.explorer) "File explorer")
+(map :<leader>h #(snacks.picker.help) "Search help pages")
 (map :<leader>bb #(snacks.picker.buffers) "Switch buffer")
 (map :<leader>bd #(snacks.bufdelete) "Close buffer")
 (map :<leader>gB #(snacks.gitbrowse) "Open file on GitHub")
+(map :<leader>gl #(snacks.picker.git_log_file) "File git history")
 (map :gd #(snacks.picker.lsp_definitions) "Go to definition")
 (map :grr #(snacks.picker.lsp_references) :References)
 

@@ -19,4 +19,7 @@
                        :<Up> [:select_prev :fallback]
                        :<C-y> [:accept :fallback]
                        :<Tab> [:accept :fallback]
-                       :<C-e> [:cancel :fallback]}})
+                       :<C-e> [:cancel :fallback]
+                       :<C-space> [:show
+                                   :show_documentation
+                                   :hide_documentation]}})

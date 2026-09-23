@@ -19,6 +19,8 @@
 
 (vim.keymap.set :n "-" :<cmd>Oil<CR> {:desc "Browse parent directory"})
 (vim.keymap.set :n :<leader>gg :<cmd>Neogit<CR> {:desc "Git status"})
+(vim.keymap.set :n :<leader>gb gitsigns.blame_line {:desc "Blame line"})
+(vim.keymap.set :n :<leader>gc "<cmd>Neogit commit<CR>" {:desc "Git commit"})
 
 ;; auto-save after leaving insert mode or any other textedit
 (vim.api.nvim_create_autocmd [:InsertLeave :TextChanged]

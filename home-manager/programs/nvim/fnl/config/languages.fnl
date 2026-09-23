@@ -55,3 +55,6 @@
 (map :<leader>re "<cmd>RustLsp explainError<CR>" "Explain Rust error")
 (map :<leader>Tp open-typst-pdf "Open Typst PDF in Zathura")
 (map :<leader>TP :<cmd>TypstPreviewToggle<CR> "Toggle Typst browser preview")
+
+(map :<leader>mr "<cmd>RenderMarkdown toggle<CR>" "Toggle Markdown render")
+(map :<leader>mp "<cmd>RenderMarkdown preview<CR>" "Markdown preview split")
