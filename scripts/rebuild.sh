@@ -12,7 +12,8 @@ HOST="${HOST:-nixos}"
 cd "$FLAKE_DIR"
 
 # flakes only see files that git knows about, so stage everything first!
-git add -A
+# the neovim config is skipped: scripts/nvim-sync.sh commits and pushes it on its own
+git add -A -- . ':!home-manager/programs/nvim'
 
 if git diff --cached --quiet -- '*.nix' flake.lock; then
     echo "no changes detected, exiting."
@@ -24,7 +25,7 @@ echo "formatting all nix files to enforce ci"
 mapfile -t changed < <(git diff --cached --name-only --diff-filter=ACMR -- '*.nix')
 if [ ${#changed[@]} -gt 0 ]; then
     alejandra -q "${changed[@]}"
-    git add -A
+    git add -A -- . ':!home-manager/programs/nvim'
 fi
 
 # show what changed
