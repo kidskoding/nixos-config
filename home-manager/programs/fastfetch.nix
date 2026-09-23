@@ -24,7 +24,7 @@ in {
 
       display = {
         separator = " ";
-        color.keys = "38;2;255;255;255";
+        color.keys = "38;2;${config.theme.ansi.gray}";
       };
 
       modules = [
