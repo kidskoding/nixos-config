@@ -3,3 +3,4 @@
 (require :config.lualine)
 (require :config.lsp)
 (require :config.editor)
+(require :config.snacks)
