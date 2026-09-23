@@ -28,6 +28,7 @@ in {
 
       cursor-style = "block";
       cursor-style-blink = false;
+      shell-integration-features = "no-cursor";
 
       # ctrl+shift+c/v, ctrl+shift+f, ctrl+0, shift+pageup/down are defaults
       keybind = [
