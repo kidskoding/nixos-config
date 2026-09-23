@@ -18,8 +18,8 @@
     EDITOR = "nvim";
     VISUAL = "nvim";
 
-    NIXOS = "/home/anirudh/nixos";
-    NVIM = "/home/anirudh/nixos/home-manager/programs/nvim";
+    NIXOS = "${config.home.homeDirectory}/nixos";
+    NVIM = "${config.home.homeDirectory}/nixos/home-manager/programs/nvim";
   };
 
   home.packages = with pkgs; [
