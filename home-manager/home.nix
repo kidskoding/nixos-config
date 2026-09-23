@@ -76,6 +76,7 @@
     sourcekit-lsp
     sqls
     stylelint
+    stylua
     taplo
     terraform-ls
     tinymist
