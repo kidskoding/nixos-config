@@ -24,3 +24,15 @@
 (vim.api.nvim_create_autocmd [:InsertLeave :TextChanged]
                              {:callback #(when (= vim.bo.buftype "")
                                            (vim.cmd "silent! update"))})
+
+;; discord rich presence
+(vim.pack.add ["https://github.com/vyfor/cord.nvim"])
+
+(local cord (require :cord))
+
+(cord.setup {:variables true
+             :text {:viewing "eyeing up ${filename}"
+                    :editing "actively cooking in ${filename}"
+                    :workspace "locked in: ${workspace}"}
+             :editor {:tooltip "not vscode lmao"}
+             :idle {:details "currently touching grass"}})
