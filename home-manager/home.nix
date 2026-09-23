@@ -142,7 +142,9 @@
     cava
     cowsay
     fortune
+    ghostscript
     gum
+    mermaid-cli
     pipes
     presenterm
     tickrs
