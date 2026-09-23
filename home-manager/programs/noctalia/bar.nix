@@ -22,6 +22,8 @@
       center = [
         {
           id = "MediaMini";
+          showVisualizer = true;
+          visualizerType = "linear";
           compactMode = true;
           showArtistFirst = false;
           maxWidth = 300;

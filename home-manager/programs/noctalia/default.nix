@@ -32,6 +32,7 @@
       audio = {
         volumeStep = 5;
         preferredPlayer = "spotify";
+        spectrumMirrored = false;
       };
 
       brightness.brightnessStep = 5;
