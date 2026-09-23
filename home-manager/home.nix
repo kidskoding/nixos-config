@@ -121,7 +121,6 @@
     discord
     harlequin
     myx
-    neovim-unwrapped
     obsidian
     ruffle
     spotify
