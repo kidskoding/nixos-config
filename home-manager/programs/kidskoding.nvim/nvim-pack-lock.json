@@ -8,6 +8,14 @@
       "rev": "34cc657d43fe6dcd2197a4dcef80af071178bbef",
       "src": "https://github.com/rktjmp/hotpot.nvim",
       "version": "2.0.0 - 3.0.0"
+    },
+    "lualine.nvim": {
+      "rev": "221ce6b2d999187044529f49da6554a92f740a96",
+      "src": "https://github.com/nvim-lualine/lualine.nvim"
+    },
+    "nvim-web-devicons": {
+      "rev": "58447c1fca354bbf184425e4a8d01deecbd6f3c4",
+      "src": "https://github.com/nvim-tree/nvim-web-devicons"
     }
   }
 }
