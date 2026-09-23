@@ -144,6 +144,7 @@
     fortune
     ghostscript
     gum
+    imagemagick
     mermaid-cli
     pipes
     presenterm
