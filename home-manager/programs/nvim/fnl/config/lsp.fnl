@@ -1,4 +1,5 @@
-(vim.pack.add ["https://github.com/neovim/nvim-lspconfig"])
+(vim.pack.add ["https://github.com/neovim/nvim-lspconfig"
+               "https://github.com/folke/trouble.nvim"])
 
 (vim.lsp.config :lua_ls {:settings {:Lua {:diagnostics {:globals [:vim]}}}})
 
@@ -39,8 +40,6 @@
                  :ty
                  :yamlls
                  :zls])
-
-(vim.pack.add ["https://github.com/folke/trouble.nvim"])
 
 (local trouble (require :trouble))
 (trouble.setup {})

@@ -3,19 +3,29 @@
                "https://github.com/lewis6991/gitsigns.nvim"
                "https://github.com/stevearc/oil.nvim"
                "https://github.com/nvim-lua/plenary.nvim"
-               "https://github.com/NeogitOrg/neogit"])
+               "https://github.com/NeogitOrg/neogit"
+               "https://github.com/vyfor/cord.nvim"])
 
 (local autopairs (require :nvim-autopairs))
 (local guess-indent (require :guess-indent))
 (local gitsigns (require :gitsigns))
 (local oil (require :oil))
 (local neogit (require :neogit))
+(local cord (require :cord))
 
 (autopairs.setup {})
 (guess-indent.setup {})
 (gitsigns.setup {})
 (oil.setup {:win_options {:cursorline true}})
 (neogit.setup {})
+
+;; discord rich presence
+(cord.setup {:variables true
+             :text {:viewing "eyeing up ${filename}"
+                    :editing "actively cooking in ${filename}"
+                    :workspace "locked in: ${workspace}"}
+             :editor {:tooltip "not vscode lmao"}
+             :idle {:details "currently touching grass"}})
 
 (vim.keymap.set :n "-" :<cmd>Oil<CR> {:desc "Browse parent directory"})
 (vim.keymap.set :n :<leader>gg :<cmd>Neogit<CR> {:desc "Git status"})
@@ -26,15 +36,3 @@
 (vim.api.nvim_create_autocmd [:InsertLeave :TextChanged]
                              {:callback #(when (= vim.bo.buftype "")
                                            (vim.cmd "silent! update"))})
-
-;; discord rich presence
-(vim.pack.add ["https://github.com/vyfor/cord.nvim"])
-
-(local cord (require :cord))
-
-(cord.setup {:variables true
-             :text {:viewing "eyeing up ${filename}"
-                    :editing "actively cooking in ${filename}"
-                    :workspace "locked in: ${workspace}"}
-             :editor {:tooltip "not vscode lmao"}
-             :idle {:details "currently touching grass"}})
