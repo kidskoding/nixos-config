@@ -1,13 +1,13 @@
 {...}: {
   programs.noctalia-shell.settings.appLauncher = {
     position = "center";
-    terminalCommand = "alacritty -e";
+    terminalCommand = "ghostty -e";
     enableClipboardHistory = true;
     sortByMostUsed = false;
 
     pinnedApps = [
       "NixOS Manual"
-      "Alacritty"
+      "Ghostty"
       "Celeste"
       "Claude"
       "discord"

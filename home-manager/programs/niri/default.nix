@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  terminal = "alacritty";
+  terminal = "ghostty";
 in {
   imports = [
     ./binds.nix

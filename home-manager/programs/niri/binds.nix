@@ -1,5 +1,5 @@
 {...}: let
-  terminal = "alacritty";
+  terminal = "ghostty";
   fileManager = "dolphin";
   noctalia = c:
     [

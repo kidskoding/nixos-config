@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    ./alacritty
+    ./ghostty
     ./fish.nix
     ./starship.nix
     ./zellij.nix
