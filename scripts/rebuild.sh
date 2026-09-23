@@ -34,8 +34,7 @@ echo "rebuilding nixos..."
 
 before=$(readlink -f /run/current-system)
 
-# shellcheck disable=SC2024  # the log is written as us, in our own repo, which is what we want
-if ! sudo nixos-rebuild switch --flake "$FLAKE_DIR#$HOST" &> nixos-switch.log; then
+if ! script -qefc "sudo nixos-rebuild switch --flake \"$FLAKE_DIR#$HOST\"" nixos-switch.log; then
     grep --color error nixos-switch.log || tail -n 40 nixos-switch.log
     exit 1
 fi

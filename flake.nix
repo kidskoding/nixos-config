@@ -61,15 +61,8 @@
     };
 
     # productivity
-    matui = {
-      # matrix tui client
-      url = "github:pkulak/matui";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    toofan = {
-      url = "github:vyrx-dev/toofan";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    matui.url = "github:pkulak/matui"; # matrix tui client
+    toofan.url = "github:vyrx-dev/toofan";
 
     # browsers
     cromite = {
