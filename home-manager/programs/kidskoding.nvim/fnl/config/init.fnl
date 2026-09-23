@@ -1,6 +1,6 @@
 (require :config.options)
 (require :config.colorscheme)
-(require :config.lualine)
+(require :config.ui)
 (require :config.lsp)
 (require :config.editor)
 (require :config.snacks)

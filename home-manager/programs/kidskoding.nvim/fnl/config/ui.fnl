@@ -19,3 +19,8 @@
                           :component_separators {:left "%#lualine_sep_color_b#│"
                                                  :right "%#lualine_sep_color_x#│"}
                           :section_separators {:left "" :right ""}}})
+
+(vim.pack.add ["https://github.com/akinsho/bufferline.nvim"])
+
+(local bufferline (require :bufferline))
+(bufferline.setup {:options {:style_preset bufferline.style_preset.no_italic}})
