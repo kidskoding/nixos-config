@@ -1,0 +1,10 @@
+(local modes [:n :v :o])
+(vim.keymap.set modes :j :h {:desc "Move left"})
+(vim.keymap.set modes :k :j {:desc "Move down"})
+(vim.keymap.set modes :l :k {:desc "Move up"})
+(vim.keymap.set modes ";" :l {:desc "Move right"})
+
+(vim.keymap.set :n :<C-w>j :<C-w>h {:desc "Move to left window"})
+(vim.keymap.set :n :<C-w>k :<C-w>j {:desc "Move to lower window"})
+(vim.keymap.set :n :<C-w>l :<C-w>k {:desc "Move to upper window"})
+(vim.keymap.set :n "<C-w>;" :<C-w>l {:desc "Move to right window"})

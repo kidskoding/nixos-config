@@ -11,3 +11,4 @@
 (require :config.languages)
 (require :config.database)
 (require :config.ai)
+(require :config.overrides)
