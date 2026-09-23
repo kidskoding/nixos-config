@@ -1,0 +1,18 @@
+name: fennel format
+
+on: [push, pull_request]
+
+jobs:
+  fnlfmt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v31
+      - name: check formatting
+        run: |
+          nix shell nixpkgs#fnlfmt --command bash -c '
+            fail=0
+            for f in $(git ls-files "*.fnl"); do
+              fnlfmt "$f" | diff -u "$f" - || fail=1
+            done
+            exit $fail'
