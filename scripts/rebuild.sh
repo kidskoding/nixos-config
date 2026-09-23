@@ -57,6 +57,3 @@ fi
 
 git commit -m "$msg"
 
-# if command -v notify-send &> /dev/null; then
-#     notify-send -e "nixos rebuilt ok!" --icon=software-update-available
-# fi
