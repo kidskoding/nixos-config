@@ -23,6 +23,7 @@
 (map :<leader>gd
      #(snacks.terminal [:git :dft "--" (vim.fn.expand "%:p")] difft)
      "Difftastic: current file")
+
 (map :<leader>gD #(snacks.terminal [:git :dft] difft) "Difftastic: whole repo")
 
 (map :gd #(snacks.picker.lsp_definitions) "Go to definition")
