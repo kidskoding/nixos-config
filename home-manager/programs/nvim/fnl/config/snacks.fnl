@@ -17,6 +17,14 @@
 (map :<leader>bd #(snacks.bufdelete) "Close buffer")
 (map :<leader>gB #(snacks.gitbrowse) "Open file on GitHub")
 (map :<leader>gl #(snacks.picker.git_log_file) "File git history")
+
+;; difftastic in one column; LESS=-R keeps small diffs from closing instantly
+(local difft {:env {:DFT_DISPLAY :inline :LESS :-R}})
+(map :<leader>gd
+     #(snacks.terminal [:git :dft "--" (vim.fn.expand "%:p")] difft)
+     "Difftastic: current file")
+(map :<leader>gD #(snacks.terminal [:git :dft] difft) "Difftastic: whole repo")
+
 (map :gd #(snacks.picker.lsp_definitions) "Go to definition")
 (map :grr #(snacks.picker.lsp_references) :References)
 
