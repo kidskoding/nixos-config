@@ -39,7 +39,3 @@
                  :ty
                  :yamlls
                  :zls])
-
-(vim.api.nvim_create_autocmd :FileType
-                             {:pattern :fennel
-                              :callback #(set vim.bo.formatprg "fnlfmt -")})
