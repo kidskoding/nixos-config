@@ -27,6 +27,7 @@ in {
 
       cursor-style = "block";
       cursor-style-blink = false;
+
       # shell integration forces a bar cursor at the prompt by default
       shell-integration-features = "no-cursor";
 
