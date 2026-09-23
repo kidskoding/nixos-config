@@ -8,9 +8,10 @@ in {
     settings = {
       term = "xterm-256color";
 
-      window-decoration = false;
       background-opacity = 0.8;
       background-blur = true;
+
+      window-decoration = false;
       window-padding-x = 5;
       window-padding-balance = true;
       window-width = 100;
@@ -28,9 +29,6 @@ in {
       cursor-style = "block";
       cursor-style-blink = false;
 
-      # shell integration forces a bar cursor at the prompt by default
-      shell-integration-features = "no-cursor";
-
       # ctrl+shift+c/v, ctrl+shift+f, ctrl+0, shift+pageup/down are defaults
       keybind = [
         "ctrl+shift+b=navigate_search:previous"
@@ -43,6 +41,7 @@ in {
     themes.nix = {
       background = c.bg;
       foreground = c.fg;
+
       palette = [
         "0=${c.black}"
         "1=${c.red}"
