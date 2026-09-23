@@ -1,0 +1,9 @@
+{
+  "plugins": {
+    "hotpot.nvim": {
+      "rev": "34cc657d43fe6dcd2197a4dcef80af071178bbef",
+      "src": "https://github.com/rktjmp/hotpot.nvim",
+      "version": "2.0.0 - 3.0.0"
+    }
+  }
+}

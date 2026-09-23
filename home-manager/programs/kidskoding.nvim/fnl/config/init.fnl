@@ -1,1 +1,1 @@
-(print "hello from fennel")
+(require :config.options)
