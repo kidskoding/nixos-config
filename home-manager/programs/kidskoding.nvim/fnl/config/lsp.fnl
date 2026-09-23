@@ -39,3 +39,19 @@
                  :ty
                  :yamlls
                  :zls])
+
+(vim.pack.add ["https://github.com/folke/trouble.nvim"])
+
+(local trouble (require :trouble))
+(trouble.setup {})
+
+(fn map [key cmd desc]
+  (vim.keymap.set :n key (.. "<cmd>Trouble " cmd :<CR>) {: desc}))
+
+(map :<leader>cd "diagnostics toggle filter.buf=0" "Buffer diagnostics")
+(map :<leader>cs "symbols toggle focus=false" :Symbols)
+(map :<leader>cl "lsp toggle focus=false win.position=right"
+     "LSP definitions / references")
+
+(map :<leader>xq "qflist toggle" "Quickfix list")
+(map :<leader>xl "loclist toggle" "Location list")
