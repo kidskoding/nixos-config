@@ -5,16 +5,22 @@
 
 ;; installs only missing parsers, in the background
 (treesitter.install [:bash
+                     :css
                      :fennel
                      :fish
+                     :html
                      :javascript
                      :json
                      :nix
                      :python
                      :rust
+                     :scss
+                     :svelte
                      :toml
+                     :tsx
                      :typescript
                      :typst
+                     :vue
                      :yaml])
 
 ;; highlight and indent with treesitter when a parser exists for the filetype

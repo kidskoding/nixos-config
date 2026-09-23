@@ -13,7 +13,7 @@
 (typst-preview.setup {:dependencies_bin {:tinymist :tinymist
                                          :websocat :websocat}})
 
-(render-markdown.setup {})
+(render-markdown.setup {:latex {:enabled false}})
 
 (fn open-typst-pdf []
   (let [client (. (vim.lsp.get_clients {:name :tinymist :bufnr 0}) 1)]
