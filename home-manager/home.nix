@@ -17,9 +17,6 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
-
-    NIXOS = "${config.home.homeDirectory}/nixos";
-    NVIM = "${config.home.homeDirectory}/nixos/home-manager/programs/nvim";
   };
 
   home.packages = with pkgs; [
