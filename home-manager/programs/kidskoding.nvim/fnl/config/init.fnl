@@ -10,3 +10,4 @@
 (require :config.whichkey)
 (require :config.languages)
 (require :config.database)
+(require :config.ai)
