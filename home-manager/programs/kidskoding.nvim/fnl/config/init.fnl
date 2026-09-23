@@ -8,3 +8,4 @@
 (require :config.completion)
 (require :config.format)
 (require :config.whichkey)
+(require :config.languages)
