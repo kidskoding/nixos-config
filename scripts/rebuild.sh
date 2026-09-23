@@ -20,6 +20,7 @@ if git diff --cached --quiet -- '*.nix' flake.lock; then
 fi
 
 # autoformat only the nix files that actually changed
+echo "formatting all nix files to enforce ci"
 mapfile -t changed < <(git diff --cached --name-only --diff-filter=ACMR -- '*.nix')
 if [ ${#changed[@]} -gt 0 ]; then
     nixfmt "${changed[@]}"

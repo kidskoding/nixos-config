@@ -3,7 +3,6 @@
 
   opts = {
     clipboard = "unnamedplus";
-    exrc = true;
     expandtab = true;
     number = true;
     shiftwidth = 4;
