@@ -35,6 +35,7 @@
     jdk21
     (julia.withPackages [ "LanguageServer" ])
     lua
+    luaPackages.fennel
     ocaml
     php
     phpPackages.composer
@@ -46,8 +47,10 @@
     zig
 
     # lsps / formatters / linters
+    dockerfile-language-server
     elmPackages.elm-language-server
     fennel-ls
+    fish-lsp
     fnlfmt
     gopls
     graphql-language-service-cli
@@ -55,6 +58,7 @@
     jdt-language-server
     kotlin-language-server
     lua-language-server
+    marksman
     metals
     nixd
     nixfmt
@@ -65,7 +69,9 @@
     ruff
     shellcheck
     sourcekit-lsp
+    sqls
     stylelint
+    taplo
     terraform-ls
     tinymist
     ty
