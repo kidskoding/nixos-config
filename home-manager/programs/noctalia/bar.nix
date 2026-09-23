@@ -30,6 +30,12 @@
           scrollingMode = "always";
           useFixedWidth = false;
         }
+        {
+          id = "AudioVisualizer";
+          visualizerType = "wave";
+          width = 80;
+          hideWhenIdle = true;
+        }
       ];
       right = [
         {id = "Tray";}

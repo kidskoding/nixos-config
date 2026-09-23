@@ -14,6 +14,10 @@
             --replace-fail $'        Layout.preferredHeight: mediaContentGrid.implicitHeight + Style.margin2M\n' $'        Layout.preferredHeight: mediaContentGrid.implicitHeight + Style.margin2M\n\n        NIconButton {\n          anchors.top: parent.top\n          anchors.right: parent.right\n          anchors.margins: Style.marginS\n          z: 2\n          icon: "close"\n          baseSize: Style.baseWidgetSize * 0.6\n          onClicked: root.close()\n        }\n'
           substituteInPlace Modules/Panels/Media/MediaPlayerPanel.qml \
             --replace-fail $'      height: 20\n      values: SpectrumService.values' $'      height: parent.height - Style.marginS\n      values: SpectrumService.values'
+          substituteInPlace Modules/Bar/Widgets/MediaMini.qml \
+            --replace-fail $'        active: showVisualizer\n' $'        active: false\n'
+          substituteInPlace Modules/Bar/Widgets/AudioVisualizer.qml \
+            --replace-fail $'readonly property string currentVisualizerType: Settings.data.audio.visualizerType' $'readonly property string currentVisualizerType: widgetSettings.visualizerType !== undefined ? widgetSettings.visualizerType : Settings.data.audio.visualizerType'
           substituteInPlace Modules/Panels/Battery/BatteryPanel.qml \
             --replace-fail $'        implicitHeight: headerRow.implicitHeight + Style.margin2M' $'        visible: false' \
             --replace-fail $'        implicitHeight: chargeLayout.implicitHeight + Style.margin2L\n' $'        implicitHeight: chargeLayout.implicitHeight + Style.margin2L\n\n        NIconButton {\n          anchors.top: parent.top\n          anchors.right: parent.right\n          anchors.margins: Style.marginS\n          z: 2\n          icon: "close"\n          baseSize: Style.baseWidgetSize * 0.6\n          onClicked: root.close()\n        }\n'
