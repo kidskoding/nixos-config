@@ -11,10 +11,11 @@
 (local theme (require :lualine.themes.gruvbox_dark))
 (each [_ section (pairs theme)]
   (set section.c theme.normal.c))
+
 (set theme.normal.a.bg "#d79921")
 
 (local lualine (require :lualine))
-(lualine.setup {:options {:theme theme
+(lualine.setup {:options {: theme
                           :component_separators {:left "%#lualine_sep_color_b#│"
                                                  :right "%#lualine_sep_color_x#│"}
                           :section_separators {:left "" :right ""}}})
