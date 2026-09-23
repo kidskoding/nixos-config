@@ -31,7 +31,7 @@
         {
           id = "AudioVisualizer";
           visualizerType = "wave";
-          width = 75;
+          width = 80;
           hideWhenIdle = true;
         }
       ];
