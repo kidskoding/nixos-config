@@ -31,7 +31,7 @@
 
       settings = {
         formatters_by_ft = {
-          nix = ["nixfmt"];
+          nix = ["alejandra"];
           lua = ["stylua"];
           python = ["ruff_format"];
           typst = ["typstyle"];
