@@ -23,6 +23,8 @@ in {
       mouse-scroll-multiplier = 3;
       mouse-hide-while-typing = true;
 
+      resize-overlay = "never";
+
       selection-word-chars = ",│`|:\"' ()[]{}<>\t,";
       copy-on-select = "clipboard";
 
