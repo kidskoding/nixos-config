@@ -11,7 +11,7 @@ in {
       background-opacity = 0.8;
       background-blur = true;
 
-      confirm-on-close = false;
+      confirm-close-surface = false;
 
       window-decoration = false;
       window-padding-x = 5;
