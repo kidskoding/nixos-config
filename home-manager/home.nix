@@ -126,6 +126,8 @@
     ruffle
     spotify
     teams-for-linux
+    wineWowPackages.stable
+    winetricks
     zathura
 
     # gaming
