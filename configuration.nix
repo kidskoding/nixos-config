@@ -166,6 +166,7 @@
         };
       });
     })
+
     inputs.niri.overlays.niri
   ];
   programs.niri = {
