@@ -43,8 +43,7 @@ in {
     hotkey-overlay.skip-at-startup = true;
 
     xwayland-satellite.path =
-      lib.getExe
-      inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.xwayland-satellite-unstable;
+      lib.getExe pkgs.xwayland-satellite-unstable;
 
     environment = {
       NIXOS_OZONE_WL = "1";
