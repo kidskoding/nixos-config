@@ -10,3 +10,6 @@ nixos-switch.log
 
 # agent shell - emacs
 .agent-shell
+
+# planning
+docs/

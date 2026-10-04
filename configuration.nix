@@ -9,9 +9,24 @@
     ./boot.nix
     ./networking.nix
     ./nvidia.nix
+    ./disko.nix
+    ./packages.nix
+    ./home-manager/programs/noctalia/greeter.nix
 
+    inputs.disko.nixosModules.disko
+    inputs.home-manager.nixosModules.home-manager
+    inputs.niri.nixosModules.niri
+    inputs.noctalia-greeter.nixosModules.default
     inputs.sops-nix.nixosModules.sops
   ];
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    backupFileExtension = "bak";
+    extraSpecialArgs = {inherit inputs;};
+    users.anirudh = import ./home-manager/home.nix;
+  };
 
   sops = {
     defaultSopsFile = ./secrets/secrets.yaml;
