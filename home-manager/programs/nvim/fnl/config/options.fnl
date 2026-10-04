@@ -11,3 +11,6 @@
 
 ;; show diagnostics as lines under the cursor's line only
 (vim.diagnostic.config {:virtual_lines {:current_line true}})
+
+(let [ft (require :vim.filetype)]
+  (ft.add {:extension {:mdx :mdx}}))

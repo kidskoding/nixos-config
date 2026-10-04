@@ -8,6 +8,9 @@
                             :formatterMode :typstyle
                             :lint {:enabled true :when :onSave}}})
 
+(vim.lsp.config :mdx_analyzer {:cmd [:mdx-language-server :--stdio]
+                               :filetypes [:mdx]})
+
 ;; rust_analyzer is handled by rustaceanvim
 (vim.lsp.enable [:clangd
                  :cssls
@@ -27,6 +30,7 @@
                  :lua_ls
                  :marksman
                  :metals
+                 :mdx_analyzer
                  :nixd
                  :ocamllsp
                  :omnisharp
