@@ -120,6 +120,7 @@ in {
       tb = "nc termbin.com 9999";
 
       # other
+      agent = "cursor-agent";
       timer = "timr-tui";
     };
 
