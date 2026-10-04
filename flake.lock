@@ -23,11 +23,11 @@
         "vercel-skills": "vercel-skills"
       },
       "locked": {
-        "lastModified": 1790751745,
-        "narHash": "sha256-0YL/t1+dQAJQCGwSOdeflt2M2hBfG8lH14PzMgT5DD0=",
+        "lastModified": 1790752261,
+        "narHash": "sha256-eH9fcob96gIU7rMmXPKnHbgbJ9LrMyDdlCWJ3Ot4+H4=",
         "owner": "kidskoding",
         "repo": "anikonistack",
-        "rev": "a6da048a303b0151dd575e9a6fd43eeb0324b46a",
+        "rev": "6ca06637787d4ac8629e510de6c2a381a4bd13df",
         "type": "github"
       },
       "original": {
@@ -129,11 +129,11 @@
     "ckorhonen-skills": {
       "flake": false,
       "locked": {
-        "lastModified": 1790395661,
-        "narHash": "sha256-DgmRj/xmC23ikjqVjkrT4hqDvA+OBiluEWGz0G7bGPo=",
+        "lastModified": 1783286041,
+        "narHash": "sha256-UAbjsdsl8cWTXRgma04GNiUQtxFcmXu225tteg0ytFM=",
         "owner": "ckorhonen",
         "repo": "claude-skills",
-        "rev": "947001b038d62d9993ccad69b5b8f17ca075fb52",
+        "rev": "39896345ef47beced8bbfeece5e772f0d978b8c6",
         "type": "github"
       },
       "original": {
@@ -201,11 +201,11 @@
     "claude-plugins-official": {
       "flake": false,
       "locked": {
-        "lastModified": 1790717299,
-        "narHash": "sha256-JNUkda+v5LD9wDCg/R4c4zh5vACzBaxv6iIyZYYmvh0=",
+        "lastModified": 1790377943,
+        "narHash": "sha256-3vqb/valY5deB8JT0ckbzTZ1Anqy9aqXvkKWWfg86yQ=",
         "owner": "anthropics",
         "repo": "claude-plugins-official",
-        "rev": "2a8ad9f74633d10e3d9bb0660a03bfc6e50584b1",
+        "rev": "fa59bc9037741ecfa131aa27938272605710d7b2",
         "type": "github"
       },
       "original": {
@@ -448,11 +448,11 @@
     "graphify": {
       "flake": false,
       "locked": {
-        "lastModified": 1790690377,
-        "narHash": "sha256-mDH3LnUi76ZvM3NPsdUaDQyF00O1SyNJWLbFpFoBzX0=",
+        "lastModified": 1790350381,
+        "narHash": "sha256-DazUBHVT2BmM3mHpPt0a1ulOmUWlTSXFXOA9O40IbI0=",
         "owner": "Graphify-Labs",
         "repo": "graphify",
-        "rev": "1cd9a36c0c57a661d2d2234bc3207e887e1ba104",
+        "rev": "4000de15466588ec3ee32f9e10a587ca97d3b8a5",
         "type": "github"
       },
       "original": {
@@ -484,11 +484,11 @@
     "lanej-dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1790733147,
-        "narHash": "sha256-apFR0W6oHzkBvc9ttz70/TbJblhthsQ6Bkt+jCNHB/4=",
+        "lastModified": 1790389562,
+        "narHash": "sha256-fjbO8iBJXprC/3rbjco8eO+5reT4nYh3x1slMn9fxxs=",
         "owner": "lanej",
         "repo": "dotfiles",
-        "rev": "1fbed50d1d7a70ba3328af3377d1e351abf8d9fd",
+        "rev": "407f09fb5c39e1111eeac721d0be4395ed2b8c47",
         "type": "github"
       },
       "original": {
@@ -500,11 +500,11 @@
     "last30days": {
       "flake": false,
       "locked": {
-        "lastModified": 1790723523,
-        "narHash": "sha256-JCIgxps+XDVsQ4GbQo3QuQQv6YvjojIodK/+1oGEWB8=",
+        "lastModified": 1790142298,
+        "narHash": "sha256-fo5Gv/w86Trrj2JGLrB1HArRPP9mDxGcSXL6pxKchy4=",
         "owner": "mvanhorn",
         "repo": "last30days-skill",
-        "rev": "1fadbe5097c155832366ab2b920f205c1f8c2672",
+        "rev": "084662b501fb0dba95bd55eff0c258d35e0dc499",
         "type": "github"
       },
       "original": {
@@ -538,11 +538,11 @@
     "mattpocock-skills": {
       "flake": false,
       "locked": {
-        "lastModified": 1790685460,
-        "narHash": "sha256-zQ/wVrcHjIC+UjP4nDw3HARMqZd6LIDFmHKlp8AADYI=",
+        "lastModified": 1789726349,
+        "narHash": "sha256-L3CpIT2DeI+fUFl9fcygojtQo2DzEen69rMD1XqR1vM=",
         "owner": "mattpocock",
         "repo": "skills",
-        "rev": "d81f3a183412e71a5b1e84ca21bc1a35eea03a60",
+        "rev": "c55ee46073ed923f86ce59a5eb3b6d895095d1b7",
         "type": "github"
       },
       "original": {
@@ -1074,11 +1074,11 @@
     "understand-anything": {
       "flake": false,
       "locked": {
-        "lastModified": 1790506663,
-        "narHash": "sha256-/Qdn/VwH6P3qPJqYWv+42XOyqdg/NRiJZrCcBrfqMKA=",
+        "lastModified": 1789191103,
+        "narHash": "sha256-+Ge7ithJUghgrnsX5pgdQOQpWTbUtWT0PIb8l6csGjw=",
         "owner": "Egonex-AI",
         "repo": "Understand-Anything",
-        "rev": "b05cc3b20990afca537b4fc0a49b4d7fbdc65bb0",
+        "rev": "6df3065f1d8ddc2ce3615314d1d493f36d6b1c80",
         "type": "github"
       },
       "original": {
@@ -1090,11 +1090,11 @@
     "vercel-skills": {
       "flake": false,
       "locked": {
-        "lastModified": 1790626857,
-        "narHash": "sha256-fXt5TGhQAsyY7ewnjp+42kzxA5RDXHoVAdLj5p9f8ZY=",
+        "lastModified": 1789657217,
+        "narHash": "sha256-/B2el3+KYXohGCM4JaHl2EUx1c6mlYdUNrWiE0z/7lA=",
         "owner": "vercel-labs",
         "repo": "skills",
-        "rev": "3694740352eeef5cdd689af694c485f1ff62eec3",
+        "rev": "7407f3893ad4dceab546ac002c3ef806e4000c73",
         "type": "github"
       },
       "original": {
