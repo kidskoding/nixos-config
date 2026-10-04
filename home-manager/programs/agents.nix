@@ -2,21 +2,96 @@
   inputs,
   config,
   lib,
+  pkgs,
   ...
 }: {
-  imports = [
-    inputs.anikonistack.homeManagerModules.default
-    {
-      options.programs = lib.genAttrs ["claude-code" "codex" "opencode" "antigravity-cli"] (_: {
-        skills = lib.mkOption {
-          apply = skills: builtins.removeAttrs skills ["resolving-merge-conflicts"];
-        };
-      });
-    }
-  ];
+  imports = [inputs.anikonistack.homeManagerModules.default];
+
+  anikonistack = {
+    bundles = [
+      "custom"
+      "mattpocock"
+      "obsidian"
+      "extras"
+      "superpowers"
+      "firecrawl"
+      "frontend-design"
+      "caveman"
+      "ponytail"
+      "understand-anything"
+      "last30days"
+      "duet"
+
+      "spartan-core"
+      "spartan-database"
+      "spartan-shared-backend"
+      "spartan-backend-micronaut"
+      "spartan-frontend-react"
+      "spartan-ux-design"
+      "spartan-infrastructure"
+      "spartan-product"
+      "spartan-ops"
+      "spartan-research"
+    ];
+    skip = ["resolving-merge-conflicts"];
+
+    agents = {
+      claude-code = {
+        enable = true;
+        statusline = true;
+      };
+
+      codex.enable = true;
+      opencode.enable = true;
+      antigravity.enable = true;
+      cursor.enable = true;
+    };
+  };
+
+  programs.mcp = {
+    enable = true;
+
+    servers = {
+      composio.url = "https://connect.composio.dev/mcp";
+
+      github = {
+        url = "https://api.githubcopilot.com/mcp";
+        headers.Authorization = "Bearer \${GITHUB_MCP_TOKEN}";
+      };
+
+      playwright = {
+        command = "npx";
+        args = ["@playwright/mcp@latest" "--extension"];
+        env.PLAYWRIGHT_MCP_EXTENSION_TOKEN = "\${PLAYWRIGHT_MCP_EXTENSION_TOKEN}";
+      };
+    };
+  };
+
+  home.packages = with pkgs; [gh nodejs starship];
 
   programs.claude-code = {
     package = null;
+
+    settings = {
+      model = "claude-opus-5-5[1m]";
+      modelSettings.claude-opus-5-5.effortLevel = "high";
+      effortLevel = "xhigh";
+      theme = "dark";
+      tui = "fullscreen";
+      skipWorkflowUsageWarning = true;
+      agentPushNotifEnabled = true;
+      env.DISABLE_AUTOUPDATER = "1";
+
+      permissions.allow = [
+        "Bash(git commit*)"
+        "Bash(git push*)"
+        "Bash(git add*)"
+        "Bash(git status*)"
+        "Bash(git diff*)"
+        "Bash(git log*)"
+      ];
+    };
+
     settings.autoMode.environment = [
       "### Org-wide"
       "**Organization**: None configured"
@@ -55,11 +130,11 @@
 
   programs.antigravity-cli = {
     package = null;
+
     settings.trustedWorkspaces = [
       "/home/anirudh"
       "/home/anirudh/personal-projects"
       "/home/anirudh/nixos"
-      "/home/anirudh/personal-projects/termcade/games/tetrotui"
     ];
   };
 }
