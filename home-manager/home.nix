@@ -90,7 +90,7 @@
     terraform-ls
     tinymist
     ty
-    typescript-language-server
+    typescript
     typstyle
     vscode-langservers-extracted
     yaml-language-server
