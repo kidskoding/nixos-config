@@ -119,6 +119,13 @@ in {
         "Mod+Shift+Down".action.move-window-down = [];
         "Mod+Shift+Up".action.move-window-up = [];
 
+        "Mod+Alt+H".action.focus-monitor-left = [];
+        "Mod+Alt+L".action.focus-monitor-right = [];
+        "Mod+Shift+Alt+H".action.move-column-to-monitor-left = [];
+        "Mod+Shift+Alt+L".action.move-column-to-monitor-right = [];
+        "Mod+Ctrl+Alt+H".action.move-workspace-to-monitor-left = [];
+        "Mod+Ctrl+Alt+L".action.move-workspace-to-monitor-right = [];
+
         "Print".action.screenshot-screen = [];
         "Mod+Shift+S".action.screenshot = [];
 
