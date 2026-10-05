@@ -40,7 +40,7 @@
                  :taplo
                  :terraformls
                  :tinymist
-                 :ts_ls
+                 :tsc
                  :ty
                  :yamlls
                  :zls])
