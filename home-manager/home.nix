@@ -17,6 +17,7 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
+    TSDK = "${pkgs.typescript_5}/lib/node_modules/typescript/lib";
   };
 
   xdg.mimeApps = {
