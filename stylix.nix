@@ -1,12 +1,34 @@
 {
   config,
   pkgs,
+  inputs,
   ...
-}: {
+}: let
+  p = inputs.evergarden.lib.palette.fall;
+in {
   stylix = {
     enable = true;
 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark.yaml";
+    base16Scheme = {
+      scheme = "Evergarden Fall";
+      author = "comfysage";
+      base00 = p.base;
+      base01 = p.surface0;
+      base02 = p.surface1;
+      base03 = p.overlay0;
+      base04 = p.subtext0;
+      base05 = p.text;
+      base06 = p.cherry;
+      base07 = p.snow;
+      base08 = p.red;
+      base09 = p.orange;
+      base0A = p.yellow;
+      base0B = p.green;
+      base0C = p.aqua;
+      base0D = p.blue;
+      base0E = p.purple;
+      base0F = p.pink;
+    };
     polarity = "dark";
 
     fonts = {
