@@ -122,6 +122,8 @@ in {
       # other
       agent = "cursor-agent";
       timer = "timr-tui";
+      vim = "nvim";
+      vi = "nvim";
     };
 
     functions = {
