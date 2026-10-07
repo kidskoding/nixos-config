@@ -24,7 +24,6 @@
       control_center.sidebar_section = "none";
 
       shell = {
-        font_family = config.theme.fontFamily;
         time_format = "{:%-I:%M %p}";
         avatar_path = "${./avatars/starfire.jpeg}";
         panel = {

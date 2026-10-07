@@ -4,7 +4,7 @@
   ...
 }: let
   hm = config.home-manager.users.anirudh;
-  c = hm.theme.colors;
+  c = config.lib.stylix.colors.withHashtag;
   niri = hm.programs.niri.settings;
   eDP-1 = niri.outputs."eDP-1";
 in {
@@ -19,7 +19,7 @@ in {
         scheme = "Synced";
         theme_mode = "dark";
         hide_logo = false;
-        font_family = hm.theme.fontFamily;
+        font_family = config.stylix.fonts.monospace.name;
 
         palette = import ./palette.nix c;
 

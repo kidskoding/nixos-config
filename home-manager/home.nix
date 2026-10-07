@@ -5,12 +5,8 @@
 }: {
   imports = [
     ./programs
-    ./themes
     ./wallpaper
   ];
-
-  theme.name = "gruvbox-dark";
-  theme.fontFamily = "Terminess Nerd Font Mono";
 
   home.stateVersion = "26.05";
 

@@ -59,11 +59,6 @@ in {
       MOZ_ENABLE_WAYLAND = "1";
     };
 
-    cursor = {
-      theme = "Adwaita";
-      size = 32;
-    };
-
     outputs."eDP-1" = {
       mode = {
         width = 1920;

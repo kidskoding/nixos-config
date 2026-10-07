@@ -1,4 +1,5 @@
 {config, ...}: let
+  c = config.lib.stylix.colors;
   nixosBlue = "38;2;82;119;195";
   nixosBlueLight = "38;2;126;186;228";
 in {
@@ -24,7 +25,7 @@ in {
 
       display = {
         separator = " ";
-        color.keys = "38;2;${config.theme.ansi.gray}";
+        color.keys = "38;2;${c."base04-rgb-r"};${c."base04-rgb-g"};${c."base04-rgb-b"}";
       };
 
       modules = [
@@ -66,12 +67,12 @@ in {
         {
           type = "custom";
           key = "│ {#32}󰏘 theme   {#keys}│";
-          format = config.theme.name;
+          format = c.scheme;
         }
         {
           type = "custom";
           key = "│ {#33} font    {#keys}│";
-          format = config.theme.fontFamily;
+          format = config.stylix.fonts.monospace.name;
         }
         {
           type = "terminal";

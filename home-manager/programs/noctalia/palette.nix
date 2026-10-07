@@ -1,25 +1,25 @@
 c: {
-  primary = c.yellowBright;
-  on_primary = c.bg;
+  primary = c.base0A;
+  on_primary = c.base00;
 
-  secondary = c.blueBright;
-  on_secondary = c.bg;
+  secondary = c.base0D;
+  on_secondary = c.base00;
 
-  tertiary = c.greenBright;
-  on_tertiary = c.bg;
+  tertiary = c.base0B;
+  on_tertiary = c.base00;
 
-  error = c.redBright;
-  on_error = c.bg;
+  error = c.base08;
+  on_error = c.base00;
 
-  surface = c.bg;
-  on_surface = c.fg;
+  surface = c.base00;
+  on_surface = c.base05;
 
-  surface_variant = c.bgAlt;
-  on_surface_variant = c.gray;
+  surface_variant = c.base01;
+  on_surface_variant = c.base04;
 
-  outline = c.bgAlt;
-  shadow = c.black;
+  outline = c.base01;
+  shadow = c.base00;
 
-  hover = c.fg;
-  on_hover = c.bg;
+  hover = c.base05;
+  on_hover = c.base00;
 }

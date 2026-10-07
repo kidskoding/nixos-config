@@ -11,6 +11,7 @@
     ./nvidia.nix
     ./disko.nix
     ./packages.nix
+    ./stylix.nix
     ./home-manager/programs/noctalia/greeter.nix
 
     inputs.disko.nixosModules.disko
@@ -18,6 +19,7 @@
     inputs.niri.nixosModules.niri
     inputs.noctalia-greeter.nixosModules.default
     inputs.sops-nix.nixosModules.sops
+    inputs.stylix.nixosModules.stylix
   ];
 
   home-manager = {

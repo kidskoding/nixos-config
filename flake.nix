@@ -57,6 +57,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # stylix: nix in style 💎!!
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # disko: declarative disk layout!
     disko = {
       url = "github:nix-community/disko/latest";

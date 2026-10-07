@@ -1,9 +1,9 @@
 {config, ...}: let
-  c = config.theme.colors;
+  c = config.lib.stylix.colors.withHashtag;
 in {
   programs.niri.settings.layout = {
     gaps = 10;
-    background-color = c.bg;
+    background-color = c.base00;
 
     center-focused-column = "on-overflow";
     default-column-width.proportion = 0.5;
@@ -19,14 +19,14 @@ in {
     border = {
       enable = true;
       width = 2;
-      active.color = c.blueBright;
-      inactive.color = c.bgAlt;
+      active.color = c.base0D;
+      inactive.color = c.base01;
     };
 
     shadow = {
       enable = true;
       softness = 20;
-      color = "${c.black}ee";
+      color = "${c.base00}ee";
     };
   };
 }

@@ -17,10 +17,7 @@
     settings = {
       copy_command = "wl-copy";
       show_startup_tips = false;
-      theme =
-        if config.theme.dark
-        then "gruvbox-dark"
-        else "gruvbox-light";
+      theme = "stylix";
 
       keybinds = {
         unbind = [

@@ -5,30 +5,30 @@
   inputs,
   ...
 }: let
-  fg = c: "38;2;${c}";
-  a = config.theme.ansi;
+  c = config.lib.stylix.colors;
+  fg = n: "38;2;${c."${n}-rgb-r"};${c."${n}-rgb-g"};${c."${n}-rgb-b"}";
 
   render = attrs: lib.concatStringsSep ":" (lib.mapAttrsToList (k: v: "${k}=${v}") attrs);
 
   # file-type colors in dircolors format. eza reads LS_COLORS too, so this one
   # attrset drives ls, grep, fd and eza's shared keys.
   fileTypes = {
-    no = fg a.fg;
-    fi = fg a.fg;
-    di = "1;${fg a.blueBright}";
-    ln = fg a.aquaBright;
-    or = fg a.redBright;
-    mi = fg a.redBright;
-    ex = fg a.greenBright;
-    pi = fg a.yellowBright;
-    so = fg a.purpleBright;
-    bd = fg a.yellow;
-    cd = fg a.aquaBright;
-    su = "1;${fg a.redBright}";
-    sg = fg a.redBright;
-    st = fg a.blue;
-    ow = fg a.purpleBright;
-    tw = "1;${fg a.purpleBright}";
+    no = fg "base05";
+    fi = fg "base05";
+    di = "1;${fg "base0D"}";
+    ln = fg "base0C";
+    or = fg "base08";
+    mi = fg "base08";
+    ex = fg "base0B";
+    pi = fg "base0A";
+    so = fg "base0E";
+    bd = fg "base0A";
+    cd = fg "base0C";
+    su = "1;${fg "base08"}";
+    sg = fg "base08";
+    st = fg "base0D";
+    ow = fg "base0E";
+    tw = "1;${fg "base0E"}";
   };
 
   # eza-only keys, layered on top of LS_COLORS by eza itself
@@ -43,20 +43,20 @@
     tr = "0";
     tx = "0";
 
-    lp = fg a.aquaBright; # symlink target path
-    sn = fg a.yellowBright; # file size number
-    sb = fg a.gray; # file size unit
-    da = fg a.blue; # timestamp
-    hd = "1;${fg a.purple}"; # table header
+    lp = fg "base0C"; # symlink target path
+    sn = fg "base0A"; # file size number
+    sb = fg "base04"; # file size unit
+    da = fg "base0D"; # timestamp
+    hd = "1;${fg "base0E"}"; # table header
 
-    im = fg a.greenBright; # image
-    vi = fg a.purple; # video
-    mu = fg a.aquaBright; # music
-    lo = fg a.aquaBright; # lossless audio
-    cr = fg a.redBright; # crypto
-    do = fg a.blueBright; # document
-    co = fg a.yellowBright; # compressed
-    tm = fg a.gray; # temp file
+    im = fg "base0B"; # image
+    vi = fg "base0E"; # video
+    mu = fg "base0C"; # music
+    lo = fg "base0C"; # lossless audio
+    cr = fg "base08"; # crypto
+    do = fg "base0D"; # document
+    co = fg "base0A"; # compressed
+    tm = fg "base04"; # temp file
   };
 in {
   imports = [inputs.sops-nix.homeManagerModules.sops];
@@ -189,7 +189,7 @@ in {
         bind '$' __history_previous_command_arguments
       end
 
-      # ${config.theme.name} file colors, shared by ls/grep/fd and eza
+      # ${c.scheme} file colors, shared by ls/grep/fd and eza
       set -gx LS_COLORS "${render fileTypes}"
       set -gx EZA_COLORS "${render ezaExtra}"
     '';

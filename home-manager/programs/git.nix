@@ -1,5 +1,5 @@
 {config, ...}: let
-  colors = config.theme.colors;
+  colors = config.lib.stylix.colors.withHashtag;
   status = config.programs.git.settings.color.fileStatus;
 in {
   programs.difftastic = {
@@ -22,12 +22,12 @@ in {
       };
 
       color.fileStatus = {
-        added = colors.greenBright;
-        removed = colors.redBright;
-        modified = colors.yellowBright;
-        untracked = colors.aquaBright;
-        renamed = colors.purpleBright;
-        ignored = colors.grayBright;
+        added = colors.base0B;
+        removed = colors.base08;
+        modified = colors.base0A;
+        untracked = colors.base0C;
+        renamed = colors.base0E;
+        ignored = colors.base04;
       };
 
       color.diff = {
