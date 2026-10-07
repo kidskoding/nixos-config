@@ -1,10 +1,14 @@
-(vim.pack.add ["https://github.com/folke/snacks.nvim"])
+(vim.pack.add ["https://github.com/folke/snacks.nvim"
+               "https://github.com/folke/todo-comments.nvim"])
 
 (local snacks (require :snacks))
 
 (snacks.setup {:bigfile {:enabled true}
                :indent {:enabled true}
                :picker {:enabled true}})
+
+;; after snacks.setup so todo-comments registers its picker source
+((. (require :todo-comments) :setup) {})
 
 (fn map [key action desc]
   (vim.keymap.set :n key action {: desc}))
@@ -17,6 +21,7 @@
 (map :<leader>bd #(snacks.bufdelete) "Close buffer")
 (map :<leader>gB #(snacks.gitbrowse) "Open file on GitHub")
 (map :<leader>gl #(snacks.picker.git_log_file) "File git history")
+(map :<leader>xt #(snacks.picker.todo_comments) "Todo list")
 
 (map :gd #(snacks.picker.lsp_definitions) "Go to definition")
 (map :grr #(snacks.picker.lsp_references) :References)
