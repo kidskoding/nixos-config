@@ -1,4 +1,4 @@
-{config, ...}: {
+{
   programs.zellij = {
     enable = true;
     enableFishIntegration = false;
@@ -17,7 +17,6 @@
     settings = {
       copy_command = "wl-copy";
       show_startup_tips = false;
-      theme = "stylix";
 
       keybinds = {
         unbind = [
