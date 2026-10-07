@@ -28,6 +28,7 @@
 
     opacity.terminal = 0.8;
 
+    targets.nixos-icons.enable = false;
     targets.plymouth.enable = false;
   };
 }
