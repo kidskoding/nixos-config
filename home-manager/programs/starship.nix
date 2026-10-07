@@ -1,19 +1,13 @@
 {
-  lib,
-  inputs,
-  osConfig,
+  config,
+  pkgs,
   ...
-}: let
-  palette = inputs.evergarden.lib.palette.${osConfig.evergarden.variant};
-in {
+}: {
   programs.starship = {
     enable = true;
 
     settings = {
       format = "$os$all";
-
-      palette = "evergarden";
-      palettes.evergarden = lib.mapAttrs (_: hex: "#${hex}") palette;
 
       os = {
         disabled = false;
@@ -37,7 +31,7 @@ in {
       directory = {
         truncation_length = 3;
         format = " in [$path]($style) ";
-        style = "bold aqua";
+        style = "bold cyan";
         read_only = "󰌾";
       };
 

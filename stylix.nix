@@ -10,7 +10,7 @@
   capitalize = s: lib.toUpper (builtins.substring 0 1 s) + builtins.substring 1 (-1) s;
 in {
   evergarden = {
-    variant = "winter";
+    variant = "fall";
     accent = "green";
   };
 

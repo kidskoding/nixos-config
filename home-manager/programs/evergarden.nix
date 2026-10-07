@@ -15,6 +15,5 @@
   stylix.targets = {
     ghostty.colors.enable = false;
     fish.colors.enable = false;
-    starship.enable = false;
   };
 }
