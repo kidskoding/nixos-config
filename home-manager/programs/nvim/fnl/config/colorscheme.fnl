@@ -1,20 +1,20 @@
-(vim.pack.add ["https://github.com/ellisonleao/gruvbox.nvim"])
+(vim.pack.add ["https://github.com/neanias/everforest-nvim"])
 
-(local gruvbox (require :gruvbox))
+(local everforest (require :everforest))
 
-(gruvbox.setup {:italic {:strings false
-                         :emphasis false
-                         :comments false
-                         :operators false
-                         :folds false}
-                :overrides {"@punctuation.bracket" {:link :Normal}
-                            "@punctuation.delimiter" {:link :Normal}
-                            :TroubleNormal {:link :Normal}
-                            :TroubleNormalNC {:link :Normal}
-                            :Added {:link :GruvboxGreen}
-                            :Removed {:link :GruvboxRed}
-                            :Changed {:link :GruvboxYellow}
-                            :GitSignsChange {:link :GruvboxYellow}
-                            :GitSignsUntracked {:link :GruvboxAqua}}})
+(everforest.setup {:background :hard
+                   :disable_italic_comments true
+                   :on_highlights (fn [hl _palette]
+                                    (set hl.TroubleNormal {:link :Normal})
+                                    (set hl.TroubleNormalNC {:link :Normal})
+                                    (set hl.Added {:link :Green})
+                                    (set hl.Removed {:link :Red})
+                                    (set hl.Changed {:link :Yellow})
+                                    (set hl.GitSignsChange {:link :Yellow})
+                                    (set hl.GitSignsUntracked {:link :Aqua})
+                                    (tset hl "@punctuation.bracket"
+                                          {:link :Normal})
+                                    (tset hl "@punctuation.delimiter"
+                                          {:link :Normal}))})
 
-(vim.cmd.colorscheme :gruvbox)
+(vim.cmd.colorscheme :everforest)
