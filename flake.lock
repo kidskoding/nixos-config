@@ -368,6 +368,24 @@
         "type": "github"
       }
     },
+    "evergarden": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1789236781,
+        "narHash": "sha256-pRyXTLmOo8O47KYvzESvv9d2AxNSgbu3AUR0TKe9ig8=",
+        "rev": "96e93086db475eed54d9211874e0b19a592d8d45",
+        "type": "tarball",
+        "url": "https://codeberg.org/api/v1/repos/evergarden/nix/archive/96e93086db475eed54d9211874e0b19a592d8d45.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://codeberg.org/evergarden/nix/archive/main.tar.gz"
+      }
+    },
     "fenix": {
       "inputs": {
         "nixpkgs": [
@@ -1082,6 +1100,7 @@
         "codex-cli": "codex-cli",
         "cromite": "cromite",
         "disko": "disko",
+        "evergarden": "evergarden",
         "fenix": "fenix",
         "home-manager": "home-manager",
         "llm-agents": "llm-agents",

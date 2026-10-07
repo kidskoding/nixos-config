@@ -21,6 +21,8 @@
     ./tickrs.nix
 
     ./agents.nix
+
+    ./evergarden.nix
   ];
 
   programs.direnv = {

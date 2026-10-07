@@ -62,6 +62,10 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    evergarden = {
+      url = "https://codeberg.org/evergarden/nix/archive/main.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # disko: declarative disk layout!
     disko = {
