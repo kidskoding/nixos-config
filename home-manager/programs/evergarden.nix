@@ -1,9 +1,12 @@
-{inputs, ...}: {
+{
+  inputs,
+  osConfig,
+  ...
+}: {
   imports = [inputs.evergarden.homeManagerModules.default];
 
   evergarden = {
-    variant = "fall";
-    accent = "green";
+    inherit (osConfig.evergarden) variant accent;
 
     ghostty.enable = true;
     fish.enable = true;
@@ -12,5 +15,6 @@
   stylix.targets = {
     ghostty.colors.enable = false;
     fish.colors.enable = false;
+    starship.enable = false;
   };
 }

@@ -1,13 +1,19 @@
 {
-  config,
-  pkgs,
+  lib,
+  inputs,
+  osConfig,
   ...
-}: {
+}: let
+  palette = inputs.evergarden.lib.palette.${osConfig.evergarden.variant};
+in {
   programs.starship = {
     enable = true;
 
     settings = {
       format = "$os$all";
+
+      palette = "evergarden";
+      palettes.evergarden = lib.mapAttrs (_: hex: "#${hex}") palette;
 
       os = {
         disabled = false;
@@ -18,20 +24,20 @@
       username = {
         show_always = true;
         format = "[$user]($style)";
-        style_user = "bold yellow";
+        style_user = "bold green";
       };
 
       hostname = {
         ssh_only = true;
         format = "[@$hostname]($style)";
-        style = "bold green";
+        style = "bold yellow";
         ssh_symbol = " ";
       };
 
       directory = {
         truncation_length = 3;
         format = " in [$path]($style) ";
-        style = "bold cyan";
+        style = "bold aqua";
         read_only = "󰌾";
       };
 

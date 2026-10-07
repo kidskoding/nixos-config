@@ -1,11 +1,11 @@
 c: {
-  primary = c.base0A;
+  primary = c.base0B;
   on_primary = c.base00;
 
   secondary = c.base0D;
   on_secondary = c.base00;
 
-  tertiary = c.base0B;
+  tertiary = c.base0A;
   on_tertiary = c.base00;
 
   error = c.base08;

@@ -19,7 +19,7 @@ in {
     border = {
       enable = true;
       width = 2;
-      active.color = c.base0D;
+      active.color = c.base0B;
       inactive.color = c.base01;
     };
 

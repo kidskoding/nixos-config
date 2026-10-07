@@ -1,16 +1,24 @@
 {
   config,
+  lib,
   pkgs,
   inputs,
   ...
 }: let
-  p = inputs.evergarden.lib.palette.fall;
+  inherit (config.evergarden) variant;
+  p = inputs.evergarden.lib.palette.${variant};
+  capitalize = s: lib.toUpper (builtins.substring 0 1 s) + builtins.substring 1 (-1) s;
 in {
+  evergarden = {
+    variant = "winter";
+    accent = "green";
+  };
+
   stylix = {
     enable = true;
 
     base16Scheme = {
-      scheme = "Evergarden Fall";
+      scheme = "Evergarden ${capitalize variant}";
       author = "comfysage";
       base00 = p.base;
       base01 = p.surface0;

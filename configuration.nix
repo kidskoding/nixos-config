@@ -15,6 +15,7 @@
     ./home-manager/programs/noctalia/greeter.nix
 
     inputs.disko.nixosModules.disko
+    inputs.evergarden.nixosModules.default
     inputs.home-manager.nixosModules.home-manager
     inputs.niri.nixosModules.niri
     inputs.noctalia-greeter.nixosModules.default

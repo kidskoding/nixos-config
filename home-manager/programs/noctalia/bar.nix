@@ -45,6 +45,7 @@
         inactive_pill_size = 1;
         label_source = "id";
         hide_when_empty = true;
+        occupied_color = "on_surface_variant";
       };
 
       media = {
