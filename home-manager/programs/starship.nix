@@ -31,7 +31,7 @@
       directory = {
         truncation_length = 3;
         format = " in [$path]($style) ";
-        style = "bold cyan";
+        style = "bold blue";
         read_only = "󰌾";
       };
 
