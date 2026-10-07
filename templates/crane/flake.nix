@@ -25,12 +25,12 @@
         bacon
         cargo-chef
         cargo-generate
+        cargo-watch
         evcxr
         trunk
         wasm-pack
 
         rust-analyzer
-        cargo-watch
       ];
 
       shellHook = ''

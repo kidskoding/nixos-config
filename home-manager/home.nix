@@ -42,6 +42,7 @@
     jdk21
     (julia.withPackages ["LanguageServer"])
 
+    # lua
     lua
     luarocks
     luaPackages.fennel
@@ -109,9 +110,6 @@
     valgrind
 
     # additional developer tooling
-    air
-    bacon
-    cargo-seek
     claude-agent-acp
     codex-acp
     devenv
