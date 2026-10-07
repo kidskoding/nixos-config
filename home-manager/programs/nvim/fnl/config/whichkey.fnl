@@ -13,4 +13,4 @@
                          {1 :<leader>T :group :typst :icon "󰈙 "}
                          {1 :<leader>x :group :lists :icon " "}]})
 
-(vim.api.nvim_set_hl 0 :WhichKeyIcon {:link :GruvboxBlue})
+(vim.api.nvim_set_hl 0 :WhichKeyIcon {:fg "#B2CAED"})

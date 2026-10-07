@@ -25,7 +25,7 @@
 (neogit.setup {})
 (difftastic.setup {:vcs :git
                    :snacks_picker {:enabled true}
-                   :highlights {:DifftTreeRenamed {:link :GruvboxPurple}}})
+                   :highlights {:DifftTreeRenamed {:fg "#D2BDF3"}}})
 
 (fn unwrap-tab []
   (each [_ win (ipairs (vim.api.nvim_tabpage_list_wins 0))]

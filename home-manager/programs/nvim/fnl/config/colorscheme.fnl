@@ -1,20 +1,21 @@
-(vim.pack.add ["https://github.com/ellisonleao/gruvbox.nvim"])
+(vim.pack.add [{:src "https://codeberg.org/evergarden/nvim" :name :evergarden}])
 
-(local gruvbox (require :gruvbox))
+(local evergarden (require :evergarden))
 
-(gruvbox.setup {:italic {:strings false
-                         :emphasis false
-                         :comments false
-                         :operators false
-                         :folds false}
-                :overrides {"@punctuation.bracket" {:link :Normal}
-                            "@punctuation.delimiter" {:link :Normal}
-                            :TroubleNormal {:link :Normal}
-                            :TroubleNormalNC {:link :Normal}
-                            :Added {:link :GruvboxGreen}
-                            :Removed {:link :GruvboxRed}
-                            :Changed {:link :GruvboxYellow}
-                            :GitSignsChange {:link :GruvboxYellow}
-                            :GitSignsUntracked {:link :GruvboxAqua}}})
+(evergarden.setup {:theme {:variant :winter :accent :green}
+                   :style {:types []
+                           :keyword []
+                           :comment []
+                           :search [:reverse]
+                           :incsearch [:reverse]}
+                   :overrides {"@punctuation.bracket" {:link :Normal}
+                               "@punctuation.delimiter" {:link :Normal}
+                               :TroubleNormal {:link :Normal}
+                               :TroubleNormalNC {:link :Normal}
+                               :Added {:fg "#CBE3B3"}
+                               :Removed {:fg "#F57F82"}
+                               :Changed {:fg "#F5D098"}
+                               :GitSignsChange {:fg "#F5D098"}
+                               :GitSignsUntracked {:fg "#B3E3CA"}}})
 
-(vim.cmd.colorscheme :gruvbox)
+(vim.cmd.colorscheme :evergarden)

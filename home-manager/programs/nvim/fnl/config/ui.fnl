@@ -3,22 +3,13 @@
                "https://github.com/akinsho/bufferline.nvim"])
 
 ;; colors for the │ component separators below
-(vim.api.nvim_set_hl 0 :lualine_sep_color_b {:fg "#a89984" :bg "#504945"})
-(vim.api.nvim_set_hl 0 :lualine_sep_color_x {:fg "#a89984" :bg "#3c3836"})
-
-;; patched gruvbox_dark
-;; normal mode: yellow instead of gruvbox grey!
-;; every other mode shares normal mode's section c colors
-(local theme (require :lualine.themes.gruvbox_dark))
-(each [_ section (pairs theme)]
-  (set section.c theme.normal.c))
-
-(set theme.normal.a.bg "#d79921")
+(vim.api.nvim_set_hl 0 :lualine_sep_color_b {:fg "#839E9A" :bg "#262F33"})
+(vim.api.nvim_set_hl 0 :lualine_sep_color_x {:fg "#839E9A" :bg "#191E21"})
 
 (local lualine (require :lualine))
 (local bufferline (require :bufferline))
 
-(lualine.setup {:options {: theme
+(lualine.setup {:options {:theme :evergarden
                           :globalstatus true
                           :component_separators {:left "%#lualine_sep_color_b#│"
                                                  :right "%#lualine_sep_color_x#│"}
