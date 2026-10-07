@@ -2,50 +2,42 @@
   config,
   pkgs,
   ...
-}: let
-  c = config.lib.stylix.colors.withHashtag;
-  bg = c.base01;
-  pill = color: body: "[](${bg})[${body}](bold ${color} bg:${bg})[](${bg}) ";
-in {
+}: {
   programs.starship = {
     enable = true;
 
     settings = {
-      format = "$os$username$hostname$directory$git_branch$git_status$nix_shell$all$cmd_duration$line_break$character";
+      format = "$os$all";
 
       os = {
         disabled = false;
-        format = pill c.base0D "$symbol";
+        format = "[$symbol]($style)";
+        style = "bold #7ebae4";
       };
 
       username = {
         show_always = true;
-        format = pill c.base0A "$user";
+        format = "[$user]($style)";
+        style_user = "bold yellow";
       };
 
       hostname = {
         ssh_only = true;
-        format = pill c.base0B "$ssh_symbol$hostname";
-        ssh_symbol = " ";
+        format = "[@$hostname]($style)";
+        style = "bold green";
+        ssh_symbol = " ";
       };
 
       directory = {
         truncation_length = 3;
-        format = pill c.base0C "$path$read_only";
-        read_only = " 󰌾";
+        format = " in [$path]($style) ";
+        style = "bold cyan";
+        read_only = "󰌾";
       };
 
-      git_branch.format = pill c.base0E "$symbol$branch";
-
-      git_status.format = "(${pill c.base08 "$all_status$ahead_behind"})";
-
-      nix_shell.format = pill c.base0D "$symbol$state";
-
-      cmd_duration.format = pill c.base09 "󱎫 $duration";
-
       character = {
-        success_symbol = "[➜](bold ${c.base0D})";
-        error_symbol = "[➜](bold ${c.base08})";
+        success_symbol = "[➜](bold green)";
+        error_symbol = "[➜](bold red)";
       };
 
       gcloud = {
