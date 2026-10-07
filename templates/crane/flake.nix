@@ -25,7 +25,6 @@
         bacon
         cargo-chef
         cargo-generate
-        cargo-watch
         evcxr
         trunk
         wasm-pack
