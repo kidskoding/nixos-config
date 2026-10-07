@@ -59,3 +59,7 @@ fi
 
 git commit -m "$msg"
 
+if ! git push origin HEAD; then
+    echo "push failed; commit is local only. run 'git push' later."
+fi
+
