@@ -12,6 +12,11 @@
     fish.enable = true;
   };
 
+  home.sessionVariables = {
+    EVERGARDEN_VARIANT = osConfig.evergarden.variant;
+    EVERGARDEN_ACCENT = osConfig.evergarden.accent;
+  };
+
   stylix.targets = {
     ghostty.colors.enable = false;
     fish.colors.enable = false;
