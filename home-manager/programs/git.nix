@@ -45,7 +45,12 @@ in {
     };
 
     ignores = [
-      "result" # symlink when building to /nix/store
+      "result" # symlink when building to /nix/store\
+      "result-*"
+
+      # direnv and devenv
+      ".direnv"
+      ".devenv"
     ];
   };
 }
