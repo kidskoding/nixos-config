@@ -7,8 +7,7 @@
                "https://github.com/MunifTanjim/nui.nvim"
                "https://github.com/clabby/difftastic.nvim"
                "https://github.com/okuuva/auto-save.nvim"
-               "https://github.com/vyfor/cord.nvim"
-               "https://github.com/folke/todo-comments.nvim"])
+               "https://github.com/vyfor/cord.nvim"])
 
 (local autopairs (require :nvim-autopairs))
 (local guess-indent (require :guess-indent))
@@ -18,14 +17,12 @@
 (local difftastic (require :difftastic-nvim))
 (local auto-save (require :auto-save))
 (local cord (require :cord))
-(local todo-comments (require :todo-comments))
 
 (autopairs.setup {})
 (guess-indent.setup {})
 (gitsigns.setup {})
 (oil.setup {:win_options {:cursorline true}})
 (neogit.setup {})
-(todo-comments.setup {})
 (difftastic.setup {:vcs :git
                    :snacks_picker {:enabled true}
                    :highlights {:DifftTreeRenamed {:fg "#D2BDF3"}}})
