@@ -21,7 +21,6 @@ in
         cargo-chef
         cargo-generate
         evcxr
-        loco
         trunk
         wasm-pack
       ]);
