@@ -1,4 +1,11 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  osConfig,
+  ...
+}: let
+  p = inputs.evergarden.lib.palette.${osConfig.evergarden.variant};
+in {
   programs.noctalia.settings = {
     bar.main = {
       position = "top";
@@ -45,7 +52,7 @@
         inactive_pill_size = 1;
         label_source = "id";
         hide_when_empty = true;
-        occupied_color = "on_surface_variant";
+        occupied_color = "#${p.overlay1}";
       };
 
       media = {
