@@ -9,6 +9,7 @@
 (require :config.format)
 (require :config.whichkey)
 (require :config.languages)
+(require :config.test)
 (require :config.database)
 (require :config.ai)
 
