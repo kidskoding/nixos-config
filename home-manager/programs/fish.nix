@@ -120,7 +120,7 @@ in {
 
       # other
       agent = "cursor-agent";
-      fastfetch = "ff";
+      ff = "fastfetch";
       timer = "timr-tui";
       vim = "nvim";
       vi = "nvim";
