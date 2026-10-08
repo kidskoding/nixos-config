@@ -33,7 +33,6 @@
 
   # eza-only keys, layered on top of LS_COLORS by eza itself
   ezaExtra = {
-    # mute the permission-bit chars (tw is owned by fileTypes above)
     ur = "0";
     uw = "0";
     ux = "0";
@@ -121,6 +120,7 @@ in {
 
       # other
       agent = "cursor-agent";
+      fastfetch = "ff";
       timer = "timr-tui";
       vim = "nvim";
       vi = "nvim";
