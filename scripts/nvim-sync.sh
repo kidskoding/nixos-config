@@ -31,4 +31,4 @@ git --no-pager diff --cached --stat -- "$NVIM_DIR"
 read -rp "neovim commit message: kidskoding.nvim: " msg
 git commit -m "kidskoding.nvim: ${msg:-update}" -- "$NVIM_DIR"
 
-git subtree push --prefix="$NVIM_DIR" nvim master
+git subtree push -S --prefix="$NVIM_DIR" nvim master
