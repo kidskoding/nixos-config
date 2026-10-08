@@ -42,31 +42,33 @@
 
       custom = {
         uv = {
-          detect_files = ["uv.lock"];
+          detect_files = ["uv.lock" ".python-version"];
           format = "[\\(uv\\) ]($style)";
           style = "bold yellow";
         };
 
         poetry = {
           detect_files = ["poetry.lock"];
+          when = "grep -qs poetry.core pyproject.toml";
+          shell = ["sh"];
           format = "[\\(poetry\\) ]($style)";
           style = "bold yellow";
         };
 
         pdm = {
-          detect_files = ["pdm.lock"];
+          detect_files = ["pdm.lock" ".pdm-python"];
           format = "[\\(pdm\\) ]($style)";
           style = "bold yellow";
         };
 
         pipenv = {
-          detect_files = ["Pipfile.lock"];
+          detect_files = ["Pipfile" "Pipfile.lock"];
           format = "[\\(pipenv\\) ]($style)";
           style = "bold yellow";
         };
 
         pip = {
-          when = "[ -f requirements.txt ] && [ ! -f uv.lock ] && [ ! -f poetry.lock ] && [ ! -f pdm.lock ] && [ ! -f Pipfile.lock ]";
+          when = "[ -f requirements.txt ] && [ ! -f pyproject.toml ] && [ ! -f Pipfile ] && [ ! -f .python-version ]";
           shell = ["sh"];
           format = "[\\(pip\\) ]($style)";
           style = "bold yellow";
