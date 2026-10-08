@@ -8,7 +8,9 @@
                "https://github.com/clabby/difftastic.nvim"
                "https://github.com/okuuva/auto-save.nvim"
                "https://github.com/vyfor/cord.nvim"
-               "https://github.com/saecki/crates.nvim"])
+               "https://github.com/saecki/crates.nvim"
+               {:src "https://github.com/ThePrimeagen/harpoon"
+                :version :harpoon2}])
 
 (local autopairs (require :nvim-autopairs))
 (local guess-indent (require :guess-indent))
@@ -19,10 +21,12 @@
 (local auto-save (require :auto-save))
 (local cord (require :cord))
 (local crates (require :crates))
+(local harpoon (require :harpoon))
 
 (autopairs.setup {})
 (guess-indent.setup {})
 (gitsigns.setup {})
+(harpoon:setup {:settings {:save_on_toggle true}})
 (oil.setup {:win_options {:cursorline true}})
 (neogit.setup {})
 (difftastic.setup {:vcs :git
@@ -75,3 +79,11 @@
 (vim.keymap.set :n :<leader>gD :<cmd>DifftPick<CR> {:desc "Diff a commit"})
 (vim.keymap.set :n :<leader>gt toggle-difft-tree
                 {:desc "Toggle diff file tree"})
+
+(vim.keymap.set :n :<leader>H #(: (harpoon:list) :add) {:desc "Harpoon file"})
+(vim.keymap.set :n :<C-e> #(harpoon.ui:toggle_quick_menu (harpoon:list))
+                {:desc "Harpoon menu"})
+
+(each [i key (ipairs [:<C-h> :<C-j> :<C-k> :<C-l>])]
+  (vim.keymap.set :n key #(: (harpoon:list) :select i)
+                  {:desc (.. "Harpoon file " i)}))
