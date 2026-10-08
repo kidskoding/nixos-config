@@ -37,6 +37,7 @@
                  :ocamllsp
                  :omnisharp
                  :ruby_lsp
+                 :ruff
                  :sourcekit
                  :sqls
                  :taplo

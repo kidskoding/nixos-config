@@ -7,7 +7,8 @@
                "https://github.com/MunifTanjim/nui.nvim"
                "https://github.com/clabby/difftastic.nvim"
                "https://github.com/okuuva/auto-save.nvim"
-               "https://github.com/vyfor/cord.nvim"])
+               "https://github.com/vyfor/cord.nvim"
+               "https://github.com/saecki/crates.nvim"])
 
 (local autopairs (require :nvim-autopairs))
 (local guess-indent (require :guess-indent))
@@ -17,6 +18,7 @@
 (local difftastic (require :difftastic-nvim))
 (local auto-save (require :auto-save))
 (local cord (require :cord))
+(local crates (require :crates))
 
 (autopairs.setup {})
 (guess-indent.setup {})
@@ -26,6 +28,9 @@
 (difftastic.setup {:vcs :git
                    :snacks_picker {:enabled true}
                    :highlights {:DifftTreeRenamed {:fg "#D2BDF3"}}})
+
+(crates.setup {:lsp {:enabled true :actions true :completion true :hover true}
+               :completion {:crates {:enabled true :max_results 8 :min_chars 3}}})
 
 (fn unwrap-tab []
   (each [_ win (ipairs (vim.api.nvim_tabpage_list_wins 0))]

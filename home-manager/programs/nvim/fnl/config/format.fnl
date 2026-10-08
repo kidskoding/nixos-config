@@ -5,7 +5,8 @@
 (conform.setup {:formatters_by_ft {:fennel [:fnlfmt]
                                    :lua [:stylua]
                                    :nix [:alejandra]
-                                   :python [:ruff_format]
+                                   :python [:ruff_organize_imports
+                                            :ruff_format]
                                    :typst [:typstyle]}})
 
 (vim.keymap.set :n :<leader>cf #(conform.format {:lsp_format :fallback})
