@@ -22,6 +22,8 @@
 (map :<leader>gB #(snacks.gitbrowse) "Open file on GitHub")
 (map :<leader>gl #(snacks.picker.git_log_file) "File git history")
 (map :<leader>xt #(snacks.picker.todo_comments) "Todo list")
+(map :<leader>. #(snacks.scratch) "Toggle scratch buffer")
+(map :<leader>S #(snacks.scratch.select) "Select scratch buffer")
 
 (map :gd #(snacks.picker.lsp_definitions) "Go to definition")
 (map :grr #(snacks.picker.lsp_references) :References)
