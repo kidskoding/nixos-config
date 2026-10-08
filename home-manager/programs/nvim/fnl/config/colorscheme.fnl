@@ -10,6 +10,8 @@
                            :incsearch [:reverse]}
                    :overrides {"@punctuation.bracket" {:link :Normal}
                                "@punctuation.delimiter" {:link :Normal}
+                               :SnacksPickerDelim {:link :SnacksPickerRow}
+                               :SnacksPickerCol {:link :SnacksPickerRow}
                                :TroubleNormal {:link :Normal}
                                :TroubleNormalNC {:link :Normal}
                                :Added {:fg "#CBE3B3"}
