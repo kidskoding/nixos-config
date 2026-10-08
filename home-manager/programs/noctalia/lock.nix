@@ -49,7 +49,7 @@
       cy = 220.0;
       settings = {
         scale = 1.5;
-        format = "{:%-I:%M %p}";
+        format = "{:%-I:%M %p}\n{:%A, %B %-d}";
       };
     };
 
@@ -82,7 +82,10 @@
       cy = 960.0;
       box_width = 600.0;
       box_height = 100.0;
-      settings.show_when_idle = false;
+      settings = {
+        show_when_idle = false;
+        background = false;
+      };
     };
   };
 
