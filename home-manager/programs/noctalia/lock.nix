@@ -46,9 +46,9 @@
       type = "clock";
       output = "eDP-1";
       cx = 960.0;
-      cy = 300.0;
+      cy = 220.0;
       scale = 1.5;
-      settings.format = "{:%-I:%M %p}\n{:%A, %B %-d}";
+      settings.format = "{:%-I:%M %p}";
     };
 
     "lockscreen-login-box@eDP-1" = {
@@ -61,7 +61,26 @@
       settings = {
         show_unlock_hint = false;
         center_password_text = true;
+        show_media = false;
       };
+    };
+
+    "lockscreen-media@eDP-1" = {
+      type = "media_player";
+      output = "eDP-1";
+      cx = 960.0;
+      cy = 800.0;
+      settings.hide_when_no_media = true;
+    };
+
+    "lockscreen-visualizer@eDP-1" = {
+      type = "audio_visualizer";
+      output = "eDP-1";
+      cx = 960.0;
+      cy = 960.0;
+      box_width = 600.0;
+      box_height = 100.0;
+      settings.show_when_idle = false;
     };
   };
 
