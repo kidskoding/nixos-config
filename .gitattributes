@@ -1,2 +1,1 @@
-home-manager/programs/nvim/** -linguist-vendored -linguist-documentation
-home-manager/programs/nvim/**/*.fnl linguist-language=Fennel linguist-detectable
+*.fnl linguist-language=Fennel linguist-detectable
