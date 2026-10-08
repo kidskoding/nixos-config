@@ -113,11 +113,13 @@
     "anirudh" = {
       isNormalUser = true;
       description = "Anirudh Konidala";
+
       extraGroups = [
         "networkmanager"
         "wheel"
         "docker"
       ];
+
       shell = pkgs.fish;
     };
   };
