@@ -47,6 +47,8 @@
       output = "eDP-1";
       cx = 960.0;
       cy = 220.0;
+      placement_width = 1920.0;
+      placement_height = 1080.0;
       settings = {
         scale = 1.5;
         format = "{:%A, %B %-d}\n{:%-I:%M %p}";
@@ -72,6 +74,8 @@
       output = "eDP-1";
       cx = 960.0;
       cy = 800.0;
+      placement_width = 1920.0;
+      placement_height = 1080.0;
       settings.hide_when_no_media = true;
     };
 
@@ -80,6 +84,8 @@
       output = "eDP-1";
       cx = 960.0;
       cy = 960.0;
+      placement_width = 1920.0;
+      placement_height = 1080.0;
       box_width = 600.0;
       box_height = 100.0;
       settings = {
