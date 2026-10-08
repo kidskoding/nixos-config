@@ -1,0 +1,5 @@
+home-manager/programs/nvim/** linguist-vendored=false
+home-manager/programs/nvim/** linguist-documentation=false
+
+home-manager/programs/nvim/**/*.fnl linguist-language=Fennel
+home-manager/programs/nvim/**/*.fnl linguist-detectable=true
