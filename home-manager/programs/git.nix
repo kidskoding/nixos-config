@@ -10,6 +10,12 @@ in {
   programs.git = {
     enable = true;
 
+    signing = {
+      format = "ssh";
+      key = "~/.ssh/id_ed25519.pub";
+      signByDefault = true;
+    };
+
     settings = {
       user.name = "Anirudh Konidala";
       user.email = "anirudhkonidala@gmail.com";
