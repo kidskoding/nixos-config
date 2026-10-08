@@ -14,6 +14,8 @@
     EDITOR = "nvim";
     VISUAL = "nvim";
     TSDK = "${pkgs.typescript_5}/lib/node_modules/typescript/lib";
+
+    UV_NO_PROJECT = 1;
   };
 
   xdg.mimeApps = {
