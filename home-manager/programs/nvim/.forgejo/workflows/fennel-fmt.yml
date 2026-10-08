@@ -16,7 +16,7 @@ jobs:
           git checkout "${{ github.sha }}"
       - name: check formatting
         run: |
-          nix shell nixpkgs#fnlfmt --command bash -c '
+          nix shell nixpkgs#fnlfmt nixpkgs#diffutils --command bash -c '
             fail=0
             for f in $(git ls-files "*.fnl"); do
               fnlfmt "$f" | diff -u "$f" - || fail=1
