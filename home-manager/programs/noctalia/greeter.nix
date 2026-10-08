@@ -47,7 +47,7 @@ in {
     };
   };
 
-  systemd.tmpfiles.settings."10-accountsservice-avatar"."/var/lib/AccountsService/users/anirudh"."f+".argument = "[User]\nIcon=${./avatars/nixos-logo.png}\n";
+  systemd.tmpfiles.settings."10-accountsservice-avatar"."/var/lib/AccountsService/users/anirudh"."f+".argument = "[User]\nIcon=${./avatars/starfire.jpeg}\n";
 
   fonts.packages = [pkgs.nerd-fonts.terminess-ttf];
 }
