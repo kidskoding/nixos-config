@@ -3,6 +3,10 @@
 
 (vim.lsp.config :lua_ls {:settings {:Lua {:diagnostics {:globals [:vim]}}}})
 
+(vim.lsp.config :ruff
+                {:init_options {:settings {:showSyntaxErrors false
+                                           :lint {:ignore [:F821 :F841]}}}})
+
 (vim.lsp.config :tinymist
                 {:settings {:exportPdf :onType
                             :formatterMode :typstyle
