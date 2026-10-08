@@ -11,7 +11,8 @@
       confirm-close-surface = false;
 
       window-decoration = false;
-      # window-padding-x = 5;
+      window-padding-x = 8;
+      window-padding-y = 6;
       window-padding-balance = true;
       window-width = 100;
       window-height = 30;
