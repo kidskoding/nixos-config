@@ -47,8 +47,10 @@
       output = "eDP-1";
       cx = 960.0;
       cy = 220.0;
-      scale = 1.5;
-      settings.format = "{:%-I:%M %p}";
+      settings = {
+        scale = 1.5;
+        format = "{:%-I:%M %p}";
+      };
     };
 
     "lockscreen-login-box@eDP-1" = {
