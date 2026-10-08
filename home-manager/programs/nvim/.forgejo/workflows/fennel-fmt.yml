@@ -9,7 +9,7 @@ jobs:
   fnlfmt:
     runs-on: codeberg-small
     container:
-      image: nixos/nix:latest
+      image: ghcr.io/nixos/nix:2.35.2-amd64
     steps:
       - run: |
           git clone "${{ github.server_url }}/${{ github.repository }}.git" .
