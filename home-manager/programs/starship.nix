@@ -40,6 +40,39 @@
         error_symbol = "[❯](bold red)";
       };
 
+      custom = {
+        uv = {
+          detect_files = ["uv.lock"];
+          format = "[\\(uv\\) ]($style)";
+          style = "bold yellow";
+        };
+
+        poetry = {
+          detect_files = ["poetry.lock"];
+          format = "[\\(poetry\\) ]($style)";
+          style = "bold yellow";
+        };
+
+        pdm = {
+          detect_files = ["pdm.lock"];
+          format = "[\\(pdm\\) ]($style)";
+          style = "bold yellow";
+        };
+
+        pipenv = {
+          detect_files = ["Pipfile.lock"];
+          format = "[\\(pipenv\\) ]($style)";
+          style = "bold yellow";
+        };
+
+        pip = {
+          when = "[ -f requirements.txt ] && [ ! -f uv.lock ] && [ ! -f poetry.lock ] && [ ! -f pdm.lock ] && [ ! -f Pipfile.lock ]";
+          shell = ["sh"];
+          format = "[\\(pip\\) ]($style)";
+          style = "bold yellow";
+        };
+      };
+
       gcloud = {
         disabled = true;
         symbol = "  ";
@@ -79,53 +112,7 @@
       nodejs.symbol = " ";
       ocaml.symbol = " ";
 
-      os.symbols = {
-        Alpaquita = " ";
-        Alpine = " ";
-        AlmaLinux = " ";
-        Amazon = " ";
-        Android = " ";
-        Arch = " ";
-        Artix = " ";
-        CachyOS = " ";
-        CentOS = " ";
-        Debian = " ";
-        DragonFly = " ";
-        Emscripten = " ";
-        EndeavourOS = " ";
-        Fedora = " ";
-        FreeBSD = " ";
-        Garuda = "󰛓 ";
-        Gentoo = " ";
-        HardenedBSD = "󰞌 ";
-        Illumos = "󰈸 ";
-        Kali = " ";
-        Linux = " ";
-        Mabox = " ";
-        Macos = " ";
-        Manjaro = " ";
-        Mariner = " ";
-        MidnightBSD = " ";
-        Mint = " ";
-        NetBSD = " ";
-        NixOS = " ";
-        Nobara = " ";
-        OpenBSD = "󰈺 ";
-        openSUSE = " ";
-        OracleLinux = "󰌷 ";
-        Pop = " ";
-        Raspbian = " ";
-        Redhat = " ";
-        RedHatEnterprise = " ";
-        RockyLinux = " ";
-        Redox = "󰀘 ";
-        Solus = "󰠳 ";
-        SUSE = " ";
-        Ubuntu = " ";
-        Unknown = " ";
-        Void = " ";
-        Windows = "󰍲 ";
-      };
+      os.symbols.NixOS = " ";
 
       package.symbol = "󰏗 ";
       perl.symbol = " ";
