@@ -386,6 +386,22 @@
         "url": "https://codeberg.org/evergarden/nix/archive/main.tar.gz"
       }
     },
+    "evergarden-noctalia": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1789328845,
+        "narHash": "sha256-hAy3c5cAEMBMKOIBQz+jPRgZuYKjl32NVdG58wOs9/o=",
+        "ref": "refs/heads/main",
+        "rev": "f8934d4e911791d40d6159ec7ebfa10dc66247c4",
+        "revCount": 3,
+        "type": "git",
+        "url": "https://codeberg.org/evergarden/noctalia"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://codeberg.org/evergarden/noctalia"
+      }
+    },
     "fenix": {
       "inputs": {
         "nixpkgs": [
@@ -1101,6 +1117,7 @@
         "cromite": "cromite",
         "disko": "disko",
         "evergarden": "evergarden",
+        "evergarden-noctalia": "evergarden-noctalia",
         "fenix": "fenix",
         "home-manager": "home-manager",
         "llm-agents": "llm-agents",

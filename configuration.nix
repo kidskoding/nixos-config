@@ -202,7 +202,7 @@
 
   system.autoUpgrade = {
     enable = true;
-    flake = "github:kidskoding/nixos-config";
+    flake = "git+https://codeberg.org/kidskoding/nixos-config?ref=master";
     flags = ["-L"];
     dates = "hourly";
     randomizedDelaySec = "10min";
