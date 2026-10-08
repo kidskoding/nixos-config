@@ -61,6 +61,11 @@
       "rev": "84a4987ff36798c2fc1169cbaff67960aed9776f",
       "src": "https://github.com/NMAC427/guess-indent.nvim"
     },
+    "harpoon": {
+      "rev": "87b1a3506211538f460786c23f98ec63ad9af4e5",
+      "src": "https://github.com/ThePrimeagen/harpoon",
+      "version": "'harpoon2'"
+    },
     "hotpot.nvim": {
       "rev": "34cc657d43fe6dcd2197a4dcef80af071178bbef",
       "src": "https://github.com/rktjmp/hotpot.nvim",
