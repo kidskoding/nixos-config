@@ -49,7 +49,7 @@
       cy = 220.0;
       settings = {
         scale = 1.5;
-        format = "{:%-I:%M %p}\n{:%A, %B %-d}";
+        format = "{:%A, %B %-d}\n{:%-I:%M %p}";
       };
     };
 
