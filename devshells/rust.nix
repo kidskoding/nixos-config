@@ -20,6 +20,7 @@ in
         bacon
         cargo-chef
         cargo-generate
+        cargo-seek
         evcxr
         trunk
         wasm-pack
