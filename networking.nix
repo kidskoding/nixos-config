@@ -3,6 +3,7 @@
     secrets = {
       "wifi/home" = {};
       "wifi/uiuc" = {};
+      "wifi/brunswick" = {};
       "wifi/hotspot" = {};
     };
 
@@ -62,6 +63,20 @@
             identity = "ak123";
             phase2-auth = "mschapv2";
             password = "$ILLINOISNET_PSK";
+          };
+        };
+
+        brunswick = {
+          connection = {
+            id = "BRN-iJet";
+            type = "wifi";
+          };
+
+          wifi.ssid = "BRN-iJet";
+
+          wifi-security = {
+            key-mgmt = "wpa-psk";
+            psk = "$BRNIJET_PSK";
           };
         };
 
