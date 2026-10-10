@@ -133,7 +133,7 @@
     git
     pkg-config
     psmisc
-    python313
+    python315
     sops
     unzip
     vim
