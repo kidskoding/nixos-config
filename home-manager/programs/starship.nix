@@ -51,8 +51,6 @@
         symbol = " ";
       };
 
-      direnv.disabled = false;
-
       buf.symbol = " ";
       bun.symbol = " ";
       c.symbol = " ";
