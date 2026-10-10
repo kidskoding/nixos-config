@@ -4,7 +4,7 @@
 (local claudecode (require :claudecode))
 (local codecompanion (require :codecompanion))
 
-(claudecode.setup {})
+(claudecode.setup {:terminal {:split_width_percentage 0.4}})
 (codecompanion.setup {:interactions {:chat {:adapter :claude_code}
                                      :inline {:adapter :claude_code}}})
 
