@@ -41,7 +41,7 @@
 
     pythonSet =
       (pkgs.callPackage pyproject-nix.build.packages {
-        python = pkgs.python313;
+        python = pkgs.python314;
       }).overrideScope
       (
         lib.composeManyExtensions [
