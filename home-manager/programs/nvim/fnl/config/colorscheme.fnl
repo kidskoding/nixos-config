@@ -2,7 +2,7 @@
 
 (local evergarden (require :evergarden))
 
-(evergarden.setup {:theme {:variant :winter :accent :green}
+(evergarden.setup {:theme {:variant :fall :accent :green}
                    :style {:types []
                            :keyword []
                            :comment []
