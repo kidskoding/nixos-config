@@ -5,7 +5,11 @@
 
 (snacks.setup {:bigfile {:enabled true}
                :indent {:enabled true}
-               :picker {:enabled true}})
+               :picker {:enabled true
+                        :sources {:projects {:dev ["~/uiuc/go-mama-27/personal-projects"
+                                                   "~/uiuc"
+                                                   "~/contributing"
+                                                   "~/playground"]}}}})
 
 ;; after snacks.setup so todo-comments registers its picker source
 ((. (require :todo-comments) :setup) {})
@@ -16,6 +20,7 @@
 (map :<leader><space> #(snacks.picker.files) "Find files")
 (map :<leader>/ #(snacks.picker.grep) "Search project")
 (map :<leader>e #(snacks.picker.explorer) "File explorer")
+(map :<leader>p #(snacks.picker.projects) "Switch project")
 (map :<leader>h #(snacks.picker.help) "Search help pages")
 (map :<leader>bb #(snacks.picker.buffers) "Switch buffer")
 (map :<leader>bd #(snacks.bufdelete) "Close buffer")
