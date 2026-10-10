@@ -14,7 +14,7 @@
       "Enter the Gungeon"
       "Hollow Knight"
       "lunarclient"
-      "nvim"
+      "neovide"
       "orca-ide"
       "org.kde.dolphin"
       "qimgv"
