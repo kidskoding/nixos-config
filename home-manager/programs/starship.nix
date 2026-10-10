@@ -46,11 +46,11 @@
       };
 
       aws.symbol = " ";
-      azure.disabled = false;
-      kubernetes = {
+      azure = {
         disabled = false;
-        symbol = "󱃾 ";
+        symbol = " ";
       };
+
       direnv.disabled = false;
 
       buf.symbol = " ";
@@ -61,6 +61,13 @@
         disabled = false;
         symbol = " ";
         detect_files = ["compile_commands.json"];
+      };
+
+      custom.make = {
+        detect_files = ["Makefile" "makefile" "GNUmakefile"];
+        symbol = " ";
+        style = "bold #6d8086";
+        format = "via [$symbol]($style)";
       };
 
       cmake.symbol = " ";
