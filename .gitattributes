@@ -1,8 +1,0 @@
-*.nix linguist-language=Nix linguist-detectable
-*.fnl linguist-language=Fennel linguist-detectable
-*.lua linguist-language=Lua linguist-detectable
-*.sh  linguist-language=Shell linguist-detectable
-
-*.log linguist-generated
-flake.lock linguist-generated
-*-lock.json linguist-generated
