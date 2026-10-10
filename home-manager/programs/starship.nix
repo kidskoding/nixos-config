@@ -45,7 +45,13 @@
         symbol = "  ";
       };
 
-      aws.symbol = "  ";
+      aws.symbol = " ";
+      azure.disabled = false;
+      kubernetes = {
+        disabled = false;
+        symbol = "󱃾 ";
+      };
+      direnv.disabled = false;
 
       buf.symbol = " ";
       bun.symbol = " ";

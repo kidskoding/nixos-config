@@ -169,5 +169,8 @@
     nerd-fonts.terminess-ttf
     symbola
     corefonts
+
+    # cloud
+    awscli2
   ];
 }
