@@ -50,7 +50,13 @@
       buf.symbol = " ";
       bun.symbol = " ";
       c.symbol = " ";
-      cpp.symbol = " ";
+
+      cpp = {
+        disabled = false;
+        symbol = " ";
+        detect_files = ["compile_commands.json"];
+      };
+
       cmake.symbol = " ";
       conda.symbol = " ";
       crystal.symbol = " ";
