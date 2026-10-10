@@ -121,9 +121,6 @@
     mdbook
     mdbook-mermaid
     pandoc
-    (pkgs.python3.withPackages (ps: [
-      ps.pygame
-    ]))
 
     # applications
     basalt
