@@ -82,6 +82,49 @@
               NextSwapLayout = [];
             };
 
+            "bind \"Alt 1\"" = {GoToTab = 1;};
+            "bind \"Alt 2\"" = {GoToTab = 2;};
+            "bind \"Alt 3\"" = {GoToTab = 3;};
+            "bind \"Alt 4\"" = {GoToTab = 4;};
+            "bind \"Alt 5\"" = {GoToTab = 5;};
+            "bind \"Alt 6\"" = {GoToTab = 6;};
+            "bind \"Alt 7\"" = {GoToTab = 7;};
+            "bind \"Alt 8\"" = {GoToTab = 8;};
+            "bind \"Alt 9\"" = {GoToTab = 9;};
+            "bind \"Alt r\"" = {
+              _children = [
+                {SwitchToMode = "RenameTab";}
+                {TabNameInput = 0;}
+              ];
+            };
+
+            "bind \"Alt v\"" = {
+              SwitchToMode = "Scroll";
+            };
+            "bind \"Alt e\"" = {
+              EditScrollback = [];
+            };
+
+            "bind \"Alt S\" \"Alt Shift s\"" = {
+              LaunchOrFocusPlugin = {
+                _args = ["session-manager"];
+                floating = true;
+                move_to_focused_tab = true;
+              };
+            };
+            "bind \"Alt q\"" = {
+              Detach = [];
+            };
+            "bind \"Alt Q\" \"Alt Shift q\"" = {
+              Quit = [];
+            };
+
+            # Lock passes every key through to the app, for programs or nested
+            # sessions that need Alt.
+            "bind \"Alt g\"" = {
+              SwitchToMode = "Locked";
+            };
+
             "bind \"Alt h\" \"Alt Left\"" = {
               MoveFocus = "Left";
             };
@@ -94,6 +137,12 @@
             };
             "bind \"Alt L\" \"Alt Shift l\" \"Alt J\" \"Alt Shift j\" \"Alt Shift Right\" \"Alt Shift Down\"" = {
               GoToNextTab = [];
+            };
+          };
+
+          locked = {
+            "bind \"Alt g\"" = {
+              SwitchToMode = "Normal";
             };
           };
         };
