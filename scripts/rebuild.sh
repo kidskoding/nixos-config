@@ -63,7 +63,7 @@ fi
 gen=$(nixos-rebuild list-generations 2>/dev/null | awk 'NR > 1 && $NF == "True"')
 
 if [ -n "$gen" ]; then
-    msg="generation $(echo "$gen" | awk '{print $1}') ($(echo "$gen" | awk '{print $4}'))"
+    msg="$HOST generation $(echo "$gen" | awk '{print $1}') ($(echo "$gen" | awk '{print $4}'))"
 else
     msg="nixos rebuild $(date -Iseconds)"
 fi
