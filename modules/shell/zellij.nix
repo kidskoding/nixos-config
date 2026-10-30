@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeModules.kidskoding = {
+  flake.homeModules.base = {
     programs.zellij = {
       enable = true;
       enableFishIntegration = false;

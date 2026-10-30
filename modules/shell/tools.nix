@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeModules.kidskoding = {pkgs, ...}: {
+  flake.homeModules.base = {pkgs, ...}: {
     programs.bat.enable = true;
 
     programs.direnv = {

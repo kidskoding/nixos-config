@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeModules.kidskoding = {config, ...}: let
+  flake.homeModules.base = {config, ...}: let
     colors = config.lib.stylix.colors.withHashtag;
     status = config.programs.git.settings.color.fileStatus;
   in {

@@ -1,3 +1,3 @@
 {...}: {
-  flake.homeModules.kidskoding = ../../packages.nix;
+  flake.homeModules.base = ../../packages.nix;
 }

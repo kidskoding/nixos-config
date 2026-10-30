@@ -1,4 +1,4 @@
-# standalone home-manager configuration for any linux machine with nix (no nixos)
+# home-manager without nixos (wsl, other distros); machines are in modules/homes/
 {
   inputs,
   lib,
@@ -23,7 +23,7 @@
       extraSpecialArgs = {inherit inputs;};
       modules =
         [
-          self.homeModules.kidskoding
+          self.homeModules.base
           self.homeModules.standalone
           {
             home = {
@@ -35,20 +35,6 @@
         ]
         ++ modules;
     };
-
-  # clone to ~/home-manager; apply with `home-manager switch --impure --flake ~/home-manager#portable`
-  flake.homeConfigurations.portable = self.lib.mkHome {
-    modules = [
-      ({config, ...}: {
-        my.flakeDir = "${config.home.homeDirectory}/home-manager";
-
-        programs.ghostty = {
-          package = null;
-          systemd.enable = false;
-        };
-      })
-    ];
-  };
 
   flake.homeModules.standalone = {
     config,
@@ -67,6 +53,14 @@
     targets.genericLinux.enable = true;
 
     programs.home-manager.enable = true;
+
+    my.flakeDir = "${config.home.homeDirectory}/home-manager";
+
+    # ghostty itself comes from the distro; only its config is managed here
+    programs.ghostty = {
+      package = null;
+      systemd.enable = false;
+    };
 
     home.sessionVariables.HOME_MANAGER_BACKUP_EXT = "bak";
 

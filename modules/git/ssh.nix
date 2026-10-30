@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeModules.kidskoding = {...}: {
+  flake.homeModules.base = {...}: {
     programs.ssh = {
       enable = true;
       enableDefaultConfig = false;

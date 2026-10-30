@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeModules.kidskoding = {pkgs, ...}: {
+  flake.homeModules.base = {pkgs, ...}: {
     programs.btop.enable = true;
 
     programs.cava.enable = true;

@@ -1,35 +1,5 @@
-{...}: let
-  # prebuilt nix-community builds
-  # instead of compiling from source
-  caches = [
-    "https://nix-community.cachix.org"
-    "https://devenv.cachix.org"
-    "https://noctalia.cachix.org"
-    "https://pkulak.cachix.org"
-    "https://cache.numtide.com"
-    "https://applicative-systems.cachix.org"
-  ];
-
-  keys = [
-    # bun2nix trusted public key
-    "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-
-    # devenv trusted public key
-    "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
-
-    # noctalia trusted public key
-    "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
-
-    # matui trusted public key
-    "pkulak.cachix.org-1:S25jAptWCkAmwrk41b47lheB9onW9mzxVqM9o6HRg1E="
-
-    # llm-agents trusted public key
-    "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
-
-    # artcraft trusted public key
-    "applicative-systems.cachix.org-1:ND41hRBh0ST2abuI/oee3yWVf3n0FsAftyJJ/Tb7KDE="
-  ];
-
+# each group lists its binary caches in `my.caches`, next to the packages that need them
+{lib, ...}: let
   common = {
     experimental-features = [
       "nix-command"
@@ -39,20 +9,51 @@
     # do not warn if git tree is dirty when rebuilding system
     warn-dirty = false;
   };
+
+  urls = map (c: c.url);
+  keys = map (c: c.key);
 in {
-  flake.nixosModules.base.nix.settings =
-    common
-    // {
-      substituters = caches;
-      trusted-public-keys = keys;
+  flake.homeModules.base = {
+    options.my.caches = lib.mkOption {
+      type = lib.types.listOf (lib.types.submodule {
+        options = {
+          url = lib.mkOption {type = lib.types.str;};
+          key = lib.mkOption {type = lib.types.str;};
+        };
+      });
+      default = [];
     };
 
+    config.my.caches = [
+      # nix-community cache
+      {
+        url = "https://nix-community.cachix.org";
+        key = "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=";
+      }
+    ];
+  };
+
+  flake.nixosModules.base = {config, ...}: let
+    caches = lib.unique (lib.concatMap (user: user.my.caches) (lib.attrValues config.home-manager.users));
+  in {
+    nix.settings =
+      common
+      // {
+        substituters = urls caches;
+        trusted-public-keys = keys caches;
+      };
+  };
+
   # extra-* keeps cache.nixos.org; the daemon only honours these for a
-  # trusted user, so non-nixos machines need `trusted-users = root kidskoding` in /etc/nix/nix.conf
-  flake.homeModules.standalone.nix.settings =
-    common
-    // {
-      extra-substituters = caches;
-      extra-trusted-public-keys = keys;
-    };
+  # trusted user, so non-nixos machines need `trusted-users = root <user>` in /etc/nix/nix.conf
+  flake.homeModules.standalone = {config, ...}: let
+    caches = lib.unique config.my.caches;
+  in {
+    nix.settings =
+      common
+      // {
+        extra-substituters = urls caches;
+        extra-trusted-public-keys = keys caches;
+      };
+  };
 }

@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeModules.kidskoding = {
+  flake.homeModules.base = {
     programs.lazygit = {
       enable = true;
 

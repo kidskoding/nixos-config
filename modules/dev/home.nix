@@ -1,7 +1,15 @@
 {inputs, ...}: {
-  flake.homeModules.kidskoding = {pkgs, ...}: let
+  flake.homeModules.dev = {pkgs, ...}: let
     system = pkgs.stdenv.hostPlatform.system;
   in {
+    my.caches = [
+      # devenv cache
+      {
+        url = "https://devenv.cachix.org";
+        key = "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=";
+      }
+    ];
+
     home.sessionVariables = {
       TSDK = "${pkgs.typescript_5}/lib/node_modules/typescript/lib";
 

@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeModules.kidskoding = {lib, ...}: let
+  flake.homeModules.base = {lib, ...}: let
     fd = "fd --hidden --follow --exclude .git";
   in {
     programs.fzf = {

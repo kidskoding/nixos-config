@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeModules.kidskoding = {
+  flake.homeModules.dev = {
     inputs,
     config,
     pkgs,

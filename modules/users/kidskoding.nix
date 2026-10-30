@@ -1,3 +1,4 @@
+# home-manager groups for the nixos laptops; non-nixos machines are in modules/homes/
 {
   self,
   inputs,
@@ -6,7 +7,9 @@
   flake.nixosModules.kidskoding = {...}: {
     home-manager.users.kidskoding = {
       imports = [
-        self.homeModules.kidskoding
+        self.homeModules.base
+        self.homeModules.dev
+        self.homeModules.agents
         self.homeModules.desktop
         inputs.sops-nix.homeManagerModules.sops
       ];

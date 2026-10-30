@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeModules.kidskoding = {pkgs, ...}: {
+  flake.homeModules.dev = {pkgs, ...}: {
     # backup editor for when nvim breaks: helix fork with vim keybindings, run as `hx`.
     programs.helix = {
       enable = true;

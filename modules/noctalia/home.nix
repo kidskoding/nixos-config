@@ -10,6 +10,14 @@
     d = config.my.display;
     narrow = d.width / d.scale < 1920;
   in {
+    my.caches = [
+      # noctalia cache
+      {
+        url = "https://noctalia.cachix.org";
+        key = "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=";
+      }
+    ];
+
     xdg.configFile = {
       "noctalia/config.toml".source = link "${dir}/config.toml";
       "noctalia/conf.d".source = link "${dir}/conf.d";

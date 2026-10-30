@@ -50,5 +50,5 @@ in {
     config.home-manager.sharedModules = [{inherit (config) my;}];
   };
 
-  flake.homeModules.kidskoding = {inherit options;};
+  flake.homeModules.base = {inherit options;};
 }

@@ -6,6 +6,19 @@
   }: let
     system = pkgs.stdenv.hostPlatform.system;
   in {
+    my.caches = [
+      # llm-agents (numtide) cache
+      {
+        url = "https://cache.numtide.com";
+        key = "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g=";
+      }
+      # artcraft cache
+      {
+        url = "https://applicative-systems.cachix.org";
+        key = "applicative-systems.cachix.org-1:ND41hRBh0ST2abuI/oee3yWVf3n0FsAftyJJ/Tb7KDE=";
+      }
+    ];
+
     programs.mcp.servers = {
       deckcraft = {
         command = "deckcraft-cli";

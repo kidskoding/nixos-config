@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeModules.kidskoding = {pkgs, ...}: {
+  flake.homeModules.base = {pkgs, ...}: {
     home.packages = [pkgs.github-cli];
   };
 }
