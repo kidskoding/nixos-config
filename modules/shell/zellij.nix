@@ -78,6 +78,9 @@
             "bind \"Alt b\"" = {
               BreakPane = [];
             };
+            "bind \"Alt u\"" = {
+              NextSwapLayout = [];
+            };
 
             "bind \"Alt h\" \"Alt Left\"" = {
               MoveFocus = "Left";
