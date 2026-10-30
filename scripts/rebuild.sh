@@ -7,9 +7,12 @@
 set -euo pipefail
 
 FLAKE_DIR="${FLAKE_DIR:-$HOME/nixos}"
-HOST="${HOST:-$(cat /etc/flake-host 2>/dev/null || echo victus)}"
+HOST="${HOST:-thinkpad}"
 
 cd "$FLAKE_DIR"
+
+# pull the latest agent skills (anikonistack) before building
+nix flake update anikonistack
 
 # flakes only see files that git knows about, so stage everything first!
 stage_config() {

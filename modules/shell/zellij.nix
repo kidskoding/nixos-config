@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeModules.anirudh = {
+  flake.homeModules.kidskoding = {
     programs.zellij = {
       enable = true;
       enableFishIntegration = false;

@@ -3,8 +3,6 @@
   lib,
   pkgs,
   inputs,
-  host,
-  user,
   ...
 }: {
   imports = [
@@ -21,10 +19,10 @@
     useUserPackages = true;
     backupFileExtension = "bak";
     extraSpecialArgs = {inherit inputs;};
-    users.${user} = {
+    users.kidskoding = {
       sops = {
         defaultSopsFile = ./secrets/secrets.yaml;
-        age.keyFile = "/home/${user}/.config/sops/age/keys.txt";
+        age.keyFile = "/home/kidskoding/.config/sops/age/keys.txt";
       };
     };
   };
@@ -32,46 +30,8 @@
   sops = {
     defaultSopsFile = ./secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
-    age.keyFile = "/home/${user}/.config/sops/age/keys.txt";
+    age.keyFile = "/home/kidskoding/.config/sops/age/keys.txt";
   };
-
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-
-  # do not warn if git tree is dirty when rebuilding system
-  nix.settings.warn-dirty = false;
-
-  # prebuilt nix-community builds
-  # instead of compiling from source
-  nix.settings.substituters = [
-    "https://nix-community.cachix.org"
-    "https://devenv.cachix.org"
-    "https://noctalia.cachix.org"
-    "https://pkulak.cachix.org"
-    "https://cache.numtide.com"
-    "https://applicative-systems.cachix.org"
-  ];
-  nix.settings.trusted-public-keys = [
-    # bun2nix trusted public key
-    "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-
-    # devenv trusted public key
-    "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
-
-    # noctalia trusted public key
-    "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
-
-    # matui trusted public key
-    "pkulak.cachix.org-1:S25jAptWCkAmwrk41b47lheB9onW9mzxVqM9o6HRg1E="
-
-    # llm-agents trusted public key
-    "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
-
-    # artcraft trusted public key
-    "applicative-systems.cachix.org-1:ND41hRBh0ST2abuI/oee3yWVf3n0FsAftyJJ/Tb7KDE="
-  ];
 
   security = {
     rtkit.enable = true;
@@ -111,6 +71,7 @@
       size = 16 * 1024;
     }
   ];
+
   services.logind.settings.Login.HandleLidSwitch = "suspend";
 
   time.timeZone = "America/Chicago";
@@ -128,7 +89,7 @@
   };
 
   users.users = {
-    ${user} = {
+    kidskoding = {
       isNormalUser = true;
       description = "Anirudh Konidala";
 
@@ -141,9 +102,9 @@
   };
 
   virtualisation.vmVariant = {
-    users.users.${user}.initialPassword = "test";
+    users.users.kidskoding.initialPassword = "test";
     services.greetd.settings.initial_session = {
-      inherit user;
+      user = "kidskoding";
       command = "niri-session";
     };
     services.xserver.videoDrivers = lib.mkForce ["modesetting"];
@@ -151,8 +112,8 @@
       memorySize = 8192;
       cores = 4;
       sharedDirectories.nixos = {
-        source = "/home/${user}/nixos";
-        target = "/home/${user}/nixos";
+        source = "/home/kidskoding/nixos";
+        target = "/home/kidskoding/nixos";
         writable = false;
       };
       qemu.options = [
@@ -215,29 +176,9 @@
     NIXOS_OZONE_WL = "1";
   };
 
-  environment.etc."flake-host".text = host;
-
-  system.autoUpgrade = {
-    enable = true;
-    flake = "git+https://codeberg.org/kidskoding/nixos-config?ref=master#${host}";
-    flags = ["-L"];
-    dates = "hourly";
-    randomizedDelaySec = "10min";
-  };
-
   nix.gc = {
     automatic = true;
     dates = "weekly";
     options = "--delete-older-than 7d";
   };
-
-  systemd.services.nixos-upgrade.preStart = ''
-    ${pkgs.util-linux}/bin/runuser -u ${user} -- ${pkgs.bash}/bin/bash -c '
-      export HOME=/home/${user}
-      cd /home/${user}/nixos || exit 0
-      git pull --ff-only || exit 0
-      nix flake update anikonistack --commit-lock-file || exit 0
-      git push || true
-    '
-  '';
 }

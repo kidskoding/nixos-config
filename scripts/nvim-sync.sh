@@ -7,7 +7,7 @@
 
 set -euo pipefail
 
-NIXOS_DIR="${NIXOS_DIR:-$HOME/nixos}"
+NIXOS_DIR="${NIXOS_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
 NVIM_DIR=modules/nvim/config
 
 cd "$NIXOS_DIR"

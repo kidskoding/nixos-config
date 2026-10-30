@@ -1,5 +1,5 @@
 {inputs, ...}: {
-  flake.homeModules.anirudh = {pkgs, ...}: let
+  flake.homeModules.kidskoding = {pkgs, ...}: let
     system = pkgs.stdenv.hostPlatform.system;
   in {
     home.sessionVariables = {

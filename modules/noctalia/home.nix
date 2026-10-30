@@ -1,14 +1,13 @@
 {...}: {
-  flake.homeModules.anirudh = {
+  flake.homeModules.niri = {
     config,
     lib,
-    osConfig,
     pkgs,
     ...
   }: let
-    dir = "${config.home.homeDirectory}/nixos/modules/noctalia";
+    dir = "${config.my.flakeDir}/modules/noctalia";
     link = config.lib.file.mkOutOfStoreSymlink;
-    d = osConfig.my.display;
+    d = config.my.display;
     narrow = d.width / d.scale < 1920;
   in {
     xdg.configFile = {

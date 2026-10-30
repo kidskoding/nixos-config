@@ -5,12 +5,12 @@
     boot.loader.grub.gfxmodeEfi = "${toString d.width}x${toString d.height}";
   };
 
-  flake.homeModules.anirudh = {
+  flake.homeModules.niri = {
+    config,
     lib,
-    osConfig,
     ...
   }: let
-    d = osConfig.my.display;
+    d = config.my.display;
   in {
     programs.niri.settings = {
       outputs.${d.output} = {
@@ -28,7 +28,15 @@
         QT_FONT_DPI = toString (builtins.floor (96 * d.textScale));
       };
     };
+  };
 
+  flake.homeModules.kidskoding = {
+    config,
+    lib,
+    ...
+  }: let
+    d = config.my.display;
+  in {
     programs.ghostty.settings.adjust-cursor-thickness =
       lib.mkIf (d.scale != builtins.floor d.scale) 1;
   };

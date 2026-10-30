@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeModules.anirudh = {
+  flake.homeModules.niri = {
     inputs,
     lib,
     pkgs,
@@ -7,19 +7,15 @@
   }: let
     terminal = "ghostty";
   in {
+    # gui helpers live in nixosModules.niri; victus gets them from apt
     home.packages = with pkgs; [
       adwaita-icon-theme
-      blueman
       brightnessctl
       grim
-      hyprpicker
       libnotify
-      networkmanagerapplet
       playerctl
-      qimgv
       slurp
 
-      nautilus
       kdePackages.qtsvg
     ];
 
@@ -32,6 +28,13 @@
       org.freedesktop.impl.portal.FileChooser=kde;
       org.freedesktop.impl.portal.Notification=gtk;
       org.freedesktop.impl.portal.Secret=gnome-keyring;
+    '';
+
+    programs.fish.loginShellInit = ''
+      if test (tty) = /dev/tty1; and not set -q NIRI_SESSION_STARTED
+        set -gx NIRI_SESSION_STARTED 1
+        exec niri-session
+      end
     '';
 
     programs.niri.settings = {

@@ -1,10 +1,6 @@
 {...}: {
-  flake.nixosModules.shell = {
-    pkgs,
-    user,
-    ...
-  }: {
+  flake.nixosModules.shell = {pkgs, ...}: {
     programs.fish.enable = true;
-    users.users.${user}.shell = pkgs.fish;
+    users.users.kidskoding.shell = pkgs.fish;
   };
 }

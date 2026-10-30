@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeModules.anirudh = {...}: let
+  flake.homeModules.niri = {...}: let
     terminal = "ghostty";
     fileManager = "nautilus";
     noctalia = c:

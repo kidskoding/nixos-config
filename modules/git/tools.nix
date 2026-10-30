@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeModules.anirudh = {pkgs, ...}: {
+  flake.homeModules.kidskoding = {pkgs, ...}: {
     home.packages = [pkgs.github-cli];
   };
 }

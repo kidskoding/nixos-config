@@ -1,6 +1,4 @@
 {...}: {
-  systems = ["x86_64-linux"];
-
   flake.templates = {
     uv2nix = {
       path = ../templates/uv2nix;

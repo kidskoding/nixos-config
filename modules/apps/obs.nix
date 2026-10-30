@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeModules.anirudh = {pkgs, ...}: {
+  flake.homeModules.desktop = {pkgs, ...}: {
     programs.obs-studio = {
       enable = true;
 

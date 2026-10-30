@@ -26,6 +26,7 @@
         cargo-chef
         cargo-generate
         cargo-info
+        cargo-lambda
         cargo-seek
         irust
         rusty-man

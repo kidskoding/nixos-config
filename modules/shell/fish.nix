@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeModules.anirudh = {
+  flake.homeModules.kidskoding = {
     config,
     lib,
     pkgs,
@@ -66,13 +66,6 @@
     programs.fish = {
       enable = true;
 
-      loginShellInit = ''
-        if test (tty) = /dev/tty1; and not set -q NIRI_SESSION_STARTED
-          set -gx NIRI_SESSION_STARTED 1
-          exec niri-session
-        end
-      '';
-
       plugins = [
         {
           name = "done";
@@ -82,9 +75,8 @@
 
       shellAliases = {
         # nixos aliases
-        rebuild = "${config.home.homeDirectory}/nixos/scripts/rebuild.sh";
-        nvim-sync = "${config.home.homeDirectory}/nixos/scripts/nvim-sync.sh";
-        nvim-prune = "${config.home.homeDirectory}/nixos/scripts/nvim-prune.sh";
+        nvim-sync = "${config.my.flakeDir}/scripts/nvim-sync.sh";
+        nvim-prune = "${config.my.flakeDir}/scripts/nvim-prune.sh";
         collect-garbage = "sudo nix-collect-garbage --delete-older-than 7d";
 
         # eza listings

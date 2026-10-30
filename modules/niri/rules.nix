@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeModules.anirudh = {...}: {
+  flake.homeModules.niri = {...}: {
     programs.niri.settings.layer-rules = [
       {
         matches = [{namespace = "^noctalia-wallpaper$";}];

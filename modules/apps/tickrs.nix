@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeModules.anirudh = {pkgs, ...}: let
+  flake.homeModules.kidskoding = {pkgs, ...}: let
     symbols = [
       # etfs
       "SPY"

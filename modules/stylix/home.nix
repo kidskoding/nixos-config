@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeModules.anirudh = {
+  flake.homeModules.kidskoding = {
     stylix.targets = {
       bat.enable = false;
       cava.rainbow.enable = true;

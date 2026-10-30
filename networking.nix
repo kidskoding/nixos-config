@@ -43,11 +43,11 @@
 
         octave = {
           connection = {
-            id = "Octave 5G";
+            id = "5G Octave";
             type = "wifi";
           };
 
-          wifi.ssid = "Octave 5G";
+          wifi.ssid = "5G Octave";
         };
 
         uiuc = {

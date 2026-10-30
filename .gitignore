@@ -8,6 +8,7 @@ tmp/
 result
 result-*
 nixos-switch.log
+home-manager-switch.log
 *.qcow2
 
 # agent shell - emacs

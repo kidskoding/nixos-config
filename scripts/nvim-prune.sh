@@ -6,7 +6,7 @@
 
 set -euo pipefail
 
-NIXOS_DIR="${NIXOS_DIR:-$HOME/nixos}"
+NIXOS_DIR="${NIXOS_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
 NVIM_DIR="$NIXOS_DIR/modules/nvim/config"
 PACK_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/nvim/site/pack/core/opt"
 

@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeModules.anirudh = {config, ...}: let
+  flake.homeModules.niri = {config, ...}: let
     c = config.lib.stylix.colors.withHashtag;
   in {
     programs.niri.settings.layout = {

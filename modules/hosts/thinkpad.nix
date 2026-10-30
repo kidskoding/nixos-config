@@ -3,7 +3,7 @@
   self,
   ...
 }: {
-  flake.nixosModules.thinkpad = {user, ...}: {
+  flake.nixosModules.thinkpad = {...}: {
     imports = [
       ../../hosts/thinkpad/hardware-configuration.nix
       ../../hosts/thinkpad/disko.nix
@@ -32,18 +32,17 @@
     # Before changing this value read the documentation for this option
     # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
     system.stateVersion = "26.05"; # Did you read the comment?
-    home-manager.users.${user}.home.stateVersion = "26.05";
+
+    home-manager.users.kidskoding.home.stateVersion = "26.05";
   };
 
   flake.nixosConfigurations.thinkpad = inputs.nixpkgs.lib.nixosSystem {
     specialArgs = {
       inherit inputs;
-      host = "thinkpad";
-      user = "kidskoding";
     };
     modules = [
       self.nixosModules.base
-      self.nixosModules.anirudh
+      self.nixosModules.kidskoding
       self.nixosModules.shell
       self.nixosModules.niri
       self.nixosModules.noctalia

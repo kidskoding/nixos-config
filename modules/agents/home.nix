@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeModules.anirudh = {
+  flake.homeModules.kidskoding = {
     inputs,
     config,
     lib,
@@ -67,31 +67,6 @@
           command = "npx";
           args = ["@playwright/mcp@latest" "--extension"];
           env.PLAYWRIGHT_MCP_EXTENSION_TOKEN = "\${PLAYWRIGHT_MCP_EXTENSION_TOKEN}";
-        };
-
-        deckcraft = {
-          command = "deckcraft-cli";
-          args = ["mcp"];
-        };
-
-        gridcraft = {
-          command = "gridcraft-cli";
-          args = ["mcp"];
-        };
-
-        pdfcraft = {
-          command = "pdfcraft-cli";
-          args = ["mcp" "--compact"];
-        };
-
-        soundcraft = {
-          command = "soundcraft-cli";
-          args = ["mcp"];
-        };
-
-        wordcraft = {
-          command = "wordcraft-cli";
-          args = ["mcp"];
         };
       };
     };
@@ -169,7 +144,7 @@
       settings.trustedWorkspaces = [
         config.home.homeDirectory
         "${config.home.homeDirectory}/personal-projects"
-        "${config.home.homeDirectory}/nixos"
+        config.my.flakeDir
       ];
     };
   };

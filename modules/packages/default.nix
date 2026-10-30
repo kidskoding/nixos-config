@@ -1,3 +1,3 @@
 {...}: {
-  flake.homeModules.anirudh = ../../packages.nix;
+  flake.homeModules.kidskoding = ../../packages.nix;
 }

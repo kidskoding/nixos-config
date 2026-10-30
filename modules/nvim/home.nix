@@ -1,11 +1,11 @@
 {...}: {
-  flake.homeModules.anirudh = {
+  flake.homeModules.kidskoding = {
     inputs,
     config,
     pkgs,
     ...
   }: let
-    dir = "${config.home.homeDirectory}/nixos/modules/nvim/config";
+    dir = "${config.my.flakeDir}/modules/nvim/config";
     link = config.lib.file.mkOutOfStoreSymlink;
     system = pkgs.stdenv.hostPlatform.system;
     neovim = inputs.neovim-nightly-overlay.packages.${system}.default;

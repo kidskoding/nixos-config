@@ -1,7 +1,6 @@
-{...}: {
-  flake.nixosModules.stylix = {
+{inputs, ...}: let
+  common = {
     config,
-    inputs,
     lib,
     pkgs,
     ...
@@ -11,8 +10,6 @@
       family = "JetBrainsMono Nerd Font";
     };
   in {
-    imports = [inputs.stylix.nixosModules.stylix];
-
     stylix = {
       enable = true;
 
@@ -43,11 +40,22 @@
 
       opacity.terminal = 0.8;
 
-      targets.console.enable = false;
-      targets.grub.enable = false;
-      targets.nixos-icons.enable = false;
-      targets.plymouth.enable = false;
       targets.qt.enable = false;
     };
+  };
+in {
+  flake.nixosModules.stylix = {
+    imports = [inputs.stylix.nixosModules.stylix common];
+
+    stylix.targets = {
+      console.enable = false;
+      grub.enable = false;
+      nixos-icons.enable = false;
+      plymouth.enable = false;
+    };
+  };
+
+  flake.homeModules.stylix = {
+    imports = [inputs.stylix.homeModules.stylix common];
   };
 }
