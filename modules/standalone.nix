@@ -49,6 +49,16 @@
       inputs.sops-nix.homeModules.sops
     ];
 
+    # cli only: theme the terminal tools, skip gtk, cursor and fonts
+    stylix = {
+      cursor = lib.mkForce null;
+      targets = {
+        gtk.enable = false;
+        font-packages.enable = false;
+        fontconfig.enable = false;
+      };
+    };
+
     # gpu driver shims for nix-built apps need `sudo non-nixos-gpu-setup` once
     targets.genericLinux.enable = true;
 

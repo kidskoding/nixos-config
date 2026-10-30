@@ -1,6 +1,11 @@
-{...}: {
+{
+  inputs,
+  self,
+  ...
+}: {
+  flake.nixosModules.agents.home-manager.sharedModules = [self.homeModules.agents];
+
   flake.homeModules.agents = {
-    inputs,
     config,
     lib,
     pkgs,

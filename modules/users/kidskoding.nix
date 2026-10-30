@@ -1,4 +1,4 @@
-# home-manager groups for the nixos laptops; non-nixos machines are in modules/homes/
+# the kidskoding home every host gets; hosts pick the rest in modules/hosts/
 {
   self,
   inputs,
@@ -8,9 +8,6 @@
     home-manager.users.kidskoding = {
       imports = [
         self.homeModules.base
-        self.homeModules.dev
-        self.homeModules.agents
-        self.homeModules.desktop
         inputs.sops-nix.homeManagerModules.sops
       ];
 

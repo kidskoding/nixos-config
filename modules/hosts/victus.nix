@@ -7,7 +7,6 @@
     imports = [
       ../../hosts/victus/hardware-configuration.nix
       ../../hosts/victus/disko.nix
-      self.nixosModules.gaming
     ];
 
     my = {
@@ -37,7 +36,6 @@
     system.stateVersion = "26.11"; # Did you read the comment?
 
     home-manager.users.kidskoding = {
-      imports = [self.homeModules.gaming];
       home.stateVersion = "26.11";
 
       # both hosts are named nixos, so rebuild.sh needs the flake host spelled out
@@ -49,14 +47,21 @@
     specialArgs = {
       inherit inputs;
     };
-    modules = [
-      self.nixosModules.base
-      self.nixosModules.kidskoding
-      self.nixosModules.shell
-      self.nixosModules.niri
-      self.nixosModules.noctalia
-      self.nixosModules.stylix
-      self.nixosModules.victus
+    modules = with self.nixosModules; [
+      base
+      kidskoding
+      shell
+      stylix
+
+      niri
+      noctalia
+      desktop
+
+      dev
+      agents
+      gaming
+
+      victus
     ];
   };
 }

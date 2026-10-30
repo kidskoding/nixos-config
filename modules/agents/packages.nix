@@ -1,9 +1,5 @@
-{...}: {
-  flake.homeModules.agents = {
-    inputs,
-    pkgs,
-    ...
-  }: let
+{inputs, ...}: {
+  flake.homeModules.agents = {pkgs, ...}: let
     system = pkgs.stdenv.hostPlatform.system;
   in {
     my.caches = [

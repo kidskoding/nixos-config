@@ -33,11 +33,6 @@
       rclone
       sshfs
 
-      # fonts
-      nerd-fonts.symbols-only
-      symbola
-      corefonts
-
       # cloud
       awscli2
       terraform

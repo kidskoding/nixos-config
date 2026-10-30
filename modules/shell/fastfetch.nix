@@ -1,7 +1,6 @@
-{...}: {
+{inputs, ...}: {
   flake.homeModules.base = {
     config,
-    inputs,
     pkgs,
     ...
   }: let

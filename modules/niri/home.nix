@@ -1,6 +1,5 @@
-{...}: {
+{inputs, ...}: {
   flake.homeModules.niri = {
-    inputs,
     lib,
     pkgs,
     ...
@@ -11,10 +10,12 @@
     home.packages = with pkgs; [
       adwaita-icon-theme
       brightnessctl
+      cliphist
       grim
       libnotify
       playerctl
       slurp
+      wl-clipboard
 
       kdePackages.qtsvg
     ];

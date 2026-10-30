@@ -1,7 +1,32 @@
-{inputs, ...}: {
-  flake.homeModules.dev = {pkgs, ...}: let
-    system = pkgs.stdenv.hostPlatform.system;
-  in {
+# one group per language; a host picks `dev` for all of them, or dev-core plus the languages it needs
+{
+  inputs,
+  lib,
+  self,
+  ...
+}: let
+  groups = [
+    "dev-core"
+    "dev-rust"
+    "dev-go"
+    "dev-web"
+    "dev-python"
+    "dev-c"
+    "dev-jvm"
+    "dev-ocaml"
+    "dev-lua"
+    "dev-docs"
+    "dev-other"
+  ];
+in {
+  flake.homeModules.dev.imports = map (name: self.homeModules.${name}) groups;
+
+  flake.nixosModules = lib.genAttrs (["dev"] ++ groups) (name: {
+    home-manager.sharedModules = [self.homeModules.${name}];
+  });
+
+  # editors (nvim, helix) also join this group
+  flake.homeModules.dev-core = {pkgs, ...}: {
     my.caches = [
       # devenv cache
       {
@@ -10,16 +35,27 @@
       }
     ];
 
-    home.sessionVariables = {
-      TSDK = "${pkgs.typescript_5}/lib/node_modules/typescript/lib";
+    home.packages = with pkgs; [
+      # nix
+      nixd
+      alejandra
+      devenv
 
-      # use old way for initializing projects with uv!
-      UV_NO_PROJECT = 1;
-    };
+      # shell, config, and infra files
+      dockerfile-language-server
+      fish-lsp
+      shellcheck
+      sqls
+      taplo
+      terraform-ls
+      yaml-language-server
+      duckdb
+    ];
+  };
 
-    # go install puts binaries here (myleet, etc.)
-    home.sessionPath = ["$HOME/go/bin"];
-
+  flake.homeModules.dev-rust = {pkgs, ...}: let
+    system = pkgs.stdenv.hostPlatform.system;
+  in {
     home.packages = with pkgs; [
       # rust nightly toolchain
       (inputs.fenix.packages.${system}.latest.withComponents [
@@ -36,12 +72,25 @@
       cargo-seek
       irust
       rusty-man
+    ];
+  };
 
-      # go
+  flake.homeModules.dev-go = {pkgs, ...}: {
+    # go install puts binaries here (myleet, etc.)
+    home.sessionPath = ["$HOME/go/bin"];
+
+    home.packages = with pkgs; [
       go
       gopls
+    ];
+  };
 
-      # web
+  flake.homeModules.dev-web = {pkgs, ...}: let
+    system = pkgs.stdenv.hostPlatform.system;
+  in {
+    home.sessionVariables.TSDK = "${pkgs.typescript_5}/lib/node_modules/typescript/lib";
+
+    home.packages = with pkgs; [
       bun
       nodejs
       typescript
@@ -51,13 +100,23 @@
       vscode-langservers-extracted
       prettier
       stylelint
+    ];
+  };
 
-      # python
+  flake.homeModules.dev-python = {pkgs, ...}: {
+    # use old way for initializing projects with uv!
+    home.sessionVariables.UV_NO_PROJECT = 1;
+
+    home.packages = with pkgs; [
       uv
       ruff
       ty
+    ];
+  };
 
-      # c / c++
+  flake.homeModules.dev-c = {pkgs, ...}: {
+    # c / c++
+    home.packages = with pkgs; [
       bear
       cmake
       libtool
@@ -67,22 +126,32 @@
       pkg-config
       valgrind
       doxygen
+    ];
+  };
 
-      # jvm
+  flake.homeModules.dev-jvm = {pkgs, ...}: {
+    home.packages = with pkgs; [
       jdk21
       gradle
       scala_3
       jdt-language-server
       kotlin-language-server
       metals
+    ];
+  };
 
-      # ocaml
+  flake.homeModules.dev-ocaml = {pkgs, ...}: {
+    home.packages = with pkgs; [
       ocaml
       dune_3
       ocamlPackages.ocaml-lsp
       ocamlformat
+    ];
+  };
 
-      # lua / fennel
+  flake.homeModules.dev-lua = {pkgs, ...}: {
+    # lua / fennel
+    home.packages = with pkgs; [
       lua
       luarocks
       luaPackages.fennel
@@ -90,13 +159,11 @@
       lua-language-server
       fnlfmt
       stylua
+    ];
+  };
 
-      # nix
-      nixd
-      alejandra
-      devenv
-
-      # docs
+  flake.homeModules.dev-docs = {pkgs, ...}: {
+    home.packages = with pkgs; [
       typst
       tinymist
       typstyle
@@ -104,8 +171,11 @@
       mdbook
       mdbook-mermaid
       pandoc
+    ];
+  };
 
-      # other languages
+  flake.homeModules.dev-other = {pkgs, ...}: {
+    home.packages = with pkgs; [
       dotnet-sdk_11
       omnisharp-roslyn
       elmPackages.elm
@@ -121,16 +191,6 @@
       sourcekit-lsp
       zig
       zls
-
-      # shell, config, and infra files
-      dockerfile-language-server
-      fish-lsp
-      shellcheck
-      sqls
-      taplo
-      terraform-ls
-      yaml-language-server
-      duckdb
     ];
   };
 }

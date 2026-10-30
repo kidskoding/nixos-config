@@ -50,7 +50,7 @@ wants. To see which group a file belongs to, read its first lines.
 modules/
 ├── hosts/          nixos machines
 ├── homes/          home-manager-only machines
-├── users/          which home groups the laptops get
+├── users/          the user account and its base home
 ├── shell/, git/, … features, one folder each
 ├── settings.nix    nix settings and binary caches
 └── standalone.nix  home-manager without nixos (mkHome, standalone group)
@@ -64,9 +64,9 @@ scripts/            rebuild helpers
 | group | what | used by |
 |---|---|---|
 | `base` | shell, git, cli tools, theme | every machine |
-| `dev` | languages, neovim, helix | picked per machine |
+| `dev` | every language, neovim, helix (or `dev-core` plus `dev-rust`, `dev-web`, …) | picked per machine |
 | `agents` | coding agents and their config | picked per machine |
-| `desktop`, `niri` | gui apps, compositor | both laptops |
+| `desktop`, `niri` | gui apps, fonts, compositor, clipboard | both laptops |
 | `gaming` | games | victus |
 | `standalone` | fixes for running outside nixos (gpu drivers, nix itself) | every non-nixos machine |
 
@@ -75,7 +75,7 @@ scripts/            rebuild helpers
 - a tool: the file for its group
 - a binary cache (prebuilt packages, so nothing compiles): add it to
   `my.caches` in the file whose packages need it
-- the laptops' home groups: `modules/users/kidskoding.nix`
+- what a laptop gets: the `modules` list in `modules/hosts/<host>.nix`
 - a new non-nixos machine: copy `modules/homes/portable.nix`, rename the
   `homeConfigurations` entry, list its groups
 
@@ -93,6 +93,9 @@ The `rebuild` fish alias runs the right one on each laptop. Neovim config
 changes go upstream separately with `nvim-sync`.
 
 ## home-manager on a non-nixos machine
+
+Command-line tools and user config only: no gui apps, fonts or gtk theme.
+The terminal tools still get the gruvbox theme.
 
 1. Install nix (multi-user):
 

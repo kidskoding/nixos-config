@@ -1,9 +1,11 @@
-{...}: {
-  flake.homeModules.desktop = {
-    inputs,
-    pkgs,
-    ...
-  }: let
+{
+  inputs,
+  self,
+  ...
+}: {
+  flake.nixosModules.desktop.home-manager.sharedModules = [self.homeModules.desktop];
+
+  flake.homeModules.desktop = {pkgs, ...}: let
     system = pkgs.stdenv.hostPlatform.system;
   in {
     my.caches = [
@@ -60,6 +62,11 @@
     };
 
     home.packages = [
+      # fonts
+      pkgs.nerd-fonts.symbols-only
+      pkgs.symbola
+      pkgs.corefonts
+
       # applications
       pkgs.discord
       pkgs.doxygen_gui

@@ -40,14 +40,20 @@
     specialArgs = {
       inherit inputs;
     };
-    modules = [
-      self.nixosModules.base
-      self.nixosModules.kidskoding
-      self.nixosModules.shell
-      self.nixosModules.niri
-      self.nixosModules.noctalia
-      self.nixosModules.stylix
-      self.nixosModules.thinkpad
+    modules = with self.nixosModules; [
+      base
+      kidskoding
+      shell
+      stylix
+
+      niri
+      noctalia
+      desktop
+
+      dev
+      agents
+
+      thinkpad
     ];
   };
 }

@@ -1,6 +1,5 @@
-{...}: {
-  flake.homeModules.dev = {
-    inputs,
+{inputs, ...}: {
+  flake.homeModules.dev-core = {
     config,
     pkgs,
     ...
