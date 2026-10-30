@@ -8,6 +8,7 @@
         "claude-plugins-official": "claude-plugins-official",
         "firecrawl-plugin": "firecrawl-plugin",
         "graphify": "graphify",
+        "impeccable": "impeccable",
         "lanej-dotfiles": "lanej-dotfiles",
         "last30days": "last30days",
         "mattpocock-skills": "mattpocock-skills",
@@ -19,16 +20,17 @@
         "ponytail": "ponytail",
         "spartan": "spartan",
         "superpowers": "superpowers",
+        "taste-skill": "taste-skill",
         "typst-claude-skill": "typst-claude-skill",
         "understand-anything": "understand-anything",
         "vercel-skills": "vercel-skills"
       },
       "locked": {
-        "lastModified": 1793386380,
-        "narHash": "sha256-UA/HMBrkopUE+PQ6olgycdnhYrPyYjT00lNwF/lKDmQ=",
+        "lastModified": 1793398754,
+        "narHash": "sha256-geRhTYV7RaA5ksXCpKS4ihBnymLRjlhCkqNdEU752fQ=",
         "owner": "kidskoding",
         "repo": "anikonistack",
-        "rev": "112cd04a2e3d6443e4296bdd6261fee4cbcb5c3a",
+        "rev": "3c09c4918e592c750ee5c954eccc5f3521534246",
         "type": "github"
       },
       "original": {
@@ -719,6 +721,22 @@
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "impeccable": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1793355386,
+        "narHash": "sha256-gmSHpcnXE60ho7LOhY+QtbrUGcO9R1gxo/U2wmydXes=",
+        "owner": "pbakaus",
+        "repo": "impeccable",
+        "rev": "df3a4abe7d0840d5f60324812c432e00b66a4e75",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pbakaus",
+        "repo": "impeccable",
         "type": "github"
       }
     },
@@ -1451,6 +1469,22 @@
         "owner": "nix-systems",
         "ref": "future-26.11",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "taste-skill": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1792885339,
+        "narHash": "sha256-RpdiP+9Rh1sfPTsGnrKMmCiNT7T9l0/jnDrDYoAJukY=",
+        "owner": "Leonxlnx",
+        "repo": "taste-skill",
+        "rev": "12af471f627f866411b4bd785b19646d3672784c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Leonxlnx",
+        "repo": "taste-skill",
         "type": "github"
       }
     },
