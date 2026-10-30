@@ -15,5 +15,8 @@
 ;; show diagnostics as lines under the cursor's line only
 (vim.diagnostic.config {:virtual_lines {:current_line true}})
 
+;; current_line diagnostics render on CursorHold, which waits updatetime (default 4000ms)
+(set vim.o.updatetime 50)
+
 (let [ft (require :vim.filetype)]
   (ft.add {:extension {:mdx :mdx}}))
