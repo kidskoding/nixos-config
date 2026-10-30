@@ -7,7 +7,7 @@
   }: let
     terminal = "ghostty";
   in {
-    # gui helpers live in nixosModules.niri; victus gets them from apt
+    # gui helpers live in nixosModules.niri
     home.packages = with pkgs; [
       adwaita-icon-theme
       brightnessctl

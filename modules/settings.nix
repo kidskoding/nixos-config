@@ -48,7 +48,7 @@ in {
     };
 
   # extra-* keeps cache.nixos.org; the daemon only honours these for a
-  # trusted user, so pop!_os needs `trusted-users = root kidskoding` in /etc/nix/nix.conf
+  # trusted user, so non-nixos machines need `trusted-users = root kidskoding` in /etc/nix/nix.conf
   flake.homeModules.standalone.nix.settings =
     common
     // {

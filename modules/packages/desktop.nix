@@ -1,4 +1,3 @@
-# gui apps for the nixos hosts; victus on pop!_os gets these from apt/flatpak
 {...}: {
   flake.homeModules.desktop = {
     inputs,

@@ -1,4 +1,4 @@
-# standalone home-manager configuration without nixos (i.e. my victus on pop!! os)
+# standalone home-manager configuration for any linux machine with nix (no nixos)
 {
   inputs,
   lib,
@@ -30,6 +30,20 @@
         ++ modules;
     };
 
+  # clone to ~/home-manager; apply with `home-manager switch --flake ~/home-manager#kidskoding`
+  flake.homeConfigurations.kidskoding = self.lib.mkHome {
+    modules = [
+      {
+        my.flakeDir = "/home/kidskoding/home-manager";
+
+        programs.ghostty = {
+          package = null;
+          systemd.enable = false;
+        };
+      }
+    ];
+  };
+
   flake.homeModules.standalone = {
     config,
     lib,
@@ -47,6 +61,8 @@
     targets.genericLinux.enable = true;
 
     programs.home-manager.enable = true;
+
+    home.sessionVariables.HOME_MANAGER_BACKUP_EXT = "bak";
 
     xdg.configFile."home-manager".source = link config.my.flakeDir;
 

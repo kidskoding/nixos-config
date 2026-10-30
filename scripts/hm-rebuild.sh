@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# home-manager rebuild for victus (pop!_os) that commits on a successful switch!
+# home-manager rebuild for non-nixos machines that commits on a successful switch!
 #
 # run it from anywhere: ~/home-manager/scripts/hm-rebuild.sh
 
@@ -44,7 +44,7 @@ DFT_DISPLAY=inline git --no-pager diff --cached
 
 echo "rebuilding home-manager..."
 
-if ! script -qefc "home-manager switch --flake \"$FLAKE_DIR#popos\"" home-manager-switch.log; then
+if ! script -qefc "home-manager switch --flake \"$FLAKE_DIR#kidskoding\"" home-manager-switch.log; then
     grep --color error home-manager-switch.log || tail -n 40 home-manager-switch.log
     exit 1
 fi
@@ -53,7 +53,7 @@ fi
 gen=$(home-manager generations 2>/dev/null | head -n 1)
 
 if [ -n "$gen" ]; then
-    msg="popos generation $(echo "$gen" | awk '{print $5}') ($(echo "$gen" | awk '{print $1}'))"
+    msg="home-manager generation $(echo "$gen" | awk '{print $5}') ($(echo "$gen" | awk '{print $1}'))"
 else
     msg="home-manager switch $(date -Iseconds)"
 fi
