@@ -36,8 +36,8 @@
         ++ modules;
     };
 
-  # clone to ~/home-manager; apply with `home-manager switch --impure --flake ~/home-manager#kidskoding`
-  flake.homeConfigurations.kidskoding = self.lib.mkHome {
+  # clone to ~/home-manager; apply with `home-manager switch --impure --flake ~/home-manager#portable`
+  flake.homeConfigurations.portable = self.lib.mkHome {
     modules = [
       ({config, ...}: {
         my.flakeDir = "${config.home.homeDirectory}/home-manager";

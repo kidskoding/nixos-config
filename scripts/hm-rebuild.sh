@@ -44,7 +44,7 @@ DFT_DISPLAY=inline git --no-pager diff --cached
 
 echo "rebuilding home-manager..."
 
-if ! script -qefc "home-manager switch --impure --flake \"$FLAKE_DIR#kidskoding\"" home-manager-switch.log; then
+if ! script -qefc "home-manager switch --impure --flake \"$FLAKE_DIR#portable\"" home-manager-switch.log; then
     grep --color error home-manager-switch.log || tail -n 40 home-manager-switch.log
     exit 1
 fi
