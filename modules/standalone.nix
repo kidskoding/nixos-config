@@ -8,7 +8,13 @@
   flake.lib.mkHome = {
     modules ? [],
     system ? "x86_64-linux",
-  }:
+  }: let
+    # read from the machine running the switch, so any account name works (needs --impure)
+    env = name:
+      lib.throwIf (builtins.getEnv name == "")
+      "\$${name} is empty; run home-manager with --impure"
+      (builtins.getEnv name);
+  in
     inputs.home-manager.lib.homeManagerConfiguration {
       pkgs = import inputs.nixpkgs {
         inherit system;
@@ -21,8 +27,8 @@
           self.homeModules.standalone
           {
             home = {
-              username = "kidskoding";
-              homeDirectory = "/home/kidskoding";
+              username = env "USER";
+              homeDirectory = env "HOME";
               stateVersion = lib.mkDefault "26.05";
             };
           }
@@ -30,17 +36,17 @@
         ++ modules;
     };
 
-  # clone to ~/home-manager; apply with `home-manager switch --flake ~/home-manager#kidskoding`
+  # clone to ~/home-manager; apply with `home-manager switch --impure --flake ~/home-manager#kidskoding`
   flake.homeConfigurations.kidskoding = self.lib.mkHome {
     modules = [
-      {
-        my.flakeDir = "/home/kidskoding/home-manager";
+      ({config, ...}: {
+        my.flakeDir = "${config.home.homeDirectory}/home-manager";
 
         programs.ghostty = {
           package = null;
           systemd.enable = false;
         };
-      }
+      })
     ];
   };
 
