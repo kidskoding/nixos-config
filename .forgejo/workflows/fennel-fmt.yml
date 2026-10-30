@@ -1,0 +1,24 @@
+name: fennel format
+
+on: [push, pull_request]
+
+env:
+  NIX_CONFIG: experimental-features = nix-command flakes
+
+jobs:
+  fnlfmt:
+    runs-on: codeberg-small
+    container:
+      image: ghcr.io/nixos/nix:2.35.2-amd64
+    steps:
+      - run: |
+          git clone "${{ github.server_url }}/${{ github.repository }}.git" .
+          git checkout "${{ github.sha }}"
+      - name: check formatting
+        run: |
+          nix shell nixpkgs#fnlfmt nixpkgs#diffutils --command bash -c '
+            fail=0
+            for f in $(git ls-files "*.fnl"); do
+              fnlfmt "$f" | diff -u "$f" - || fail=1
+            done
+            exit $fail'
