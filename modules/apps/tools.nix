@@ -29,6 +29,7 @@
       wtf
 
       # user utilities
+      magic-wormhole-rs
       rclone
       sshfs
 

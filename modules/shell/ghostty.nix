@@ -36,6 +36,7 @@
         keybind = [
           "ctrl+shift+b=navigate_search:previous"
           "shift+enter=text:\\r"
+          "ctrl+enter=unbind"
         ];
       };
     };
