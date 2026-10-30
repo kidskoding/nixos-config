@@ -22,7 +22,6 @@
 in {
   flake.nixosModules.niri = {
     config,
-    inputs,
     pkgs,
     ...
   }: {

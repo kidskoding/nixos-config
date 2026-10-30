@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeModules.niri = {
+  flake.homeModules.noctalia = {
     config,
     lib,
     pkgs,

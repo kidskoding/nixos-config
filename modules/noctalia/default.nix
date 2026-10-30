@@ -1,4 +1,8 @@
-{self, ...}: {
+{
+  inputs,
+  self,
+  ...
+}: {
   perSystem = {inputs', ...}: {
     packages.noctalia = inputs'.noctalia.packages.default.overrideAttrs (old: {
       patches =
@@ -30,12 +34,13 @@
 
   flake.nixosModules.noctalia = {
     config,
-    inputs,
     lib,
     pkgs,
     ...
   }: {
     imports = [inputs.noctalia-greeter.nixosModules.default];
+
+    home-manager.sharedModules = [self.homeModules.noctalia];
 
     # greeter runs as the greeter user before login and cannot read ~/,
     # so its toml and assets go through the store and /etc (needs a rebuild)
