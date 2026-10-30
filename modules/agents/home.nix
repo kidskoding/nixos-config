@@ -30,6 +30,7 @@
         "last30days"
         "duet"
         "open-steps"
+        "vercel"
 
         "spartan-core"
         "spartan-database"
@@ -72,6 +73,12 @@
           command = "npx";
           args = ["@playwright/mcp@latest" "--extension"];
           env.PLAYWRIGHT_MCP_EXTENSION_TOKEN = "\${PLAYWRIGHT_MCP_EXTENSION_TOKEN}";
+        };
+
+        # Next.js 16+ dev servers expose /_next/mcp; this proxies their errors, routes and logs.
+        next-devtools = {
+          command = "npx";
+          args = ["-y" "next-devtools-mcp@latest"];
         };
       };
     };

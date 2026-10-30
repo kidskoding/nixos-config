@@ -23,14 +23,15 @@
         "taste-skill": "taste-skill",
         "typst-claude-skill": "typst-claude-skill",
         "understand-anything": "understand-anything",
+        "vercel-plugin": "vercel-plugin",
         "vercel-skills": "vercel-skills"
       },
       "locked": {
-        "lastModified": 1793398754,
-        "narHash": "sha256-geRhTYV7RaA5ksXCpKS4ihBnymLRjlhCkqNdEU752fQ=",
+        "lastModified": 1793399891,
+        "narHash": "sha256-Wn/oEX9HLmunN+Zy/jlSSy9DNcepuu3anT3igJyUqyw=",
         "owner": "kidskoding",
         "repo": "anikonistack",
-        "rev": "3c09c4918e592c750ee5c954eccc5f3521534246",
+        "rev": "6aaea347f271bb793aaa87924d7ff63387084113",
         "type": "github"
       },
       "original": {
@@ -1645,6 +1646,22 @@
       "original": {
         "owner": "Egonex-AI",
         "repo": "Understand-Anything",
+        "type": "github"
+      }
+    },
+    "vercel-plugin": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1793303324,
+        "narHash": "sha256-OvBl2OkrP8re8xVxql7ogKhHy1ZvRN2a12IA8YEnDYQ=",
+        "owner": "vercel",
+        "repo": "vercel-plugin",
+        "rev": "67977fdf723174f4927dd5b9292a9d04c2a821ec",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vercel",
+        "repo": "vercel-plugin",
         "type": "github"
       }
     },
