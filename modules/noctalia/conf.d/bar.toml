@@ -15,7 +15,7 @@ color = "on_surface"
 capsule_border_width = 0
 capsule_padding = 8
 capsule_thickness = 0.8
-start = ["control-center", "workspaces"]
+start = ["control-center", "workspaces", "umbriel"]
 center = ["media"]
 end = [
   "tray",
@@ -44,6 +44,10 @@ active_pill_size = 1
 inactive_pill_size = 1
 label_source = "id"
 hide_when_empty = true
+
+[widget.umbriel]
+type = "noctalia/umbriel-companion:bar"
+show_layout_name = true
 
 [widget.media]
 artist_first = false

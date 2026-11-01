@@ -20,7 +20,7 @@ background_opacity = 1.0
 media = false
 
 [plugins]
-enabled = ["noctalia/timer"]
+enabled = ["noctalia/timer", "noctalia/umbriel-companion"]
 
 [location]
 auto_locate = true

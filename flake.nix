@@ -58,11 +58,12 @@
     };
 
     /*
-      noctalia family!
-    *
-    * umbriel: cachix branch + own nixpkgs so builds match umbriel.cachix.org
+    noctalia family!
     */
-    umbriel.url = "github:noctalia-dev/umbriel/cachix";
+    umbriel = {
+      url = "github:noctalia-dev/umbriel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     noctalia = {
       url = "github:kidskoding/noctalia";
