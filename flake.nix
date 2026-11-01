@@ -65,7 +65,7 @@
 
     # noctalia
     noctalia = {
-      url = "github:noctalia-dev/noctalia";
+      url = "github:kidskoding/noctalia/nixos";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     noctalia-greeter = {

@@ -3,35 +3,6 @@
   self,
   ...
 }: {
-  perSystem = {inputs', ...}: {
-    packages.noctalia = inputs'.noctalia.packages.default.overrideAttrs (old: {
-      patches =
-        (old.patches or [])
-        ++ [
-          ./patches/clock-markup.patch
-          ./patches/markup-colors.patch
-          ./patches/volume-icon-state.patch
-          ./patches/audio-osd-muted-colors.patch
-          ./patches/brightness-osd-color.patch
-          ./patches/control-center-power-button.patch
-          ./patches/battery-icon-thresholds.patch
-          ./patches/lockscreen-login-clock.patch
-          ./patches/lockscreen-battery-status.patch
-          ./patches/lockscreen-header-caps-lock.patch
-          ./patches/lockscreen-header-user.patch
-          ./patches/media-player-seek-bar.patch
-          ./patches/solid-panels.patch
-          ./patches/network-wifi-off-color.patch
-          ./patches/bluetooth-off-color.patch
-          ./patches/theme-terminal-colors.patch
-          ./patches/panel-close-button-red.patch
-          ./patches/marquee-gap.patch
-          ./patches/destructive-button-hover.patch
-          ./patches/headphones-volume-icon.patch
-        ];
-    });
-  };
-
   flake.nixosModules.noctalia = {
     config,
     lib,
@@ -56,7 +27,7 @@
     environment.etc."noctalia-greeter/wallpaper.jpg".source = ./wallpapers/starfire-bg.jpg;
 
     environment.systemPackages = [
-      self.packages.${pkgs.stdenv.hostPlatform.system}.noctalia
+      inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
       pkgs.adwaita-icon-theme
     ];
 
