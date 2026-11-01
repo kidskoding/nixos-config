@@ -56,6 +56,7 @@
           "Mod+M" = "session-quit";
           "Mod+O" = "overview-toggle";
           "Mod+W" = "column-toggle-tabbed";
+          "Mod+T" = "workspace-set-layout toggle scrolling dwindle master";
           "Mod+F" = "window-toggle-maximize";
           "Mod+Shift+F" = "window-toggle-fullscreen";
           "Mod+Shift+Space" = "window-toggle-floating";
