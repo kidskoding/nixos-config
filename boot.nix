@@ -20,7 +20,7 @@
 
     consoleLogLevel = 0;
     initrd.verbose = false;
-    initrd.systemd.enable = false;
+    initrd.systemd.enable = true;
     initrd.systemd.emergencyAccess = true;
 
     kernelParams = [
