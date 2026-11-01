@@ -46,7 +46,7 @@
       shell
       stylix
 
-      niri
+      umbriel
       noctalia
       desktop
 

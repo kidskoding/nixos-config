@@ -22,7 +22,7 @@ distros) through home-manager, without nixos.
 
 | | |
 |---|---|
-| compositor | [niri](https://github.com/YaLTeR/niri) |
+| compositor | [umbriel](https://github.com/noctalia-dev/umbriel) |
 | shell / bar | [noctalia](https://github.com/noctalia-dev/noctalia) |
 | theme | [stylix](https://github.com/nix-community/stylix), gruvbox dark |
 | terminal | ghostty, fish, starship, zellij |
@@ -66,7 +66,7 @@ scripts/            rebuild helpers
 | `base` | shell, git, cli tools, theme | every machine |
 | `dev` | every language, neovim, helix (or `dev-core` plus `dev-rust`, `dev-web`, …) | picked per machine |
 | `agents` | coding agents and their config | picked per machine |
-| `desktop`, `niri` | gui apps, fonts, compositor, clipboard | both laptops |
+| `desktop`, `umbriel` | gui apps, fonts, compositor, clipboard | both laptops |
 | `gaming` | games | victus |
 | `standalone` | fixes for running outside nixos (gpu drivers, nix itself) | every non-nixos machine |
 

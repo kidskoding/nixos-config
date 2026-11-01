@@ -57,8 +57,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # niri
-    niri.url = "github:sodiboo/niri-flake";
+    # umbriel
+    umbriel = {
+      url = "github:noctalia-dev/umbriel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # noctalia
     noctalia = {

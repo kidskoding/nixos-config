@@ -1,5 +1,5 @@
 # per-machine facts (i.e. gpu, display, repo location) so that each host can set them.
-# modules like niri, noctalia, and grub can read "config.my" instead of hardcoding!
+# modules like umbriel, noctalia, and grub can read "config.my" instead of hardcoding!
 {lib, ...}: let
   inherit (lib) mkOption types;
 
