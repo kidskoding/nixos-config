@@ -34,7 +34,7 @@
           }
           // lib.optionalAttrs narrow {
             font_scale = 1.0;
-            start = ["control-center" "workspaces" "umbriel" "media"];
+            start = ["control-center" "umbriel" "workspaces" "media"];
             center = [];
           };
       };
