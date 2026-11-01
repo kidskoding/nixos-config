@@ -11,6 +11,8 @@ HOST="${HOST:-thinkpad}"
 
 cd "$FLAKE_DIR"
 
+git pull -q --rebase --autostash
+
 # pull the latest agent skills (anikonistack) before building
 nix flake update anikonistack
 
@@ -70,7 +72,7 @@ fi
 
 git commit -m "$msg"
 
-if ! git push origin HEAD; then
-    echo "push failed; commit is local only. run 'git push' later."
+if ! git push -q origin HEAD && ! { git pull -q --rebase --autostash && git push -q origin HEAD; }; then
+    echo "push failed; commit is local only. fix any rebase conflict, then run 'git push'."
 fi
 
