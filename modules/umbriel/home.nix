@@ -12,6 +12,7 @@
       playerctl
       slurp
       wl-clipboard
+      wl-mirror
 
       kdePackages.qtsvg
     ];

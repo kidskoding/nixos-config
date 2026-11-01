@@ -1,5 +1,9 @@
 {...}: {
-  flake.homeModules.umbriel = {lib, ...}: let
+  flake.homeModules.umbriel = {
+    config,
+    lib,
+    ...
+  }: let
     terminal = "ghostty";
     fileManager = "nautilus";
     noctalia = c: "spawn noctalia msg ${c}";
@@ -51,6 +55,7 @@
           "Mod+Ctrl+L" = noctalia "session lock";
           "Mod+Shift+R" = "spawn pkill -fx '.*/bin/noctalia'; while pgrep -fx '.*/bin/noctalia' >/dev/null; do sleep 0.1; done; noctalia";
           "Mod+Shift+C" = "spawn hyprpicker -a";
+          "Mod+P" = "spawn pkill -x wl-mirror || wl-mirror --fullscreen-output HDMI-A-1 ${config.my.display.output}";
 
           "Mod+Q" = "window-close";
           "Mod+M" = "session-quit";
