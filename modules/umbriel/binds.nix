@@ -9,7 +9,7 @@
       allow_when_locked = true;
     };
 
-    screenshot = grimArgs: "spawn d=~/Pictures/Screenshots; mkdir -p $d; f=$d/$(date +%Y-%m-%dT%H:%M:%S).png; grim ${grimArgs} \"$f\" && wl-copy < \"$f\"";
+    screenshot = grimArgs: "spawn d=~/Pictures/Screenshots; mkdir -p $d; f=$d/$(date +%Y-%m-%dT%H:%M:%S).png; grim ${grimArgs} \"$f\" && wl-copy < \"$f\" && notify-send -a Screenshot -i \"$f\" 'Screenshot saved' \"$f\"";
 
     workspaceNames = map toString (lib.range 1 10);
     workspaceKey = ws:

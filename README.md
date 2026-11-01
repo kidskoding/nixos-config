@@ -10,11 +10,12 @@ distros) through home-manager, without nixos.
 <summary>more screenshots</summary>
 
 ![neovim and btop](screenshots/thinkpad/2-nvim-btop.png)
-![cbonsai, tty-clock and pipes](screenshots/thinkpad/3-bonsai-clock-pipes.png)
+![cbonsai, tty-clock and pipes in the dwindle layout](screenshots/thinkpad/3-bonsai-clock-pipes.png)
 ![control center](screenshots/thinkpad/4-control-center.png)
 ![launcher](screenshots/thinkpad/5-launcher.png)
 ![spotify and cava](screenshots/thinkpad/6-spotify-cava.png)
 ![overview](screenshots/thinkpad/7-overview.png)
+![neovim, git log and lazygit in the master layout](screenshots/thinkpad/8-master.png)
 
 </details>
 
