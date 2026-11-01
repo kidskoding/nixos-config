@@ -2,6 +2,13 @@
   flake.homeModules.umbriel = {pkgs, ...}: let
     terminal = "ghostty";
   in {
+    my.caches = [
+      {
+        url = "https://umbriel.cachix.org";
+        key = "umbriel.cachix.org-1:JfNq/2yg2S6D6z4Z2dVSZrZlDPQTKtexB6GAVLD98nw=";
+      }
+    ];
+
     # gui helpers live in nixosModules.umbriel
     home.packages = with pkgs; [
       adwaita-icon-theme

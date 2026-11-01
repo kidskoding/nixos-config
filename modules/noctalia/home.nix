@@ -11,10 +11,10 @@
     narrow = d.width / d.scale < 1920;
   in {
     my.caches = [
-      # noctalia cache
+      # my own noctalia cache from my own fork: builds of the kidskoding/noctalia fork and the greeter
       {
-        url = "https://noctalia.cachix.org";
-        key = "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=";
+        url = "https://kidskoding-noctalia.cachix.org";
+        key = "kidskoding-noctalia.cachix.org-1:xVUU3CAdedgGC/sPwztDRg6d4KR3rRY22WufpMxFnu4=";
       }
     ];
 
