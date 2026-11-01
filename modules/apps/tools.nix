@@ -38,7 +38,7 @@
       terraform
 
       # other
-      ncspot
+      spotify-player
     ];
   };
 }
