@@ -13,8 +13,9 @@ cd "$FLAKE_DIR"
 
 git pull -q --rebase --autostash
 
-# pull the latest agent skills (anikonistack) before building
-nix flake update anikonistack
+# pull the latest agent skills (anikonistack) and the noctalia family from
+# github before building, so every host locks the same versions in flake.lock
+nix flake update anikonistack noctalia umbriel noctalia-greeter
 
 # flakes only see files that git knows about, so stage everything first!
 stage_config() {
