@@ -20,7 +20,8 @@
 
     consoleLogLevel = 0;
     initrd.verbose = false;
-    initrd.systemd.enable = true;
+    initrd.systemd.enable = false;
+    initrd.systemd.emergencyAccess = true;
 
     kernelParams = [
       "quiet"
