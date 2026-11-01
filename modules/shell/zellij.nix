@@ -2,7 +2,6 @@
   flake.homeModules.base = {
     programs.zellij = {
       enable = true;
-      enableFishIntegration = true;
 
       layouts.default = ''
         layout {
