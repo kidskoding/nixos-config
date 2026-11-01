@@ -6,8 +6,8 @@
     ...
   }: let
     nerdFont = {
-      package = pkgs.nerd-fonts.jetbrains-mono;
-      family = "JetBrainsMono Nerd Font";
+      package = pkgs.nerd-fonts.caskaydia-cove;
+      family = "CaskaydiaCove Nerd Font";
     };
   in {
     stylix = {
