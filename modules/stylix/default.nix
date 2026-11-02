@@ -29,7 +29,12 @@
         };
 
         serif = config.stylix.fonts.sansSerif;
-        sizes.terminal = lib.mkDefault 20;
+        sizes = {
+          terminal = lib.mkDefault 24;
+          applications = lib.mkDefault 14;
+          desktop = lib.mkDefault 12;
+          popups = lib.mkDefault 12;
+        };
       };
 
       cursor = {
