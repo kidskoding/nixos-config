@@ -29,7 +29,7 @@
         };
 
         serif = config.stylix.fonts.sansSerif;
-        sizes.terminal = lib.mkDefault 16;
+        sizes.terminal = lib.mkDefault 20;
       };
 
       cursor = {
