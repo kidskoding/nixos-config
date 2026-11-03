@@ -8,8 +8,7 @@
       enable = true;
 
       settings = {
-        format = "$os($username$hostname )$directory$git_branch$git_status$nix_shell$fill$all$cmd_duration$line_break$character";
-        fill.symbol = " ";
+        format = "$os$all";
         battery.disabled = true;
 
         os = {
@@ -34,7 +33,7 @@
 
         directory = {
           truncation_length = 3;
-          format = "in [$path]($style) ";
+          format = " in [$path]($style) ";
           style = "bold blue";
           read_only = "󰌾";
         };
