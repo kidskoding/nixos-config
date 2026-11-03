@@ -170,10 +170,15 @@
   virtualisation.docker.enable = true;
   virtualisation.docker.storageDriver = "btrfs";
 
-  # run electron/chromium apps (discord, spotify) natively on wayland
-  # instead of xwayland
   environment.sessionVariables = {
+    # run electron/chromium apps (discord, spotify) natively on wayland
+    # instead of xwayland
     NIXOS_OZONE_WL = "1";
+    ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+
+    # fixes firefox and java app scaling/rendering on wayland!
+    MOZ_ENABLE_WAYLAND = "1";
+    _JAVA_AWT_WM_NONREPARENTING = "1";
   };
 
   nix.gc = {
