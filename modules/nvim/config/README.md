@@ -10,27 +10,12 @@ plugins come from nixpkgs, listed in `plugins.nix`!
 
 ## Requirements
 
-- Neovim 0.12+
-- git, tar, curl, a C compiler, and the tree-sitter CLI (to build parsers)
-- ripgrep (for snacks pickers)
-- fennel-ls and fnlfmt (for Fennel editing)
+- [nix (the package manager)](https://nixos.org/download/): it brings Neovim, every plugin, tool, LSP, and formatter
 - a Nerd Font (for icons)
-
-**Optional**: I highly recommend installing [nix (the package manager)](https://nixos.org/download/)
-instead: it sets up every requirement above (except the font) for you. see [Nix](#nix)!
 
 ## Install
 
-```sh
-git clone https://codeberg.org/kidskoding/kidskoding.nvim ~/.config/nvim
-nvim
-```
-
-plugins install on first launch, use `:checkhealth` to spot any missing tools and ensure the config is in good shape!
-
-## Nix
-
-this repo includes a flake that bundles Neovim with every tool, LSP, and formatter, making the config ready to use in one command!
+run it in one command!
 
 ```sh
 nix run git+https://codeberg.org/kidskoding/kidskoding.nvim
@@ -41,5 +26,3 @@ the first run copies the config into `~/.config/nvim` if nothing is there yet (a
 ```sh
 NVIM_APPNAME=nvim-test nix run git+https://codeberg.org/kidskoding/kidskoding.nvim
 ```
-
-you still need a Nerd Font for icons!

@@ -2,10 +2,7 @@
   description = "kidskoding.nvim: a minimal Neovim config written in Fennel";
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-  outputs = {
-    self,
-    nixpkgs,
-  }: let
+  outputs = {nixpkgs, ...}: let
     inherit (nixpkgs) lib;
     systems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
     forAllSystems = f:
@@ -22,93 +19,25 @@
           ./init.lua
           ./fnl
           ./flsproject.fnl
-          ./plugins.nix
         ];
       };
 
-      deps = builtins.filter (lib.meta.availableOn pkgs.stdenv.hostPlatform) (with pkgs; [
-        # plugin downloads, pickers
-        curl
-        git
-        ripgrep
-        fd
-
-        # plugin tools
-        difftastic
-        lazygit
-        websocat
-        zathura
-
-        # formatters
-        alejandra
-        fnlfmt
-        ruff
-        stylua
-        typstyle
-
-        # lsps
-        clang-tools
-        dockerfile-language-server
-        elmPackages.elm-language-server
-        fennel-ls
-        fish-lsp
-        gopls
-        graphql-language-service-cli
-        intelephense
-        jdt-language-server
-        (julia.withPackages ["LanguageServer"])
-        kotlin-language-server
-        lua-language-server
-        marksman
-        mdx-language-server
-        metals
-        nixd
-        ocamlPackages.ocaml-lsp
-        omnisharp-roslyn
-        ruby-lsp
-        rust-analyzer
-        sourcekit-lsp
-        sqls
-        taplo
-        terraform-ls
-        tinymist
-        ty
-        typescript
-        vscode-langservers-extracted
-        yaml-language-server
-        zls
-      ]);
-
-      nvim = pkgs.wrapNeovimUnstable pkgs.neovim-unwrapped {
+      deps = builtins.filter (lib.meta.availableOn pkgs.stdenv.hostPlatform) (import ./deps.nix pkgs);
+    in {
+      default = pkgs.wrapNeovimUnstable pkgs.neovim-unwrapped {
         plugins = import ./plugins.nix pkgs.vimPlugins;
         wrapRc = false;
-      };
-    in {
-      default = pkgs.writeShellApplication {
-        name = "nvim";
-        text = ''
-          export PATH="''${PATH:+$PATH:}${lib.makeBinPath deps}"
-          export NVIM_APPNAME="''${NVIM_APPNAME:-nvim}"
-          export TSDK="''${TSDK:-${pkgs.typescript_5}/lib/node_modules/typescript/lib}"
-
-          dir="''${XDG_CONFIG_HOME:-$HOME/.config}/$NVIM_APPNAME"
-          if [ -L "$dir" ] && [ ! -e "$dir" ]; then
-            echo "error: $dir is a broken symlink" >&2
-            exit 1
-          elif [ ! -e "$dir" ]; then
-            ${pkgs.coreutils}/bin/mkdir -p "$dir"
-            ${pkgs.coreutils}/bin/cp -rT --no-preserve=mode ${config} "$dir"
-          fi
-
-          exec ${nvim}/bin/nvim "$@"
-        '';
-      };
-    });
-
-    apps = forAllSystems (pkgs: {
-      default = {
-        type = "app";
-        program = lib.getExe self.packages.${pkgs.stdenv.hostPlatform.system}.default;
+        wrapperArgs = [
+          "--suffix"
+          "PATH"
+          ":"
+          (lib.makeBinPath deps)
+          "--set-default"
+          "TSDK"
+          "${pkgs.typescript_5}/lib/node_modules/typescript/lib"
+          "--run"
+          ''dir="''${XDG_CONFIG_HOME:-$HOME/.config}/''${NVIM_APPNAME:-nvim}"; [ -e "$dir" ] || { mkdir -p "$dir" && cp -rT --no-preserve=mode ${config} "$dir"; }''
+        ];
       };
     });
   };
