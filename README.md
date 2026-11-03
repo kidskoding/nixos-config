@@ -91,7 +91,7 @@ HOST=victus ~/nixos/scripts/rebuild.sh  # victus
 ```
 
 The `rebuild` fish alias runs the right one on each laptop. Neovim config
-changes go upstream separately with `nvim-sync`.
+changes are pushed to kidskoding.nvim as part of each rebuild.
 
 ## home-manager on a non-nixos machine
 

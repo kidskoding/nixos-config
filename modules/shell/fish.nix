@@ -75,7 +75,6 @@
 
       shellAliases = {
         # nixos aliases
-        nvim-sync = "${config.my.flakeDir}/scripts/nvim-sync.sh";
         collect-garbage = "sudo nix-collect-garbage --delete-older-than 7d";
 
         # eza listings
