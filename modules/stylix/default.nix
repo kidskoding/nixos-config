@@ -6,8 +6,8 @@
     ...
   }: let
     nerdFont = {
-      package = pkgs.nerd-fonts.terminess-ttf;
-      family = "Terminess Nerd Font";
+      package = pkgs.nerd-fonts.googlesanscode;
+      family = "GoogleSansCode Nerd Font";
     };
   in {
     stylix = {
@@ -30,10 +30,10 @@
 
         serif = config.stylix.fonts.sansSerif;
         sizes = {
-          terminal = lib.mkDefault 24;
-          applications = lib.mkDefault 14;
-          desktop = lib.mkDefault 12;
-          popups = lib.mkDefault 12;
+          terminal = lib.mkDefault 20;
+          applications = lib.mkDefault 12;
+          desktop = lib.mkDefault 11;
+          popups = lib.mkDefault 11;
         };
       };
 
@@ -44,7 +44,6 @@
       };
 
       opacity.terminal = 0.8;
-
       targets.qt.enable = false;
     };
   };
