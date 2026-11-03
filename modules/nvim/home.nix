@@ -7,7 +7,12 @@
     dir = "${config.my.flakeDir}/modules/nvim/config";
     link = config.lib.file.mkOutOfStoreSymlink;
     system = pkgs.stdenv.hostPlatform.system;
-    neovim = inputs.neovim-nightly-overlay.packages.${system}.default;
+    nightly = inputs.neovim-nightly-overlay.packages.${system}.default;
+    # borrow nixpkgs' lua: nightly's luajit clashes with the one vimPlugins are built against
+    neovim = pkgs.wrapNeovimUnstable (nightly // {inherit (pkgs.neovim-unwrapped) lua;}) {
+      plugins = import ./config/plugins.nix pkgs.vimPlugins;
+      wrapRc = false;
+    };
   in {
     home.sessionVariables = {
       EDITOR = "nvim";
