@@ -8,8 +8,8 @@
                          :operators false
                          :folds false}
                 :overrides {;; treesitter: brackets and delimiters in plain fg
-                            "@punctuation.bracket" {:link :Normal}
-                            "@punctuation.delimiter" {:link :Normal}
+                            "@punctuation.bracket" {:link :GruvboxFg1}
+                            "@punctuation.delimiter" {:link :GruvboxFg1}
                             ;; trouble: match editor background
                             :TroubleNormal {:link :Normal}
                             :TroubleNormalNC {:link :Normal}

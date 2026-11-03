@@ -118,6 +118,7 @@
 (map :<leader>bb #(snacks.picker.buffers) "Switch buffer")
 (map :<leader>bd #(snacks.bufdelete) "Close buffer")
 (map :<leader>gz #(snacks.lazygit) :Lazygit)
+(map :<leader>rb #(snacks.terminal :bacon {:win {:position :float}}) :Bacon)
 (map :<leader>gB #(snacks.gitbrowse) "Open file on GitHub")
 (map :<leader>gl #(snacks.picker.git_log_file) "File git history")
 (map :<leader>xt #(snacks.picker.todo_comments) "Todo list")
@@ -128,11 +129,13 @@
 (vim.keymap.set [:n :t] :<C-/> #(snacks.terminal) {:desc "Toggle terminal"})
 (vim.keymap.set [:n :t] :<C-_> #(snacks.terminal) {:desc :which_key_ignore})
 
-;; add jk escape sequence for terminals, EXCEPT for lazygit!
+;; add jk escape sequence for terminals, EXCEPT for lazygit and bacon (j/k scroll)!
 (vim.api.nvim_create_autocmd :TermOpen
                              {:callback (fn [ev]
-                                          (when (not (string.find ev.match
-                                                                  :lazygit))
+                                          (when (not (or (string.find ev.match
+                                                                      :lazygit)
+                                                         (string.find ev.match
+                                                                      :bacon)))
                                             (vim.keymap.set :t :jk
                                                             "<C-\\><C-n>"
                                                             {:buffer ev.buf
