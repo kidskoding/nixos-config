@@ -145,8 +145,7 @@ The terminal tools still get the gruvbox theme.
 
 7. Log out and back in.
 
-After that, `hm-rebuild` stages, formats, switches, then commits and pushes on
-success.
+After that, rerun the switch from step 4 (without `-b bak`) to apply changes.
 
 ## templates
 

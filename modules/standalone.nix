@@ -85,7 +85,6 @@
 
     # sudo has no nix on PATH here; home-manager generations are user profiles
     programs.fish.shellAliases = {
-      hm-rebuild = "${config.my.flakeDir}/scripts/hm-rebuild.sh";
       collect-garbage = lib.mkForce "nix-collect-garbage --delete-older-than 7d";
     };
   };
