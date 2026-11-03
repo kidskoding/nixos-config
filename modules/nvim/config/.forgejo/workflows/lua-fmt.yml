@@ -1,6 +1,7 @@
 name: lua format
 
-on: [push, pull_request]
+on:
+  push
 
 env:
   NIX_CONFIG: experimental-features = nix-command flakes
