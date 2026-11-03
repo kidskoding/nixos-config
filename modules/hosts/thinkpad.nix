@@ -18,7 +18,7 @@
       };
     };
 
-    stylix.fonts.sizes.terminal = 20;
+    stylix.fonts.sizes.terminal = 18;
 
     systemd.tmpfiles.rules = [
       "w /sys/class/power_supply/BAT0/charge_control_end_threshold - - - - 100"
