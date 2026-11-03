@@ -1,6 +1,3 @@
-(vim.pack.add ["https://github.com/coder/claudecode.nvim"
-               "https://github.com/folke/sidekick.nvim"])
-
 (local claudecode (require :claudecode))
 (local sidekick (require :sidekick))
 (local sidekick-cli (require :sidekick.cli))

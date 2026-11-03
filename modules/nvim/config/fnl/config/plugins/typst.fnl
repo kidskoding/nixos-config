@@ -1,5 +1,3 @@
-(vim.pack.add ["https://github.com/chomosuke/typst-preview.nvim"])
-
 (local typst-preview (require :typst-preview))
 
 ;; use tinymist and websocat from PATH instead of downloading them

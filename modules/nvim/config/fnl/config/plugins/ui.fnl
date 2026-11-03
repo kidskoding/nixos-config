@@ -1,9 +1,3 @@
-(vim.pack.add ["https://github.com/nvim-lualine/lualine.nvim"
-               "https://github.com/nvim-tree/nvim-web-devicons"
-               "https://github.com/akinsho/bufferline.nvim"
-               "https://github.com/brenoprata10/nvim-highlight-colors"
-               "https://github.com/folke/which-key.nvim"])
-
 (local lualine (require :lualine))
 (local bufferline (require :bufferline))
 (local highlight-colors (require :nvim-highlight-colors))

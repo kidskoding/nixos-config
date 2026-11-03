@@ -12,7 +12,7 @@
       lib.genAttrs systems (system:
         f (import nixpkgs {
           inherit system;
-          config.allowUnfreePredicate = pkg: lib.getName pkg == "intelephense";
+          config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) ["intelephense" "copilot-language-server"];
         }));
   in {
     packages = forAllSystems (pkgs: let
@@ -22,19 +22,16 @@
           ./init.lua
           ./fnl
           ./flsproject.fnl
-          ./nvim-pack-lock.json
+          ./plugins.nix
         ];
       };
 
       deps = builtins.filter (lib.meta.availableOn pkgs.stdenv.hostPlatform) (with pkgs; [
-        # plugin installs, parsers, pickers
+        # plugin downloads, pickers
         curl
         git
-        gnutar
         ripgrep
         fd
-        stdenv.cc
-        tree-sitter
 
         # plugin tools
         difftastic
@@ -81,6 +78,11 @@
         yaml-language-server
         zls
       ]);
+
+      nvim = pkgs.wrapNeovimUnstable pkgs.neovim-unwrapped {
+        plugins = import ./plugins.nix pkgs.vimPlugins;
+        wrapRc = false;
+      };
     in {
       default = pkgs.writeShellApplication {
         name = "nvim";
@@ -98,7 +100,7 @@
             ${pkgs.coreutils}/bin/cp -rT --no-preserve=mode ${config} "$dir"
           fi
 
-          exec ${pkgs.neovim-unwrapped}/bin/nvim "$@"
+          exec ${nvim}/bin/nvim "$@"
         '';
       };
     });

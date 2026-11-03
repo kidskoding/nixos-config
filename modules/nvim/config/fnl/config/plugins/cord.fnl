@@ -1,5 +1,3 @@
-(vim.pack.add ["https://github.com/vyfor/cord.nvim"])
-
 (local cord (require :cord))
 
 ;; discord rich presence

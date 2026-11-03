@@ -1,4 +1,3 @@
-# neovim plugins, shared by flake.nix (portable `nix run`) and ../home.nix
 vimPlugins:
 with vimPlugins; [
   # fennel

@@ -1,6 +1,3 @@
-(vim.pack.add ["https://github.com/neovim/nvim-lspconfig"
-               "https://github.com/folke/trouble.nvim"])
-
 (vim.lsp.config :lua_ls {:settings {:Lua {:diagnostics {:globals [:vim]}}}})
 
 (vim.lsp.config :ruff {:init_options {:settings {:showSyntaxErrors false

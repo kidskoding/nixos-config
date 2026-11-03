@@ -4,10 +4,6 @@
 (set vim.g.db_ui_winwidth 40)
 (set vim.g.db_ui_execute_on_save 0)
 
-(vim.pack.add ["https://github.com/tpope/vim-dadbod"
-               "https://github.com/kristijanhusak/vim-dadbod-ui"
-               "https://github.com/kristijanhusak/vim-dadbod-completion"])
-
 (fn map [key cmd desc]
   (vim.keymap.set :n key (.. :<cmd> cmd :<CR>) {: desc}))
 

@@ -2,7 +2,7 @@
 
 a minimal Neovim config written in Fennel: compiled by [hotpot.nvim](https://github.com/rktjmp/hotpot.nvim)!
 
-plugins are managed by Neovim's built-in `vim.pack`!
+plugins come from nixpkgs, listed in `plugins.nix`!
 
 ![](screenshots/splash.png)
 

@@ -1,14 +1,3 @@
-(vim.pack.add ["https://github.com/windwp/nvim-autopairs"
-               "https://github.com/NMAC427/guess-indent.nvim"
-               "https://github.com/kylechui/nvim-surround"
-               "https://github.com/okuuva/auto-save.nvim"
-               "https://github.com/mechatroner/rainbow_csv"
-               "https://github.com/MeanderingProgrammer/render-markdown.nvim"
-               "https://github.com/nvim-lua/plenary.nvim"
-               "https://github.com/stevearc/oil.nvim"
-               {:src "https://github.com/ThePrimeagen/harpoon"
-                :version :harpoon2}])
-
 (local autopairs (require :nvim-autopairs))
 (local guess-indent (require :guess-indent))
 (local surround (require :nvim-surround))

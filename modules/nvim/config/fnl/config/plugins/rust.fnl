@@ -2,9 +2,6 @@
      {:server {:default_settings {:rust-analyzer {:cargo {:allFeatures true}
                                                   :check {:command :clippy}}}}})
 
-(vim.pack.add ["https://github.com/mrcjkb/rustaceanvim"
-               "https://github.com/saecki/crates.nvim"])
-
 (local crates (require :crates))
 
 (crates.setup {:lsp {:enabled true :actions true :completion true :hover true}

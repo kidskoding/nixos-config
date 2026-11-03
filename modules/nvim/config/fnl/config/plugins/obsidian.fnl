@@ -1,6 +1,3 @@
-(vim.pack.add [{:src "https://github.com/obsidian-nvim/obsidian.nvim"
-                :version (vim.version.range "*")}])
-
 (local obsidian (require :obsidian))
 
 ;; obsidian.nvim errors at startup when no workspace path exists, so only

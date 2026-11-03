@@ -1,7 +1,3 @@
-(vim.pack.add ["https://github.com/folke/snacks.nvim"
-               "https://github.com/folke/todo-comments.nvim"
-               "https://github.com/folke/persistence.nvim"])
-
 (local snacks (require :snacks))
 (local persistence (require :persistence))
 
