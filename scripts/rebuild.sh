@@ -17,6 +17,9 @@ git pull -q --rebase --autostash
 # github before building, so every host locks the same versions in flake.lock
 nix flake update anikonistack
 
+head_before=$(git rev-parse HEAD)
+"$FLAKE_DIR/scripts/nvim-sync.sh" || echo "neovim sync failed; continuing with the rebuild."
+
 # flakes only see files that git knows about, so stage everything first!
 stage_config() {
     if [ -n "$(git ls-files -- modules/nvim/config)" ]; then
@@ -29,7 +32,8 @@ stage_config() {
 }
 stage_config
 
-if git diff --cached --quiet; then
+# a new neovim commit still needs a rebuild: plugins.nix lives in the subtree
+if git diff --cached --quiet && [ "$(git rev-parse HEAD)" = "$head_before" ]; then
     echo "no changes detected, exiting."
     exit 0
 fi
@@ -71,7 +75,7 @@ else
     msg="nixos rebuild $(date -Iseconds)"
 fi
 
-git commit -m "$msg"
+git diff --cached --quiet || git commit -m "$msg"
 
 if ! git push -q origin HEAD && ! { git pull -q --rebase --autostash && git push -q origin HEAD; }; then
     echo "push failed; commit is local only. fix any rebase conflict, then run 'git push'."
