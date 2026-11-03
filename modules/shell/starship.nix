@@ -9,6 +9,7 @@
 
       settings = {
         format = "$os($username$hostname )$directory$git_branch$git_status$nix_shell$fill$all$cmd_duration$line_break$character";
+        fill.symbol = " ";
         battery.disabled = true;
 
         os = {
