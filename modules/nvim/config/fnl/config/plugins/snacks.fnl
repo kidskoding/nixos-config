@@ -35,7 +35,7 @@
 (local version (let [v (vim.version)]
                  (.. "NVIM v" v.major "." v.minor "." v.patch)))
 
-(local dashboard {:enabled false
+(local dashboard {:enabled true
                   :formats {:icon (fn [item]
                                     (if (= item.icon :directory)
                                         (doto (snacks.dashboard.icon item.file
