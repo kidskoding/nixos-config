@@ -39,7 +39,6 @@
       terraform
 
       # misc
-      spotify-player
       stripe-cli
     ];
   };

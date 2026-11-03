@@ -1,6 +1,6 @@
 # kidskoding.nvim
 
-a minimal Neovim config written in Fennel: compiled by [hotpot.nvim](https://github.com/rktjmp/hotpot.nvim)!
+a minimal Neovim config written in Lua!
 
 plugins come from nixpkgs, listed in `plugins.nix`!
 

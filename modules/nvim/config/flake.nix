@@ -1,5 +1,5 @@
 {
-  description = "kidskoding.nvim: a minimal Neovim config written in Fennel";
+  description = "kidskoding.nvim: a minimal Neovim config written in Lua";
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
   outputs = {nixpkgs, ...}: let
@@ -17,8 +17,8 @@
         root = ./.;
         fileset = lib.fileset.unions [
           ./init.lua
-          ./fnl
-          ./flsproject.fnl
+          ./lua
+          ./.stylua.toml
         ];
       };
 

@@ -1,8 +1,5 @@
 vimPlugins:
 with vimPlugins; [
-  # fennel
-  hotpot-nvim
-
   # colorscheme, ui
   gruvbox-nvim
   lualine-nvim
