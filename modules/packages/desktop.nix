@@ -68,7 +68,7 @@
       pkgs.corefonts
 
       # applications
-      pkgs.discord
+      (pkgs.discord.override {withVencord = true;})
       pkgs.doxygen_gui
       pkgs.libreoffice
       pkgs.obsidian
