@@ -35,10 +35,12 @@
 
       # cloud
       awscli2
+      databricks-cli
       terraform
 
-      # other
+      # misc
       spotify-player
+      stripe-cli
     ];
   };
 }
