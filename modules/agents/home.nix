@@ -31,6 +31,7 @@
         "duet"
         "open-steps"
         "vercel"
+        "databricks"
 
         "spartan-core"
         "spartan-database"

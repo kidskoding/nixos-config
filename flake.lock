@@ -6,6 +6,7 @@
         "ckorhonen-skills": "ckorhonen-skills",
         "claude-duet": "claude-duet",
         "claude-plugins-official": "claude-plugins-official",
+        "databricks-agent-skills": "databricks-agent-skills",
         "firecrawl-plugin": "firecrawl-plugin",
         "graphify": "graphify",
         "impeccable": "impeccable",
@@ -27,11 +28,11 @@
         "vercel-skills": "vercel-skills"
       },
       "locked": {
-        "lastModified": 1793676106,
-        "narHash": "sha256-xygMWpuTht4ZsaBmEMfF1o49mL9Cdg8ONc0IzEy0ZzU=",
+        "lastModified": 1793695423,
+        "narHash": "sha256-ECviISsVjWNqqPYyV4dOCCHoYe0aqu7kv75WxVPsMu8=",
         "owner": "kidskoding",
         "repo": "anikonistack",
-        "rev": "274bca45de5c27f0aaa4cc5159aefdeaf6678128",
+        "rev": "13e148ecd6f2589bf6d56b7a09e1dfe8b5fc7eae",
         "type": "github"
       },
       "original": {
@@ -365,6 +366,22 @@
       "original": {
         "owner": "Impqxr",
         "repo": "cromite-nix-flake",
+        "type": "github"
+      }
+    },
+    "databricks-agent-skills": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1793694188,
+        "narHash": "sha256-NZGiNWaqwjazr0YgKN5KDs+Q4C3rPXGTeysMeUXGXW4=",
+        "owner": "databricks",
+        "repo": "databricks-agent-skills",
+        "rev": "4fef825aac71a17efa4934f193386efc50c09575",
+        "type": "github"
+      },
+      "original": {
+        "owner": "databricks",
+        "repo": "databricks-agent-skills",
         "type": "github"
       }
     },
