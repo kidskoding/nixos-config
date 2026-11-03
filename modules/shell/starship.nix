@@ -8,7 +8,7 @@
       enable = true;
 
       settings = {
-        format = "$os($username$hostname )$directory$git_branch$git_status$nix_shell$all$cmd_duration$line_break$character";
+        format = "$os($username$hostname )$directory$git_branch$git_status$nix_shell$fill$all$cmd_duration$line_break$character";
         battery.disabled = true;
 
         os = {
