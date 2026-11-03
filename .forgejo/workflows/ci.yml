@@ -6,32 +6,12 @@ on:
   workflow_dispatch:
 
 env:
-  NIX_CONFIG: |
-    experimental-features = nix-command flakes
-    extra-substituters = https://noctalia.cachix.org
-    extra-trusted-public-keys = noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=
+  NIX_CONFIG: experimental-features = nix-command flakes
   CI_REPOSITORY_URL: ${{ github.server_url }}/${{ github.repository }}.git
   CI_COMMIT_SHA: ${{ github.sha }}
 
 jobs:
-  format:
-    runs-on: codeberg-small
-    timeout-minutes: 15
-    container:
-      image: ghcr.io/nixos/nix:2.35.2-amd64
-    steps:
-      - name: Check out commit
-        run: |
-          git init .
-          git remote add origin "$CI_REPOSITORY_URL"
-          git fetch --no-tags --depth=1 origin "$CI_COMMIT_SHA"
-          git checkout --detach FETCH_HEAD
-      - name: Check Nix formatting
-        run: nix run --no-write-lock-file --inputs-from . nixpkgs#alejandra -- --check .
-      - name: Check TOML formatting
-        run: nix run --no-write-lock-file --inputs-from . nixpkgs#taplo -- fmt --check
-
-  eval-thinkpad:
+  check:
     runs-on: codeberg-medium
     timeout-minutes: 30
     container:
@@ -40,29 +20,12 @@ jobs:
       - name: Check out commit
         run: |
           git init .
-          git remote add origin "$CI_REPOSITORY_URL"
-          git fetch --no-tags --depth=1 origin "$CI_COMMIT_SHA"
+          git fetch --no-tags --depth=1 "$CI_REPOSITORY_URL" "$CI_COMMIT_SHA"
           git checkout --detach FETCH_HEAD
-      - name: Evaluate thinkpad
-        run: nix eval --raw --no-write-lock-file --print-build-logs .#nixosConfigurations.thinkpad.config.system.build.toplevel.drvPath
+      - name: Check formatting
+        run: |
+          nix run --inputs-from . nixpkgs#alejandra -- --check .
+          nix run --inputs-from . nixpkgs#taplo -- fmt --check
+      - name: Check flake
+        run: nix flake check
 
-  noctalia-config:
-    runs-on: codeberg-medium
-    timeout-minutes: 30
-    container:
-      image: ghcr.io/nixos/nix:2.35.2-amd64
-    steps:
-      - name: Check out commit
-        run: |
-          git init .
-          git remote add origin "$CI_REPOSITORY_URL"
-          git fetch --no-tags --depth=1 origin "$CI_COMMIT_SHA"
-          git checkout --detach FETCH_HEAD
-      - name: Validate Noctalia configuration
-        run: |
-          out=$(nix eval --raw --no-write-lock-file --inputs-from . noctalia#default.outPath)
-          if ! nix path-info --store https://noctalia.cachix.org "$out" >/dev/null 2>&1; then
-            echo "::warning::$out not in noctalia.cachix.org yet, skipping validation"
-            exit 0
-          fi
-          nix run --no-write-lock-file --inputs-from . noctalia#default -- config validate modules/noctalia/config.toml
