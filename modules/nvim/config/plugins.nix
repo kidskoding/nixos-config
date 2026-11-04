@@ -2,8 +2,6 @@ vimPlugins:
 with vimPlugins; [
   # color themes!
   gruvbox-nvim
-  catppuccin-nvim
-  tokyonight-nvim
 
   # ui
   lualine-nvim

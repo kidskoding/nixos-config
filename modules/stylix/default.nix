@@ -49,10 +49,6 @@
   };
 in {
   flake.nixosModules.stylix = {
-    lib,
-    pkgs,
-    ...
-  }: {
     imports = [inputs.stylix.nixosModules.stylix common];
 
     stylix.targets = {
@@ -64,19 +60,6 @@ in {
 
     # keep discord on its own theme, not the stylix palette
     home-manager.sharedModules = [{stylix.targets.vencord.enable = false;}];
-
-    # gruvbox is the default; scripts/theme.sh switches to these prebuilt variants.
-    # home-manager follows the system stylix on nixos hosts, so this covers it too.
-    specialisation =
-      lib.mapAttrs (_: scheme: {
-        configuration.stylix = {
-          base16Scheme = lib.mkForce "${pkgs.base16-schemes}/share/themes/${scheme}.yaml";
-          override = lib.mkForce {}; # the base05 override is gruvbox-only
-        };
-      }) {
-        catppuccin = "catppuccin-mocha";
-        tokyonight = "tokyo-night-moon";
-      };
   };
 
   flake.homeModules.stylix = {
