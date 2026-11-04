@@ -20,19 +20,20 @@ nix flake update anikonistack
 # flakes only see files that git knows about, so stage everything first!
 git add -A
 
+# no changes still rebuilds (e.g. after switching branches), just skips the commit
+changes=true
 if git diff --cached --quiet; then
-    echo "no changes detected, exiting."
-    exit 0
+    changes=false
+    echo "no changes detected, rebuilding without a commit."
+else
+    echo "formatting to enforce ci"
+    alejandra -q .
+    (cd modules/nvim/config && stylua .)
+    git add -A
+
+    git --no-pager diff --cached --stat
+    DFT_DISPLAY=inline git --no-pager diff --cached
 fi
-
-echo "formatting to enforce ci"
-alejandra -q .
-(cd modules/nvim/config && stylua .)
-git add -A
-
-# show what changed: every staged file, then a structural diff via difftastic
-git --no-pager diff --cached --stat
-DFT_DISPLAY=inline git --no-pager diff --cached
 
 echo "rebuilding nixos..."
 
@@ -43,14 +44,15 @@ if ! script -qefc "sudo nixos-rebuild switch --flake \"$FLAKE_DIR#$HOST\" --upgr
     exit 1
 fi
 
-# show what the new generation actually changed
 if command -v nvd &> /dev/null; then
     nvd diff "$before" /run/current-system || true
 fi
 
+if [ "$changes" = false ]; then
+    exit 0
+fi
+
 # commit with the generation metadata.
-# nixos-rebuild-ng prints a table whose last column is True for the live
-# generation, so match that rather than grepping for the word "current".
 gen=$(nixos-rebuild list-generations 2>/dev/null | awk 'NR > 1 && $NF == "True"')
 
 if [ -n "$gen" ]; then
