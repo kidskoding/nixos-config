@@ -75,7 +75,7 @@ in {
         };
       }) {
         catppuccin = "catppuccin-mocha";
-        tokyonight = "tokyo-night-dark";
+        tokyonight = "tokyo-night-moon";
       };
   };
 
