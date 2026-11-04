@@ -62,6 +62,9 @@ in {
       plymouth.enable = false;
     };
 
+    # keep discord on its own theme, not the stylix palette
+    home-manager.sharedModules = [{stylix.targets.vencord.enable = false;}];
+
     # gruvbox is the default; scripts/theme.sh switches to these prebuilt variants.
     # home-manager follows the system stylix on nixos hosts, so this covers it too.
     specialisation =
@@ -78,5 +81,6 @@ in {
 
   flake.homeModules.stylix = {
     imports = [inputs.stylix.homeModules.stylix common];
+    stylix.targets.vencord.enable = false;
   };
 }

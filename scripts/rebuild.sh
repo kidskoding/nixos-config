@@ -65,7 +65,8 @@ if ! git push -q origin HEAD && ! { git pull -q --rebase --autostash && git push
     echo "push failed; commit is local only. fix any rebase conflict, then run 'git push'."
 fi
 
-# send the neovim part of that commit to kidskoding.nvim. signing is off so the
-# copied commits come out identical every time and the push stays a fast-forward.
-git -c commit.gpgsign=false subtree push -q --prefix=modules/nvim/config nvim master ||
-    echo "kidskoding.nvim push failed; rerun: git -c commit.gpgsign=false subtree push --prefix=modules/nvim/config nvim master"
+# send the neovim part of that commit to kidskoding.nvim. the copied commits are
+# signed too; ed25519 ssh signatures are deterministic, so every split rebuilds
+# the same hashes and the push stays a fast-forward.
+git subtree push -q --prefix=modules/nvim/config nvim master ||
+    echo "kidskoding.nvim push failed; rerun: git subtree push --prefix=modules/nvim/config nvim master"
