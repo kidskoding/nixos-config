@@ -1,7 +1,11 @@
 vimPlugins:
 with vimPlugins; [
-  # colorscheme, ui
+  # color themes!
   gruvbox-nvim
+  catppuccin-nvim
+  tokyonight-nvim
+
+  # ui
   lualine-nvim
   nvim-web-devicons
   bufferline-nvim

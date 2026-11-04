@@ -57,19 +57,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    /*
-    noctalia family!
-    */
+    # noctalia: the noctalia family!!
     umbriel = {
       url = "github:noctalia-dev/umbriel";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     noctalia = {
       url = "github:kidskoding/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     noctalia-greeter = {
       url = "github:noctalia-dev/noctalia-greeter";
       inputs.nixpkgs.follows = "nixpkgs";
