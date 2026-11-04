@@ -13,7 +13,7 @@ cd "$FLAKE_DIR"
 
 git pull -q --rebase --autostash
 
-# pull the latest agent skills (anikonistack) and the noctalia family from
+# pull the latest agent skills (anikonistack) from 
 # github before building, so every host locks the same versions in flake.lock
 nix flake update anikonistack
 
@@ -39,7 +39,7 @@ echo "rebuilding nixos..."
 before=$(readlink -f /run/current-system)
 
 if ! script -qefc "sudo nixos-rebuild switch --flake \"$FLAKE_DIR#$HOST\" --upgrade" nixos-switch.log; then
-    grep --color error nixos-switch.log || tail -n 40 nixos-switch.log
+    rg error nixos-switch.log || tail -n 40 nixos-switch.log
     exit 1
 fi
 
