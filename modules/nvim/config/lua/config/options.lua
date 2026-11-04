@@ -5,6 +5,16 @@ vim.o.number = true
 vim.o.wrap = true
 vim.o.linebreak = true
 vim.o.cursorline = true
+vim.o.cursorlineopt = "screenline,number"
+
+vim.keymap.set({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, desc = "Down (screen line)" })
+vim.keymap.set({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, desc = "Up (screen line)" })
+vim.keymap.set("n", "<leader>uw", "<cmd>setlocal wrap!<CR>", { desc = "Toggle wrap" })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "markdown", "typst", "text" },
+  callback = function() vim.bo.textwidth = 80 end,
+})
 
 -- 4-space indent!
 vim.o.expandtab = true

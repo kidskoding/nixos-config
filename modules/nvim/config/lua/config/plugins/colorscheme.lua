@@ -1,6 +1,8 @@
 local gruvbox = require("gruvbox")
 
 gruvbox.setup({
+  contrast = "", -- medium
+
   italic = {
     strings = false,
     emphasis = false,
@@ -8,6 +10,7 @@ gruvbox.setup({
     operators = false,
     folds = false,
   },
+
   overrides = {
     -- treesitter: brackets and delimiters in plain fg
     ["@punctuation.bracket"] = { link = "GruvboxFg1" },
