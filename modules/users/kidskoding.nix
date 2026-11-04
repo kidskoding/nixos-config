@@ -12,6 +12,7 @@
       ];
 
       programs.fish.shellAliases.rebuild = "/home/kidskoding/nixos/scripts/rebuild.sh";
+      programs.fish.shellAliases.theme = "/home/kidskoding/nixos/scripts/theme.sh";
     };
   };
 }

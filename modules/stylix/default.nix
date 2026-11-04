@@ -49,6 +49,10 @@
   };
 in {
   flake.nixosModules.stylix = {
+    lib,
+    pkgs,
+    ...
+  }: {
     imports = [inputs.stylix.nixosModules.stylix common];
 
     stylix.targets = {
@@ -57,6 +61,19 @@ in {
       nixos-icons.enable = false;
       plymouth.enable = false;
     };
+
+    # gruvbox is the default; scripts/theme.sh switches to these prebuilt variants.
+    # home-manager follows the system stylix on nixos hosts, so this covers it too.
+    specialisation =
+      lib.mapAttrs (_: scheme: {
+        configuration.stylix = {
+          base16Scheme = lib.mkForce "${pkgs.base16-schemes}/share/themes/${scheme}.yaml";
+          override = lib.mkForce {}; # the base05 override is gruvbox-only
+        };
+      }) {
+        catppuccin = "catppuccin-mocha";
+        tokyonight = "tokyo-night-dark";
+      };
   };
 
   flake.homeModules.stylix = {

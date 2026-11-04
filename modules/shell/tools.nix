@@ -11,6 +11,7 @@
       # additional user system tools
       fd
       jq
+      just
       ripgrep
       tree
       tree-sitter
