@@ -28,11 +28,11 @@
         "vercel-skills": "vercel-skills"
       },
       "locked": {
-        "lastModified": 1793811967,
-        "narHash": "sha256-qlP+iYmo9ImcAZMjMBRcYiLhPmrhClItHlddU+UkC10=",
+        "lastModified": 1793812906,
+        "narHash": "sha256-4AdubHD2GqPotMnVMz4Bbz0y8SiTOtvRxuHuPMuu9s0=",
         "owner": "kidskoding",
         "repo": "anikonistack",
-        "rev": "77e119bc3eee8f05dbbbed75a460d2e76aa36447",
+        "rev": "9d13721c1fdf4e564937dc5655dfbb00fbf2cd1d",
         "type": "github"
       },
       "original": {
@@ -1037,11 +1037,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793516308,
-        "narHash": "sha256-GvVB/gQBmCsERvugQD7FUUflLZCT1d8XScySyNTZAUQ=",
+        "lastModified": 1793805001,
+        "narHash": "sha256-UflBGVV6P7QKG1roXt+MG4rujEcKe0p1xVTtvTNpSEA=",
         "owner": "kidskoding",
         "repo": "noctalia",
-        "rev": "b956c3ebe827a0f0b873255912c457e88de2de11",
+        "rev": "65caa63fc517cb219ab123e756993e17cb6207e1",
         "type": "github"
       },
       "original": {
