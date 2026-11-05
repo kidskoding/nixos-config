@@ -108,7 +108,7 @@
     users.users.kidskoding.initialPassword = "test";
     services.greetd.settings.initial_session = {
       user = "kidskoding";
-      command = "start-umbriel";
+      command = "niri-session";
     };
     services.xserver.videoDrivers = lib.mkForce ["modesetting"];
     virtualisation = {
