@@ -61,23 +61,24 @@
       };
     };
 
-    home.packages = [
+    home.packages = with pkgs; [
       # fonts
-      pkgs.nerd-fonts.symbols-only
-      pkgs.symbola
-      pkgs.corefonts
+      nerd-fonts.symbols-only
+      symbola
+      corefonts
 
       # applications
-      (pkgs.discord.override {withVencord = true;})
-      pkgs.doxygen_gui
-      pkgs.libreoffice
-      pkgs.obsidian
-      pkgs.popsicle
-      pkgs.ruffle
-      pkgs.spotify
-      pkgs.teams-for-linux
-      pkgs.zathura
-      pkgs.zoom-us
+      (discord.override {withVencord = true;})
+      doxygen_gui
+      libreoffice
+      obsidian
+      popsicle
+      ruffle
+      slack
+      spotify
+      teams-for-linux
+      zathura
+      zoom-us
 
       inputs.claude-desktop.packages.${system}.claude-desktop-with-fhs
       inputs.llm-agents.packages.${system}.orca # a wonderful ade for working with many coding agents!
