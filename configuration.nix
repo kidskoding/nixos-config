@@ -108,7 +108,7 @@
     users.users.kidskoding.initialPassword = "test";
     services.greetd.settings.initial_session = {
       user = "kidskoding";
-      command = "mango";
+      command = "start-umbriel";
     };
     services.xserver.videoDrivers = lib.mkForce ["modesetting"];
     virtualisation = {

@@ -53,7 +53,6 @@
       shell
       stylix
 
-      mango
       umbriel
       noctalia
       desktop

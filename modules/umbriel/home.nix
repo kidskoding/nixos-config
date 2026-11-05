@@ -27,6 +27,13 @@
       org.freedesktop.impl.portal.Secret=gnome-keyring;
     '';
 
+    programs.fish.loginShellInit = ''
+      if test (tty) = /dev/tty1; and not set -q UMBRIEL_SESSION_STARTED
+        set -gx UMBRIEL_SESSION_STARTED 1
+        exec start-umbriel
+      end
+    '';
+
     programs.umbriel.enable = true;
     programs.umbriel.settings = {
       general = {

@@ -26,24 +26,6 @@
     };
   };
 
-  flake.homeModules.mango = {
-    config,
-    lib,
-    ...
-  }: let
-    d = config.my.display;
-  in {
-    xdg.configFile."mango/config.conf".text = lib.concatLines (
-      [
-        "monitorrule=name:^${d.output}$,width:${toString d.width},height:${toString d.height},${lib.optionalString (d.refresh != null) "refresh:${toString d.refresh},"}x:0,y:0,scale:${toString d.scale}"
-      ]
-      ++ lib.optionals (d.textScale != 1.0) [
-        "env=GDK_DPI_SCALE,${lib.strings.floatToString d.textScale}"
-        "env=QT_FONT_DPI,${toString (builtins.floor (96 * d.textScale))}"
-      ]
-    );
-  };
-
   flake.homeModules.base = {
     config,
     lib,
