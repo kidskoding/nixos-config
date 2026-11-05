@@ -28,7 +28,6 @@
       terminal
     ];
   in {
-    # mango sets XDG_CURRENT_DESKTOP=mango, so the portal picks this file; FileChooser goes to kde like umbriel
     xdg.configFile."xdg-desktop-portal/mango-portals.conf".text = ''
       [preferred]
       default=gtk;
@@ -59,7 +58,6 @@
         "trackpad_accel_profile=1"
         "mouse_accel_profile=1"
 
-        # every tag scrolls, Mod+T cycles to dwindle and master-stack
         "tagrule=id:*,layout_name:scroller"
         "circle_layout=scroller,dwindle,tile"
 

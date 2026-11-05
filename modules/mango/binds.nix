@@ -10,7 +10,6 @@
 
     screenshot = grimArgs: "spawn_shell,d=~/Pictures/Screenshots; mkdir -p $d; f=$d/$(date +%Y-%m-%dT%H:%M:%S).png; grim ${grimArgs} \"$f\" && wl-copy < \"$f\" && notify-send -a Screenshot -i \"$f\" 'Screenshot saved' \"$f\"";
 
-    # mango tags stop at 9, so umbriel's workspace 10 (Mod+0) has no equivalent
     tags = map toString (lib.range 1 9);
     tagBinds =
       lib.concatMap (t: [
@@ -20,7 +19,6 @@
       ])
       tags;
 
-    # bindl: still works on the lock screen
     locked = key: cmd: "bindl=NONE,${key},spawn,${cmd}";
   in {
     xdg.configFile."mango/config.conf".text = lib.concatLines (

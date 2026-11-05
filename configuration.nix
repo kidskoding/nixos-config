@@ -72,7 +72,10 @@
     }
   ];
 
-  services.logind.settings.Login.HandleLidSwitch = "suspend";
+  services.logind.settings.Login = {
+    HandleLidSwitch = "poweroff";
+    HandlePowerKey = "lock";
+  };
 
   time.timeZone = "America/Chicago";
   i18n.defaultLocale = "en_US.UTF-8";
