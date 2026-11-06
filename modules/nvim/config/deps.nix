@@ -8,6 +8,7 @@ with pkgs; [
 
   # plugin tools
   difftastic
+  gh
   lazygit
   websocat
   zathura

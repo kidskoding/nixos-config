@@ -45,3 +45,6 @@ warning_threshold = 30
 [dock]
 enabled = false
 background_opacity = 1.0
+
+[audio]
+enable_volume_sounds = false
