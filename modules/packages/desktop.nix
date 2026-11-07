@@ -27,6 +27,11 @@
         args = ["mcp"];
       };
 
+      filmcraft = {
+        command = "filmcraft-cli";
+        args = ["mcp"];
+      };
+
       gridcraft = {
         command = "gridcraft-cli";
         args = ["mcp"];
@@ -89,7 +94,7 @@
       inputs.artcraft-nix.packages.${system}.deckcraft # powerpoint clone
       # inputs.artcraft-nix.packages.${system}.designcraft  # indesign clone
       # inputs.artcraft-nix.packages.${system}.effectcraft  # after effects clone
-      # inputs.artcraft-nix.packages.${system}.filmcraft    # premiere pro clone
+      inputs.artcraft-nix.packages.${system}.filmcraft # premiere pro clone
       inputs.artcraft-nix.packages.${system}.gridcraft # excel clone
       # inputs.artcraft-nix.packages.${system}.lightcraft   # lightroom clone
       inputs.artcraft-nix.packages.${system}.pdfcraft # acrobat clone
