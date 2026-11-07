@@ -73,8 +73,8 @@
   ];
 
   services.logind.settings.Login = {
-    HandleLidSwitch = "poweroff";
-    HandlePowerKey = "lock";
+    HandleLidSwitch = "lock";
+    HandlePowerKey = "poweroff";
   };
 
   time.timeZone = "America/Chicago";
