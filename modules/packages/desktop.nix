@@ -7,6 +7,13 @@
 
   flake.homeModules.desktop = {pkgs, ...}: let
     system = pkgs.stdenv.hostPlatform.system;
+    craft = name:
+      pkgs.symlinkJoin {
+        name = "${name}-dbus";
+        paths = [inputs.artcraft-nix.packages.${system}.${name}];
+        nativeBuildInputs = [pkgs.makeWrapper];
+        postBuild = "wrapProgram $out/bin/${name} --prefix LD_LIBRARY_PATH : ${pkgs.lib.makeLibraryPath [pkgs.dbus]}";
+      };
   in {
     my.caches = [
       # llm-agents (numtide) cache
@@ -91,17 +98,17 @@
 
       # artcraft apps
       # inputs.artcraft-nix.packages.${system}.cadcraft     # autocad clone
-      inputs.artcraft-nix.packages.${system}.deckcraft # powerpoint clone
+      (craft "deckcraft") # powerpoint clone
       # inputs.artcraft-nix.packages.${system}.designcraft  # indesign clone
       # inputs.artcraft-nix.packages.${system}.effectcraft  # after effects clone
-      inputs.artcraft-nix.packages.${system}.filmcraft # premiere pro clone
-      inputs.artcraft-nix.packages.${system}.gridcraft # excel clone
+      (craft "filmcraft") # premiere pro clone
+      (craft "gridcraft") # excel clone
       # inputs.artcraft-nix.packages.${system}.lightcraft   # lightroom clone
-      inputs.artcraft-nix.packages.${system}.pdfcraft # acrobat clone
+      (craft "pdfcraft") # acrobat clone
       # inputs.artcraft-nix.packages.${system}.photocraft   # photoshop clone
-      inputs.artcraft-nix.packages.${system}.soundcraft # pro tools clone
+      (craft "soundcraft") # pro tools clone
       # inputs.artcraft-nix.packages.${system}.vectorcraft  # illustrator clone
-      inputs.artcraft-nix.packages.${system}.wordcraft # word clone
+      (craft "wordcraft") # word clone
 
       inputs.cromite.packages.${system}.default
     ];

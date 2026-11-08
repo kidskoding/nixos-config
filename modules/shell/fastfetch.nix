@@ -69,7 +69,7 @@
           }
           {
             type = "custom";
-            key = "│ {#${orange}} toolkit {#keys}│";
+            key = "│ {#${orange}} desktop {#keys}│";
             format = "noctalia ${noctalia.version}";
           }
           {
