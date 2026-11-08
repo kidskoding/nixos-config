@@ -11,6 +11,7 @@ HOST="${HOST:-thinkpad}"
 
 cd "$FLAKE_DIR"
 
+head=$(git rev-parse HEAD)
 git pull -q --rebase --autostash
 
 # pull the latest agent skills (anikonistack) from 
@@ -23,7 +24,11 @@ git add -A
 changes=true
 if git diff --cached --quiet; then
     changes=false
-    echo "no local changes, nothing to commit."
+    if [ "$(git rev-parse HEAD)" = "$head" ]; then
+        echo "no changes, skipping rebuild."
+        exit 0
+    fi
+    echo "no local changes, rebuilding pulled commits without a commit."
 else
     echo "formatting to enforce ci"
     alejandra -q .
@@ -34,24 +39,17 @@ else
     DFT_DISPLAY=inline git --no-pager diff --cached
 fi
 
+echo "rebuilding nixos..."
+
 before=$(readlink -f /run/current-system)
 
-echo "checking if the system changed..."
-target=$(nix eval --raw ".#nixosConfigurations.$HOST.config.system.build.toplevel.outPath")
+if ! script -qefc "sudo nixos-rebuild switch --flake \"$FLAKE_DIR#$HOST\" --upgrade" nixos-switch.log; then
+    rg error nixos-switch.log || tail -n 40 nixos-switch.log
+    exit 1
+fi
 
-if [ "$target" = "$before" ]; then
-    echo "system is already up to date, skipping rebuild."
-else
-    echo "rebuilding nixos..."
-
-    if ! script -qefc "sudo nixos-rebuild switch --flake \"$FLAKE_DIR#$HOST\" --upgrade" nixos-switch.log; then
-        rg error nixos-switch.log || tail -n 40 nixos-switch.log
-        exit 1
-    fi
-
-    if command -v nvd &> /dev/null; then
-        nvd diff "$before" /run/current-system || true
-    fi
+if command -v nvd &> /dev/null; then
+    nvd diff "$before" /run/current-system || true
 fi
 
 if [ "$changes" = false ]; then
