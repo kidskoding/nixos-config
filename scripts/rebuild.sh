@@ -36,6 +36,7 @@ fi
 
 before=$(readlink -f /run/current-system)
 
+echo "checking if the system changed..."
 target=$(nix eval --raw ".#nixosConfigurations.$HOST.config.system.build.toplevel.outPath")
 
 if [ "$target" = "$before" ]; then
