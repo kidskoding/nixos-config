@@ -80,7 +80,7 @@
       corefonts
 
       # applications
-      (discord.override {withVencord = true;})
+      discord
       doxygen_gui
       libreoffice
       obsidian

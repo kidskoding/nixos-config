@@ -57,13 +57,9 @@ in {
       nixos-icons.enable = false;
       plymouth.enable = false;
     };
-
-    # keep discord on its own theme, not the stylix palette
-    home-manager.sharedModules = [{stylix.targets.vencord.enable = false;}];
   };
 
   flake.homeModules.stylix = {
     imports = [inputs.stylix.homeModules.stylix common];
-    stylix.targets.vencord.enable = false;
   };
 }
