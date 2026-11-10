@@ -33,7 +33,7 @@
           ];
 
           normal = {
-            "bind \"Ctrl g\"" = {
+            "bind \"Alt g\"" = {
               SwitchToMode = "Tmux";
             };
           };
