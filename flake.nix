@@ -112,6 +112,8 @@
 
     # artcraft: rust clones of creative/office apps
     artcraft-nix.url = "github:applicative-systems/artcraft-nix";
+
+    herdr-nix.url = "github:herdrdev/herdr-nix";
   };
 
   outputs = inputs:
