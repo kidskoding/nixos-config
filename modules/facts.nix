@@ -14,6 +14,11 @@
       default = [];
     };
 
+    modKey = mkOption {
+      type = types.enum ["Super" "Alt"];
+      default = "Super";
+    };
+
     display = {
       output = mkOption {
         type = types.str;

@@ -40,6 +40,8 @@
     );
   in {
     programs.umbriel.settings = {
+      general.mod_key = config.my.modKey;
+
       workspace = map (ws: {name = ws;}) workspaceNames;
 
       keybinds =
@@ -90,14 +92,16 @@
           "Mod+Shift+Right" = "column-move-right";
           "Mod+Shift+Down" = "window-move-down";
           "Mod+Shift+Up" = "window-move-up";
-
+        }
+        // lib.optionalAttrs (config.my.modKey == "Super") {
           "Mod+Alt+H" = "output-focus-left";
           "Mod+Alt+L" = "output-focus-right";
           "Mod+Shift+Alt+H" = "column-move-to-output-left";
           "Mod+Shift+Alt+L" = "column-move-to-output-right";
           "Mod+Ctrl+Alt+H" = "workspace-move-to-output-left";
           "Mod+Ctrl+Alt+L" = "workspace-move-to-output-right";
-
+        }
+        // {
           "Print" = screenshot "";
           "Mod+Shift+S" = screenshot "-g \"$(slurp)\"";
 

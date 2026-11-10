@@ -22,7 +22,6 @@
 
         keybinds = {
           unbind = [
-            "Ctrl g"
             "Ctrl p"
             "Ctrl n"
             "Ctrl t"
@@ -34,114 +33,124 @@
           ];
 
           normal = {
-            "bind \"Alt x\"" = {
+            "bind \"Ctrl g\"" = {
+              SwitchToMode = "Tmux";
+            };
+          };
+
+          tmux = {
+            "bind \"x\"" = {
               CloseFocus = [];
             };
-            "bind \"Alt s\"" = {
+            "bind \"s\"" = {
               NewPane = "stacked";
             };
-            "bind \"Alt n\"" = {
+            "bind \"n\"" = {
               NewPane = "right";
             };
-            "bind \"Alt d\"" = {
+            "bind \"d\"" = {
               NewPane = "down";
             };
-            "bind \"Alt t\"" = {
+            "bind \"t\"" = {
               NewTab = [];
             };
-            "bind \"Alt f\"" = {
+            "bind \"f\"" = {
               ToggleFocusFullscreen = [];
             };
-            "bind \"Alt w\"" = {
+            "bind \"w\"" = {
               ToggleFloatingPanes = [];
             };
-            "bind \"Alt m\"" = {
+            "bind \"m\"" = {
               _children = [
                 {Resize = "Decrease";}
                 {MovePane = "right";}
               ];
             };
 
-            "bind \"Ctrl Alt h\"" = {
+            "bind \"H\"" = {
               MovePane = "left";
             };
-            "bind \"Ctrl Alt j\"" = {
+            "bind \"J\"" = {
               MovePane = "down";
             };
-            "bind \"Ctrl Alt k\"" = {
+            "bind \"K\"" = {
               MovePane = "up";
             };
-            "bind \"Ctrl Alt l\"" = {
+            "bind \"L\"" = {
               MovePane = "right";
             };
-            "bind \"Alt b\"" = {
+            "bind \"b\"" = {
               BreakPane = [];
             };
-            "bind \"Alt u\"" = {
+            "bind \"u\"" = {
               NextSwapLayout = [];
             };
 
-            "bind \"Alt 1\"" = {GoToTab = 1;};
-            "bind \"Alt 2\"" = {GoToTab = 2;};
-            "bind \"Alt 3\"" = {GoToTab = 3;};
-            "bind \"Alt 4\"" = {GoToTab = 4;};
-            "bind \"Alt 5\"" = {GoToTab = 5;};
-            "bind \"Alt 6\"" = {GoToTab = 6;};
-            "bind \"Alt 7\"" = {GoToTab = 7;};
-            "bind \"Alt 8\"" = {GoToTab = 8;};
-            "bind \"Alt 9\"" = {GoToTab = 9;};
-            "bind \"Alt r\"" = {
+            "bind \"1\"" = {GoToTab = 1;};
+            "bind \"2\"" = {GoToTab = 2;};
+            "bind \"3\"" = {GoToTab = 3;};
+            "bind \"4\"" = {GoToTab = 4;};
+            "bind \"5\"" = {GoToTab = 5;};
+            "bind \"6\"" = {GoToTab = 6;};
+            "bind \"7\"" = {GoToTab = 7;};
+            "bind \"8\"" = {GoToTab = 8;};
+            "bind \"9\"" = {GoToTab = 9;};
+            "bind \"r\"" = {
               _children = [
                 {SwitchToMode = "RenameTab";}
                 {TabNameInput = 0;}
               ];
             };
 
-            "bind \"Alt v\"" = {
+            "bind \"v\"" = {
               SwitchToMode = "Scroll";
             };
-            "bind \"Alt e\"" = {
+            "bind \"e\"" = {
               EditScrollback = [];
             };
 
-            "bind \"Alt S\" \"Alt Shift s\"" = {
+            "bind \"S\"" = {
               LaunchOrFocusPlugin = {
                 _args = ["session-manager"];
                 floating = true;
                 move_to_focused_tab = true;
               };
             };
-            "bind \"Alt q\"" = {
+            "bind \"q\"" = {
               Detach = [];
             };
-            "bind \"Alt Q\" \"Alt Shift q\"" = {
+            "bind \"Q\"" = {
               Quit = [];
             };
 
-            # Lock passes every key through to the app, for programs or nested
-            # sessions that need Alt.
-            "bind \"Alt g\"" = {
-              SwitchToMode = "Locked";
-            };
-
-            "bind \"Alt h\" \"Alt Left\"" = {
+            "bind \"h\"" = {
               MoveFocus = "Left";
             };
-            "bind \"Alt l\" \"Alt Right\"" = {
+            "bind \"l\"" = {
               MoveFocus = "Right";
             };
 
-            "bind \"Alt H\" \"Alt Shift h\" \"Alt K\" \"Alt Shift k\" \"Alt Shift Left\" \"Alt Shift Up\"" = {
+            "bind \"Left\"" = {
+              MoveFocus = "Left";
+            };
+            "bind \"Right\"" = {
+              MoveFocus = "Right";
+            };
+            "bind \"k\"" = {
+              MoveFocus = "Up";
+            };
+            "bind \"Down\"" = {
+              MoveFocus = "Down";
+            };
+            "bind \"Up\"" = {
+              MoveFocus = "Up";
+            };
+
+            "bind \"P\"" = {
               GoToPreviousTab = [];
             };
-            "bind \"Alt L\" \"Alt Shift l\" \"Alt J\" \"Alt Shift j\" \"Alt Shift Right\" \"Alt Shift Down\"" = {
+            "bind \"N\"" = {
               GoToNextTab = [];
-            };
-          };
-
-          locked = {
-            "bind \"Alt g\"" = {
-              SwitchToMode = "Normal";
             };
           };
         };
