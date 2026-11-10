@@ -1,0 +1,46 @@
+[include]
+files = ["input.toml", "layout.toml", "binds.toml", "rules.toml"]
+
+[general]
+show_cheatsheet = false
+autostart = [
+  "noctalia",
+  "nm-applet --indicator",
+  "wl-paste --watch cliphist store",
+  "ghostty",
+]
+
+[appearance]
+prefer_no_csd = true
+border_width = 2
+corner_radius = 8
+
+[appearance.shadow]
+enabled = true
+softness = 20
+offset_x = 0
+offset_y = 5
+
+[colors.border]
+focused = "#458588FF"
+unfocused = "#3C3836FF"
+
+[colors]
+shadow = "#282828EE"
+
+[environment]
+NIXOS_OZONE_WL = "1"
+GDK_BACKEND = "wayland,x11,*"
+QT_QPA_PLATFORM = "wayland;xcb"
+SDL_VIDEODRIVER = "wayland"
+CLUTTER_BACKEND = "wayland"
+QT_AUTO_SCREEN_SCALE_FACTOR = "0"
+QT_WAYLAND_DISABLE_WINDOWDECORATION = "1"
+GDK_SCALE = "1"
+MOZ_ENABLE_WAYLAND = "1"
+TERMINAL = "ghostty"
+
+[output.eDP-1]
+position = [0, 0]
+scale = 1.2
+workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]

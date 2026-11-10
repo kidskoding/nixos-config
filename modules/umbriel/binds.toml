@@ -1,0 +1,59 @@
+[keybinds]
+"Alt+Return" = "spawn ghostty"
+"Alt+E" = "spawn nautilus"
+"Alt+D" = "spawn noctalia msg panel-toggle launcher"
+"Alt+Space" = "spawn noctalia msg panel-toggle launcher"
+"Alt+A" = "spawn noctalia msg panel-toggle control-center home"
+"Alt+C" = "spawn noctalia msg panel-toggle clipboard"
+"Alt+Shift+E" = "spawn noctalia msg panel-toggle session"
+"Alt+Ctrl+L" = "spawn noctalia msg session lock"
+"Alt+Shift+R" = "spawn pkill -fx '.*/bin/noctalia'; while pgrep -fx '.*/bin/noctalia' >/dev/null; do sleep 0.1; done; noctalia"
+"Alt+Shift+C" = "spawn hyprpicker -a"
+"Alt+P" = "spawn pkill -x wl-mirror || wl-mirror --fullscreen-output HDMI-A-1 eDP-1"
+"Alt+Q" = "window-close"
+"Alt+M" = "session-quit"
+"Alt+O" = "overview-toggle"
+"Alt+W" = "column-toggle-tabbed"
+"Alt+T" = "workspace-set-layout toggle scrolling dwindle master"
+"Alt+F" = "window-toggle-maximize"
+"Alt+Shift+F" = "window-toggle-fullscreen"
+"Alt+Shift+Space" = "window-toggle-floating"
+"Alt+Ctrl+Space" = "window-focus-switch-floating"
+"Alt+R" = "window-cycle-primary-extent"
+"Alt+Comma" = "window-consume-from-right"
+"Alt+Period" = "window-consume-or-expel-right"
+"Alt+Tab" = "window-focus-down"
+"Alt+Shift+Tab" = "window-focus-up"
+"Alt+H" = "window-focus-left"
+"Alt+L" = "window-focus-right"
+"Alt+J" = "window-focus-down"
+"Alt+K" = "window-focus-up"
+"Alt+Left" = "window-focus-left"
+"Alt+Right" = "window-focus-right"
+"Alt+Down" = "window-focus-down"
+"Alt+Up" = "window-focus-up"
+"Alt+Shift+H" = "column-move-left"
+"Alt+Shift+L" = "column-move-right"
+"Alt+Shift+J" = "window-move-down"
+"Alt+Shift+K" = "window-move-up"
+"Alt+Shift+Left" = "column-move-left"
+"Alt+Shift+Right" = "column-move-right"
+"Alt+Shift+Down" = "window-move-down"
+"Alt+Shift+Up" = "window-move-up"
+"Alt+Ctrl+Left" = "output-focus-left"
+"Alt+Ctrl+Right" = "output-focus-right"
+"Alt+Ctrl+Shift+H" = "column-move-to-output-left"
+"Alt+Ctrl+Shift+L" = "column-move-to-output-right"
+"Alt+Shift+S" = "spawn d=~/Pictures/Screenshots; mkdir -p $d; f=$d/$(date +%Y-%m-%dT%H:%M:%S).png; grim -g \"$(slurp)\" \"$f\" && wl-copy < \"$f\" && notify-send -a Screenshot -i \"$f\" 'Screenshot saved' \"$f\""
+"Print" = "spawn d=~/Pictures/Screenshots; mkdir -p $d; f=$d/$(date +%Y-%m-%dT%H:%M:%S).png; grim \"$f\" && wl-copy < \"$f\" && notify-send -a Screenshot -i \"$f\" 'Screenshot saved' \"$f\""
+
+"XF86AudioRaiseVolume" = {action = "spawn wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+", allow_when_locked = true}
+"XF86AudioLowerVolume" = {action = "spawn wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-", allow_when_locked = true}
+"XF86AudioMute" = {action = "spawn wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle", allow_when_locked = true}
+"XF86AudioMicMute" = {action = "spawn wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle", allow_when_locked = true}
+"XF86AudioPlay" = {action = "spawn playerctl play-pause", allow_when_locked = true}
+"XF86AudioPause" = {action = "spawn playerctl play-pause", allow_when_locked = true}
+"XF86AudioNext" = {action = "spawn playerctl next", allow_when_locked = true}
+"XF86AudioPrev" = {action = "spawn playerctl previous", allow_when_locked = true}
+"XF86MonBrightnessUp" = {action = "spawn brightnessctl set +5%", allow_when_locked = true}
+"XF86MonBrightnessDown" = {action = "spawn brightnessctl set 5%-", allow_when_locked = true}

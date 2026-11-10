@@ -1,0 +1,8 @@
+[layout]
+mode = "scrolling"
+gap = 4
+extent_presets = [0.33333, 0.5, 0.66667, 1.0]
+
+[layout.scrolling]
+center_focused = "on_overflow"
+default_extent_fraction = 0.5
