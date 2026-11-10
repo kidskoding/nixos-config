@@ -28,7 +28,7 @@
         command = "${fd} --type f";
         options = [
           "--border-label=' files '"
-          "--preview='bat --color=always --style=numbers --theme=gruvbox-dark --line-range=:300 {}'"
+          "--preview='bat --color=always --style=numbers --line-range=:300 {}'"
         ];
       };
 
