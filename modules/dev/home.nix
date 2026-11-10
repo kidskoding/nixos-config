@@ -25,7 +25,6 @@ in {
     home-manager.sharedModules = [self.homeModules.${name}];
   });
 
-  # editors (nvim, helix) also join this group
   flake.homeModules.dev-core = {pkgs, ...}: {
     my.caches = [
       # devenv cache
