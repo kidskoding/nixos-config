@@ -4,6 +4,10 @@
   in {
     programs.niri.settings.layout = {
       gaps = 4;
+      struts = {
+        left = 8;
+        right = 8;
+      };
 
       # transparent so the wallpaper in the backdrop shows through, both on
       # the desktop and between workspaces in the overview
