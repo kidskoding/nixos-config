@@ -3,7 +3,7 @@
     c = config.lib.stylix.colors.withHashtag;
   in {
     programs.niri.settings.layout = {
-      gaps = 10;
+      gaps = 4;
 
       # transparent so the wallpaper in the backdrop shows through, both on
       # the desktop and between workspaces in the overview
