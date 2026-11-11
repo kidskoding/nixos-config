@@ -1,7 +1,7 @@
 [bar.main]
 position = "top"
 margin_edge = 10
-margin_ends = 4
+margin_ends = 6
 thickness = 44
 radius = 16
 padding = 12

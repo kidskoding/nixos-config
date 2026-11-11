@@ -5,8 +5,8 @@
     programs.umbriel.settings = {
       layout = {
         mode = "scrolling";
-        gap = 4;
-        struts.top = 4;
+        gap = 6;
+        struts.top = 3;
         extent_presets = [
           0.33333
           0.5
