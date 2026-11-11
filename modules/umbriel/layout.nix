@@ -6,10 +6,7 @@
       layout = {
         mode = "scrolling";
         gap = 4;
-        struts = {
-          left = 8;
-          right = 8;
-        };
+        struts.top = 4;
         extent_presets = [
           0.33333
           0.5
