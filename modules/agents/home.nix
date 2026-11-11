@@ -13,6 +13,8 @@
   }: {
     imports = [inputs.anikonistack.homeManagerModules.default];
 
+    xdg.configFile."herdr/config.toml".source = ./herdr/config.toml;
+
     anikonistack = {
       checkout = "${config.home.homeDirectory}/anikonistack";
 

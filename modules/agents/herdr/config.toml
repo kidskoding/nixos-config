@@ -1,0 +1,8 @@
+onboarding = false
+
+[theme.custom]
+panel_bg = "#282828"
+sidebar_bg = "#282828"
+surface0 = "#282828"
+surface1 = "#3c3836"
+surface_dim = "#1d2021"
