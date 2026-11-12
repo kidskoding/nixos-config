@@ -80,6 +80,7 @@
       corefonts
 
       # applications
+      anki
       discord
       doxygen_gui
       libreoffice
