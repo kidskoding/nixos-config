@@ -7,8 +7,8 @@
     c = config.lib.stylix.colors;
     orange = "38;2;${c."base09-rgb-r"};${c."base09-rgb-g"};${c."base09-rgb-b"}";
     noctalia = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
-    nixosBlue = "38;2;82;119;195";
-    nixosBlueLight = "38;2;126;186;228";
+    # nixosBlue = "38;2;82;119;195";
+    # nixosBlueLight = "38;2;126;186;228";
   in {
     programs.fastfetch = {
       enable = true;
@@ -16,7 +16,8 @@
       settings = {
         logo = {
           type = "small";
-          color = {
+          /*
+             color = {
             "1" = nixosBlue;
             "2" = nixosBlueLight;
             "3" = nixosBlue;
@@ -24,6 +25,7 @@
             "5" = nixosBlue;
             "6" = nixosBlueLight;
           };
+          */
           padding = {
             top = 5;
             left = 2;
