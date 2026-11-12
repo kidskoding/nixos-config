@@ -65,7 +65,12 @@ else
     msg="nixos rebuild $(date -Iseconds)"
 fi
 
-git commit -m "$msg"
+if ! git diff --cached --quiet -- modules/nvim/config; then
+    nvim_files=$(git diff --cached --name-only -- modules/nvim/config | xargs -n1 basename | sort -u | paste -sd, - | sed 's/,/, /g')
+    git commit -q -m "kidskoding.nvim: update $nvim_files" -- modules/nvim/config
+fi
+
+git diff --cached --quiet || git commit -m "$msg"
 
 if ! git push -q origin HEAD && ! { git pull -q --rebase --autostash && git push -q origin HEAD; }; then
     echo "push failed; commit is local only. fix any rebase conflict, then run 'git push'."
