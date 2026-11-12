@@ -4,6 +4,7 @@
 
     programs.zen-browser = {
       enable = true;
+      setAsDefaultBrowser = true;
 
       policies.ExtensionSettings =
         builtins.mapAttrs (_: slug: {
