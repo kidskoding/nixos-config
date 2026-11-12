@@ -107,6 +107,7 @@
         cat = "bat";
         dua = "dua interactive";
         ff = "fastfetch";
+        man = "tldr";
         timer = "timr-tui";
         vim = "nvim";
         vi = "nvim";
