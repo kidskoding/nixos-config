@@ -54,8 +54,8 @@
         "Mod+Period" = "window-consume-or-expel-right";
 
         # cycle focus
-        "Mod+Tab" = "window-focus-down";
-        "Mod+Shift+Tab" = "window-focus-up";
+        "Alt+Tab" = noctalia "window-switcher hold";
+        "Alt+Shift+Tab" = noctalia "window-switcher hold reverse";
 
         # focus
         # ------- vim ----------------
