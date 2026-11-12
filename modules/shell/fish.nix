@@ -164,10 +164,6 @@
       interactiveShellInit = ''
         set -g fish_autosuggestion_enabled 0
 
-        if command -q gh
-          set -gx GITHUB_MCP_TOKEN (gh auth token 2>/dev/null)
-        end
-
         # done plugin: notify for commands longer than 10s
         set -U __done_min_cmd_duration 10000
         set -U __done_notification_urgency_level low
