@@ -1,7 +1,5 @@
 {...}: {
   flake.homeModules.base = {
-    stylix.targets.ghostty.fonts.override.monospace.name = "GoogleSansCode Nerd Font";
-
     programs.ghostty = {
       enable = true;
       enableFishIntegration = true;
