@@ -13,7 +13,7 @@
 
         os = {
           disabled = false;
-          format = "[$symbol]($style) ";
+          format = "[$symbol]($style)";
           style = "bold #7ebae4";
         };
 
