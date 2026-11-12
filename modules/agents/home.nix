@@ -21,6 +21,7 @@
       bundles = [
         "custom"
         "mattpocock"
+        "coreyhaines"
         "obsidian"
         "extras"
         "superpowers"
