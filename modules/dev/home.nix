@@ -110,6 +110,7 @@ in {
       uv
       ruff
       ty
+      kaggle
     ];
   };
 
