@@ -39,7 +39,7 @@ local v = vim.version()
 local version = ("NVIM v%d.%d.%d"):format(v.major, v.minor, v.patch)
 
 local dashboard = {
-  enabled = true,
+  enabled = false,
   formats = {
     icon = function(item)
       if item.icon == "directory" then
