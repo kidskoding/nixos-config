@@ -29,14 +29,15 @@
         "typst-claude-skill": "typst-claude-skill",
         "understand-anything": "understand-anything",
         "vercel-plugin": "vercel-plugin",
-        "vercel-skills": "vercel-skills"
+        "vercel-skills": "vercel-skills",
+        "youtube-skills": "youtube-skills"
       },
       "locked": {
-        "lastModified": 1794470352,
-        "narHash": "sha256-Mry6TiGQp0sDpj0B+jS9UgNwEYujBVCdFdmzGRcyZk0=",
+        "lastModified": 1794554049,
+        "narHash": "sha256-vOuB1xhdWpvzJf1/1EnG1MxHYCszXjGLBmGLTnF/INk=",
         "owner": "kidskoding",
         "repo": "anikonistack",
-        "rev": "f54df19662665b95095a6e05ba4a55d6c752d41d",
+        "rev": "f0378a647714dcdd7c1b413451263aacc9475705",
         "type": "github"
       },
       "original": {
@@ -1908,6 +1909,22 @@
       "original": {
         "owner": "Supreeeme",
         "repo": "xwayland-satellite",
+        "type": "github"
+      }
+    },
+    "youtube-skills": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1789990896,
+        "narHash": "sha256-3jEgDRt5QTBrr8o+qI88ZC/1pK9jTg5nc0ZlmQ0tsvM=",
+        "owner": "ZeroPointRepo",
+        "repo": "youtube-skills",
+        "rev": "4f7994b94e7d5e250c3b51102d609992e04d5d0d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ZeroPointRepo",
+        "repo": "youtube-skills",
         "type": "github"
       }
     },
