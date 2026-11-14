@@ -2,7 +2,6 @@ vimPlugins:
 with vimPlugins; [
   # color themes!
   gruvbox-nvim
-  gruvbox-material
 
   # ui
   lualine-nvim
