@@ -13,8 +13,7 @@
     stylix = {
       enable = true;
 
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
-      override.base05 = "#ebdbb2";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-medium.yaml";
       polarity = "dark";
 
       fonts = {
