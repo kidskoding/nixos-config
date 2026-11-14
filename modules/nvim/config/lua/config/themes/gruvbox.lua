@@ -63,6 +63,7 @@ vim.cmd.colorscheme("gruvbox")
 
 local p = gruvbox.palette
 local lualine = require("lualine.themes.gruvbox_dark")
+
 lualine.normal.a.bg = p.neutral_yellow
 -- brighter middle text; the theme's muted gray is hard to read on the bar
 lualine.normal.c.fg = p.light2
