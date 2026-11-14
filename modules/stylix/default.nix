@@ -69,7 +69,7 @@ in {
       greeter = "Gruvbox";
     };
 
-    environment.etc."theme".text = config.my.theme.name;
+    environment.etc."theme".text = "${config.my.theme.name}\n";
   };
 
   flake.homeModules.stylix = {
