@@ -1,5 +1,4 @@
 [theme]
 mode = "dark"
-source = "community"
+source = "builtin"
 builtin = "Gruvbox"
-community_palette = "Gruvbox Material"
