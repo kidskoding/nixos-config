@@ -32,7 +32,7 @@ local ferris_art = {
 
 local ferris = {}
 for i, part in ipairs(vim.split(table.concat(ferris_art, "\n"), "[{}]")) do
-  ferris[i] = { part, hl = i % 2 == 0 and "GruvboxFg0" or "GruvboxOrange" }
+  ferris[i] = { part, hl = i % 2 == 0 and "SnacksDashboardFerrisAlt" or "SnacksDashboardFerris" }
 end
 
 local v = vim.version()
@@ -75,7 +75,7 @@ local dashboard = {
     { text = ferris, align = "center", padding = 2 },
     { title = "Recent Projects", section = "projects", action = open_project, padding = 1 },
     { section = "keys", padding = 1 },
-    { text = { { version, hl = "GruvboxBg4" } }, align = "center" },
+    { text = { { version, hl = "SnacksDashboardVersion" } }, align = "center" },
   },
 }
 

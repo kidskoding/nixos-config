@@ -1,21 +1,16 @@
 require("nvim-highlight-colors").setup({ render = "background", enable_tailwind = true })
 
-vim.api.nvim_set_hl(0, "lualine_sep_color_b", { fg = "#a89984", bg = "#504945" })
-vim.api.nvim_set_hl(0, "lualine_sep_color_x", { fg = "#a89984", bg = "#3c3836" })
-
-local theme = require("lualine.themes.gruvbox_dark")
+local colors = require("config.themes")
+local theme = colors.lualine
 for _, section in pairs(theme) do
+  section.b = section.b or theme.normal.b
   section.c = theme.normal.c
 end
 
-theme.normal.a.bg = "#d79921"
--- brighter middle text; the theme's muted gray is hard to read on the bar
-theme.normal.c.fg = "#d5c4a1"
-theme.terminal = {
-  a = { bg = "#d3869b", fg = "#282828", gui = "bold" },
-  b = theme.normal.b,
-  c = theme.normal.c,
-}
+local bar_bg, raised_bg, text_fg = theme.normal.c.bg, theme.normal.b.bg, theme.normal.b.fg
+
+vim.api.nvim_set_hl(0, "lualine_sep_color_b", { fg = colors.muted, bg = raised_bg })
+vim.api.nvim_set_hl(0, "lualine_sep_color_x", { fg = colors.muted, bg = bar_bg })
 
 require("lualine").setup({
   options = {
@@ -34,15 +29,15 @@ require("lualine").setup({
 })
 
 local normal_bg = vim.api.nvim_get_hl(0, { name = "Normal", link = false }).bg
-local active_bg = "#3c3836"
+local active_bg = bar_bg
 
 local buffer_highlights = {
   fill = { bg = normal_bg },
-  separator = { fg = "#504945", bg = normal_bg },
-  separator_visible = { fg = "#504945", bg = normal_bg },
-  separator_selected = { fg = "#504945", bg = normal_bg },
+  separator = { fg = raised_bg, bg = normal_bg },
+  separator_visible = { fg = raised_bg, bg = normal_bg },
+  separator_selected = { fg = raised_bg, bg = normal_bg },
   offset_separator = { bg = normal_bg },
-  buffer_selected = { fg = "#ebdbb2", bg = active_bg, bold = true },
+  buffer_selected = { fg = text_fg, bg = active_bg, bold = true },
 }
 
 -- every piece of the active tab sits on the same raised background

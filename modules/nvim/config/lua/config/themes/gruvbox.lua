@@ -1,7 +1,8 @@
 local gruvbox = require("gruvbox")
 
 gruvbox.setup({
-  contrast = "", -- medium
+  -- medium
+  contrast = "",
 
   italic = {
     strings = false,
@@ -45,6 +46,9 @@ gruvbox.setup({
     SnacksDashboardKey = { link = "GruvboxFg1" },
     SnacksDashboardDir = { link = "GruvboxGray" },
     SnacksDashboardTitle = { link = "GruvboxGray" },
+    SnacksDashboardFerris = { link = "GruvboxOrange" },
+    SnacksDashboardFerrisAlt = { link = "GruvboxFg0" },
+    SnacksDashboardVersion = { link = "GruvboxBg4" },
 
     -- snacks picker title toggles as badges
     SnacksPickerToggle = {
@@ -56,3 +60,12 @@ gruvbox.setup({
 })
 
 vim.cmd.colorscheme("gruvbox")
+
+local p = gruvbox.palette
+local lualine = require("lualine.themes.gruvbox_dark")
+lualine.normal.a.bg = p.neutral_yellow
+-- brighter middle text; the theme's muted gray is hard to read on the bar
+lualine.normal.c.fg = p.light2
+lualine.terminal = { a = { bg = p.bright_purple, fg = p.dark0, gui = "bold" } }
+
+return { lualine = lualine, muted = p.light4 }
