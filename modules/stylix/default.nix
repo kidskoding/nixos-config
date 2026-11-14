@@ -13,8 +13,8 @@
     stylix = {
       enable = true;
 
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
-      override.base05 = "#ebdbb2";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/${config.my.theme.scheme}.yaml";
+      override = config.my.theme.override or {};
       polarity = "dark";
 
       fonts = {
@@ -49,6 +49,10 @@
   };
 in {
   flake.nixosModules.stylix = {
+    config,
+    pkgs,
+    ...
+  }: {
     imports = [inputs.stylix.nixosModules.stylix common];
 
     stylix.targets = {
@@ -57,6 +61,26 @@ in {
       nixos-icons.enable = false;
       plymouth.enable = false;
     };
+
+    specialisation.gruvbox-material.configuration.my.theme = {
+      name = "gruvbox-material";
+      scheme = "gruvbox-material-dark-medium";
+      noctalia = {
+        mode = "dark";
+        source = "community";
+        community_palette = "Gruvbox Material";
+      };
+      greeter = "Gruvbox";
+    };
+
+    environment.etc."theme".text = config.my.theme.name;
+
+    environment.systemPackages = [
+      (pkgs.writeShellApplication {
+        name = "theme";
+        text = builtins.readFile ./theme.sh;
+      })
+    ];
   };
 
   flake.homeModules.stylix = {

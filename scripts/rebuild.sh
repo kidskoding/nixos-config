@@ -43,7 +43,14 @@ echo "rebuilding nixos..."
 
 before=$(readlink -f /run/current-system)
 
-if ! script -qefc "sudo nixos-rebuild switch --flake \"$FLAKE_DIR#$HOST\" --upgrade" nixos-switch.log; then
+theme=$(cat /etc/theme 2>/dev/null || true)
+default_theme=$(cat /nix/var/nix/profiles/system/etc/theme 2>/dev/null || true)
+specialisation=""
+if [ -n "$theme" ] && [ "$theme" != "$default_theme" ]; then
+    specialisation="--specialisation $theme"
+fi
+
+if ! script -qefc "sudo nixos-rebuild switch --flake \"$FLAKE_DIR#$HOST\" --upgrade $specialisation" nixos-switch.log; then
     rg error nixos-switch.log || tail -n 40 nixos-switch.log
     exit 1
 fi

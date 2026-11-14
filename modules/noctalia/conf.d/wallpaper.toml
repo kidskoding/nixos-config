@@ -1,7 +1,0 @@
-[wallpaper]
-enabled = true
-directory = "~/nixos/modules/noctalia/wallpapers"
-fill_mode = "crop"
-
-[wallpaper.default]
-path = "~/nixos/modules/noctalia/wallpapers/starfire-bg.jpg"
