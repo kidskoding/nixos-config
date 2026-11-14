@@ -1,0 +1,50 @@
+[shell]
+time_format = "{:%-I:%M %p}"
+avatar_path = "~/nixos/modules/noctalia/avatars/starfire.jpeg"
+
+[shell.panel]
+open_near_click_control_center = true
+session_placement = "floating"
+session_position = "center"
+open_near_click_session = false
+open_near_click_wallpaper = true
+transparency_mode = "soft"
+
+[control_center]
+sidebar_section = "none"
+
+[osd]
+background_opacity = 1.0
+
+[osd.kinds]
+media = false
+
+[plugins]
+enabled = ["noctalia/timer", "noctalia/umbriel-companion"]
+
+[location]
+auto_locate = true
+
+[weather]
+enabled = true
+unit = "imperial"
+
+[calendar]
+enabled = true
+event_time_format = "%-I:%M %p"
+
+# sign-in token lives in the keyring: connect once per machine in Settings → Calendar
+[calendar.account.personal_google]
+type = "google"
+name = "ak123 (uiuc)"
+color = "primary"
+
+[battery]
+warning_threshold = 30
+
+[dock]
+enabled = false
+background_opacity = 1.0
+
+[audio]
+enable_volume_sounds = false

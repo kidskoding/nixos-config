@@ -1,7 +1,15 @@
-{inputs, ...}: {
-  flake.homeModules.noctalia = {config, ...}: {
-    imports = [inputs.noctalia.homeModules.default];
-
+{...}: {
+  flake.homeModules.noctalia = {
+    config,
+    lib,
+    pkgs,
+    ...
+  }: let
+    dir = "${config.my.flakeDir}/modules/noctalia";
+    link = config.lib.file.mkOutOfStoreSymlink;
+    d = config.my.display;
+    narrow = d.width / d.scale < 1920;
+  in {
     my.caches = [
       # my own noctalia cache from my own fork: builds of the kidskoding/noctalia fork and the greeter
       {
@@ -10,14 +18,25 @@
       }
     ];
 
-    stylix.targets.noctalia.enable = false;
+    xdg.configFile = {
+      "noctalia/config.toml".source = link "${dir}/config.toml";
+      "noctalia/conf.d".source = link "${dir}/conf.d";
 
-    programs.noctalia = {
-      enable = true;
-      settings = {
-        theme = config.my.theme.noctalia;
-        accessibility.ui_scale = 1.2 / config.my.display.scale;
+      "noctalia/display.toml".source = (pkgs.formats.toml {}).generate "noctalia-display.toml" {
+        accessibility.ui_scale = 1.2 / d.scale;
         shell.font_family = config.stylix.fonts.sansSerif.name;
+        bar.main =
+          {
+            scale =
+              if narrow
+              then 1.0
+              else 1.1;
+          }
+          // lib.optionalAttrs narrow {
+            font_scale = 1.0;
+            start = ["control-center" "umbriel" "workspaces" "media"];
+            center = [];
+          };
       };
     };
   };

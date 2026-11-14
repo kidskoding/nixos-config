@@ -1,0 +1,103 @@
+[bar.main]
+position = "top"
+margin_edge = 10
+margin_ends = 6
+thickness = 44
+radius = 16
+padding = 12
+widget_spacing = 12
+font_scale = 1.1
+background_opacity = 0.8
+compositor_blur = true
+capsule = true
+capsule_fill = "surface_container"
+color = "on_surface"
+capsule_border_width = 0
+capsule_padding = 8
+capsule_thickness = 0.8
+start = ["control-center", "umbriel", "workspaces"]
+center = ["media"]
+end = [
+  "tray",
+  "network",
+  "bluetooth",
+  "volume",
+  "brightness",
+  "battery",
+  "clock",
+  "session",
+]
+
+[bar.main.dead_zone.actions]
+right = "none"
+
+[widget.tray]
+drawer = true
+
+[widget.workspaces]
+capsule = false
+style = "regular"
+capsule_radius = 0
+scale = 1.5
+font_weight = 700
+active_pill_size = 1
+inactive_pill_size = 1
+label_source = "id"
+hide_when_empty = true
+
+[widget.umbriel]
+type = "noctalia/umbriel-companion:bar"
+show_layout_name = true
+
+[widget.media]
+artist_first = false
+max_length = 275
+title_scroll = "always"
+hide_when_no_media = true
+show_progress = true
+
+[widget.volume]
+show_label = true
+icon_color = "magenta"
+mute_color = "red"
+
+[widget.network]
+show_label = true
+show_vpn_label = false
+icon_color = "cyan"
+
+[widget.bluetooth]
+show_label = true
+icon_color = "blue"
+
+[widget.brightness]
+show_label = true
+icon_color = "yellow"
+
+[widget.battery]
+display_mode = "glyph"
+show_label = true
+icon_color = "green"
+warning_color = "yellow"
+
+[widget.clock]
+format = "<span foreground='@red'></span> {:%a %b %d} | <span foreground='@red'></span> {:%I:%M %p}"
+tooltip_format = "{:%A, %B %-d %Y}"
+
+[widget.clock.actions]
+left = "panel-toggle control-center calendar"
+right = "panel-toggle control-center calendar"
+
+[widget.control-center]
+capsule = true
+custom_image = "/run/current-system/sw/share/icons/hicolor/scalable/apps/nix-snowflake.svg"
+custom_image_colorize = false
+
+[widget.session]
+glyph = "shutdown"
+capsule = true
+capsule_fill = "error"
+icon_color = "on_error"
+
+[widget.session.actions]
+left = "panel-toggle session"

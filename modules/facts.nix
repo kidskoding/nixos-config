@@ -19,21 +19,6 @@
       default = "Super";
     };
 
-    theme = mkOption {
-      type = types.attrs;
-      default = {
-        name = "gruvbox";
-        scheme = "gruvbox-dark-medium";
-        override.base05 = "#ebdbb2";
-        noctalia = {
-          mode = "dark";
-          source = "builtin";
-          builtin = "Gruvbox";
-        };
-        greeter = "Gruvbox";
-      };
-    };
-
     display = {
       output = mkOption {
         type = types.str;

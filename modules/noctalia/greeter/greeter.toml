@@ -1,0 +1,22 @@
+[session]
+default = "Umbriel"
+
+[appearance]
+scheme = "Gruvbox"
+theme_mode = "dark"
+hide_logo = false
+
+[appearance.wallpaper]
+path = "/etc/noctalia-greeter/wallpaper.jpg"
+fill_mode = "crop"
+
+[cursor]
+theme = "Adwaita"
+size = 32
+path = "/run/current-system/sw/share/icons"
+
+[keyboard]
+layout = "us"
+
+[idle]
+timeout = 330
