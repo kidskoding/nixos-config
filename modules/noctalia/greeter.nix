@@ -2,8 +2,6 @@
   flake.nixosModules.noctalia = {config, ...}: {
     imports = [inputs.noctalia-greeter.nixosModules.default];
 
-    # greeter runs as the greeter user before login and cannot read ~/,
-    # so its settings and assets go through the store and /etc (needs a rebuild)
     services.displayManager.noctalia-greeter = {
       enable = true;
       settings = {

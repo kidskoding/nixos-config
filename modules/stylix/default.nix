@@ -48,11 +48,7 @@
     };
   };
 in {
-  flake.nixosModules.stylix = {
-    config,
-    pkgs,
-    ...
-  }: {
+  flake.nixosModules.stylix = {config, ...}: {
     imports = [inputs.stylix.nixosModules.stylix common];
 
     stylix.targets = {
@@ -74,13 +70,6 @@ in {
     };
 
     environment.etc."theme".text = config.my.theme.name;
-
-    environment.systemPackages = [
-      (pkgs.writeShellApplication {
-        name = "theme";
-        text = builtins.readFile ./theme.sh;
-      })
-    ];
   };
 
   flake.homeModules.stylix = {
