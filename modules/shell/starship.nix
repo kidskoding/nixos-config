@@ -17,6 +17,7 @@
         os = {
           disabled = false;
           format = "[$symbol]($style)";
+          style = "bold blue";
         };
 
         username = {
