@@ -1,4 +1,5 @@
 [theme]
 mode = "dark"
-source = "builtin"
+source = "community"
 builtin = "Catppuccin"
+community_palette = "Catppuccin Macchiato Mauve"
