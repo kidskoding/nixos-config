@@ -2,6 +2,7 @@
   flake.homeModules.base = {
     catppuccin.cava.transparent = true;
 
+    # use catppuccin built in ports instead of stylix!
     stylix.targets = {
       cava.enable = false;
       gnome.enable = false;
