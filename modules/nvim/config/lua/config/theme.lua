@@ -1,4 +1,4 @@
-local flavour = "mocha"
+local flavour = "macchiato"
 local p = require("catppuccin.palettes").get_palette(flavour)
 
 require("catppuccin").setup({
