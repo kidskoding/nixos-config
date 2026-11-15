@@ -1,7 +1,6 @@
 {...}: {
   flake.homeModules.noctalia = {
     config,
-    lib,
     pkgs,
     ...
   }: let
@@ -25,27 +24,33 @@
       "noctalia/display.toml".source = (pkgs.formats.toml {}).generate "noctalia-display.toml" {
         accessibility.ui_scale = 1.2 / d.scale;
         shell.font_family = config.stylix.fonts.sansSerif.name;
-        bar.main =
-          {
-            scale =
-              if narrow
-              then 1.0
-              else 1.1;
-          }
-          // lib.optionalAttrs narrow {
-            font_scale = 1.0;
-            start = ["control-center" "umbriel" "workspaces" "media"];
-            center = [];
-          };
+        bar.main = {
+          scale =
+            if narrow
+            then 1.0
+            else 1.1;
+          font_scale =
+            if narrow
+            then 1.0
+            else 1.1;
+          start =
+            if narrow
+            then ["control-center" "umbriel" "workspaces" "media"]
+            else ["control-center" "umbriel" "workspaces"];
+          center =
+            if narrow
+            then []
+            else ["media"];
+        };
         widget = {
           session.capsule_padding =
             if narrow
-            then 9.5
-            else 8.0;
+            then 10
+            else 8;
           control-center.capsule_padding =
             if narrow
-            then 9.5
-            else 8.0;
+            then 10
+            else 8;
         };
       };
     };
