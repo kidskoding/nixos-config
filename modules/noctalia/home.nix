@@ -37,6 +37,16 @@
             start = ["control-center" "umbriel" "workspaces" "media"];
             center = [];
           };
+        widget = {
+          session.capsule_padding =
+            if narrow
+            then 9.5
+            else 8.0;
+          control-center.capsule_padding =
+            if narrow
+            then 9.5
+            else 8.0;
+        };
       };
     };
   };
