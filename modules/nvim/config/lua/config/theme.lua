@@ -15,12 +15,8 @@ require("catppuccin").setup({
       TroubleNormal = { link = "Normal" },
       TroubleNormalNC = { link = "Normal" },
 
-      -- gitsigns: change in yellow, untracked in teal
-      GitSignsChange = { fg = c.yellow },
+      -- gitsigns: untracked in teal
       GitSignsUntracked = { fg = c.teal },
-
-      -- sign column on editor bg
-      SignColumn = { link = "Normal" },
 
       -- snacks dashboard menu: neutral so ferris stands out
       SnacksDashboardIcon = { fg = c.blue },
@@ -41,8 +37,5 @@ require("catppuccin").setup({
 vim.cmd.colorscheme("catppuccin")
 
 local lualine = require("lualine.themes.catppuccin-" .. flavour)
-
-lualine.normal.a.bg = p.yellow
-lualine.terminal = { a = { bg = p.mauve, fg = p.base, gui = "bold" } }
 
 return { lualine = lualine, muted = p.subtext0 }
