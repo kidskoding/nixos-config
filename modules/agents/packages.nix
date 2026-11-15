@@ -11,10 +11,10 @@
     ];
 
     home.packages = [
-      inputs.antigravity-cli.packages.${system}.default
-      inputs.claude-code-cli.packages.${system}.default
-      inputs.codex-cli.packages.${system}.default
-      inputs.herdr-nix.packages.${system}.herdr
+      inputs.llm-agents.packages.${system}.antigravity-cli
+      inputs.llm-agents.packages.${system}.claude-code
+      inputs.llm-agents.packages.${system}.codex
+      inputs.llm-agents.packages.${system}.herdr
 
       # coding agents (used within llm-agents package!)
       # inputs.llm-agents.packages.${system}.coco             # snowflake, cortex code cli!

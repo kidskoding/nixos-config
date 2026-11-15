@@ -21,19 +21,6 @@
     };
 
     # coding agents
-    antigravity-cli = {
-      url = "github:Hy4ri/antigravity-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    claude-code-cli = {
-      url = "github:sadjow/claude-code-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    claude-desktop.url = "github:k3d3/claude-desktop-linux-flake";
-    codex-cli = {
-      url = "github:sadjow/codex-cli-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     llm-agents.url = "github:numtide/llm-agents.nix";
 
     # coding agent skills, plugins, settings
@@ -118,8 +105,6 @@
 
     # artcraft: rust clones of creative/office apps
     artcraft-nix.url = "github:applicative-systems/artcraft-nix";
-
-    herdr-nix.url = "github:herdrdev/herdr-nix";
   };
 
   outputs = inputs:

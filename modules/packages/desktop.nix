@@ -93,7 +93,7 @@
       zathura
       zoom-us
 
-      inputs.claude-desktop.packages.${system}.claude-desktop-with-fhs
+      inputs.llm-agents.packages.${system}.claude-desktop
       inputs.llm-agents.packages.${system}.orca # a wonderful ade for working with many coding agents!
       inputs.llm-agents.packages.${system}.hermes-desktop # hermes-agent desktop!
 
