@@ -1,6 +1,7 @@
 vimPlugins:
 with vimPlugins; [
   # color themes!
+  catppuccin-nvim
   gruvbox-nvim
 
   # ui

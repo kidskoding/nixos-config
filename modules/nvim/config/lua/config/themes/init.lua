@@ -1,3 +1,3 @@
-local active = "gruvbox"
+local active = "catppuccin"
 
 return require("config.themes." .. active)
