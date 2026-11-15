@@ -54,7 +54,6 @@
         claude-code = {
           enable = true;
           statusline = true;
-          gruvbox = true;
         };
 
         codex.enable = true;

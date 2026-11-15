@@ -1,4 +1,9 @@
 {inputs, ...}: let
+  catppuccin = {
+    enable = true;
+    flavor = "mocha";
+  };
+
   common = {
     config,
     lib,
@@ -10,11 +15,12 @@
       family = "GoogleSansCode Nerd Font";
     };
   in {
+    inherit catppuccin;
+
     stylix = {
       enable = true;
 
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
-      override.base05 = "#ebdbb2";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
       polarity = "dark";
 
       fonts = {
@@ -49,7 +55,18 @@
   };
 in {
   flake.nixosModules.stylix = {
-    imports = [inputs.stylix.nixosModules.stylix common];
+    imports = [inputs.stylix.nixosModules.stylix inputs.catppuccin.nixosModules.catppuccin common];
+
+    home-manager.sharedModules = [
+      inputs.catppuccin.homeModules.catppuccin
+      {inherit catppuccin;}
+    ];
+
+    catppuccin = {
+      grub.enable = false;
+      plymouth.enable = false;
+      tty.enable = false;
+    };
 
     stylix.targets = {
       console.enable = false;
@@ -60,6 +77,6 @@ in {
   };
 
   flake.homeModules.stylix = {
-    imports = [inputs.stylix.homeModules.stylix common];
+    imports = [inputs.stylix.homeModules.stylix inputs.catppuccin.homeModules.catppuccin common];
   };
 }

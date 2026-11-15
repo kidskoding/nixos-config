@@ -25,7 +25,7 @@ distros) through home-manager, without nixos.
 |---|---|
 | compositor | [umbriel](https://github.com/noctalia-dev/umbriel) |
 | shell / bar | [noctalia](https://github.com/noctalia-dev/noctalia) |
-| theme | [stylix](https://github.com/nix-community/stylix), gruvbox dark |
+| theme | [catppuccin/nix](https://github.com/catppuccin/nix) mocha, [stylix](https://github.com/nix-community/stylix) for fonts and the rest |
 | terminal | ghostty, fish, starship, zellij |
 | editor | neovim nightly ([kidskoding.nvim](https://codeberg.org/kidskoding/kidskoding.nvim)), evil-helix as backup |
 | secrets | [sops-nix](https://github.com/Mic92/sops-nix) |
@@ -96,7 +96,7 @@ changes are pushed to kidskoding.nvim as part of each rebuild.
 ## home-manager on a non-nixos machine
 
 Command-line tools and user config only: no gui apps, fonts or gtk theme.
-The terminal tools still get the gruvbox theme.
+The terminal tools still get the catppuccin theme.
 
 1. Install nix (multi-user):
 

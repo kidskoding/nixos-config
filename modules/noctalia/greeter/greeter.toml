@@ -2,7 +2,7 @@
 default = "Umbriel"
 
 [appearance]
-scheme = "Gruvbox"
+scheme = "Catppuccin"
 theme_mode = "dark"
 hide_logo = false
 

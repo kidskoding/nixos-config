@@ -245,6 +245,26 @@
         "type": "github"
       }
     },
+    "catppuccin": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1794603592,
+        "narHash": "sha256-uXIE0Y6MmN9/sxH6Caw8W+UdYgsJZnF0+r9w45FqPdg=",
+        "owner": "catppuccin",
+        "repo": "nix",
+        "rev": "c5d213bc9ff4be08f56e54c954bf79e56c2e8ba9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "nix",
+        "type": "github"
+      }
+    },
     "caveman": {
       "flake": false,
       "locked": {
@@ -1393,6 +1413,7 @@
         "antigravity-cli": "antigravity-cli",
         "aoc-cli": "aoc-cli",
         "artcraft-nix": "artcraft-nix",
+        "catppuccin": "catppuccin",
         "claude-code-cli": "claude-code-cli",
         "claude-desktop": "claude-desktop",
         "codex-cli": "codex-cli",
