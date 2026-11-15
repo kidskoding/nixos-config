@@ -49,7 +49,7 @@
         size = 32;
       };
 
-      opacity.terminal = 0.8;
+      opacity.terminal = 0.9;
       targets.qt.enable = false;
     };
   };
