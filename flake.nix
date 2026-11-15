@@ -14,25 +14,24 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
 
-    # advent of code cli (my fork)
+    # advent of code cli (my fork) ⭐ !!
     aoc-cli = {
       url = "github:kidskoding/aoc-cli";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # coding agents
+    # ai / coding agents ✴️ !!
     llm-agents.url = "github:numtide/llm-agents.nix";
-
-    # coding agent skills, plugins, settings
     anikonistack = {
+      # coding agent skills, plugins, settings
       url = "github:kidskoding/anikonistack";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # neovim nightly (0.13.0-dev)
+    # neovim nightly
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
-    # rust nightly (fenix latest)
+    # rust nightly 🦀 !!
     fenix = {
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -44,10 +43,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # niri
+    # niri !!
     niri.url = "github:sodiboo/niri-flake";
 
-    # noctalia: the noctalia family!!
+    # noctalia: the noctalia family 🌙 !!
     umbriel = {
       url = "github:noctalia-dev/umbriel";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -61,25 +60,25 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # stylix: nix in style 💎!!
+    # stylix: nix in style 💎 !!
     stylix = {
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # catppuccin: a soothing pastel theme 🐈!!
+    # catppuccin: a soothing pastel theme 🐈 !!
     catppuccin = {
       url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # disko: declarative disk layout!
+    # disko: declarative disk layout !!
     disko = {
       url = "github:nix-community/disko/latest";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # secrets (sops)
+    # sops: secrets 🤫 !!
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";

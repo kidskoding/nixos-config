@@ -178,6 +178,7 @@
     };
 
     programs.codex.package = null;
+    programs.opencode.package = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.opencode;
 
     home.file.".codex/config.toml".enable = false;
     home.activation.codexConfig = lib.hm.dag.entryAfter ["writeBoundary"] ''

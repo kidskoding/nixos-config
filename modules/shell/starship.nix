@@ -9,6 +9,11 @@
         format = "$os$all";
         battery.disabled = true;
 
+        character = {
+          success_symbol = "[►](bold green)";
+          error_symbol = "[►](bold red)";
+        };
+
         os = {
           disabled = false;
           format = "[$symbol]($style)";
