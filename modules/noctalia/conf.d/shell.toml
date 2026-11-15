@@ -8,7 +8,7 @@ session_placement = "floating"
 session_position = "center"
 open_near_click_session = false
 open_near_click_wallpaper = true
-transparency_mode = "soft"
+transparency_mode = "glass"
 
 [control_center]
 sidebar_section = "none"
