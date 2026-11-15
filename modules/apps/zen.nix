@@ -6,6 +6,18 @@
       enable = true;
       setAsDefaultBrowser = true;
 
+      # Use the official catppuccin/zen-browser port.
+      profiles.default = {
+        name = "Default Profile";
+        path = "cw0i5llc.Default Profile";
+        isDefault = true;
+        presets.catppuccin = {
+          enable = true;
+          flavor = "Macchiato";
+          accent = "Mauve";
+        };
+      };
+
       policies.ExtensionSettings =
         builtins.mapAttrs (_: slug: {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/${slug}/latest.xpi";
