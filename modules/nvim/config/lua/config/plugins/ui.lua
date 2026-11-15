@@ -1,6 +1,6 @@
 require("nvim-highlight-colors").setup({ render = "background", enable_tailwind = true })
 
-local colors = require("config.themes")
+local colors = require("config.theme")
 local theme = colors.lualine
 for _, section in pairs(theme) do
   section.b = section.b or theme.normal.b

@@ -1,5 +1,5 @@
 require("config.options")
-require("config.themes")
+require("config.theme")
 require("config.plugins.ui")
 require("config.plugins.lsp")
 require("config.plugins.treesitter")
