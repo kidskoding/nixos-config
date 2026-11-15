@@ -1,11 +1,29 @@
 {
   "nodes": {
+    "agent-toolkit-for-aws": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1794697210,
+        "narHash": "sha256-rGKVHYBLcmGSu9E9R0evpOssg+xaxgYLT1uOslgg8gc=",
+        "owner": "aws",
+        "repo": "agent-toolkit-for-aws",
+        "rev": "9ca16b9c39341d6464990696623001644719118d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "aws",
+        "repo": "agent-toolkit-for-aws",
+        "type": "github"
+      }
+    },
     "anikonistack": {
       "inputs": {
+        "agent-toolkit-for-aws": "agent-toolkit-for-aws",
         "caveman": "caveman",
         "ckorhonen-skills": "ckorhonen-skills",
         "claude-duet": "claude-duet",
         "claude-plugins-official": "claude-plugins-official",
+        "cloudflare-skills": "cloudflare-skills",
         "databricks-agent-skills": "databricks-agent-skills",
         "emil-skills": "emil-skills",
         "firecrawl-plugin": "firecrawl-plugin",
@@ -33,11 +51,11 @@
         "youtube-skills": "youtube-skills"
       },
       "locked": {
-        "lastModified": 1794554049,
-        "narHash": "sha256-vOuB1xhdWpvzJf1/1EnG1MxHYCszXjGLBmGLTnF/INk=",
+        "lastModified": 1794711429,
+        "narHash": "sha256-+F+YEa482B9iQ4bC+/wIsXnwf4x953JPlDk9V865dSY=",
         "owner": "kidskoding",
         "repo": "anikonistack",
-        "rev": "f0378a647714dcdd7c1b413451263aacc9475705",
+        "rev": "9e123ca28dd4528524c06074ffc757a59039d78f",
         "type": "github"
       },
       "original": {
@@ -328,6 +346,22 @@
       "original": {
         "owner": "anthropics",
         "repo": "claude-plugins-official",
+        "type": "github"
+      }
+    },
+    "cloudflare-skills": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1794310893,
+        "narHash": "sha256-m/2XzXQ6/gGzeWrdFsnUy7OjHAvKb+a0Q4NjZ868Bdc=",
+        "owner": "cloudflare",
+        "repo": "skills",
+        "rev": "cbf893b954222276bf1af57e5f23379231e0efb9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cloudflare",
+        "repo": "skills",
         "type": "github"
       }
     },

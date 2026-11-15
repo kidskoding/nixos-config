@@ -35,6 +35,8 @@
         "open-steps"
         "vercel"
         "databricks"
+        "cloudflare"
+        "aws"
 
         "spartan-core"
         "spartan-database"
