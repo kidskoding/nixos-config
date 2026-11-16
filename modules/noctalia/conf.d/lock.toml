@@ -19,8 +19,8 @@ action = "lock_and_suspend"
 [lockscreen]
 transition = ["honeycomb"]
 transition_duration = 800
-blur_intensity = 0.0
-tint_intensity = 0.3
+blur_intensity = 0.15
+tint_intensity = 0.45
 
 [lockscreen_widgets]
 enabled = true
@@ -28,11 +28,7 @@ widget_order = [
   "lockscreen-ring@eDP-1",
   "lockscreen-clock@eDP-1",
   "lockscreen-date@eDP-1",
-  "lockscreen-calendar@eDP-1",
   "lockscreen-weather@eDP-1",
-  "lockscreen-cpu@eDP-1",
-  "lockscreen-ram@eDP-1",
-  "lockscreen-temp@eDP-1",
   "lockscreen-login-box@eDP-1",
   "lockscreen-media@eDP-1",
 ]
@@ -123,20 +119,6 @@ inner_diameter = 0.85
 bloom_intensity = 0.5
 fade_when_idle = true
 
-[lockscreen_widgets.widget."lockscreen-calendar@eDP-1"]
-type = "calendar"
-output = "eDP-1"
-cx = 250.0
-cy = 250.0
-placement_width = 1920.0
-placement_height = 1080.0
-
-[lockscreen_widgets.widget."lockscreen-calendar@eDP-1".settings]
-show_events = false
-show_week_numbers = false
-background_opacity = 0.6
-background_radius = 16
-
 [lockscreen_widgets.widget."lockscreen-weather@eDP-1"]
 type = "weather"
 output = "eDP-1"
@@ -148,53 +130,4 @@ placement_height = 1080.0
 [lockscreen_widgets.widget."lockscreen-weather@eDP-1".settings]
 show_forecast = true
 forecast_days = 3
-background_opacity = 0.6
-background_radius = 16
-
-[lockscreen_widgets.widget."lockscreen-cpu@eDP-1"]
-type = "sysmon"
-output = "eDP-1"
-cx = 1750.0
-cy = 330.0
-placement_width = 1920.0
-placement_height = 1080.0
-
-[lockscreen_widgets.widget."lockscreen-cpu@eDP-1".settings]
-display = "gauge"
-stat = "cpu_usage"
-gauge_layout = "horizontal"
-show_label = true
-background_opacity = 0.6
-background_radius = 16
-
-[lockscreen_widgets.widget."lockscreen-ram@eDP-1"]
-type = "sysmon"
-output = "eDP-1"
-cx = 1750.0
-cy = 410.0
-placement_width = 1920.0
-placement_height = 1080.0
-
-[lockscreen_widgets.widget."lockscreen-ram@eDP-1".settings]
-display = "gauge"
-stat = "ram_pct"
-gauge_layout = "horizontal"
-show_label = true
-background_opacity = 0.6
-background_radius = 16
-
-[lockscreen_widgets.widget."lockscreen-temp@eDP-1"]
-type = "sysmon"
-output = "eDP-1"
-cx = 1750.0
-cy = 490.0
-placement_width = 1920.0
-placement_height = 1080.0
-
-[lockscreen_widgets.widget."lockscreen-temp@eDP-1".settings]
-display = "gauge"
-stat = "cpu_temp"
-gauge_layout = "horizontal"
-show_label = true
-background_opacity = 0.6
-background_radius = 16
+background = false
