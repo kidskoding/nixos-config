@@ -6,9 +6,6 @@
   }: {
     programs.umbriel.settings.window_rule = [
       {
-        blur = true;
-      }
-      {
         match.is_focused = false;
         opacity = 0.95;
       }
