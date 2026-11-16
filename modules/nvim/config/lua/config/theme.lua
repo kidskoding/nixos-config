@@ -35,7 +35,5 @@ require("catppuccin").setup({
 })
 
 vim.cmd.colorscheme("catppuccin")
-
 local lualine = require("lualine.themes.catppuccin-" .. flavour)
-
 return { lualine = lualine, muted = p.subtext0 }
