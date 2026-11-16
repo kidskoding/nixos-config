@@ -19,8 +19,8 @@ action = "lock_and_suspend"
 [lockscreen]
 transition = ["honeycomb"]
 transition_duration = 800
-blur_intensity = 0.15
-tint_intensity = 0.45
+blur_intensity = 0.35
+tint_intensity = 0.4
 
 [lockscreen_widgets]
 enabled = true
@@ -82,6 +82,8 @@ show_clock = true
 show_time = false
 show_battery = true
 show_user = true
+show_wifi = true
+show_notifications = true
 background_opacity = 0.6
 background_radius = 16
 input_radius = 12
@@ -122,12 +124,11 @@ fade_when_idle = true
 [lockscreen_widgets.widget."lockscreen-weather@eDP-1"]
 type = "weather"
 output = "eDP-1"
-cx = 1670.0
-cy = 110.0
+cx = 960.0
+cy = 435.0
 placement_width = 1920.0
 placement_height = 1080.0
 
 [lockscreen_widgets.widget."lockscreen-weather@eDP-1".settings]
-show_forecast = true
-forecast_days = 3
+show_forecast = false
 background = false
