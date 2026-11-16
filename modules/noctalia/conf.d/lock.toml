@@ -28,6 +28,7 @@ widget_order = [
   "lockscreen-clock@eDP-1",
   "lockscreen-date@eDP-1",
   "lockscreen-login-box@eDP-1",
+  "lockscreen-media@eDP-1",
   "lockscreen-visualizer@eDP-1",
 ]
 
@@ -67,16 +68,18 @@ background = false
 type = "login_box"
 output = "eDP-1"
 cx = 960.0
-cy = 690.0
+cy = 640.0
 placement_width = 1920.0
 placement_height = 1080.0
 
 [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
 layout = "regular"
-show_media = true
-show_weather = true
+show_media = false
+show_weather = false
 show_session_buttons = true
+show_clock = true
 show_battery = true
+show_user = true
 background_opacity = 0.6
 background_radius = 16
 input_radius = 12
@@ -85,11 +88,24 @@ center_password_text = true
 show_caps_lock = true
 show_keyboard_layout = true
 
+[lockscreen_widgets.widget."lockscreen-media@eDP-1"]
+type = "media_player"
+output = "eDP-1"
+cx = 960.0
+cy = 870.0
+placement_width = 1920.0
+placement_height = 1080.0
+
+[lockscreen_widgets.widget."lockscreen-media@eDP-1".settings]
+background_opacity = 0.6
+background_radius = 16
+hide_when_no_media = true
+
 [lockscreen_widgets.widget."lockscreen-visualizer@eDP-1"]
 type = "audio_visualizer"
 output = "eDP-1"
 cx = 960.0
-cy = 990.0
+cy = 1000.0
 placement_width = 1920.0
 placement_height = 1080.0
 box_width = 600.0
