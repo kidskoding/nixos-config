@@ -10,8 +10,8 @@ scheme_selector_position = "hidden"
 [appearance.wallpaper]
 path = "/etc/noctalia-greeter/wallpaper.jpg"
 fill_mode = "crop"
-blur = 0.6
-tint = 0.35
+blur = 0.0
+tint = 0.3
 
 [clock]
 enabled = true

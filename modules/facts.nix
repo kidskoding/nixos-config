@@ -14,6 +14,11 @@
       default = [];
     };
 
+    wallpaper = mkOption {
+      type = types.path;
+      default = ./noctalia/wallpapers/starfire-dc-comics.jpg;
+    };
+
     modKey = mkOption {
       type = types.enum ["Super" "Alt"];
       default = "Super";

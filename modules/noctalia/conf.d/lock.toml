@@ -19,17 +19,22 @@ action = "lock_and_suspend"
 [lockscreen]
 transition = ["honeycomb"]
 transition_duration = 800
-blur_intensity = 0.6
-tint_intensity = 0.35
+blur_intensity = 0.0
+tint_intensity = 0.3
 
 [lockscreen_widgets]
 enabled = true
 widget_order = [
+  "lockscreen-ring@eDP-1",
   "lockscreen-clock@eDP-1",
   "lockscreen-date@eDP-1",
+  "lockscreen-calendar@eDP-1",
+  "lockscreen-weather@eDP-1",
+  "lockscreen-cpu@eDP-1",
+  "lockscreen-ram@eDP-1",
+  "lockscreen-temp@eDP-1",
   "lockscreen-login-box@eDP-1",
   "lockscreen-media@eDP-1",
-  "lockscreen-visualizer@eDP-1",
 ]
 
 [lockscreen_widgets.widget."lockscreen-clock@eDP-1"]
@@ -78,6 +83,7 @@ show_media = false
 show_weather = false
 show_session_buttons = true
 show_clock = true
+show_time = false
 show_battery = true
 show_user = true
 background_opacity = 0.6
@@ -101,16 +107,94 @@ background_opacity = 0.6
 background_radius = 16
 hide_when_no_media = true
 
-[lockscreen_widgets.widget."lockscreen-visualizer@eDP-1"]
-type = "audio_visualizer"
+[lockscreen_widgets.widget."lockscreen-ring@eDP-1"]
+type = "fancy_audio_visualizer"
 output = "eDP-1"
 cx = 960.0
-cy = 1000.0
+cy = 300.0
 placement_width = 1920.0
 placement_height = 1080.0
-box_width = 600.0
-box_height = 100.0
+box_width = 700.0
+box_height = 700.0
 
-[lockscreen_widgets.widget."lockscreen-visualizer@eDP-1".settings]
-show_when_idle = false
-background = false
+[lockscreen_widgets.widget."lockscreen-ring@eDP-1".settings]
+visualization_mode = "bars_rings"
+inner_diameter = 0.85
+bloom_intensity = 0.5
+fade_when_idle = true
+
+[lockscreen_widgets.widget."lockscreen-calendar@eDP-1"]
+type = "calendar"
+output = "eDP-1"
+cx = 250.0
+cy = 250.0
+placement_width = 1920.0
+placement_height = 1080.0
+
+[lockscreen_widgets.widget."lockscreen-calendar@eDP-1".settings]
+show_events = false
+show_week_numbers = false
+background_opacity = 0.6
+background_radius = 16
+
+[lockscreen_widgets.widget."lockscreen-weather@eDP-1"]
+type = "weather"
+output = "eDP-1"
+cx = 1670.0
+cy = 110.0
+placement_width = 1920.0
+placement_height = 1080.0
+
+[lockscreen_widgets.widget."lockscreen-weather@eDP-1".settings]
+show_forecast = true
+forecast_days = 3
+background_opacity = 0.6
+background_radius = 16
+
+[lockscreen_widgets.widget."lockscreen-cpu@eDP-1"]
+type = "sysmon"
+output = "eDP-1"
+cx = 1750.0
+cy = 330.0
+placement_width = 1920.0
+placement_height = 1080.0
+
+[lockscreen_widgets.widget."lockscreen-cpu@eDP-1".settings]
+display = "gauge"
+stat = "cpu_usage"
+gauge_layout = "horizontal"
+show_label = true
+background_opacity = 0.6
+background_radius = 16
+
+[lockscreen_widgets.widget."lockscreen-ram@eDP-1"]
+type = "sysmon"
+output = "eDP-1"
+cx = 1750.0
+cy = 410.0
+placement_width = 1920.0
+placement_height = 1080.0
+
+[lockscreen_widgets.widget."lockscreen-ram@eDP-1".settings]
+display = "gauge"
+stat = "ram_pct"
+gauge_layout = "horizontal"
+show_label = true
+background_opacity = 0.6
+background_radius = 16
+
+[lockscreen_widgets.widget."lockscreen-temp@eDP-1"]
+type = "sysmon"
+output = "eDP-1"
+cx = 1750.0
+cy = 490.0
+placement_width = 1920.0
+placement_height = 1080.0
+
+[lockscreen_widgets.widget."lockscreen-temp@eDP-1".settings]
+display = "gauge"
+stat = "cpu_temp"
+gauge_layout = "horizontal"
+show_label = true
+background_opacity = 0.6
+background_radius = 16
