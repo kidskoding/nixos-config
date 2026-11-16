@@ -63,7 +63,7 @@
 
       input = {
         keyboard.layout = "us";
-        focus.follows_mouse = true;
+        focus.follows_mouse = "sloppy";
 
         touchpad = {
           tap = true;
