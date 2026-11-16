@@ -25,7 +25,6 @@ tint_intensity = 0.4
 [lockscreen_widgets]
 enabled = true
 widget_order = [
-  "lockscreen-ring@eDP-1",
   "lockscreen-clock@eDP-1",
   "lockscreen-date@eDP-1",
   "lockscreen-weather@eDP-1",
@@ -104,22 +103,7 @@ placement_height = 1080.0
 background_opacity = 0.6
 background_radius = 16
 hide_when_no_media = true
-
-[lockscreen_widgets.widget."lockscreen-ring@eDP-1"]
-type = "fancy_audio_visualizer"
-output = "eDP-1"
-cx = 960.0
-cy = 300.0
-placement_width = 1920.0
-placement_height = 1080.0
-box_width = 700.0
-box_height = 700.0
-
-[lockscreen_widgets.widget."lockscreen-ring@eDP-1".settings]
-visualization_mode = "bars_rings"
-inner_diameter = 0.85
-bloom_intensity = 0.5
-fade_when_idle = true
+show_progress = true
 
 [lockscreen_widgets.widget."lockscreen-weather@eDP-1"]
 type = "weather"
