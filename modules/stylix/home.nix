@@ -17,6 +17,7 @@
       ghostty.colors.enable = false;
       helix.colors.enable = false;
       lazygit.colors.enable = false;
+      mpv.colors.enable = false;
       opencode.colors.enable = false;
       starship.colors.enable = false;
       zellij.colors.enable = false;

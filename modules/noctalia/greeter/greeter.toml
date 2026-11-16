@@ -4,11 +4,22 @@ default = "Umbriel"
 [appearance]
 scheme = "Catppuccin"
 theme_mode = "dark"
-hide_logo = false
+hide_logo = true
+scheme_selector_position = "hidden"
 
 [appearance.wallpaper]
 path = "/etc/noctalia-greeter/wallpaper.jpg"
 fill_mode = "crop"
+blur = 0.6
+tint = 0.35
+
+[clock]
+enabled = true
+position = "above-panel"
+time_format = "{:%-I:%M %p}"
+date_format = "%A, %B %-d"
+time_font_size = 96
+date_font_size = 18
 
 [cursor]
 theme = "Adwaita"
