@@ -118,7 +118,18 @@
           printf '%s\n\n— %s' \
             "Every great thing that you will ever achieve is built brick by brick, day by day, and night by night. You cannot lose if you just don't give up!" \
             'Nicholas "Jynxzi" Stewart' \
-            | fold -s -w 40 | cowsay -n -f sus
+            | fold -s -w 40 | cowsay -n -f sus \
+            | awk -v r=(set_color red) -v n=(set_color normal) '
+                f {
+                  k++
+                  if (k == 3) sub(/\.———\./, n "&" r)
+                  if (k == 4) sub(/\( +\)/, n "&" r)
+                  if (k == 5) sub(/`———´/, n "&" r)
+                  print r $0 n
+                  next
+                }
+                /^ -+$/ { f = 1 }
+                { print }'
         '';
 
         history = ''
