@@ -11,8 +11,8 @@
     ...
   }: let
     nerdFont = {
-      package = pkgs.nerd-fonts.ubuntu-sans;
-      family = "UbuntuSansMono Nerd Font";
+      package = pkgs.nerd-fonts.zed-mono;
+      family = "ZedMono Nerd Font";
     };
   in {
     inherit catppuccin;
