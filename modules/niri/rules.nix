@@ -12,6 +12,7 @@
         draw-border-with-background = false;
         clip-to-geometry = true;
         open-fullscreen = false;
+        open-maximized = false;
         geometry-corner-radius = {
           top-left = 8.0;
           top-right = 8.0;
@@ -22,10 +23,6 @@
       {
         matches = [{is-active = false;}];
         opacity = 0.95;
-      }
-      {
-        matches = [{app-id = "^discord$";}];
-        open-maximized = true;
       }
       {
         matches = [
@@ -45,7 +42,6 @@
           {app-id = "^steam_app_.*$";}
           {app-id = "^gamescope$";}
         ];
-        open-fullscreen = true;
         variable-refresh-rate = true;
       }
     ];

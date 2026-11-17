@@ -55,7 +55,7 @@ show_progress = true
 
 [widget.volume]
 show_label = true
-icon_color = "magenta"
+icon_color = "#fab387"  # catppuccin mocha peach
 mute_color = "red"
 
 [widget.network]

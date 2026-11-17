@@ -63,7 +63,7 @@ in {
     ];
 
     catppuccin = {
-      grub.enable = false;
+      grub.enable = true;
       plymouth.enable = false;
       tty.enable = false;
     };
