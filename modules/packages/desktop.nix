@@ -64,7 +64,7 @@
       enable = true;
       defaultApplications = {
         "application/pdf" = "org.pwmt.zathura-pdf-mupdf.desktop";
-        "inode/directory" = "dev.noctalia.luciole.desktop";
+        "inode/directory" = "org.gnome.Nautilus.desktop";
         "image/png" = "qimgv.desktop";
         "image/jpeg" = "qimgv.desktop";
         "image/gif" = "qimgv.desktop";

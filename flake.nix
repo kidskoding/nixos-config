@@ -59,10 +59,6 @@
       url = "github:noctalia-dev/noctalia-greeter";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    luciole = {
-      url = "github:noctalia-dev/luciole";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     # stylix: nix in style 💎 !!
     stylix = {

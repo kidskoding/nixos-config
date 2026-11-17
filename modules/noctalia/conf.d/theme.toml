@@ -2,7 +2,3 @@
 mode = "dark"
 source = "builtin"
 builtin = "Catppuccin"
-
-[theme.templates.user.luciole]
-input_path = "/etc/profiles/per-user/kidskoding/share/luciole/templates/colors.toml"
-output_path = "$XDG_CONFIG_HOME/luciole/colors.toml"
