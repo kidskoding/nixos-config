@@ -16,7 +16,7 @@
         window-decoration = false;
         window-padding-x = 5;
         window-padding-balance = true;
-        window-padding-color = "extend";
+        window-padding-color = "background";
         window-width = 100;
         window-height = 30;
 
