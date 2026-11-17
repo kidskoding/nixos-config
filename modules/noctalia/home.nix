@@ -1,4 +1,4 @@
-{...}: {
+{inputs, ...}: {
   flake.homeModules.noctalia = {
     config,
     pkgs,
@@ -9,6 +9,10 @@
     d = config.my.display;
     narrow = d.width / d.scale < 1920;
   in {
+    imports = [inputs.luciole.homeModules.default];
+
+    programs.luciole.enable = true;
+
     my.caches = [
       # my own noctalia cache from my own fork: builds of the kidskoding/noctalia fork and the greeter
       {

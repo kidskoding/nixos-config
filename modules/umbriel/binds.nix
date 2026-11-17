@@ -6,7 +6,7 @@
     ...
   }: let
     terminal = "ghostty";
-    fileManager = "nautilus";
+    fileManager = "luciole";
     noctalia = c: "spawn noctalia msg ${c}";
 
     locked = cmd: {

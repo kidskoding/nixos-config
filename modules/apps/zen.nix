@@ -2,6 +2,11 @@
   flake.homeModules.desktop = {
     imports = [inputs.zen-browser.homeModules.beta];
 
+    stylix.targets.zen-browser = {
+      profileNames = ["default"];
+      enableCss = false;
+    };
+
     programs.zen-browser = {
       enable = true;
       setAsDefaultBrowser = true;

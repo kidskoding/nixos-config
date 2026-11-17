@@ -11,8 +11,8 @@
     ...
   }: let
     nerdFont = {
-      package = pkgs.nerd-fonts.googlesanscode;
-      family = "GoogleSansCode Nerd Font";
+      package = pkgs.nerd-fonts.ubuntu-mono;
+      family = "UbuntuMono Nerd Font";
     };
   in {
     inherit catppuccin;
@@ -36,10 +36,10 @@
 
         serif = config.stylix.fonts.sansSerif;
         sizes = {
-          terminal = lib.mkDefault (builtins.floor (14 * config.my.display.textScale));
-          applications = lib.mkDefault 12;
-          desktop = lib.mkDefault 11;
-          popups = lib.mkDefault 11;
+          terminal = lib.mkDefault (builtins.floor (16 * config.my.display.textScale));
+          applications = lib.mkDefault 13;
+          desktop = lib.mkDefault 12;
+          popups = lib.mkDefault 12;
         };
       };
 
