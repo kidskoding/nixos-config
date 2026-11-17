@@ -14,7 +14,7 @@
         confirm-close-surface = false;
 
         window-decoration = false;
-        window-padding-x = 5;
+        window-padding-x = 2;
         window-padding-balance = true;
         window-padding-color = "background";
         window-width = 100;
