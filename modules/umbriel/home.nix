@@ -28,7 +28,7 @@
     '';
 
     programs.fish.loginShellInit = ''
-      if test (tty) = /dev/tty1; and not set -q UMBRIEL_SESSION_STARTED
+      if test (tty) = /dev/tty1; and test "$XDG_SESSION_TYPE" = tty; and not set -q UMBRIEL_SESSION_STARTED
         set -gx UMBRIEL_SESSION_STARTED 1
         exec start-umbriel
       end
