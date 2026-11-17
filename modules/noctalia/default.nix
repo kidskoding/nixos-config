@@ -26,6 +26,8 @@
 
     environment.etc."noctalia-greeter/wallpaper.jpg".source = config.my.wallpaper;
 
+    environment.pathsToLink = ["/share/luciole"];
+
     environment.systemPackages = [
       inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
       pkgs.adwaita-icon-theme

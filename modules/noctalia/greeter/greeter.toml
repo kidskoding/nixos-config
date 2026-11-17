@@ -2,10 +2,28 @@
 default = "Umbriel"
 
 [appearance]
-scheme = "Catppuccin"
+scheme = "Synced"
 theme_mode = "dark"
 hide_logo = true
 scheme_selector_position = "hidden"
+
+[appearance.palette]
+primary = "#cba6f7"
+on_primary = "#11111b"
+secondary = "#fab387"
+on_secondary = "#11111b"
+tertiary = "#94e2d5"
+on_tertiary = "#11111b"
+error = "#f38ba8"
+on_error = "#11111b"
+surface = "#1e1e2e"
+on_surface = "#cdd6f4"
+surface_variant = "#313244"
+on_surface_variant = "#a3b4eb"
+outline = "#4c4f69"
+shadow = "#11111b"
+hover = "#94e2d5"
+on_hover = "#11111b"
 
 [appearance.wallpaper]
 path = "/etc/noctalia-greeter/wallpaper.jpg"
@@ -18,8 +36,8 @@ enabled = true
 position = "above-panel"
 time_format = "{:%-I:%M %p}"
 date_format = "%A, %B %-d"
-time_font_size = 96
-date_font_size = 18
+time_font_size = 128
+date_font_size = 36
 
 [cursor]
 theme = "Adwaita"
