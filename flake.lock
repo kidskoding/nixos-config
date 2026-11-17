@@ -1115,11 +1115,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794864584,
-        "narHash": "sha256-Z/PhCDJCOr/XClaALPb+w5SVhjRo5JbqT+YycuFpG7w=",
+        "lastModified": 1794872122,
+        "narHash": "sha256-9S/RKlh1W1qqejxa1b+A+dUoW07gSC4nBG9mmkUfk+0=",
         "owner": "kidskoding",
         "repo": "noctalia",
-        "rev": "e16dc527e4c2e4a5376d88cef808a6cf02360ab9",
+        "rev": "b172dfee7486c5a93d2890a2276e138fe9b1e2cf",
         "type": "github"
       },
       "original": {
