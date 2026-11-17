@@ -11,8 +11,8 @@
     ...
   }: let
     nerdFont = {
-      package = pkgs.nerd-fonts.zed-mono;
-      family = "ZedMono Nerd Font";
+      package = pkgs.nerd-fonts.googlesanscode;
+      family = "GoogleSansCode Nerd Font";
     };
   in {
     inherit catppuccin;
@@ -26,7 +26,7 @@
       fonts = {
         monospace = lib.mkDefault {
           inherit (nerdFont) package;
-          name = nerdFont.family;
+          name = "${nerdFont.family} Mono";
         };
 
         sansSerif = lib.mkDefault {
@@ -36,10 +36,10 @@
 
         serif = config.stylix.fonts.sansSerif;
         sizes = {
-          terminal = lib.mkDefault (builtins.floor (16 * config.my.display.textScale));
-          applications = lib.mkDefault 13;
-          desktop = lib.mkDefault 12;
-          popups = lib.mkDefault 12;
+          terminal = lib.mkDefault (builtins.floor (14 * config.my.display.textScale));
+          applications = lib.mkDefault 12;
+          desktop = lib.mkDefault 11;
+          popups = lib.mkDefault 11;
         };
       };
 
