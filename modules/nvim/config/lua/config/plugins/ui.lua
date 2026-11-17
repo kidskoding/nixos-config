@@ -34,7 +34,6 @@ local fill_bg, tab_bg, active_bg = p.mantle, p.base, p.surface0
 local buffer_highlights = {
   fill = { bg = fill_bg },
   trunc_marker = { bg = fill_bg },
-  offset_separator = { bg = tab_bg },
   background = { fg = p.overlay2, bg = tab_bg },
   buffer_visible = { fg = p.overlay2, bg = tab_bg },
   buffer_selected = { fg = p.text, bg = active_bg, bold = true },
@@ -72,7 +71,7 @@ bufferline.setup({
     tab_size = 0,
     indicator = { style = "none" },
     separator_style = { "", "" },
-    offsets = { { filetype = "snacks_layout_box", separator = true, highlight = "Normal" } },
+    offsets = { { filetype = "snacks_layout_box", separator = false, highlight = "NormalFloat" } },
   },
   highlights = buffer_highlights,
 })

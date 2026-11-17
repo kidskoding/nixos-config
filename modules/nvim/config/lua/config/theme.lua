@@ -7,6 +7,8 @@ require("catppuccin").setup({
 
   custom_highlights = function(c)
     return {
+      WinSeparator = { fg = c.base, bg = c.base },
+
       -- treesitter: brackets and delimiters in plain fg
       ["@punctuation.bracket"] = { fg = c.text },
       ["@punctuation.delimiter"] = { fg = c.text },
