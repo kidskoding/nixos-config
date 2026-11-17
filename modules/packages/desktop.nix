@@ -81,7 +81,6 @@
 
       # applications
       anki
-      discord
       doxygen_gui
       libreoffice
       obsidian

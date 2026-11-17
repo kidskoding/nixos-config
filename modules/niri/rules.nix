@@ -25,7 +25,10 @@
         opacity = 0.95;
       }
       {
-        matches = [{app-id = "^discord$";}];
+        matches = [
+          {app-id = "^vesktop$";}
+          {app-id = "^spotify$";}
+        ];
         default-column-width.proportion = 1.0;
       }
       {
