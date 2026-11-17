@@ -51,11 +51,11 @@
         "youtube-skills": "youtube-skills"
       },
       "locked": {
-        "lastModified": 1794942803,
-        "narHash": "sha256-QBNmq80qlP+OddfVDN9xK6kGcABC/xylpqgDXxE3NaQ=",
+        "lastModified": 1794949728,
+        "narHash": "sha256-hGN+rfDSVtyguoGGTB9VY7ad8Mtwv8DQevAgKABzhII=",
         "owner": "kidskoding",
         "repo": "anikonistack",
-        "rev": "ee45ae3f3a39c7c7e8ad23ea799edd5369f32792",
+        "rev": "a984066a680a3c09acec0cc987912337bb119dff",
         "type": "github"
       },
       "original": {
