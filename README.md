@@ -4,18 +4,20 @@ my nixos config!! it sets up two laptops running nixos. the same shell,
 editor and tools also install on any other linux machine with nix (wsl, other
 distros) through home-manager, without nixos.
 
-![fastfetch](screenshots/thinkpad/1-fetch.png)
+![fastfetch](screenshots/thinkpad/4-fetch.png)
 
 <details>
 <summary>more screenshots</summary>
 
-![neovim and btop](screenshots/thinkpad/2-nvim-btop.png)
-![cbonsai, tty-clock and pipes in the dwindle layout](screenshots/thinkpad/3-bonsai-clock-pipes.png)
-![control center](screenshots/thinkpad/4-control-center.png)
-![launcher](screenshots/thinkpad/5-launcher.png)
-![spotify and cava](screenshots/thinkpad/6-spotify-cava.png)
-![overview](screenshots/thinkpad/7-overview.png)
-![neovim, git log and lazygit in the master layout](screenshots/thinkpad/8-master.png)
+![clean desktop](screenshots/thinkpad/1-clean.png)
+![launcher](screenshots/thinkpad/2-launcher.png)
+![control center](screenshots/thinkpad/3-control-center.png)
+![myx and cava](screenshots/thinkpad/5-myx-cava.png)
+![zen browser and obsidian](screenshots/thinkpad/6-zen-obsidian.png)
+![nautilus and zathura](screenshots/thinkpad/7-nautilus-zathura.png)
+![neovim in zellij](screenshots/thinkpad/8-editor.png)
+![btop and lazygit in zellij](screenshots/thinkpad/9-btop.png)
+![overview](screenshots/thinkpad/10-overview.png)
 
 </details>
 
@@ -23,9 +25,9 @@ distros) through home-manager, without nixos.
 
 | | |
 |---|---|
-| compositor | [umbriel](https://github.com/noctalia-dev/umbriel) |
+| compositor | [niri](https://github.com/YaLTeR/niri) |
 | shell / bar | [noctalia](https://github.com/noctalia-dev/noctalia) |
-| theme | [catppuccin/nix](https://github.com/catppuccin/nix) mocha, [stylix](https://github.com/nix-community/stylix) for fonts and the rest |
+| theme | [catppuccin/nix](https://github.com/catppuccin/nix) macchiato, [stylix](https://github.com/nix-community/stylix) for fonts and the rest |
 | terminal | ghostty, fish, starship, zellij |
 | editor | neovim nightly ([kidskoding.nvim](https://codeberg.org/kidskoding/kidskoding.nvim)), evil-helix as backup |
 | secrets | [sops-nix](https://github.com/Mic92/sops-nix) |
