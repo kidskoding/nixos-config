@@ -36,8 +36,8 @@
             else 1.1;
           start =
             if narrow
-            then ["control-center" "umbriel" "workspaces" "media"]
-            else ["control-center" "umbriel" "workspaces"];
+            then ["control-center" "workspaces" "media"]
+            else ["control-center" "workspaces"];
           center =
             if narrow
             then []

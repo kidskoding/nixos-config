@@ -46,7 +46,6 @@
       stylix
 
       niri
-      umbriel
       noctalia
       desktop
 

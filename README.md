@@ -69,7 +69,7 @@ scripts/            rebuild helpers
 | `base` | shell, git, cli tools, theme | every machine |
 | `dev` | every language, neovim, helix (or `dev-core` plus `dev-rust`, `dev-web`, …) | picked per machine |
 | `agents` | coding agents and their config | picked per machine |
-| `desktop`, `umbriel` | gui apps, fonts, compositor, clipboard | both laptops |
+| `desktop`, `niri` | gui apps, fonts, compositor, clipboard | both laptops |
 | `gaming` | games | victus |
 | `standalone` | fixes for running outside nixos (gpu drivers, nix itself) | every non-nixos machine |
 

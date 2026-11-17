@@ -1244,7 +1244,6 @@
         "sops-nix": "sops-nix",
         "stylix": "stylix",
         "toofan": "toofan",
-        "umbriel": "umbriel",
         "zen-browser": "zen-browser"
       }
     },
@@ -1593,27 +1592,6 @@
         "type": "github"
       }
     },
-    "umbriel": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "xdg-desktop-portal-umbriel": "xdg-desktop-portal-umbriel"
-      },
-      "locked": {
-        "lastModified": 1794712577,
-        "narHash": "sha256-nLcyRJOZ1eMphbtmwkxg0gl+VVmCfIWCZM/EyjcUyrQ=",
-        "owner": "noctalia-dev",
-        "repo": "umbriel",
-        "rev": "ae3472d7546d45576a3540969786ddc83bb1ac08",
-        "type": "github"
-      },
-      "original": {
-        "owner": "noctalia-dev",
-        "repo": "umbriel",
-        "type": "github"
-      }
-    },
     "understand-anything": {
       "flake": false,
       "locked": {
@@ -1659,27 +1637,6 @@
       "original": {
         "owner": "vercel-labs",
         "repo": "skills",
-        "type": "github"
-      }
-    },
-    "xdg-desktop-portal-umbriel": {
-      "inputs": {
-        "nixpkgs": [
-          "umbriel",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1793975757,
-        "narHash": "sha256-27TZy17ok3p11A5Av1X/FG5BFyvHUsHsQiYyesij250=",
-        "owner": "noctalia-dev",
-        "repo": "xdg-desktop-portal-umbriel",
-        "rev": "56951426eb9931db3f1c57348f226c2427fba4f3",
-        "type": "github"
-      },
-      "original": {
-        "owner": "noctalia-dev",
-        "repo": "xdg-desktop-portal-umbriel",
         "type": "github"
       }
     },

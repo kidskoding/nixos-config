@@ -47,10 +47,6 @@
     niri.url = "github:sodiboo/niri-flake";
 
     # noctalia: the noctalia family 🌙 !!
-    umbriel = {
-      url = "github:noctalia-dev/umbriel";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     noctalia = {
       url = "github:kidskoding/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
