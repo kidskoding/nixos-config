@@ -89,17 +89,6 @@
         "Mod+Comma".action.consume-window-into-column = [];
         "Mod+Period".action.expel-window-from-column = [];
 
-        # cycle focus
-        "Alt+Tab".action.spawn = noctalia [
-          "window-switcher"
-          "hold"
-        ];
-        "Alt+Shift+Tab".action.spawn = noctalia [
-          "window-switcher"
-          "hold"
-          "reverse"
-        ];
-
         # focus
         # ------- vim ----------------
         "Mod+H".action.focus-column-left = [];
