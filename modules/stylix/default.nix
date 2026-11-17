@@ -26,7 +26,7 @@
       fonts = {
         monospace = lib.mkDefault {
           inherit (nerdFont) package;
-          name = "${nerdFont.family} Mono";
+          name = nerdFont.family;
         };
 
         sansSerif = lib.mkDefault {
