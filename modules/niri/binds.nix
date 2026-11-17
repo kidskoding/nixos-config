@@ -90,8 +90,15 @@
         "Mod+Period".action.expel-window-from-column = [];
 
         # cycle focus
-        "Mod+Tab".action.focus-window-down = [];
-        "Mod+Shift+Tab".action.focus-window-up = [];
+        "Alt+Tab".action.spawn = noctalia [
+          "window-switcher"
+          "hold"
+        ];
+        "Alt+Shift+Tab".action.spawn = noctalia [
+          "window-switcher"
+          "hold"
+          "reverse"
+        ];
 
         # focus
         # ------- vim ----------------
@@ -124,6 +131,7 @@
         "Mod+Shift+BracketRight".action.move-column-to-monitor-right = [];
         "Mod+Ctrl+BracketLeft".action.move-workspace-to-monitor-left = [];
         "Mod+Ctrl+BracketRight".action.move-workspace-to-monitor-right = [];
+        "Mod+P".action.spawn-sh = "pkill -x wl-mirror || wl-mirror --fullscreen-output HDMI-A-1 ${config.my.display.output}";
 
         # switch workspace
         "Mod+1".action.focus-workspace = "1";
