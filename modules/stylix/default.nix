@@ -1,7 +1,7 @@
 {inputs, ...}: let
   catppuccin = {
     enable = true;
-    flavor = "frappe";
+    flavor = "macchiato";
   };
 
   common = {
@@ -20,7 +20,7 @@
     stylix = {
       enable = true;
 
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-frappe.yaml";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
       polarity = "dark";
 
       fonts = {
