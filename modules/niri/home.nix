@@ -21,6 +21,13 @@
       kdePackages.qtsvg
     ];
 
+    programs.fish.loginShellInit = ''
+      if test (tty) = /dev/tty1; and test "$XDG_SESSION_TYPE" = tty; and not set -q NIRI_SESSION_STARTED
+        set -gx NIRI_SESSION_STARTED 1
+        exec niri-session
+      end
+    '';
+
     programs.niri.settings = {
       prefer-no-csd = true;
       screenshot-path = "~/Pictures/Screenshots/%Y-%m-%dT%H:%M:%S.png";
