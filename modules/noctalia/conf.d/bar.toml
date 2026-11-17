@@ -33,6 +33,7 @@ right = "none"
 
 [widget.tray]
 drawer = true
+pinned = ["obs", "obs_1", "obs-tray"]
 
 [widget.workspaces]
 capsule = false
