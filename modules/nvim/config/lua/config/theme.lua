@@ -1,4 +1,4 @@
-local flavor = "frappe"
+local flavor = "macchiato"
 local p = require("catppuccin.palettes").get_palette(flavor)
 
 require("catppuccin").setup({
