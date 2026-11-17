@@ -118,7 +118,7 @@
           printf '%s\n\n— %s' \
             "Every great thing that you will ever achieve is built brick by brick, day by day, and night by night. You cannot lose if you just don't give up!" \
             'Nicholas "Jynxzi" Stewart' \
-            | fold -s -w 40 | cowsay -n -f stegosaurus
+            | fold -s -w 40 | cowsay -n -f sus
         '';
 
         history = ''
