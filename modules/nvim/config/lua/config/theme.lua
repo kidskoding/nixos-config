@@ -1,8 +1,8 @@
-local flavour = "macchiato"
-local p = require("catppuccin.palettes").get_palette(flavour)
+local flavor = "frappe"
+local p = require("catppuccin.palettes").get_palette(flavor)
 
 require("catppuccin").setup({
-  flavour = flavour,
+  flavour = flavor,
   no_italic = true,
 
   custom_highlights = function(c)
@@ -35,5 +35,5 @@ require("catppuccin").setup({
 })
 
 vim.cmd.colorscheme("catppuccin")
-local lualine = require("lualine.themes.catppuccin-" .. flavour)
+local lualine = require("lualine.themes.catppuccin-" .. flavor)
 return { lualine = lualine, muted = p.subtext0 }
