@@ -32,8 +32,8 @@
             else 1.1;
           font_scale =
             if narrow
-            then 1.15
-            else 1.25;
+            then 1.0
+            else 1.1;
           start =
             if narrow
             then ["control-center" "umbriel" "workspaces" "media"]

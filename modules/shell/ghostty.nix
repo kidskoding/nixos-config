@@ -7,11 +7,6 @@
       settings = {
         term = "xterm-256color";
 
-        font-style = "Extended Medium";
-        font-style-bold = "Extended Bold";
-        font-style-italic = "Extended Medium Italic";
-        font-style-bold-italic = "Extended Bold Italic";
-
         font-feature = ["-calt" "-liga" "-dlig"];
 
         background-blur = true;
