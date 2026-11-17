@@ -122,6 +122,7 @@
             | awk -v r=(set_color red) -v n=(set_color normal) '
                 f {
                   k++
+                  if (k <= 2) sub(/^ *[^ ]/, n "&" r)
                   if (k == 3) sub(/\.———\./, n "&" r)
                   if (k == 4) sub(/\( +\)/, n "&" r)
                   if (k == 5) sub(/`———´/, n "&" r)
