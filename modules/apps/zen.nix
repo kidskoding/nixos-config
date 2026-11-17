@@ -18,7 +18,7 @@
         isDefault = true;
         presets.catppuccin = {
           enable = true;
-          flavor = "Macchiato";
+          flavor = "Frappe";
           accent = "Mauve";
         };
       };
