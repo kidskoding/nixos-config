@@ -7,7 +7,7 @@ for _, section in pairs(theme) do
   section.c = theme.normal.c
 end
 
-local bar_bg, raised_bg, text_fg = theme.normal.c.bg, theme.normal.b.bg, theme.normal.b.fg
+local bar_bg, raised_bg = theme.normal.c.bg, theme.normal.b.bg
 
 vim.api.nvim_set_hl(0, "lualine_sep_color_b", { fg = colors.muted, bg = raised_bg })
 vim.api.nvim_set_hl(0, "lualine_sep_color_x", { fg = colors.muted, bg = bar_bg })
@@ -28,26 +28,41 @@ require("lualine").setup({
   },
 })
 
-local normal_bg = vim.api.nvim_get_hl(0, { name = "Normal", link = false }).bg
-local active_bg = bar_bg
+local p = colors.palette
+local fill_bg, tab_bg, active_bg = p.mantle, p.base, p.surface0
 
 local buffer_highlights = {
-  fill = { bg = normal_bg },
-  separator = { fg = raised_bg, bg = normal_bg },
-  separator_visible = { fg = raised_bg, bg = normal_bg },
-  separator_selected = { fg = raised_bg, bg = normal_bg },
-  offset_separator = { bg = normal_bg },
-  buffer_selected = { fg = text_fg, bg = active_bg, bold = true },
+  fill = { bg = fill_bg },
+  trunc_marker = { bg = fill_bg },
+  offset_separator = { bg = tab_bg },
+  background = { fg = p.overlay2, bg = tab_bg },
+  buffer_visible = { fg = p.overlay2, bg = tab_bg },
+  buffer_selected = { fg = p.text, bg = active_bg, bold = true },
+  indicator_visible = { bg = tab_bg },
+  indicator_selected = { bg = active_bg },
 }
 
--- every piece of the active tab sits on the same raised background
-for _, part in ipairs({ "indicator", "close_button", "modified", "duplicate", "numbers", "pick", "diagnostic" }) do
+-- every piece of a tab sits on that tab's background, like astronvim's heirline tabline
+for _, part in ipairs({
+  "close_button",
+  "modified",
+  "duplicate",
+  "numbers",
+  "pick",
+  "separator",
+  "diagnostic",
+  "hint",
+  "info",
+  "warning",
+  "error",
+  "hint_diagnostic",
+  "info_diagnostic",
+  "warning_diagnostic",
+  "error_diagnostic",
+}) do
+  buffer_highlights[part] = { bg = tab_bg }
+  buffer_highlights[part .. "_visible"] = { bg = tab_bg }
   buffer_highlights[part .. "_selected"] = { bg = active_bg }
-end
-
-for _, level in ipairs({ "hint", "info", "warning", "error" }) do
-  buffer_highlights[level .. "_selected"] = { bg = active_bg }
-  buffer_highlights[level .. "_diagnostic_selected"] = { bg = active_bg }
 end
 
 local bufferline = require("bufferline")
@@ -56,7 +71,7 @@ bufferline.setup({
     style_preset = { bufferline.style_preset.minimal, bufferline.style_preset.no_italic },
     tab_size = 0,
     indicator = { style = "none" },
-    separator_style = "thin",
+    separator_style = { "", "" },
     offsets = { { filetype = "snacks_layout_box", separator = true, highlight = "Normal" } },
   },
   highlights = buffer_highlights,
