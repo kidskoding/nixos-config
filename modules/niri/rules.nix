@@ -25,6 +25,10 @@
         opacity = 0.95;
       }
       {
+        matches = [{app-id = "^discord$";}];
+        default-column-width.proportion = 1.0;
+      }
+      {
         matches = [
           {
             app-id = "^steam$";
