@@ -25,3 +25,4 @@ map("<leader>an", "ClaudeCodeDiffDeny", "Deny Claude Code diff")
 vim.keymap.set("v", "<leader>as", "<cmd>ClaudeCodeSend<CR>", { desc = "Send selection to Claude Code" })
 
 vim.keymap.set("n", "<leader>at", function() sidekick_cli.toggle() end, { desc = "Toggle agent CLI" })
+vim.keymap.set("n", "<leader>ad", function() sidekick_cli.close() end, { desc = "Detach agent CLI session" })
