@@ -100,6 +100,7 @@
         "networkmanager"
         "wheel"
         "docker"
+        "libvirtd"
       ];
     };
   };
@@ -172,6 +173,9 @@
 
   virtualisation.docker.enable = true;
   virtualisation.docker.storageDriver = "btrfs";
+
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
 
   environment.sessionVariables = {
     # run electron/chromium apps (discord, spotify) natively on wayland
