@@ -49,10 +49,6 @@
           "panel-toggle"
           "launcher"
         ];
-        "Mod+Space".action.spawn = noctalia [
-          "panel-toggle"
-          "launcher"
-        ];
         "Mod+A".action.spawn = noctalia [
           "panel-toggle"
           "control-center"
