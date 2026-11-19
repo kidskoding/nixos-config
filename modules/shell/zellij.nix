@@ -30,6 +30,26 @@
             "Ctrl h"
             "Ctrl b"
             "Ctrl q"
+            "Alt h"
+            "Alt j"
+            "Alt k"
+            "Alt l"
+            "Alt Left"
+            "Alt Down"
+            "Alt Up"
+            "Alt Right"
+            "Alt n"
+            "Alt f"
+            "Alt i"
+            "Alt o"
+            "Alt p"
+            "Alt Shift p"
+            "Alt c"
+            "Alt ["
+            "Alt ]"
+            "Alt ="
+            "Alt +"
+            "Alt -"
           ];
 
           normal = {
@@ -41,24 +61,31 @@
           tmux = {
             "bind \"x\"" = {
               CloseFocus = [];
+              SwitchToMode = "Normal";
             };
             "bind \"s\"" = {
               NewPane = "stacked";
+              SwitchToMode = "Normal";
             };
             "bind \"n\"" = {
               NewPane = "right";
+              SwitchToMode = "Normal";
             };
             "bind \"d\"" = {
               NewPane = "down";
+              SwitchToMode = "Normal";
             };
             "bind \"t\"" = {
               NewTab = [];
+              SwitchToMode = "Normal";
             };
             "bind \"f\"" = {
               ToggleFocusFullscreen = [];
+              SwitchToMode = "Normal";
             };
             "bind \"w\"" = {
               ToggleFloatingPanes = [];
+              SwitchToMode = "Normal";
             };
             "bind \"m\"" = {
               _children = [
@@ -68,7 +95,7 @@
             };
 
             "bind \"H\"" = {
-              MovePane = "left";
+              GoToPreviousTab = [];
             };
             "bind \"J\"" = {
               MovePane = "down";
@@ -77,24 +104,43 @@
               MovePane = "up";
             };
             "bind \"L\"" = {
-              MovePane = "right";
+              GoToNextTab = [];
             };
             "bind \"b\"" = {
               BreakPane = [];
+              SwitchToMode = "Normal";
             };
             "bind \"u\"" = {
               NextSwapLayout = [];
             };
 
-            "bind \"1\"" = {GoToTab = 1;};
-            "bind \"2\"" = {GoToTab = 2;};
-            "bind \"3\"" = {GoToTab = 3;};
-            "bind \"4\"" = {GoToTab = 4;};
-            "bind \"5\"" = {GoToTab = 5;};
-            "bind \"6\"" = {GoToTab = 6;};
-            "bind \"7\"" = {GoToTab = 7;};
-            "bind \"8\"" = {GoToTab = 8;};
-            "bind \"9\"" = {GoToTab = 9;};
+            "bind \"1\"" = {
+              GoToTab = 1;
+            };
+            "bind \"2\"" = {
+              GoToTab = 2;
+            };
+            "bind \"3\"" = {
+              GoToTab = 3;
+            };
+            "bind \"4\"" = {
+              GoToTab = 4;
+            };
+            "bind \"5\"" = {
+              GoToTab = 5;
+            };
+            "bind \"6\"" = {
+              GoToTab = 6;
+            };
+            "bind \"7\"" = {
+              GoToTab = 7;
+            };
+            "bind \"8\"" = {
+              GoToTab = 8;
+            };
+            "bind \"9\"" = {
+              GoToTab = 9;
+            };
             "bind \"r\"" = {
               _children = [
                 {SwitchToMode = "RenameTab";}
@@ -107,6 +153,7 @@
             };
             "bind \"e\"" = {
               EditScrollback = [];
+              SwitchToMode = "Normal";
             };
 
             "bind \"S\"" = {
@@ -115,16 +162,22 @@
                 floating = true;
                 move_to_focused_tab = true;
               };
+              SwitchToMode = "Normal";
             };
             "bind \"q\"" = {
               Detach = [];
+              SwitchToMode = "Normal";
             };
             "bind \"Q\"" = {
               Quit = [];
+              SwitchToMode = "Normal";
             };
 
             "bind \"h\"" = {
               MoveFocus = "Left";
+            };
+            "bind \"j\"" = {
+              MoveFocus = "Down";
             };
             "bind \"l\"" = {
               MoveFocus = "Right";
@@ -144,13 +197,6 @@
             };
             "bind \"Up\"" = {
               MoveFocus = "Up";
-            };
-
-            "bind \"P\"" = {
-              GoToPreviousTab = [];
-            };
-            "bind \"N\"" = {
-              GoToNextTab = [];
             };
           };
         };
