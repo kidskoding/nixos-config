@@ -78,23 +78,25 @@ bufferline.setup({
 
 -- leader group names. groups with no keymaps yet stay hidden
 require("which-key").setup({
+  preset = "helix",
   icons = {
     rules = {
+      { pattern = "github", icon = " " },
       { pattern = "claude", icon = "󱚣 ", color = "orange" },
       { pattern = "agent", icon = " ", color = "purple" },
     },
   },
   spec = {
-    { "<leader>a", group = "ai", icon = { icon = "󱚣 ", color = "orange" } },
+    { "<leader>a", group = "ai", icon = { icon = " ", color = "orange" } },
     { "<leader>b", group = "buffers", icon = "󰓩 " },
     { "<leader>c", group = "code", icon = " " },
-    { "<leader>D", group = "database", icon = " " },
+    { "<leader>d", group = "database", icon = " " },
+    { "<leader>f", group = "find", icon = " " },
     { "<leader>g", group = "git", icon = "󰊢 " },
-    { "<leader>m", group = "markdown", icon = " " },
-    { "<leader>o", group = "obsidian", icon = "󰠮 " },
+    { "<leader>m", group = "mark", icon = "󰃀 " },
+    { "<leader>n", group = "notes", icon = "󰠮 " },
     { "<leader>r", group = "rust", icon = { icon = " ", color = "orange" } },
     { "<leader>t", group = "test", icon = "󰙨 " },
-    { "<leader>T", group = "typst", icon = "󰈙 " },
     { "<leader>x", group = "lists", icon = " " },
   },
 })

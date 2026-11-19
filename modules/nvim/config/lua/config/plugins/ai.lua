@@ -17,12 +17,12 @@ require("sidekick").setup({
 
 local function map(key, cmd, desc) vim.keymap.set("n", key, "<cmd>" .. cmd .. "<CR>", { desc = desc }) end
 
-map("<leader>aa", "ClaudeCode", "Toggle Claude Code")
-map("<leader>ar", "ClaudeCode --resume", "Resume Claude session")
-map("<leader>aC", "ClaudeCode --continue", "Continue last Claude session")
-map("<leader>ay", "ClaudeCodeDiffAccept", "Accept Claude Code diff")
-map("<leader>an", "ClaudeCodeDiffDeny", "Deny Claude Code diff")
-vim.keymap.set("v", "<leader>as", "<cmd>ClaudeCodeSend<CR>", { desc = "Send selection to Claude Code" })
+map("<leader>ac", "ClaudeCode", "toggle claude code")
+map("<leader>ar", "ClaudeCode --resume", "resume claude session")
+map("<leader>al", "ClaudeCode --continue", "continue last claude session")
+map("<leader>ay", "ClaudeCodeDiffAccept", "accept claude code diff")
+map("<leader>an", "ClaudeCodeDiffDeny", "deny claude code diff")
+vim.keymap.set("v", "<leader>as", "<cmd>ClaudeCodeSend<CR>", { desc = "send selection to claude code" })
 
-vim.keymap.set("n", "<leader>at", function() sidekick_cli.toggle() end, { desc = "Toggle agent CLI" })
-vim.keymap.set("n", "<leader>ad", function() sidekick_cli.close() end, { desc = "Detach agent CLI session" })
+vim.keymap.set("n", "<leader>at", function() sidekick_cli.toggle() end, { desc = "toggle agent cli" })
+vim.keymap.set("n", "<leader>ad", function() sidekick_cli.close() end, { desc = "detach agent cli session" })

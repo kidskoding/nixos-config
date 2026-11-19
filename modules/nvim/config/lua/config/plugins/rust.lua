@@ -16,7 +16,7 @@ require("crates").setup({
 
 local function map(key, cmd, desc) vim.keymap.set("n", key, "<cmd>" .. cmd .. "<CR>", { desc = desc }) end
 
-map("<leader>ra", "RustLsp codeAction", "Rust code action")
-map("<leader>rr", "RustLsp runnables", "Rust runnables")
-map("<leader>rt", "RustLsp testables", "Rust testables")
-map("<leader>re", "RustLsp explainError", "Explain Rust error")
+map("<leader>ra", "RustLsp codeAction", "rust code action")
+map("<leader>rr", "RustLsp runnables", "rust runnables")
+map("<leader>rt", "RustLsp testables", "rust testables")
+map("<leader>re", "RustLsp explainError", "explain rust error")

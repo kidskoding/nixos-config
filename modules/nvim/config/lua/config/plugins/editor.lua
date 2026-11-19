@@ -14,13 +14,13 @@ require("auto-save").setup({
 
 local function map(key, action, desc) vim.keymap.set("n", key, action, { desc = desc }) end
 
-map("<leader>mr", "<cmd>RenderMarkdown toggle<CR>", "Toggle Markdown render")
-map("<leader>mp", "<cmd>RenderMarkdown preview<CR>", "Markdown preview split")
+map("<leader>nr", "<cmd>RenderMarkdown toggle<CR>", "toggle markdown render")
+map("<leader>nm", "<cmd>RenderMarkdown preview<CR>", "markdown preview split")
 
-map("-", "<cmd>Oil<CR>", "Browse parent directory")
-map("<leader>H", function() harpoon:list():add() end, "Harpoon file")
-map("<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, "Harpoon menu")
+map("-", "<cmd>Oil<CR>", "browse parent directory")
+map("<leader>mm", function() harpoon:list():add() end, "harpoon file")
+map("<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, "harpoon menu")
 
 for i, key in ipairs({ "<C-h>", "<C-j>", "<C-k>", "<C-l>" }) do
-  map(key, function() harpoon:list():select(i) end, "Harpoon file " .. i)
+  map(key, function() harpoon:list():select(i) end, "harpoon file " .. i)
 end

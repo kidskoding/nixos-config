@@ -11,7 +11,6 @@ with pkgs; [
   gh
   lazygit
   websocat
-  zathura
 
   # formatters
   alejandra

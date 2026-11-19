@@ -14,5 +14,5 @@ vim.keymap.set(
   "n",
   "<leader>cf",
   function() conform.format({ lsp_format = "fallback" }) end,
-  { desc = "Format buffer" }
+  { desc = "format buffer" }
 )
