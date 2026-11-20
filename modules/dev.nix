@@ -1,29 +1,35 @@
 # one group per language; a host picks `dev` for all of them, or dev-core plus the languages it needs
 {
   inputs,
-  lib,
   self,
   ...
-}: let
-  groups = [
-    "dev-core"
-    "dev-rust"
-    "dev-go"
-    "dev-web"
-    "dev-python"
-    "dev-c"
-    "dev-jvm"
-    "dev-ocaml"
-    "dev-lua"
-    "dev-docs"
-    "dev-other"
+}: {
+  flake.homeModules.dev.imports = [
+    self.homeModules.dev-core
+    self.homeModules.dev-rust
+    self.homeModules.dev-go
+    self.homeModules.dev-web
+    self.homeModules.dev-python
+    self.homeModules.dev-c
+    self.homeModules.dev-jvm
+    self.homeModules.dev-ocaml
+    self.homeModules.dev-lua
+    self.homeModules.dev-docs
+    self.homeModules.dev-other
   ];
-in {
-  flake.homeModules.dev.imports = map (name: self.homeModules.${name}) groups;
 
-  flake.nixosModules = lib.genAttrs (["dev"] ++ groups) (name: {
-    home-manager.sharedModules = [self.homeModules.${name}];
-  });
+  flake.nixosModules.dev.home-manager.sharedModules = [self.homeModules.dev];
+  flake.nixosModules.dev-core.home-manager.sharedModules = [self.homeModules.dev-core];
+  flake.nixosModules.dev-rust.home-manager.sharedModules = [self.homeModules.dev-rust];
+  flake.nixosModules.dev-go.home-manager.sharedModules = [self.homeModules.dev-go];
+  flake.nixosModules.dev-web.home-manager.sharedModules = [self.homeModules.dev-web];
+  flake.nixosModules.dev-python.home-manager.sharedModules = [self.homeModules.dev-python];
+  flake.nixosModules.dev-c.home-manager.sharedModules = [self.homeModules.dev-c];
+  flake.nixosModules.dev-jvm.home-manager.sharedModules = [self.homeModules.dev-jvm];
+  flake.nixosModules.dev-ocaml.home-manager.sharedModules = [self.homeModules.dev-ocaml];
+  flake.nixosModules.dev-lua.home-manager.sharedModules = [self.homeModules.dev-lua];
+  flake.nixosModules.dev-docs.home-manager.sharedModules = [self.homeModules.dev-docs];
+  flake.nixosModules.dev-other.home-manager.sharedModules = [self.homeModules.dev-other];
 
   flake.homeModules.dev-core = {pkgs, ...}: {
     my.caches = [

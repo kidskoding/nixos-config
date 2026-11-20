@@ -14,7 +14,7 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
 
-    # advent of code cli (my fork) ⭐ !!
+    # advent of code cli ⭐ !!
     aoc-cli = {
       url = "github:kidskoding/aoc-cli";
       inputs.nixpkgs.follows = "nixpkgs";

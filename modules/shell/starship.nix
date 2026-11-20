@@ -18,6 +18,7 @@
           disabled = false;
           format = "[$symbol]($style)";
           style = "bold blue";
+          symbols.NixOS = " ";
         };
 
         username = {
@@ -36,8 +37,6 @@
           format = " in [$path]($style) ";
           read_only = "󰌾";
         };
-
-        os.symbols.NixOS = " ";
 
         gcloud = {
           disabled = true;

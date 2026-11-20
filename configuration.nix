@@ -6,25 +6,52 @@
   ...
 }: {
   imports = [
-    ./boot.nix
-    ./networking.nix
-
     inputs.disko.nixosModules.disko
     inputs.home-manager.nixosModules.home-manager
     inputs.sops-nix.nixosModules.sops
   ];
+
+  boot = {
+    loader = {
+      grub.enable = true;
+      grub.device = "nodev";
+      grub.efiSupport = true;
+
+      efi.canTouchEfiVariables = true;
+      timeout = 5;
+    };
+
+    plymouth = {
+      enable = true;
+      theme = "bgrt";
+      themePackages = with pkgs; [
+        nixos-bgrt-plymouth
+      ];
+    };
+
+    consoleLogLevel = 0;
+    supportedFilesystems = ["btrfs" "fuse"];
+
+    initrd.verbose = false;
+    initrd.systemd.enable = true;
+    initrd.systemd.emergencyAccess = true;
+
+    kernelParams = [
+      "quiet"
+      "splash"
+      "boot.shell_on_fail"
+      "loglevel=3"
+      "rd.systemd.show_status=false"
+      "rd.udev.log_level=3"
+      "udev.log_priority=3"
+    ];
+  };
 
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "bak";
     extraSpecialArgs = {inherit inputs;};
-    users.kidskoding = {
-      sops = {
-        defaultSopsFile = ./secrets/secrets.yaml;
-        age.keyFile = "/home/kidskoding/.config/sops/age/keys.txt";
-      };
-    };
   };
 
   sops = {
@@ -79,17 +106,6 @@
 
   time.timeZone = "America/Chicago";
   i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
-  };
 
   users.users = {
     kidskoding = {
@@ -116,8 +132,8 @@
       memorySize = 8192;
       cores = 4;
       sharedDirectories.nixos = {
-        source = "/home/kidskoding/nixos";
-        target = "/home/kidskoding/nixos";
+        source = config.my.flakeDir;
+        target = config.my.flakeDir;
         writable = false;
       };
       qemu.options = [
@@ -132,7 +148,6 @@
 
   environment.systemPackages = with pkgs; [
     efibootmgr
-    gcc
     gdb
     git
     gparted
@@ -164,7 +179,6 @@
     SYSTEMD_SLEEP_FREEZE_USER_SESSIONS = "false";
   };
 
-  boot.supportedFilesystems = ["btrfs" "fuse"];
   programs.fuse.userAllowOther = true;
 
   # nautilus: trash, mounts, and settings storage
@@ -183,8 +197,7 @@
     NIXOS_OZONE_WL = "1";
     ELECTRON_OZONE_PLATFORM_HINT = "wayland";
 
-    # fixes firefox and java app scaling/rendering on wayland!
-    MOZ_ENABLE_WAYLAND = "1";
+    # fixes java app scaling/rendering on wayland!
     _JAVA_AWT_WM_NONREPARENTING = "1";
   };
 

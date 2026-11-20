@@ -55,4 +55,80 @@ in {
       xdg-desktop-portal-gtk
     ];
   };
+
+  flake.homeModules.niri = {
+    lib,
+    pkgs,
+    ...
+  }: let
+    terminal = "ghostty";
+  in {
+    # gui helpers live in nixosModules.niri
+    home.packages = with pkgs; [
+      adwaita-icon-theme
+      brightnessctl
+      cliphist
+      grim
+      libnotify
+      playerctl
+      slurp
+      wl-clipboard
+      wl-mirror
+
+      kdePackages.qtsvg
+    ];
+
+    programs.fish.loginShellInit = ''
+      if test (tty) = /dev/tty1; and test "$XDG_SESSION_TYPE" = tty; and not set -q NIRI_SESSION_STARTED
+        set -gx NIRI_SESSION_STARTED 1
+        exec niri-session
+      end
+    '';
+
+    programs.niri.settings = {
+      prefer-no-csd = true;
+      screenshot-path = "~/Pictures/Screenshots/%Y-%m-%dT%H:%M:%S.png";
+      hotkey-overlay.skip-at-startup = true;
+
+      xwayland-satellite.path =
+        lib.getExe pkgs.xwayland-satellite-unstable;
+
+      environment = {
+        GDK_BACKEND = "wayland,x11,*";
+        QT_QPA_PLATFORM = "wayland;xcb";
+        SDL_VIDEODRIVER = "wayland";
+        CLUTTER_BACKEND = "wayland";
+        QT_AUTO_SCREEN_SCALE_FACTOR = "0";
+        QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+        GDK_SCALE = "1";
+        TERMINAL = terminal;
+      };
+
+      input = {
+        keyboard.xkb.layout = "us";
+        focus-follows-mouse.enable = true;
+
+        touchpad = {
+          tap = true;
+          dwt = true;
+          natural-scroll = false;
+          accel-profile = "flat";
+        };
+
+        mouse.accel-profile = "flat";
+      };
+
+      spawn-at-startup = [
+        {argv = ["noctalia"];}
+        {
+          argv = [
+            "nm-applet"
+            "--indicator"
+          ];
+        }
+        {sh = "wl-paste --watch cliphist store";}
+        {argv = [terminal];}
+      ];
+    };
+  };
 }

@@ -13,33 +13,22 @@
       action.spawn = cmd;
       allow-when-locked = true;
     };
-
-    workspaceNames = [
-      "1"
-      "2"
-      "3"
-      "4"
-      "5"
-      "6"
-      "7"
-      "8"
-      "9"
-      "10"
-    ];
   in {
     programs.niri.settings = {
       input.mod-key = config.my.modKey;
 
-      workspaces = builtins.listToAttrs (
-        map (ws: {
-          name =
-            if ws == "10"
-            then "10"
-            else "0${ws}";
-          value.name = ws;
-        })
-        workspaceNames
-      );
+      workspaces = {
+        "01".name = "1";
+        "02".name = "2";
+        "03".name = "3";
+        "04".name = "4";
+        "05".name = "5";
+        "06".name = "6";
+        "07".name = "7";
+        "08".name = "8";
+        "09".name = "9";
+        "10".name = "10";
+      };
 
       binds = {
         # apps and panels

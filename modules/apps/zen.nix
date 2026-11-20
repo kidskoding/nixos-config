@@ -23,16 +23,27 @@
         };
       };
 
-      policies.ExtensionSettings =
-        builtins.mapAttrs (_: slug: {
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/${slug}/latest.xpi";
+      policies.ExtensionSettings = {
+        "uBlock0@raymondhill.net" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
           installation_mode = "force_installed";
-        }) {
-          "uBlock0@raymondhill.net" = "ublock-origin";
-          "@react-devtools" = "react-devtools";
-          "chrome2fox@neguiolidas.github.io" = "chrome2fox";
-          "{203625b5-20fd-4b20-8bb5-76f07455d18b}" = "add-ons_google_chrome";
         };
+
+        "@react-devtools" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/react-devtools/latest.xpi";
+          installation_mode = "force_installed";
+        };
+
+        "chrome2fox@neguiolidas.github.io" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/chrome2fox/latest.xpi";
+          installation_mode = "force_installed";
+        };
+
+        "{203625b5-20fd-4b20-8bb5-76f07455d18b}" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/add-ons_google_chrome/latest.xpi";
+          installation_mode = "force_installed";
+        };
+      };
     };
   };
 }

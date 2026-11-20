@@ -1,18 +1,5 @@
 # each group lists its binary caches in `my.caches`, next to the packages that need them
-{lib, ...}: let
-  common = {
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
-
-    # do not warn if git tree is dirty when rebuilding system
-    warn-dirty = false;
-  };
-
-  urls = map (c: c.url);
-  keys = map (c: c.key);
-in {
+{lib, ...}: {
   flake.homeModules.base = {
     options.my.caches = lib.mkOption {
       type = lib.types.listOf (lib.types.submodule {
@@ -36,24 +23,17 @@ in {
   flake.nixosModules.base = {config, ...}: let
     caches = lib.unique (lib.concatMap (user: user.my.caches) (lib.attrValues config.home-manager.users));
   in {
-    nix.settings =
-      common
-      // {
-        substituters = urls caches;
-        trusted-public-keys = keys caches;
-      };
-  };
+    nix.settings = {
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
 
-  # extra-* keeps cache.nixos.org; the daemon only honours these for a
-  # trusted user, so non-nixos machines need `trusted-users = root <user>` in /etc/nix/nix.conf
-  flake.homeModules.standalone = {config, ...}: let
-    caches = lib.unique config.my.caches;
-  in {
-    nix.settings =
-      common
-      // {
-        extra-substituters = urls caches;
-        extra-trusted-public-keys = keys caches;
-      };
+      # do not warn if git tree is dirty when rebuilding system
+      warn-dirty = false;
+
+      substituters = map (cache: cache.url) caches;
+      trusted-public-keys = map (cache: cache.key) caches;
+    };
   };
 }

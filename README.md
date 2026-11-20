@@ -40,7 +40,6 @@ distros) through home-manager, without nixos.
 |---|---|---|
 | `thinkpad` | daily driver laptop, amd | `modules/hosts/thinkpad.nix` |
 | `victus` | gaming laptop, hybrid intel + nvidia graphics (prime offload), also for cuda | `modules/hosts/victus.nix` |
-| `portable` | home-manager only, any linux with nix | `modules/homes/portable.nix` |
 
 ## layout
 
@@ -52,11 +51,11 @@ wants. To see which group a file belongs to, read its first lines.
 ```
 modules/
 ├── hosts/          nixos machines
-├── homes/          home-manager-only machines
 ├── users/          the user account and its base home
 ├── shell/, git/, … features, one folder each
-├── settings.nix    nix settings and binary caches
-└── standalone.nix  home-manager without nixos (mkHome, standalone group)
+└── settings.nix    nix settings and binary caches
+configuration.nix   system settings every laptop gets (nixosModules.base)
+home.nix            home settings every machine gets (homeModules.base)
 hosts/              hardware-configuration.nix and disko.nix per laptop
 templates/          flake templates for new projects
 scripts/            rebuild helpers
@@ -71,7 +70,6 @@ scripts/            rebuild helpers
 | `agents` | coding agents and their config | picked per machine |
 | `desktop`, `niri` | gui apps, fonts, compositor, clipboard | both laptops |
 | `gaming` | games | victus |
-| `standalone` | fixes for running outside nixos (gpu drivers, nix itself) | every non-nixos machine |
 
 ### where to edit
 
@@ -79,8 +77,6 @@ scripts/            rebuild helpers
 - a binary cache (prebuilt packages, so nothing compiles): add it to
   `my.caches` in the file whose packages need it
 - what a laptop gets: the `modules` list in `modules/hosts/<host>.nix`
-- a new non-nixos machine: copy `modules/homes/portable.nix`, rename the
-  `homeConfigurations` entry, list its groups
 
 ## nixos
 
@@ -94,60 +90,6 @@ HOST=victus ~/nixos/scripts/rebuild.sh  # victus
 
 The `rebuild` fish alias runs the right one on each laptop. Neovim config
 changes are pushed to kidskoding.nvim as part of each rebuild.
-
-## home-manager on a non-nixos machine
-
-Command-line tools and user config only: no gui apps, fonts or gtk theme.
-The terminal tools still get the catppuccin theme.
-
-1. Install nix (multi-user):
-
-   ```sh
-   sh <(curl -L https://nixos.org/nix/install) --daemon
-   ```
-
-2. Enable flakes and trust your user, so the binary caches in this config
-   work. Add to `/etc/nix/nix.conf` (use your account name), then restart the daemon:
-
-   ```
-   experimental-features = nix-command flakes
-   trusted-users = root <your-user>
-   ```
-
-   ```sh
-   sudo systemctl restart nix-daemon
-   ```
-
-3. Clone this repo to `~/home-manager` (the config expects that path):
-
-   ```sh
-   git clone https://codeberg.org/kidskoding/nixos-config.git ~/home-manager
-   ```
-
-4. First switch. `--impure` lets it read `$USER` and `$HOME`; `-b bak` renames
-   existing dotfiles to `*.bak` instead of failing. The first build can take a
-   while, because the extra caches only apply after this switch.
-
-   ```sh
-   nix run home-manager -- switch --impure -b bak --flake ~/home-manager#portable
-   ```
-
-5. Make fish the login shell:
-
-   ```sh
-   echo ~/.nix-profile/bin/fish | sudo tee -a /etc/shells
-   chsh -s ~/.nix-profile/bin/fish
-   ```
-
-6. Optional, for GPU apps from nix (once per machine):
-
-   ```sh
-   sudo ~/.nix-profile/bin/non-nixos-gpu-setup
-   ```
-
-7. Log out and back in.
-
-After that, rerun the switch from step 4 (without `-b bak`) to apply changes.
 
 ## templates
 

@@ -178,8 +178,8 @@
         set -g fish_autosuggestion_enabled 0
 
         # done plugin: notify for commands longer than 10s
-        set -U __done_min_cmd_duration 10000
-        set -U __done_notification_urgency_level low
+        set -g __done_min_cmd_duration 10000
+        set -g __done_notification_urgency_level low
 
         # !! and !$ key bindings
         if [ "$fish_key_bindings" = fish_vi_key_bindings ]
