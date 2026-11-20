@@ -125,7 +125,7 @@ straight from its lockfile.
 
 | template | language | lockfile |
 |---|---|---|
-| `crane` | rust 🦀 | `Cargo.lock` |
+| `crane` | rust | `Cargo.lock` |
 | `gomod2nix` | go | `go.sum` |
 | `uv2nix` | python | `uv.lock` |
 | `bun2nix` | bun | `bun.lock` |
