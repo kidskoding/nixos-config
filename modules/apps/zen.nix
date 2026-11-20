@@ -11,7 +11,6 @@
       enable = true;
       setAsDefaultBrowser = true;
 
-      # Use the official catppuccin/zen-browser port.
       profiles.default = {
         name = "Default Profile";
         path = "cw0i5llc.Default Profile";

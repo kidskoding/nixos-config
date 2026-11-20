@@ -63,7 +63,6 @@ in {
   }: let
     terminal = "ghostty";
   in {
-    # gui helpers live in nixosModules.niri
     home.packages = with pkgs; [
       adwaita-icon-theme
       brightnessctl

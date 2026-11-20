@@ -121,7 +121,6 @@
     };
   };
 
-  # the home every host gets; hosts add their own groups in modules/hosts/
   home-manager.users.kidskoding.imports = [inputs.self.homeModules.base];
 
   virtualisation.vmVariant = {
