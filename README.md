@@ -54,7 +54,6 @@ home.nix                home packages and settings every machine gets (homeModul
 modules/
 ├── base.nix            plugs configuration.nix and home.nix into base
 ├── hosts/              nixos machines: their groups and facts
-├── users/              the user account and its base home
 ├── dev.nix, theme.nix, …    one-file features
 ├── niri/, shell/, git/, …   bigger features: default.nix plus helper files
 └── settings.nix        nix settings and binary caches

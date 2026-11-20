@@ -41,7 +41,6 @@
     };
     modules = with self.nixosModules; [
       base
-      kidskoding
       shell
       theme
 
