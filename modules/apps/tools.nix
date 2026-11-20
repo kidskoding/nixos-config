@@ -1,9 +1,7 @@
 {...}: {
   flake.homeModules.base = {pkgs, ...}: {
     programs.btop.enable = true;
-
     programs.cava.enable = true;
-
     programs.tealdeer = {
       enable = true;
       settings.updates.auto_update = true;
@@ -32,11 +30,6 @@
       tty-clock
       wtf
 
-      # user utilities
-      magic-wormhole-rs
-      rclone
-      sshfs
-
       # cloud
       awscli2
       databricks-cli
@@ -44,6 +37,9 @@
 
       # misc
       stripe-cli
+      magic-wormhole-rs
+      rclone
+      sshfs
     ];
   };
 }

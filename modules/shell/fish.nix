@@ -118,7 +118,7 @@
           printf '%s\n\n— %s' \
             "so we're in copper" \
             'Nicholas "Jynxzi" Stewart' \
-            | fold -s -w 40 | cowsay -n -f sus \
+            | fold -s -w 40 | PERL_UNICODE=I cowsay -n -f sus 2>/dev/null \
             | awk -v r=(set_color red) -v n=(set_color normal) '
                 f {
                   k++
