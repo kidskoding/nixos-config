@@ -30,13 +30,13 @@
 
       fonts = {
         monospace = lib.mkDefault {
-          package = pkgs.nerd-fonts.googlesanscode;
-          name = "GoogleSansCode Nerd Font Mono";
+          package = pkgs.nerd-fonts.jetbrains-mono;
+          name = "JetBrainsMono Nerd Font Mono";
         };
 
         sansSerif = lib.mkDefault {
-          package = pkgs.nerd-fonts.googlesanscode;
-          name = "GoogleSansCode Nerd Font Propo";
+          package = pkgs.nerd-fonts.jetbrains-mono;
+          name = "JetBrainsMono Nerd Font Propo";
         };
 
         serif = config.stylix.fonts.sansSerif;
