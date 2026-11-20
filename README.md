@@ -49,16 +49,18 @@ group, like `flake.homeModules.dev`. A machine is just a list of the groups it
 wants. To see which group a file belongs to, read its first lines.
 
 ```
+configuration.nix       system settings every laptop gets (nixosModules.base)
+home.nix                home packages and settings every machine gets (homeModules.base)
 modules/
-├── hosts/          nixos machines
-├── users/          the user account and its base home
-├── shell/, git/, … features, one folder each
-└── settings.nix    nix settings and binary caches
-configuration.nix   system settings every laptop gets (nixosModules.base)
-home.nix            home settings every machine gets (homeModules.base)
-hosts/              hardware-configuration.nix and disko.nix per laptop
-templates/          flake templates for new projects
-scripts/            rebuild helpers
+├── base.nix            plugs configuration.nix and home.nix into base
+├── hosts/              nixos machines: their groups and facts
+├── users/              the user account and its base home
+├── dev.nix, theme.nix, …    one-file features
+├── niri/, shell/, git/, …   bigger features: default.nix plus helper files
+└── settings.nix        nix settings and binary caches
+hosts/                  hardware-configuration.nix and disko.nix per laptop
+templates/              flake templates for new projects
+scripts/                rebuild helpers
 ```
 
 ### home groups
@@ -73,7 +75,8 @@ scripts/            rebuild helpers
 
 ### where to edit
 
-- a tool: the file for its group
+- a plain package or on/off program every machine gets: `home.nix`
+- a tool with its own settings: the file for its group
 - a binary cache (prebuilt packages, so nothing compiles): add it to
   `my.caches` in the file whose packages need it
 - what a laptop gets: the `modules` list in `modules/hosts/<host>.nix`

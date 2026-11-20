@@ -54,7 +54,7 @@
       base
       kidskoding
       shell
-      stylix
+      theme
 
       niri
       noctalia
