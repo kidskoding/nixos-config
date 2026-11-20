@@ -10,6 +10,7 @@
           line-number = "absolute";
           cursorline = true;
           color-modes = true;
+          soft-wrap = true;
         };
       };
     };
