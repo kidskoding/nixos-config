@@ -1,5 +1,3 @@
--- obsidian.nvim errors at startup when no workspace path exists, so only
--- keep vaults present on this machine and skip setup when there are none.
 local workspaces = vim.tbl_filter(
   function(ws) return vim.fn.isdirectory(vim.fn.expand(ws.path)) == 1 end,
   { { name = "vault", path = "~/Obsidian Vault" } }

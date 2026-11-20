@@ -1,4 +1,5 @@
 -- discord rich presence
+
 require("cord").setup({
   variables = true,
   text = {
