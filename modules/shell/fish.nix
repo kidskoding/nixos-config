@@ -116,7 +116,7 @@
       functions = {
         fish_greeting = ''
           printf '%s\n\n— %s' \
-            "Every great thing that you will ever achieve is built brick by brick, day by day, and night by night. You cannot lose if you just don't give up!" \
+            "so we're in copper" \
             'Nicholas "Jynxzi" Stewart' \
             | fold -s -w 40 | cowsay -n -f sus \
             | awk -v r=(set_color red) -v n=(set_color normal) '
