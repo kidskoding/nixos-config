@@ -4,6 +4,11 @@
 
     programs.cava.enable = true;
 
+    programs.tealdeer = {
+      enable = true;
+      settings.updates.auto_update = true;
+    };
+
     home.packages = with pkgs; [
       # terminal apps
       basalt
@@ -24,7 +29,6 @@
       presenterm
       tickrs
       timr-tui
-      tldr
       tty-clock
       wtf
 
