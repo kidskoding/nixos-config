@@ -10,7 +10,11 @@
           line-number = "absolute";
           cursorline = true;
           color-modes = true;
-          soft-wrap.enable = true;
+
+          soft-wrap = {
+            enable = true;
+            wrap-indicator = "";
+          };
         };
       };
     };
