@@ -1,4 +1,11 @@
-vim.lsp.config("lua_ls", { settings = { Lua = { diagnostics = { globals = { "vim" } } } } })
+vim.lsp.config("lua_ls", {
+  settings = {
+    Lua = {
+      diagnostics = { globals = { "vim" } },
+      workspace = { userThirdParty = { vim.fn.expand("~/.local/share/luals-addons") } },
+    },
+  },
+})
 
 vim.lsp.config("ruff", {
   init_options = {
