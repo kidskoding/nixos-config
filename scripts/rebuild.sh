@@ -41,15 +41,9 @@ fi
 
 echo "rebuilding nixos..."
 
-before=$(readlink -f /run/current-system)
-
-if ! script -qefc "sudo nixos-rebuild switch --flake \"$FLAKE_DIR#$HOST\" --upgrade --option narinfo-cache-negative-ttl 0" nixos-switch.log; then
+if ! script -qefc "nh os switch \"$FLAKE_DIR\" -H \"$HOST\" -- --option narinfo-cache-negative-ttl 0" nixos-switch.log; then
     rg error nixos-switch.log || tail -n 40 nixos-switch.log
     exit 1
-fi
-
-if command -v nvd &> /dev/null; then
-    nvd diff "$before" /run/current-system || true
 fi
 
 if [ "$changes" = false ]; then

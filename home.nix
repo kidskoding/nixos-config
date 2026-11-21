@@ -17,6 +17,13 @@ in {
 
   programs.fish.shellAliases.rebuild = "${config.my.flakeDir}/scripts/rebuild.sh";
 
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = config.my.flakeDir;
+  };
+
   programs.bat.enable = true;
   programs.btop.enable = true;
   programs.cava.enable = true;
@@ -47,7 +54,16 @@ in {
     harlequin
     myx
 
-    # other really cool stuff!!
+    # cloud
+    awscli2
+    databricks-cli
+    terraform
+
+    # misc
+    stripe-cli
+    magic-wormhole-rs
+    rclone
+    sshfs
     asciiquarium-transparent
     cbonsai
     cowsay
@@ -63,17 +79,6 @@ in {
     timr-tui
     tty-clock
     wtf
-
-    # cloud
-    awscli2
-    databricks-cli
-    terraform
-
-    # misc
-    stripe-cli
-    magic-wormhole-rs
-    rclone
-    sshfs
 
     inputs.aoc-cli.packages.${system}.default
     inputs.matui.packages.${system}.default
