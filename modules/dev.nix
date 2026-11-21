@@ -47,6 +47,7 @@
       devenv
 
       # shell, config, and infra files
+      docker-compose-language-service
       dockerfile-language-server
       fish-lsp
       shellcheck
@@ -55,6 +56,7 @@
       terraform-ls
       yaml-language-server
       duckdb
+      autotools-language-server
     ];
   };
 
@@ -105,6 +107,7 @@
       vscode-langservers-extracted
       prettier
       stylelint
+      astro-language-server
     ];
   };
 
@@ -132,6 +135,7 @@
       pkg-config
       valgrind
       doxygen
+      neocmakelsp
     ];
   };
 
