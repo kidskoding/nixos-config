@@ -92,6 +92,7 @@
       mpv.colors.enable = false;
       opencode.colors.enable = false;
       starship.colors.enable = false;
+      yazi.colors.enable = false;
       zellij.colors.enable = false;
     };
   };

@@ -153,6 +153,7 @@
     gdb
     git
     gparted
+    perf
     pkg-config
     psmisc
     python315

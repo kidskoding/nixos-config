@@ -73,12 +73,19 @@
         "rustc"
         "rustfmt"
       ])
+
+      # additional amazing rust binaries!
       bacon
+      cargo-chef
+      cargo-flamegraph
       cargo-generate
       cargo-info
+      cargo-lambda
       cargo-seek
       irust
       rusty-man
+      # trunk
+      wasm-pack
     ];
   };
 
