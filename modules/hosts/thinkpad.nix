@@ -9,6 +9,8 @@
       ../../hosts/thinkpad/disko.nix
     ];
 
+    networking.hostName = "thinkpad-e16g5";
+
     my = {
       gpu = ["amd"];
       modKey = "Alt";
@@ -35,7 +37,7 @@
     system.stateVersion = "26.11"; # Did you read the comment?
   };
 
-  flake.nixosConfigurations.thinkpad = inputs.nixpkgs.lib.nixosSystem {
+  flake.nixosConfigurations."thinkpad-e16g5" = inputs.nixpkgs.lib.nixosSystem {
     specialArgs = {
       inherit inputs;
     };

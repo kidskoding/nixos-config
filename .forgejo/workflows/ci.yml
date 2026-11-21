@@ -26,8 +26,8 @@ jobs:
         run: |
           nix run --inputs-from . nixpkgs#alejandra -- --check .
           nix run --inputs-from . nixpkgs#taplo -- fmt --check
-      - name: Check thinkpad
-        run: nix eval --raw .#nixosConfigurations.thinkpad.config.system.build.toplevel.drvPath
-      - name: Check victus
-        run: nix eval --raw .#nixosConfigurations.victus.config.system.build.toplevel.drvPath
+      - name: Check thinkpad-e16g5
+        run: nix eval --raw .#nixosConfigurations.thinkpad-e16g5.config.system.build.toplevel.drvPath
+      - name: Check victus16
+        run: nix eval --raw .#nixosConfigurations.victus16.config.system.build.toplevel.drvPath
 

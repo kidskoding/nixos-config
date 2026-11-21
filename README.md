@@ -58,8 +58,8 @@ tools also install on any other linux machine with nix through home-manager 🌙
 
 | host | what it is | config |
 |---|---|---|
-| `thinkpad` | my daily driver, amd graphics | [`modules/hosts/thinkpad.nix`](modules/hosts/thinkpad.nix) |
-| `victus` | gaming laptop, also for cuda. hybrid intel + nvidia (prime offload) | [`modules/hosts/victus.nix`](modules/hosts/victus.nix) |
+| `thinkpad-e16g5` | my daily driver, amd graphics | [`modules/hosts/thinkpad.nix`](modules/hosts/thinkpad.nix) |
+| `victus16` | gaming laptop, also for cuda. hybrid intel + nvidia (prime offload) | [`modules/hosts/victus.nix`](modules/hosts/victus.nix) |
 
 ## layout
 
@@ -108,8 +108,8 @@ to see which group a file belongs to, peek at its first few lines.
 if the switch works, it commits and pushes too:
 
 ```sh
-~/nixos/scripts/rebuild.sh              # thinkpad
-HOST=victus ~/nixos/scripts/rebuild.sh  # victus
+~/nixos/scripts/rebuild.sh                # thinkpad-e16g5
+HOST=victus16 ~/nixos/scripts/rebuild.sh  # victus16
 ```
 
 the `rebuild` fish alias runs the right one on each laptop, and every rebuild

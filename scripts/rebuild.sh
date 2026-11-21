@@ -7,7 +7,7 @@
 set -euo pipefail
 
 FLAKE_DIR="${FLAKE_DIR:-$HOME/nixos}"
-HOST="${HOST:-thinkpad}"
+HOST="${HOST:-thinkpad-e16g5}"
 
 cd "$FLAKE_DIR"
 

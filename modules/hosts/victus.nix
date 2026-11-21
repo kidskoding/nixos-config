@@ -13,6 +13,8 @@
       ../../hosts/victus/disko.nix
     ];
 
+    networking.hostName = "victus16";
+
     my = {
       gpu = ["intel" "nvidia"];
       display = {
@@ -34,7 +36,7 @@
     home-manager.users.kidskoding = {
       home.stateVersion = "26.11";
 
-      programs.fish.shellAliases.rebuild = lib.mkForce "env HOST=victus ${config.my.flakeDir}/scripts/rebuild.sh";
+      programs.fish.shellAliases.rebuild = lib.mkForce "env HOST=victus16 ${config.my.flakeDir}/scripts/rebuild.sh";
     };
 
     # This value determines the NixOS release from which the default
@@ -46,7 +48,7 @@
     system.stateVersion = "26.11"; # Did you read the comment?
   };
 
-  flake.nixosConfigurations.victus = inputs.nixpkgs.lib.nixosSystem {
+  flake.nixosConfigurations."victus16" = inputs.nixpkgs.lib.nixosSystem {
     specialArgs = {
       inherit inputs;
     };
