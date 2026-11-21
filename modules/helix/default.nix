@@ -17,6 +17,12 @@
           cursorline = true;
           color-modes = true;
 
+          statusline.mode = {
+            normal = "NORMAL";
+            insert = "INSERT";
+            select = "SELECT";
+          };
+
           soft-wrap = {
             enable = true;
             wrap-indicator = "";
