@@ -66,9 +66,9 @@ fi
 
 git diff --cached --quiet || git commit -m "$msg"
 
-if ! git push -q origin HEAD && ! { git pull -q --rebase --autostash && git push -q origin HEAD; }; then
-    echo "push failed; commit is local only. fix any rebase conflict, then run 'git push'."
-fi
+# if ! git push -q origin HEAD && ! { git pull -q --rebase --autostash && git push -q origin HEAD; }; then
+#     echo "push failed; commit is local only. fix any rebase conflict, then run 'git push'."
+# fi
 
-git subtree push -q --prefix=modules/nvim/config nvim master ||
-    echo "kidskoding.nvim push failed; rerun: git subtree push --prefix=modules/nvim/config nvim master"
+# git subtree push -q --prefix=modules/nvim/config nvim master ||
+#     echo "kidskoding.nvim push failed; rerun: git subtree push --prefix=modules/nvim/config nvim master"
