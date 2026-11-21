@@ -1,5 +1,11 @@
 {...}: {
-  flake.homeModules.dev-core = {pkgs, ...}: {
+  flake.homeModules.dev-core = {
+    config,
+    pkgs,
+    ...
+  }: {
+    xdg.configFile."helix/languages.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.my.flakeDir}/modules/helix/languages.toml";
+
     # backup editor for when nvim breaks: helix fork with vim keybindings, run as `hx`.
     programs.helix = {
       enable = true;

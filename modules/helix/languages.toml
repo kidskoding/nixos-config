@@ -1,0 +1,3 @@
+[language-server.lua-language-server.config.Lua.workspace]
+userThirdParty = ["/home/kidskoding/.local/share/luals-addons"]
+checkThirdParty = "ApplyInMemory"
