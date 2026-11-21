@@ -41,13 +41,19 @@ in {
 
   home.packages = with pkgs; [
     # additional user system tools
+    p7zip
     fd
+    ffmpeg
+    imagemagick
     jq
     just
+    poppler
+    resvg
     ripgrep
     tree
     tree-sitter
     websocat
+    zoxide
 
     # terminal apps
     basalt
@@ -71,7 +77,6 @@ in {
     fortune
     ghostscript
     gum
-    imagemagick
     mermaid-cli
     pipes
     presenterm

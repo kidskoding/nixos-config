@@ -41,7 +41,7 @@ fi
 
 echo "rebuilding nixos..."
 
-if ! script -qefc "nh os switch \"$FLAKE_DIR\" -H \"$HOST\" -- --option narinfo-cache-negative-ttl 0" nixos-switch.log; then
+if ! script -qefc "nh os switch -q --no-nom \"$FLAKE_DIR\" -H \"$HOST\" --option narinfo-cache-negative-ttl 0" nixos-switch.log; then
     rg error nixos-switch.log || tail -n 40 nixos-switch.log
     exit 1
 fi
@@ -70,8 +70,5 @@ if ! git push -q origin HEAD && ! { git pull -q --rebase --autostash && git push
     echo "push failed; commit is local only. fix any rebase conflict, then run 'git push'."
 fi
 
-# send the neovim part of that commit to kidskoding.nvim. the copied commits are
-# signed too; ed25519 ssh signatures are deterministic, so every split rebuilds
-# the same hashes and the push stays a fast-forward.
 git subtree push -q --prefix=modules/nvim/config nvim master ||
     echo "kidskoding.nvim push failed; rerun: git subtree push --prefix=modules/nvim/config nvim master"
