@@ -11,12 +11,12 @@ HOST="${HOST:-thinkpad-e16g5}"
 
 cd "$FLAKE_DIR"
 
-head=$(git rev-parse HEAD)
-git pull -q --rebase --autostash
+# head=$(git rev-parse HEAD)
+# git pull -q --rebase --autostash
 
 # pull the latest agent skills (anikonistack) from 
 # github before building, so every host locks the same versions in flake.lock
-nix flake update anikonistack
+# nix flake update anikonistack
 
 # flakes only see files that git knows about, so stage everything first!
 git add -A
