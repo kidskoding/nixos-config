@@ -27,6 +27,7 @@
           sort_by = "mtime";
           sort_dir_first = true;
           linemode = "size";
+          ratio = [0 1 1];
         };
         preview = {
           max_width = 1000;
