@@ -47,7 +47,7 @@ in {
     imagemagick
     jq
     just
-    poppler
+    poppler-utils
     resvg
     ripgrep
     tree

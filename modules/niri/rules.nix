@@ -45,6 +45,12 @@
         };
       }
       {
+        matches = [{title = "^termfilechooser$";}];
+        open-floating = true;
+        default-column-width.proportion = 0.6;
+        default-window-height.proportion = 0.7;
+      }
+      {
         matches = [
           {app-id = "^steam_app_.*$";}
           {app-id = "^gamescope$";}
