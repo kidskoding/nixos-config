@@ -11,12 +11,12 @@ HOST="${HOST:-thinkpad-e16g5}"
 
 cd "$FLAKE_DIR"
 
-# head=$(git rev-parse HEAD)
-# git pull -q --rebase --autostash
+head=$(git rev-parse HEAD)
+git pull -q --rebase --autostash
 
 # pull the latest agent skills (anikonistack) from 
 # github before building, so every host locks the same versions in flake.lock
-# nix flake update anikonistack
+nix flake update anikonistack
 
 # flakes only see files that git knows about, so stage everything first!
 git add -A
@@ -66,9 +66,9 @@ fi
 
 git diff --cached --quiet || git commit -m "$msg"
 
-# if ! git push -q origin HEAD && ! { git pull -q --rebase --autostash && git push -q origin HEAD; }; then
-#     echo "push failed; commit is local only. fix any rebase conflict, then run 'git push'."
-# fi
+if ! git push -q origin HEAD && ! { git pull -q --rebase --autostash && git push -q origin HEAD; }; then
+    echo "push failed; commit is local only. fix any rebase conflict, then run 'git push'."
+fi
 
-# git subtree push -q --prefix=modules/nvim/config nvim master ||
-#     echo "kidskoding.nvim push failed; rerun: git subtree push --prefix=modules/nvim/config nvim master"
+git subtree push -q --prefix=modules/nvim/config nvim master ||
+    echo "kidskoding.nvim push failed; rerun: git subtree push --prefix=modules/nvim/config nvim master"
