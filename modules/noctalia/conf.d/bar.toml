@@ -87,7 +87,7 @@ right = "panel-toggle control-center calendar"
 
 [widget.control-center]
 capsule = true
-custom_image = "/run/current-system/sw/share/icons/hicolor/scalable/apps/nix-snowflake.svg"
+custom_image = "/home/kidskoding/nixos/extras/nixos-logo.png"
 custom_image_colorize = false
 
 [widget.session]

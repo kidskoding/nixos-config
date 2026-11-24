@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="extras/nixos-logo.png" alt="nixos logo" width="160">
+
 # nixos-config
 
 my nixos flake!! it sets up my two laptops, and the same shell, editor and
