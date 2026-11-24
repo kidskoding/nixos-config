@@ -16,11 +16,6 @@
         path = "cw0i5llc.Default Profile";
         isDefault = true;
         settings."widget.use-xdg-desktop-portal.file-picker" = 1;
-        presets.catppuccin = {
-          enable = true;
-          flavor = "Macchiato";
-          accent = "Mauve";
-        };
 
         pinsForce = true;
         pinsForceAction = "demote";
