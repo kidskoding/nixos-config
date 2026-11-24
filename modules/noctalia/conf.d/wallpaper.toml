@@ -2,3 +2,6 @@
 enabled = true
 directory = "~/nixos/modules/noctalia/wallpapers"
 fill_mode = "crop"
+
+[wallpaper.default]
+path = "/home/kidskoding/nixos/modules/noctalia/wallpapers/nixos-macchiato.jpg"

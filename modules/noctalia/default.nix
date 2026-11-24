@@ -36,51 +36,16 @@
 
   flake.homeModules.noctalia = {
     config,
-    pkgs,
+    osConfig,
     ...
   }: let
     dir = "/home/kidskoding/nixos/modules/noctalia";
     link = config.lib.file.mkOutOfStoreSymlink;
-    d = config.my.display;
-    narrow = d.width / d.scale < 1920;
   in {
     xdg.configFile = {
       "noctalia/config.toml".source = link "${dir}/config.toml";
       "noctalia/conf.d".source = link "${dir}/conf.d";
-
-      "noctalia/display.toml".source = (pkgs.formats.toml {}).generate "noctalia-display.toml" {
-        accessibility.ui_scale = 1.2 / d.scale;
-        wallpaper.default.path = "${./wallpapers/nixos-macchiato.jpg}";
-        shell.font_family = config.stylix.fonts.sansSerif.name;
-        bar.main = {
-          scale =
-            if narrow
-            then 1.0
-            else 1.1;
-          font_scale =
-            if narrow
-            then 1.0
-            else 1.1;
-          start =
-            if narrow
-            then ["control-center" "workspaces" "media"]
-            else ["control-center" "workspaces"];
-          center =
-            if narrow
-            then []
-            else ["media"];
-        };
-        widget = {
-          session.capsule_padding =
-            if narrow
-            then 10
-            else 8;
-          control-center.capsule_padding =
-            if narrow
-            then 10
-            else 8;
-        };
-      };
+      "noctalia/display.toml".source = link "${dir}/display/${osConfig.networking.hostName}.toml";
     };
   };
 }

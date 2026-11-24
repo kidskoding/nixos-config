@@ -1,4 +1,5 @@
 [shell]
+font_family = "JetBrainsMono Nerd Font Propo"
 time_format = "{:%-I:%M %p}"
 avatar_path = "~/nixos/modules/noctalia/avatars/starfire.jpeg"
 
