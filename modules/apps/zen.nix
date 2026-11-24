@@ -144,9 +144,9 @@
             position = 18000;
             isEssential = true;
           };
-          "drive go-mama-27" = {
+          "uiuc drive" = {
             id = "c866c8a1-4535-4326-9586-223181d3a011";
-            url = "https://drive.google.com/drive/folders/1TEHqBiW0zix8Gnm4P3JZFzGVXLGkSGik";
+            url = "https://drive.google.com/drive/";
             container = 2;
             position = 19000;
             isEssential = true;
