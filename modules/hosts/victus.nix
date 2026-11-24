@@ -18,7 +18,7 @@
         height = 1080;
         refresh = 144.0;
         vrr = true;
-        textScale = 1.25;
+        scale = 1.2;
       };
     };
 

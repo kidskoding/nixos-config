@@ -104,6 +104,7 @@ in {
       };
 
       input = {
+        mod-key = "Alt";
         keyboard.xkb.layout = "us";
         focus-follows-mouse.enable = true;
 

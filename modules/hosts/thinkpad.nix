@@ -31,7 +31,6 @@
 
     home-manager.users.kidskoding = {
       home.stateVersion = "26.11";
-      programs.niri.settings.input.mod-key = "Alt";
     };
 
     # This value determines the NixOS release from which the default
