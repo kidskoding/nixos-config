@@ -4,8 +4,7 @@
 
 # nixos-config
 
-my nixos flake!! it sets up my two laptops, and the same shell, editor and
-tools also install on any other linux machine with nix through home-manager 🌙
+my nixos config that sets up my entire machine via flakes and home-manager
 
 [![NixOS unstable](https://img.shields.io/badge/NixOS-unstable-5277C3?style=flat-square&logo=nixos&logoColor=white)](https://nixos.org)
 [![CI](https://codeberg.org/kidskoding/nixos-config/badges/workflows/ci.yml/badge.svg)](https://codeberg.org/kidskoding/nixos-config/actions)
