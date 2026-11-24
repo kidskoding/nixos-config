@@ -1,7 +1,7 @@
 {...}: {
   flake.homeModules.niri = {config, ...}: let
     terminal = "ghostty";
-    fileManager = [terminal "-e" "yazi"];
+    fileManager = ["nautilus" "--new-window"];
     noctalia = c:
       [
         "noctalia"
