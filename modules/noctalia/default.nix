@@ -4,8 +4,8 @@
   ...
 }: let
   wallpaper = pkgs: display: "${inputs.nix-wallpaper.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
-    preset = "catppuccin-macchiato-rainbow";
-    backgroundColor = "#181926";
+    preset = "catppuccin-latte-rainbow";
+    logoSize = 35;
     inherit (display) width height;
   }}/share/wallpapers/nixos-wallpaper.png";
 in {
