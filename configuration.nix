@@ -11,6 +11,23 @@
     inputs.sops-nix.nixosModules.sops
   ];
 
+  time.timeZone = "America/Chicago";
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  users.users = {
+    kidskoding = {
+      isNormalUser = true;
+      description = "Anirudh Konidala";
+
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "docker"
+        "libvirtd"
+      ];
+    };
+  };
+
   boot = {
     loader = {
       grub.enable = true;
@@ -52,6 +69,10 @@
     useUserPackages = true;
     backupFileExtension = "bak";
     extraSpecialArgs = {inherit inputs;};
+
+    users.kidskoding.imports = [
+      inputs.self.homeModules.base
+    ];
   };
 
   sops = {
@@ -62,17 +83,8 @@
 
   security = {
     rtkit.enable = true;
-    sudo.extraConfig = ''
-      Defaults pwfeedback
-    '';
-    polkit.extraConfig = ''
-      polkit.addRule(function(action, subject) {
-        if (action.id == "org.gnome.gparted" &&
-            subject.isInGroup("wheel") && subject.local && subject.active) {
-          return polkit.Result.YES;
-        }
-      });
-    '';
+    sudo.extraConfig = "Defaults pwfeedback";
+    polkit.extraConfig = builtins.readFile ./extras/gparted.rules;
   };
 
   services.pipewire = {
@@ -104,32 +116,15 @@
     HandlePowerKey = "poweroff";
   };
 
-  time.timeZone = "America/Chicago";
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  users.users = {
-    kidskoding = {
-      isNormalUser = true;
-      description = "Anirudh Konidala";
-
-      extraGroups = [
-        "networkmanager"
-        "wheel"
-        "docker"
-        "libvirtd"
-      ];
-    };
-  };
-
-  home-manager.users.kidskoding.imports = [inputs.self.homeModules.base];
-
   virtualisation.vmVariant = {
     users.users.kidskoding.initialPassword = "test";
+
     services.greetd.settings.initial_session = {
       user = "kidskoding";
       command = "niri-session";
     };
     services.xserver.videoDrivers = lib.mkForce ["modesetting"];
+
     virtualisation = {
       memorySize = 8192;
       cores = 4;
@@ -145,6 +140,13 @@
       ];
     };
   };
+
+  virtualisation.docker = {
+    enable = true;
+    storageDriver = "btrfs";
+  };
+
+  virtualisation.libvirtd.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 
@@ -178,21 +180,12 @@
   # run prebuilt binaries (uv-managed pythons, pip wheels, etc.) when necessary
   programs.nix-ld.enable = true;
 
-  systemd.globalEnvironment = {
-    SYSTEMD_SLEEP_FREEZE_USER_SESSIONS = "false";
-  };
-
   programs.fuse.userAllowOther = true;
+  programs.virt-manager.enable = true;
 
   # nautilus: trash, mounts, and settings storage
   services.gvfs.enable = true;
   programs.dconf.enable = true;
-
-  virtualisation.docker.enable = true;
-  virtualisation.docker.storageDriver = "btrfs";
-
-  virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
 
   environment.sessionVariables = {
     # run electron/chromium apps (discord, spotify) natively on wayland
@@ -202,6 +195,10 @@
 
     # fixes java app scaling/rendering on wayland!
     _JAVA_AWT_WM_NONREPARENTING = "1";
+  };
+
+  systemd.globalEnvironment = {
+    SYSTEMD_SLEEP_FREEZE_USER_SESSIONS = "false";
   };
 
   nix.gc = {

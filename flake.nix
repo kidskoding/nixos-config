@@ -43,7 +43,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # niri !!
+    # niri: an amazing 1D scrolling compositor for wayland !!
     niri.url = "github:sodiboo/niri-flake";
 
     # noctalia: the noctalia family 🌙 !!
@@ -88,17 +88,20 @@
     };
 
     # browsers
-    cromite = {
-      url = "github:Impqxr/cromite-nix-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #
+    # zen: a calm gecko/firefox based web browser 🪷 !!
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+    cromite = {
+      # chromium based browser (for when i need it)
+      url = "github:Impqxr/cromite-nix-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    # artcraft: rust clones of creative/office apps
+    # artcraft: rust clones of the original creative/office apps from adobe !!
     artcraft-nix.url = "github:applicative-systems/artcraft-nix";
   };
 

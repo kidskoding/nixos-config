@@ -32,14 +32,6 @@
   flake.nixosModules.dev-other.home-manager.sharedModules = [self.homeModules.dev-other];
 
   flake.homeModules.dev-core = {pkgs, ...}: {
-    my.caches = [
-      # devenv cache
-      {
-        url = "https://devenv.cachix.org";
-        key = "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=";
-      }
-    ];
-
     home.packages = with pkgs; [
       # nix
       nixd

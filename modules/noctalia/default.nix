@@ -44,14 +44,6 @@
     d = config.my.display;
     narrow = d.width / d.scale < 1920;
   in {
-    my.caches = [
-      # my own noctalia cache from my own fork: builds of the kidskoding/noctalia fork and the greeter
-      {
-        url = "https://kidskoding-noctalia.cachix.org";
-        key = "kidskoding-noctalia.cachix.org-1:xVUU3CAdedgGC/sPwztDRg6d4KR3rRY22WufpMxFnu4=";
-      }
-    ];
-
     xdg.configFile = {
       "noctalia/config.toml".source = link "${dir}/config.toml";
       "noctalia/conf.d".source = link "${dir}/conf.d";

@@ -7,14 +7,6 @@
 }: let
   system = pkgs.stdenv.hostPlatform.system;
 in {
-  my.caches = [
-    # matui cache
-    {
-      url = "https://pkulak.cachix.org";
-      key = "pkulak.cachix.org-1:S25jAptWCkAmwrk41b47lheB9onW9mzxVqM9o6HRg1E=";
-    }
-  ];
-
   programs.fish.shellAliases.rebuild = "${config.my.flakeDir}/scripts/rebuild.sh";
 
   programs.nh = {
@@ -28,12 +20,13 @@ in {
   programs.btop.enable = true;
   programs.cava.enable = true;
 
+  # direnv: auto load / unload project-specific env variables upon `cd` / `..` respectively !!
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
   };
 
-  # tealdeer: a fast tldr client
+  # tealdeer: a fast tldr client !!
   programs.tealdeer = {
     enable = true;
     settings.updates.auto_update = true;

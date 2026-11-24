@@ -15,19 +15,6 @@
         postBuild = "wrapProgram $out/bin/${name} --prefix LD_LIBRARY_PATH : ${pkgs.lib.makeLibraryPath [pkgs.dbus]}";
       };
   in {
-    my.caches = [
-      # llm-agents (numtide) cache
-      {
-        url = "https://cache.numtide.com";
-        key = "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g=";
-      }
-      # artcraft cache
-      {
-        url = "https://applicative-systems.cachix.org";
-        key = "applicative-systems.cachix.org-1:ND41hRBh0ST2abuI/oee3yWVf3n0FsAftyJJ/Tb7KDE=";
-      }
-    ];
-
     programs.mcp.servers = {
       deckcraft = {
         command = "deckcraft-cli";
@@ -93,22 +80,51 @@
       zoom-us
 
       inputs.llm-agents.packages.${system}.claude-desktop
-      inputs.llm-agents.packages.${system}.orca # a wonderful ade for working with many coding agents!
+
+      # orca: a wonderful ade for working with many coding agents !!
+      inputs.llm-agents.packages.${system}.orca
+
+      # hermes agent: the desktop version of hermes agent, another very awesome open source and self improving agentic tool !!
       inputs.llm-agents.packages.${system}.hermes-desktop # hermes-agent desktop!
 
+      # ----------------------------------------------------------------------------------------------------------------------------
       # artcraft apps
-      # inputs.artcraft-nix.packages.${system}.cadcraft     # autocad clone
-      (craft "deckcraft") # powerpoint clone
-      # inputs.artcraft-nix.packages.${system}.designcraft  # indesign clone
-      # inputs.artcraft-nix.packages.${system}.effectcraft  # after effects clone
-      (craft "filmcraft") # premiere pro clone
-      (craft "gridcraft") # excel clone
-      # inputs.artcraft-nix.packages.${system}.lightcraft   # lightroom clone
+
+      # cadcraft: an AutoCAD clone written in Rust 🦀 !!
+      # inputs.artcraft-nix.packages.${system}.cadcraft
+
+      # deckcraft: a Microsoft PowerPoint clone written in Rust 🦀 !!
+      (craft "deckcraft")
+
+      # designcraft: an Adobe InDesign clone written in Rust 🦀 !!
+      # inputs.artcraft-nix.packages.${system}.designcraft
+
+      # effectcraft: an Adobe After Effects clone written in Rust 🦀 !!
+      # inputs.artcraft-nix.packages.${system}.effectcraft
+
+      # filmcraft: an Adobe Premiere Pro clone written in Rust 🦀 !!
+      (craft "filmcraft")
+
+      # gridcraft: a Microsoft Excel clone written in Rust 🦀 !!
+      (craft "gridcraft")
+
+      # lightcraft: an Adobe Lightroom clone written in Rust 🦀 !!
+      # inputs.artcraft-nix.packages.${system}.lightcraft
+
+      # pdfcraft: an Adobe Acrobat clone written in Rust 🦀 !!
       (craft "pdfcraft") # acrobat clone
-      # inputs.artcraft-nix.packages.${system}.photocraft   # photoshop clone
+
+      # photocraft: an Adobe Photoshop clone written in Rust 🦀 !!
+      # inputs.artcraft-nix.packages.${system}.photocraft
+
+      # soundcraft: a clone of the Pro Tools DAW written in Rust 🦀 !!
       (craft "soundcraft") # pro tools clone
-      # inputs.artcraft-nix.packages.${system}.vectorcraft  # illustrator clone
-      (craft "wordcraft") # word clone
+
+      # vectorcraft: an Adobe Illustrator clone written in Rust 🦀 !!
+      # inputs.artcraft-nix.packages.${system}.vectorcraft
+
+      # wordcraft: a Microsoft Word clone written in Rust 🦀 !!
+      (craft "wordcraft")
 
       inputs.cromite.packages.${system}.default
     ];

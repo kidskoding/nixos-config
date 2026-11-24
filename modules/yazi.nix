@@ -68,6 +68,36 @@
           run = "cd ${config.my.flakeDir}";
           desc = "Go to the nixos config";
         }
+        {
+          on = ["g" "D"];
+          run = "cd ~/Documents";
+          desc = "Go to documents";
+        }
+        {
+          on = ["g" "P"];
+          run = "cd ~/Pictures";
+          desc = "Go to pictures";
+        }
+        {
+          on = ["g" "p"];
+          run = "cd ~/playground";
+          desc = "Go to playground";
+        }
+        {
+          on = ["g" "u"];
+          run = "cd ~/uiuc";
+          desc = "Go to uiuc";
+        }
+        {
+          on = ["g" "v"];
+          run = "cd ~/vaults";
+          desc = "Go to vaults";
+        }
+        {
+          on = ["g" "a"];
+          run = "cd ~/anikonistack";
+          desc = "Go to anikonistack";
+        }
       ];
     };
   };
