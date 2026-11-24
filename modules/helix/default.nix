@@ -4,7 +4,7 @@
     pkgs,
     ...
   }: {
-    xdg.configFile."helix/languages.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.my.flakeDir}/modules/helix/languages.toml";
+    xdg.configFile."helix/languages.toml".source = config.lib.file.mkOutOfStoreSymlink "/home/kidskoding/nixos/modules/helix/languages.toml";
 
     # backup editor for when nvim breaks: helix fork with vim keybindings, run as `hx`.
     programs.helix = {

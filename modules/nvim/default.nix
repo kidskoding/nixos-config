@@ -4,7 +4,7 @@
     pkgs,
     ...
   }: let
-    dir = "${config.my.flakeDir}/modules/nvim/config";
+    dir = "/home/kidskoding/nixos/modules/nvim/config";
     link = config.lib.file.mkOutOfStoreSymlink;
     system = pkgs.stdenv.hostPlatform.system;
     nightly = inputs.neovim-nightly-overlay.packages.${system}.default;
@@ -22,7 +22,7 @@
 
     xdg.configFile."nvim".source = link dir;
 
-    home.file.".editorconfig".source = link "${config.my.flakeDir}/modules/nvim/.editorconfig";
+    home.file.".editorconfig".source = link "/home/kidskoding/nixos/modules/nvim/.editorconfig";
 
     # nightly ships both nvim.desktop and org.neovim.nvim.desktop (identical); hide the legacy one
     xdg.dataFile."applications/nvim.desktop".text = ''

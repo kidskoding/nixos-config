@@ -53,16 +53,7 @@ in {
 
     xdg.portal.extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
-      xdg-desktop-portal-termfilechooser
     ];
-
-    xdg.portal.config.niri = {
-      default = ["gnome" "gtk"];
-      "org.freedesktop.impl.portal.Access" = ["gtk"];
-      "org.freedesktop.impl.portal.Notification" = ["gtk"];
-      "org.freedesktop.impl.portal.Secret" = ["gnome-keyring"];
-      "org.freedesktop.impl.portal.FileChooser" = ["termfilechooser"];
-    };
   };
 
   flake.homeModules.niri = {
@@ -72,15 +63,6 @@ in {
   }: let
     terminal = "ghostty";
   in {
-    xdg.configFile."xdg-desktop-portal-termfilechooser/config".text = ''
-      [filechooser]
-      cmd=${pkgs.xdg-desktop-portal-termfilechooser}/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh
-      default_dir=$HOME
-      env=TERMCMD=${terminal} --title=termfilechooser -e
-      open_mode=suggested
-      save_mode=suggested
-    '';
-
     home.packages = with pkgs; [
       adwaita-icon-theme
       brightnessctl

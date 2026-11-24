@@ -3,11 +3,7 @@
   self,
   ...
 }: {
-  flake.nixosModules.victus = {
-    config,
-    lib,
-    ...
-  }: {
+  flake.nixosModules.victus = {lib, ...}: {
     imports = [
       ../../hosts/victus/hardware-configuration.nix
       ../../hosts/victus/disko.nix
@@ -36,7 +32,7 @@
     home-manager.users.kidskoding = {
       home.stateVersion = "26.11";
 
-      programs.fish.shellAliases.rebuild = lib.mkForce "env HOST=victus16 ${config.my.flakeDir}/scripts/rebuild.sh";
+      programs.fish.shellAliases.rebuild = lib.mkForce "env HOST=victus16 /home/kidskoding/nixos/scripts/rebuild.sh";
     };
 
     # This value determines the NixOS release from which the default

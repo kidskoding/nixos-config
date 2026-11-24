@@ -2,7 +2,12 @@
   inputs,
   self,
   ...
-}: {
+}: let
+  wallpaper = pkgs: display: "${inputs.nix-wallpaper.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
+    preset = "catppuccin-macchiato-rainbow";
+    inherit (display) width height;
+  }}/share/wallpapers/nixos-wallpaper.png";
+in {
   flake.nixosModules.noctalia = {
     config,
     lib,
@@ -24,7 +29,7 @@
       };
     };
 
-    environment.etc."noctalia-greeter/wallpaper.jpg".source = config.my.wallpaper;
+    environment.etc."noctalia-greeter/wallpaper.jpg".source = wallpaper pkgs config.my.display;
 
     environment.systemPackages = [
       inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
@@ -39,7 +44,7 @@
     pkgs,
     ...
   }: let
-    dir = "${config.my.flakeDir}/modules/noctalia";
+    dir = "/home/kidskoding/nixos/modules/noctalia";
     link = config.lib.file.mkOutOfStoreSymlink;
     d = config.my.display;
     narrow = d.width / d.scale < 1920;
@@ -50,7 +55,7 @@
 
       "noctalia/display.toml".source = (pkgs.formats.toml {}).generate "noctalia-display.toml" {
         accessibility.ui_scale = 1.2 / d.scale;
-        wallpaper.default.path = "${config.my.wallpaper}";
+        wallpaper.default.path = wallpaper pkgs d;
         shell.font_family = config.stylix.fonts.sansSerif.name;
         bar.main = {
           scale =

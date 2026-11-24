@@ -190,7 +190,7 @@
       settings.trustedWorkspaces = [
         config.home.homeDirectory
         "${config.home.homeDirectory}/personal-projects"
-        config.my.flakeDir
+        "/home/kidskoding/nixos"
       ];
     };
   };

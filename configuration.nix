@@ -1,5 +1,4 @@
 {
-  config,
   lib,
   pkgs,
   inputs,
@@ -129,8 +128,8 @@
       memorySize = 8192;
       cores = 4;
       sharedDirectories.nixos = {
-        source = config.my.flakeDir;
-        target = config.my.flakeDir;
+        source = "/home/kidskoding/nixos";
+        target = "/home/kidskoding/nixos";
         writable = false;
       };
       qemu.options = [

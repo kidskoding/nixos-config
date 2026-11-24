@@ -15,8 +15,6 @@
     };
   in {
     programs.niri.settings = {
-      input.mod-key = config.my.modKey;
-
       workspaces = {
         "01".name = "1";
         "02".name = "2";

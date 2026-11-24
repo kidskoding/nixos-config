@@ -1,27 +1,12 @@
-# per-machine facts (i.e. gpu, display, repo location) so that each host can set them.
+# per-machine facts (i.e. gpu, display) so that each host can set them.
 # modules like niri, noctalia, and grub can read "config.my" instead of hardcoding!
 {lib, ...}: let
   inherit (lib) mkOption types;
 
   options.my = {
-    flakeDir = mkOption {
-      type = types.str;
-      default = "/home/kidskoding/nixos";
-    };
-
     gpu = mkOption {
       type = types.listOf (types.enum ["amd" "intel" "nvidia"]);
       default = [];
-    };
-
-    wallpaper = mkOption {
-      type = types.path;
-      default = ./noctalia/wallpapers/starfire-dc-comics.jpg;
-    };
-
-    modKey = mkOption {
-      type = types.enum ["Super" "Alt"];
-      default = "Super";
     };
 
     display = {

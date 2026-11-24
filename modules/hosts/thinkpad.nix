@@ -13,7 +13,6 @@
 
     my = {
       gpu = ["amd"];
-      modKey = "Alt";
       display = {
         width = 1920;
         height = 1200;
@@ -26,7 +25,10 @@
       "w /sys/class/power_supply/BAT0/charge_control_start_threshold - - - - 0"
     ];
 
-    home-manager.users.kidskoding.home.stateVersion = "26.11";
+    home-manager.users.kidskoding = {
+      home.stateVersion = "26.11";
+      programs.niri.settings.input.mod-key = "Alt";
+    };
 
     # This value determines the NixOS release from which the default
     # settings for stateful data, like file locations and database versions

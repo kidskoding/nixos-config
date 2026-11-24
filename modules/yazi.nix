@@ -1,9 +1,5 @@
 {
-  flake.homeModules.base = {
-    config,
-    pkgs,
-    ...
-  }: {
+  flake.homeModules.base = {pkgs, ...}: {
     programs.yazi = {
       enable = true;
       enableFishIntegration = true;
@@ -65,7 +61,7 @@
         }
         {
           on = ["g" "n"];
-          run = "cd ${config.my.flakeDir}";
+          run = "cd /home/kidskoding/nixos";
           desc = "Go to the nixos config";
         }
         {

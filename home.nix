@@ -1,19 +1,18 @@
 # user level configuration via home manager
 {
-  config,
   inputs,
   pkgs,
   ...
 }: let
   system = pkgs.stdenv.hostPlatform.system;
 in {
-  programs.fish.shellAliases.rebuild = "${config.my.flakeDir}/scripts/rebuild.sh";
+  programs.fish.shellAliases.rebuild = "/home/kidskoding/nixos/scripts/rebuild.sh";
 
   programs.nh = {
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = config.my.flakeDir;
+    flake = "/home/kidskoding/nixos";
   };
 
   programs.bat.enable = true;
