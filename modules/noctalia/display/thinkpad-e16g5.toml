@@ -1,0 +1,14 @@
+[accessibility]
+ui_scale = 1.0
+
+[bar.main]
+scale = 1.0
+font_scale = 1.0
+start = ["control-center", "workspaces", "media"]
+center = []
+
+[widget.session]
+capsule_padding = 10
+
+[widget.control-center]
+capsule_padding = 10

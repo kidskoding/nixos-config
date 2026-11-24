@@ -68,12 +68,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # nix-wallpaper: nixos logo wallpapers ❄️ !!
-    nix-wallpaper = {
-      url = "github:lunik1/nix-wallpaper";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # disko: declarative disk layout !!
     disko = {
       url = "github:nix-community/disko/latest";
