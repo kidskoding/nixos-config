@@ -91,20 +91,25 @@
               _children = [
                 {Resize = "Decrease";}
                 {MovePane = "right";}
+                {SwitchToMode = "Normal";}
               ];
             };
 
             "bind \"H\"" = {
               GoToPreviousTab = [];
+              SwitchToMode = "Normal";
             };
             "bind \"J\"" = {
               MovePane = "down";
+              SwitchToMode = "Normal";
             };
             "bind \"K\"" = {
               MovePane = "up";
+              SwitchToMode = "Normal";
             };
             "bind \"L\"" = {
               GoToNextTab = [];
+              SwitchToMode = "Normal";
             };
             "bind \"b\"" = {
               BreakPane = [];
@@ -112,34 +117,44 @@
             };
             "bind \"u\"" = {
               NextSwapLayout = [];
+              SwitchToMode = "Normal";
             };
 
             "bind \"1\"" = {
               GoToTab = 1;
+              SwitchToMode = "Normal";
             };
             "bind \"2\"" = {
               GoToTab = 2;
+              SwitchToMode = "Normal";
             };
             "bind \"3\"" = {
               GoToTab = 3;
+              SwitchToMode = "Normal";
             };
             "bind \"4\"" = {
               GoToTab = 4;
+              SwitchToMode = "Normal";
             };
             "bind \"5\"" = {
               GoToTab = 5;
+              SwitchToMode = "Normal";
             };
             "bind \"6\"" = {
               GoToTab = 6;
+              SwitchToMode = "Normal";
             };
             "bind \"7\"" = {
               GoToTab = 7;
+              SwitchToMode = "Normal";
             };
             "bind \"8\"" = {
               GoToTab = 8;
+              SwitchToMode = "Normal";
             };
             "bind \"9\"" = {
               GoToTab = 9;
+              SwitchToMode = "Normal";
             };
             "bind \"r\"" = {
               _children = [
@@ -175,28 +190,36 @@
 
             "bind \"h\"" = {
               MoveFocus = "Left";
+              SwitchToMode = "Normal";
             };
             "bind \"j\"" = {
               MoveFocus = "Down";
+              SwitchToMode = "Normal";
             };
             "bind \"l\"" = {
               MoveFocus = "Right";
+              SwitchToMode = "Normal";
             };
 
             "bind \"Left\"" = {
               MoveFocus = "Left";
+              SwitchToMode = "Normal";
             };
             "bind \"Right\"" = {
               MoveFocus = "Right";
+              SwitchToMode = "Normal";
             };
             "bind \"k\"" = {
               MoveFocus = "Up";
+              SwitchToMode = "Normal";
             };
             "bind \"Down\"" = {
               MoveFocus = "Down";
+              SwitchToMode = "Normal";
             };
             "bind \"Up\"" = {
               MoveFocus = "Up";
+              SwitchToMode = "Normal";
             };
           };
         };
