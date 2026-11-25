@@ -18,8 +18,15 @@
         height = 1080;
         refresh = 144.0;
         vrr = true;
-        scale = 1.2;
       };
+    };
+
+    # thinkpad sizes x1.2: thinkpad gets that from its 1.2 output scale, victus stays at 1.0
+    stylix.fonts.sizes = lib.mkForce {
+      terminal = 17;
+      applications = 14;
+      desktop = 13;
+      popups = 13;
     };
 
     boot.kernelParams = ["pci=noaer"];
