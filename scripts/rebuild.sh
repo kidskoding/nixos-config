@@ -7,7 +7,6 @@
 set -euo pipefail
 
 FLAKE_DIR="${FLAKE_DIR:-$HOME/nixos}"
-HOST="nixos"
 
 cd "$FLAKE_DIR"
 
@@ -33,7 +32,7 @@ DFT_DISPLAY=inline git --no-pager diff --cached
 
 echo "rebuilding nixos..."
 
-if ! script -qefc "nh os switch -q --no-nom \"$FLAKE_DIR\" -H \"$HOST\"" nixos-switch.log; then
+if ! script -qefc "nh os switch -q --no-nom \"$FLAKE_DIR\"" nixos-switch.log; then
     rg error nixos-switch.log || tail -n 40 nixos-switch.log
     exit 1
 fi

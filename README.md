@@ -37,7 +37,6 @@ my nixos config that sets up my entire machine via flakes and home-manager
 ## contents
 
 - [what's inside](#whats-inside)
-- [machines](#machines)
 - [layout](#layout)
 - [rebuilding](#rebuilding)
 - [templates](#templates)
@@ -54,12 +53,6 @@ my nixos config that sets up my entire machine via flakes and home-manager
 | **secrets** | [sops-nix](https://github.com/Mic92/sops-nix) 🤫 |
 | **disks** | [disko](https://github.com/nix-community/disko) |
 | **layout** | [dendritic](https://github.com/mightyiam/dendritic), with [flake-parts](https://github.com/hercules-ci/flake-parts) and [import-tree](https://github.com/vic/import-tree) |
-
-## machines
-
-| host | what it is | config |
-|---|---|---|
-| `nixos` | my daily driver, amd graphics | [`configuration.nix`](configuration.nix) |
 
 ## layout
 
