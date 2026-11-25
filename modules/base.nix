@@ -6,7 +6,7 @@
   flake.nixosModules.base = ../configuration.nix;
   flake.homeModules.base = ../home.nix;
 
-  flake.nixosConfigurations."thinkpad-e16g5" = inputs.nixpkgs.lib.nixosSystem {
+  flake.nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
     specialArgs = {
       inherit inputs;
     };

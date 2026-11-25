@@ -59,7 +59,7 @@ my nixos config that sets up my entire machine via flakes and home-manager
 
 | host | what it is | config |
 |---|---|---|
-| `thinkpad-e16g5` | my daily driver, amd graphics | [`configuration.nix`](configuration.nix) |
+| `nixos` | my daily driver, amd graphics | [`configuration.nix`](configuration.nix) |
 
 ## layout
 

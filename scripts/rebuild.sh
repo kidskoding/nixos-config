@@ -7,37 +7,29 @@
 set -euo pipefail
 
 FLAKE_DIR="${FLAKE_DIR:-$HOME/nixos}"
-HOST="${HOST:-thinkpad-e16g5}"
+HOST="nixos"
 
 cd "$FLAKE_DIR"
 
-head=$(git rev-parse HEAD)
-git pull -q --rebase --autostash
-
-# pull the latest agent skills (anikonistack) from 
-# github before building, so every host locks the same versions in flake.lock
+# pull my latest agent skills (anikonistack) from
+# github before building, so flake.lock locks the newest versions
 nix flake update anikonistack
 
 # flakes only see files that git knows about, so stage everything first!
 git add -A
 
-changes=true
 if git diff --cached --quiet; then
-    changes=false
-    if [ "$(git rev-parse HEAD)" = "$head" ]; then
-        echo "no changes, skipping rebuild."
-        exit 0
-    fi
-    echo "no local changes, rebuilding pulled commits without a commit."
-else
-    echo "formatting to enforce ci"
-    alejandra -q .
-    (cd modules/nvim/config && stylua .)
-    git add -A
-
-    git --no-pager diff --cached --stat
-    DFT_DISPLAY=inline git --no-pager diff --cached
+    echo "no changes, skipping rebuild."
+    exit 0
 fi
+
+echo "formatting to enforce ci"
+alejandra -q .
+(cd modules/nvim/config && stylua .)
+git add -A
+
+git --no-pager diff --cached --stat
+DFT_DISPLAY=inline git --no-pager diff --cached
 
 echo "rebuilding nixos..."
 
@@ -46,15 +38,11 @@ if ! script -qefc "nh os switch -q --no-nom \"$FLAKE_DIR\" -H \"$HOST\"" nixos-s
     exit 1
 fi
 
-if [ "$changes" = false ]; then
-    exit 0
-fi
-
 # commit with the generation metadata.
 gen=$(nixos-rebuild list-generations 2>/dev/null | awk 'NR > 1 && $NF == "True"')
 
 if [ -n "$gen" ]; then
-    msg="$HOST generation $(echo "$gen" | awk '{print $1}') ($(echo "$gen" | awk '{print $4}'))"
+    msg="generation $(echo "$gen" | awk '{print $1}') ($(echo "$gen" | awk '{print $4}'))"
 else
     msg="nixos rebuild $(date -Iseconds)"
 fi
