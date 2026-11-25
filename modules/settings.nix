@@ -9,6 +9,8 @@
       # do not warn if git tree is dirty when rebuilding system
       warn-dirty = false;
 
+      narinfo-cache-negative-ttl = 0;
+
       substituters = [
         "https://nix-community.cachix.org"
         "https://pkulak.cachix.org"
