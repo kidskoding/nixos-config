@@ -31,6 +31,7 @@
 
         cursor-style = "block";
         cursor-style-blink = false;
+        adjust-cursor-thickness = 1;
         shell-integration-features = "no-cursor";
 
         # ctrl+shift+c/v, ctrl+shift+f, ctrl+0, shift+pageup/down are defaults

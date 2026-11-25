@@ -20,7 +20,11 @@
       settings = lib.recursiveUpdate (lib.importTOML ./greeter/greeter.toml) {
         user.default = "kidskoding";
         appearance.font_family = config.stylix.fonts.sansSerif.name;
-        output = {inherit (config.my.display) width height scale;};
+        output = {
+          width = 1920;
+          height = 1200;
+          scale = 1.2;
+        };
       };
     };
 
@@ -34,18 +38,14 @@
     systemd.tmpfiles.settings."10-accountsservice-avatar"."/var/lib/AccountsService/users/kidskoding"."f+".argument = "[User]\nIcon=${./avatars/starfire.jpeg}\n";
   };
 
-  flake.homeModules.noctalia = {
-    config,
-    osConfig,
-    ...
-  }: let
+  flake.homeModules.noctalia = {config, ...}: let
     dir = "/home/kidskoding/nixos/modules/noctalia";
     link = config.lib.file.mkOutOfStoreSymlink;
   in {
     xdg.configFile = {
       "noctalia/config.toml".source = link "${dir}/config.toml";
       "noctalia/conf.d".source = link "${dir}/conf.d";
-      "noctalia/display.toml".source = link "${dir}/display/${osConfig.networking.hostName}.toml";
+      "noctalia/display.toml".source = link "${dir}/display.toml";
     };
   };
 }

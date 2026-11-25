@@ -5,11 +5,15 @@
   ...
 }: {
   imports = [
+    ./hardware-configuration.nix
+    ./disko.nix
+
     inputs.disko.nixosModules.disko
     inputs.home-manager.nixosModules.home-manager
     inputs.sops-nix.nixosModules.sops
   ];
 
+  networking.hostName = "nixos";
   time.timeZone = "America/Chicago";
   i18n.defaultLocale = "en_US.UTF-8";
 
@@ -32,6 +36,7 @@
       grub.enable = true;
       grub.device = "nodev";
       grub.efiSupport = true;
+      grub.gfxmodeEfi = "1920x1200";
 
       efi.canTouchEfiVariables = true;
       timeout = 5;
@@ -60,6 +65,8 @@
       "rd.systemd.show_status=false"
       "rd.udev.log_level=3"
       "udev.log_priority=3"
+      "amdgpu.dcdebugmask=0x10"
+      "amdgpu.sg_display=0"
     ];
   };
 
@@ -93,6 +100,8 @@
     pulse.enable = true;
   };
 
+  hardware.amdgpu.initrd.enable = true;
+
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
@@ -101,6 +110,11 @@
   services.upower.enable = true;
   services.upower.criticalPowerAction = "Hibernate";
   services.power-profiles-daemon.enable = true;
+
+  systemd.tmpfiles.rules = [
+    "w /sys/class/power_supply/BAT0/charge_control_end_threshold - - - - 100"
+    "w /sys/class/power_supply/BAT0/charge_control_start_threshold - - - - 0"
+  ];
 
   zramSwap.enable = true;
   swapDevices = [
@@ -183,6 +197,10 @@
   programs.fuse.userAllowOther = true;
   programs.virt-manager.enable = true;
 
+  programs.steam.enable = true;
+  programs.gamescope.enable = true;
+  programs.gamemode.enable = true;
+
   # nautilus: trash, mounts, and settings storage
   services.gvfs.enable = true;
   programs.dconf.enable = true;
@@ -206,4 +224,12 @@
     dates = "weekly";
     options = "--delete-older-than 7d";
   };
+
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = "26.11"; # Did you read the comment?
 }

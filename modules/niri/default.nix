@@ -89,6 +89,14 @@ in {
       screenshot-path = "~/Pictures/Screenshots/%Y-%m-%dT%H:%M:%S.png";
       hotkey-overlay.skip-at-startup = true;
 
+      outputs."eDP-1" = {
+        position = {
+          x = 0;
+          y = 0;
+        };
+        scale = 1.2;
+      };
+
       xwayland-satellite.path =
         lib.getExe pkgs.xwayland-satellite-unstable;
 

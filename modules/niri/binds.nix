@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeModules.niri = {config, ...}: let
+  flake.homeModules.niri = {...}: let
     terminal = "ghostty";
     fileManager = ["nautilus" "--new-window"];
     noctalia = c:
@@ -103,7 +103,7 @@
         "Mod+Shift+BracketRight".action.move-column-to-monitor-right = [];
         "Mod+Ctrl+BracketLeft".action.move-workspace-to-monitor-left = [];
         "Mod+Ctrl+BracketRight".action.move-workspace-to-monitor-right = [];
-        "Mod+P".action.spawn-sh = "pkill -x wl-mirror || wl-mirror --fullscreen-output HDMI-A-1 ${config.my.display.output}";
+        "Mod+P".action.spawn-sh = "pkill -x wl-mirror || wl-mirror --fullscreen-output HDMI-A-1 eDP-1";
 
         # switch workspace
         "Mod+1".action.focus-workspace = "1";

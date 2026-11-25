@@ -6,6 +6,8 @@
 }: let
   system = pkgs.stdenv.hostPlatform.system;
 in {
+  home.stateVersion = "26.11";
+
   programs.fish.shellAliases.rebuild = "/home/kidskoding/nixos/scripts/rebuild.sh";
 
   programs.nh = {
