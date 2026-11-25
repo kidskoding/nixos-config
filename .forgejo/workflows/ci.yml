@@ -28,6 +28,4 @@ jobs:
           nix run --inputs-from . nixpkgs#taplo -- fmt --check
       - name: Check thinkpad-e16g5
         run: nix eval --raw .#nixosConfigurations.thinkpad-e16g5.config.system.build.toplevel.drvPath
-      - name: Check victus16
-        run: nix eval --raw .#nixosConfigurations.victus16.config.system.build.toplevel.drvPath
 

@@ -60,7 +60,6 @@ my nixos config that sets up my entire machine via flakes and home-manager
 | host | what it is | config |
 |---|---|---|
 | `thinkpad-e16g5` | my daily driver, amd graphics | [`modules/hosts/thinkpad.nix`](modules/hosts/thinkpad.nix) |
-| `victus16` | gaming laptop, also for cuda. hybrid intel + nvidia (prime offload) | [`modules/hosts/victus.nix`](modules/hosts/victus.nix) |
 
 ## layout
 
@@ -91,8 +90,7 @@ to see which group a file belongs to, peek at its first few lines.
 | `base` | shell, git, cli tools, theme | every machine |
 | `dev` | every language, neovim, helix (or `dev-core` plus `dev-rust`, `dev-web`, …) | picked per machine |
 | `agents` | coding agents and their config | picked per machine |
-| `desktop`, `niri` | gui apps, fonts, compositor, clipboard | both laptops |
-| `gaming` | games 🎮 | `victus` |
+| `desktop`, `niri` | gui apps, fonts, compositor, clipboard | `thinkpad` |
 
 ### where to edit
 
@@ -109,15 +107,13 @@ to see which group a file belongs to, peek at its first few lines.
 if the switch works, it commits and pushes too:
 
 ```sh
-~/nixos/scripts/rebuild.sh                # thinkpad-e16g5
-HOST=victus16 ~/nixos/scripts/rebuild.sh  # victus16
+~/nixos/scripts/rebuild.sh
 ```
 
-the `rebuild` fish alias runs the right one on each laptop, and every rebuild
-also pushes neovim config changes over to
-[kidskoding.nvim](https://codeberg.org/kidskoding/kidskoding.nvim).
+the `rebuild` fish alias runs it, and every rebuild also pushes neovim config
+changes over to [kidskoding.nvim](https://codeberg.org/kidskoding/kidskoding.nvim).
 
-ci checks formatting with alejandra and taplo, then evaluates both laptops.
+ci checks formatting with alejandra and taplo, then evaluates the thinkpad.
 
 ## templates
 
