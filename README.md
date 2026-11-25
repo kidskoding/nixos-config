@@ -63,7 +63,7 @@ my nixos config that sets up my entire machine via flakes and home-manager
 
 ## layout
 
-the config is split by feature, not by machine. every `.nix` file under
+the config is split by feature. every `.nix` file under
 `modules/` loads on its own, and each one adds its settings to a named group,
 like `flake.homeModules.dev`. the laptop is just a list of the groups it wants!
 to see which group a file belongs to, peek at its first few lines.
@@ -84,18 +84,18 @@ to see which group a file belongs to, peek at its first few lines.
 
 ### home groups
 
-| group | what's in it | used by |
-|---|---|---|
-| `base` | shell, git, cli tools, theme | every machine |
-| `dev` | every language, neovim, helix (or `dev-core` plus `dev-rust`, `dev-web`, …) | picked per machine |
-| `agents` | coding agents and their config | picked per machine |
-| `desktop`, `niri` | gui apps, fonts, compositor, clipboard | `thinkpad` |
+| group | what's in it |
+|---|---|
+| `base` | shell, git, cli tools, theme |
+| `dev` | every language, neovim, helix (or `dev-core` plus `dev-rust`, `dev-web`, …) |
+| `agents` | coding agents and their config |
+| `desktop`, `niri` | gui apps, fonts, compositor, clipboard |
 
 ### where to edit
 
 | to change… | edit |
 |---|---|
-| a plain package or on/off program every machine gets | `home.nix` |
+| a plain package or on/off program | `home.nix` |
 | a tool with its own settings | the file for its group |
 | a binary cache, so packages download prebuilt instead of compiling | `modules/settings.nix` |
 | which groups the laptop gets | the `modules` list in `modules/base.nix` |
