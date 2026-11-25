@@ -162,6 +162,7 @@
     unzip
     vim
     wget
+    woeusb-ng
 
     # apt build-essential
     stdenv.cc
