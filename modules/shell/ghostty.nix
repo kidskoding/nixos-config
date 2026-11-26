@@ -9,7 +9,7 @@
 
         font-feature = ["-calt" "-liga" "-dlig"];
 
-        background-blur = true;
+        background-blur = false;
 
         confirm-close-surface = false;
 

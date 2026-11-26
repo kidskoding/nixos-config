@@ -119,6 +119,7 @@
       ruff
       ty
       kaggle
+      jupyter
     ];
   };
 
@@ -129,7 +130,7 @@
       cmake
       libtool
       xmake
-      clang-tools
+      (lib.hiPrio clang-tools)
       ninja
       pkg-config
       valgrind

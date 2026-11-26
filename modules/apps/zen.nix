@@ -200,7 +200,6 @@
         };
 
         spaces = {
-          # first space: catppuccin macchiato overlay1 (grey) !!
           anirudh = {
             id = "9affa4c3-c2f7-4755-b40e-31bc22123308";
             position = 1000;
@@ -217,7 +216,6 @@
             };
           };
 
-          # second space: catppuccin macchiato blue !!
           "ak123 - anirudh uiuc" = {
             id = "fd848d8b-4257-4a49-b145-5ccee1e57699";
             container = 2;
@@ -235,7 +233,6 @@
             };
           };
 
-          # third space: catppuccin macchiato yellow !!
           "agentic ai @ uiuc" = {
             id = "9a0ab72e-2f04-4180-bd0e-673dd32c1714";
             container = 3;
@@ -255,25 +252,48 @@
         };
       };
 
-      policies.ExtensionSettings = {
-        "uBlock0@raymondhill.net" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-          installation_mode = "force_installed";
+      policies = {
+        Permissions = {
+          Camera.Allow = [
+            "https://codesignal.com"
+            "https://app.codesignal.com"
+            "https://meet.google.com"
+            "https://teams.microsoft.com"
+            "https://arm.hirevue.com"
+          ];
+
+          Microphone.Allow = [
+            "https://codesignal.com"
+            "https://app.codesignal.com"
+            "https://meet.google.com"
+            "https://teams.microsoft.com"
+            "https://usaa.eightfold.ai"
+            "https://arm.hirevue.com"
+            "https://studdyai.com"
+            "https://app.sesame.com"
+          ];
         };
 
-        "@react-devtools" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/react-devtools/latest.xpi";
-          installation_mode = "force_installed";
-        };
+        ExtensionSettings = {
+          "uBlock0@raymondhill.net" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+            installation_mode = "force_installed";
+          };
 
-        "chrome2fox@neguiolidas.github.io" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/chrome2fox/latest.xpi";
-          installation_mode = "force_installed";
-        };
+          "@react-devtools" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/react-devtools/latest.xpi";
+            installation_mode = "force_installed";
+          };
 
-        "{203625b5-20fd-4b20-8bb5-76f07455d18b}" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/add-ons_google_chrome/latest.xpi";
-          installation_mode = "force_installed";
+          "chrome2fox@neguiolidas.github.io" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/chrome2fox/latest.xpi";
+            installation_mode = "force_installed";
+          };
+
+          "{203625b5-20fd-4b20-8bb5-76f07455d18b}" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/add-ons_google_chrome/latest.xpi";
+            installation_mode = "force_installed";
+          };
         };
       };
     };

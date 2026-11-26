@@ -53,8 +53,6 @@
     consoleLogLevel = 0;
     supportedFilesystems = ["btrfs" "fuse"];
 
-    initrd.verbose = false;
-    initrd.systemd.enable = true;
     initrd.systemd.emergencyAccess = true;
 
     kernelParams = [
