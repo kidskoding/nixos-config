@@ -68,6 +68,7 @@
 
       # additional amazing rust binaries!
       bacon
+      cargo-cache
       cargo-chef
       cargo-flamegraph
       cargo-generate
