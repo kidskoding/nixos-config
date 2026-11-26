@@ -3,7 +3,10 @@
   self,
   ...
 }: {
-  flake.nixosModules.agents.home-manager.sharedModules = [self.homeModules.agents];
+  flake.nixosModules.agents = {
+    home-manager.sharedModules = [self.homeModules.agents];
+    sops.secrets."firecrawl/api_key".owner = "kidskoding";
+  };
 
   flake.homeModules.agents = {
     config,
@@ -70,9 +73,28 @@
         composio.url = "https://connect.composio.dev/mcp";
 
         playwright = {
-          command = "npx";
-          args = ["@playwright/mcp@latest" "--extension"];
+          command = lib.getExe pkgs.playwright-mcp;
+          args = ["--extension"];
           env.PLAYWRIGHT_MCP_EXTENSION_TOKEN = "\${PLAYWRIGHT_MCP_EXTENSION_TOKEN}";
+        };
+
+        # token comes from the gh login at start, so no secret lives in the store
+        github.command = toString (pkgs.writeShellScript "github-mcp" ''
+          GITHUB_PERSONAL_ACCESS_TOKEN="$(${lib.getExe pkgs.gh} auth token)" \
+            exec ${lib.getExe pkgs.github-mcp-server} stdio
+        '');
+
+        firecrawl.command = toString (pkgs.writeShellScript "firecrawl-mcp" ''
+          FIRECRAWL_API_KEY="$(cat /run/secrets/firecrawl/api_key)" \
+            exec ${lib.getExe pkgs.firecrawl-mcp}
+        '');
+
+        nixos.command = lib.getExe pkgs.mcp-nixos;
+        context7.command = lib.getExe pkgs.context7-mcp;
+
+        terraform = {
+          command = lib.getExe pkgs.terraform-mcp-server;
+          args = ["stdio"];
         };
 
         next-devtools = {
