@@ -62,6 +62,8 @@ in {
     # misc
     stripe-cli
     magic-wormhole-rs
+    markitdown
+    markitdown-mcp
     rclone
     sshfs
     asciiquarium-transparent
