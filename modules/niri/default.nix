@@ -50,6 +50,7 @@ in {
     niri-flake.cache.enable = false;
 
     systemd.packages = [config.programs.niri.package];
+    systemd.user.services.niri.restartIfChanged = false;
 
     xdg.portal.extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
