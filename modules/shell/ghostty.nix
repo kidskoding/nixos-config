@@ -26,7 +26,7 @@
         resize-overlay = "never";
 
         selection-word-chars = ",│`|:\"' ()[]{}<>\t,";
-        copy-on-select = "clipboard";
+        copy-on-select = "both";
         app-notifications = false;
 
         cursor-style = "block";
