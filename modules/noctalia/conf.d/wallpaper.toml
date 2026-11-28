@@ -4,4 +4,4 @@ directory = "~/nixos/modules/noctalia/wallpapers"
 fill_mode = "crop"
 
 [wallpaper.default]
-path = "/home/kidskoding/nixos/modules/noctalia/wallpapers/nixos-macchiato.jpg"
+path = "/home/kidskoding/nixos/modules/noctalia/wallpapers/casette-tapes.png"
