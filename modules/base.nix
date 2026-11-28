@@ -16,7 +16,6 @@
       theme
 
       niri
-      mango
       noctalia
       desktop
 
